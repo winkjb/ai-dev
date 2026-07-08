@@ -1,0 +1,315 @@
+﻿Project Number,Classification,Project Name,Account,Project Type,Start Date,End Date,Status,Project Lead,% Complete - Task,% Complete - Hours,Last Activity By,Last Activity Time,Project Team Tech Lead
+P20230605.0001,Red (1),"Project ""Full SAM Process"" (XX,XX)","ServIT, Inc. (HQ)",Client,06/05/2023,12/29/2023,New,,0.00%,0.00%,"Slaton, Brad",06/05/2023 04:00 PM,
+P20230713.0002,Red (1),"CST - Program ""Offerings"" (NC,XX)","ServIT, Inc. (HQ)",Client,07/13/2023,10/31/2026,New,,0.00%,0.00%,"Harike, Scott",07/13/2023 11:41 AM,
+P20250110.0004,,New Server and External Storage,"Progress Lighting, LLC (HQ) (Coleto)",Proposal,01/10/2025,01/10/2025,New,,0.00%,0.00%,"Leverett, Niki",01/10/2025 02:57 PM,Other
+P20250117.0001,,PC Deployment (Standardize & Secure Equipment),InReach Community Dx,Proposal,01/17/2025,01/18/2025,New,,0.00%,0.00%,"Leverett, Niki",01/17/2025 10:49 AM,Other
+P20250122.0002,,ITW SSM Veeam 2024 Annual DR Test,ITW ASSM Deltar (Elmhurst),Proposal,01/22/2025,01/22/2025,New,,0.00%,0.00%,"Leverett, Niki",01/22/2025 01:42 PM,Other
+P20250127.0001,24x7 Business Operations,"Project Proposal ""PreSales""",Garbage Account,Proposal,01/27/2025,02/03/2025,New,,0.00%,0.00%,"Leverett, Niki",01/27/2025 09:38 AM,Other
+P20250128.0002,,Phishing & Awareness Quote,Thomas & Brown LLC (HQ),Proposal,01/28/2025,01/28/2025,New,,0.00%,0.00%,"Gambrell, Sam",01/28/2025 09:50 AM,Other
+P20250128.0008,,DNS Filter,Preferred Personnel Solutions (Kennesaw HQ),Proposal,01/29/2025,01/29/2025,New,,0.00%,0.00%,"Gambrell, Sam",01/28/2025 10:49 PM,Other
+P20250128.0004,,Phishing Training & Awareness,Thomas & Brown LLC (HQ),Proposal,01/29/2025,01/29/2025,New,,0.00%,0.00%,"Leverett, Niki",01/29/2025 09:15 AM,Other
+P20231106.0003,,"Project ""OS upgrade"" (TBB,SB)",Patriot Select Property & Casualty Insurance Co.,Proposal,11/06/2023,11/06/2023,New,,0.00%,0.00%,"Huggins, Tina",01/30/2025 11:24 AM,Joe Mason
+P20250128.0005,Red (1),Email Migration,The Searchlogix Group,Proposal,01/29/2025,05/05/2025,New,,0.00%,0.00%,"Gambrell, Sam",01/30/2025 11:25 PM,Other
+P20250127.0002,,Core Switch Replacement,City of Kennesaw,Proposal,01/27/2025,01/27/2025,New,,0.00%,0.00%,"Gambrell, Sam",01/31/2025 02:43 PM,Other
+P20250203.0002,,Email Migration,C&A Global,Proposal,02/03/2025,02/03/2025,New,,0.00%,0.00%,"Gambrell, Sam",02/03/2025 11:32 AM,Other
+P20250128.0006,,ECI is looking for a better backup solution,Electrical Components International (ECI HQ),Proposal,01/29/2025,01/29/2025,New,,0.00%,0.00%,"Ryan, Cara",02/05/2025 08:28 AM,Other
+P20250128.0007,,Inclement Weather Text,Boxercraft: Division of NG Labs,Proposal,01/29/2025,01/29/2025,New,,0.00%,0.00%,"Ryan, Cara",02/05/2025 08:29 AM,Other
+P20250210.0001,,Switch Replacement Project,"Southeast Pet (Atlanta, GA Main Office)",Proposal,02/10/2025,02/10/2025,New,"Harike, Scott",0.00%,0.00%,"Gambrell, Sam",02/10/2025 01:52 PM,Other
+P20250115.0001,,New Switches,Oriental Weavers Sphinx,Proposal,01/15/2025,01/15/2025,New,,0.00%,0.00%,"Burgess, Chris",02/24/2025 05:27 PM,Other
+P20250227.0001,,Saleslogix Backup Server,Brindlee Fire Services,Proposal,02/27/2025,02/27/2025,New,"Harike, Scott",0.00%,0.00%,"Gambrell, Sam",02/27/2025 12:54 PM,Other
+P20250310.0001,,"Project Proposal ""PreSales""",Preferred Personnel Solutions (Kennesaw HQ),Proposal,03/10/2025,03/10/2025,New,"Harike, Scott",0.00%,0.00%,"Gambrell, Sam",03/10/2025 10:43 AM,Other
+P20250130.0002,,Change order for Creating a new DC,J&A Engineering LLC,Proposal,01/30/2025,01/30/2025,New,,0.00%,0.00%,"Mason, Joe",03/11/2025 02:53 PM,Other
+P20250318.0001,,IBM Security PTF Upgrade,BFC Associates,Proposal,03/18/2025,03/18/2025,New,"Stopczynski, Alan",0.00%,0.00%,"Gambrell, Sam",03/18/2025 12:00 PM,Other
+P20250324.0001,,Replacement UPS for Spectra Dallas,DiverzifyPro - Itasca - DIT,Proposal,03/24/2025,03/24/2025,New,"Inciardi, Brooks",0.00%,0.00%,"Gambrell, Sam",03/24/2025 02:52 PM,Other
+P20250327.0002,,Server move to Azure,Superior Underwriters General Agency,Proposal,03/27/2025,03/27/2025,New,"Scott, Tom",0.00%,0.00%,"Gambrell, Sam",03/27/2025 02:43 PM,Other
+P20250409.0007,,DR Services for 8203-E4A,Sandin Mfg.,Proposal,04/09/2025,04/09/2025,New,"Stopczynski, Alan",0.00%,0.00%,"Gambrell, Sam",04/09/2025 03:56 PM,Other
+P20250414.0001,,DV Contract for DV Services,"LionsHead Alloys, LLC",Proposal,04/14/2025,04/14/2025,New,"Stopczynski, Alan",0.00%,0.00%,"Gambrell, Sam",04/14/2025 01:13 PM,Other
+P20250417.0004,,Evault for Power System,Sandin Mfg.,Proposal,04/17/2025,04/17/2025,New,"Stopczynski, Alan",0.00%,0.00%,"Gambrell, Sam",04/17/2025 04:28 PM,Other
+P20250131.0001,,Java and PTF UPgrade,"Gulf Stream Coach, Inc.",Proposal,01/31/2025,01/31/2025,New,,33.00%,0.00%,"Oakley, Kyle",04/22/2025 09:00 AM,Other
+P20250505.0001,,Replacement Switch Pricing,Bercher Homes (Suite 100),Proposal,05/05/2025,05/12/2025,New,"Harike, Scott",0.00%,0.00%,"Mason, Joe",05/05/2025 04:23 PM,Other
+P20250411.0001,,Subnet Modification & Wireless Network Segregation,Thomas & Brown LLC (HQ),Proposal,04/11/2025,04/11/2025,New,"Harike, Scott",0.00%,0.00%,"Oakley, Kyle",05/07/2025 10:09 AM,Other
+P20250415.0001,,Phishing Training & Dark Web Scans,Habitat for Humanity of NW Metro Atlanta,Proposal,04/15/2025,07/13/2025,New,"Stopczynski, Alan",0.00%,0.00%,"Oakley, Kyle",05/07/2025 10:13 AM,Other
+P20250516.0002,,Network Equipment Install,Pinetree Country Club,Proposal,05/16/2025,05/16/2025,New,"Brooks, Allen",0.00%,0.00%,"Gambrell, Sam",05/16/2025 03:03 PM,Other
+P20250528.0002,,Replacement Switches,Quipment,Proposal,05/28/2025,05/28/2025,New,"Harike, Scott",0.00%,0.00%,"Gambrell, Sam",05/28/2025 01:43 PM,Other
+P20250429.0003,,NAS unit for Veeam Backups,Professional Medical Billing,Proposal,04/29/2025,04/29/2025,New,"Stopczynski, Alan",0.00%,0.00%,"Huggins, Tina",05/30/2025 04:26 PM,Other
+P20250612.0001,,Additional memory for PCDAP03 server,American European Insurance (HQ),Proposal,06/12/2025,06/12/2025,New,"Raeford, Harold",0.00%,0.00%,"Gambrell, Sam",06/12/2025 09:50 AM,Other
+P20250626.0001,,3CX Phone System,Geosurvey LTD,Proposal,06/26/2025,06/26/2025,New,"Harike, Scott",0.00%,0.00%,"Gambrell, Sam",06/27/2025 04:13 PM,Other
+P20250715.0001,,Replacement UPS,Contract Carpet Solutions - CCS,Proposal,07/15/2025,07/15/2025,New,"Leverett, Niki",0.00%,0.00%,"Gambrell, Sam",07/15/2025 12:32 PM,Other
+P20250715.0003,Red (1),WattBox Installation,Cornerstone Preparatory Academy,Proposal,07/15/2025,07/15/2025,New,"White, Yvonne",0.00%,0.00%,"Gambrell, Sam",07/15/2025 03:01 PM,Other
+P20250716.0002,,Moving Endpoints to Intune,City of Kennesaw,Proposal,07/16/2025,07/16/2025,New,"Harike, Scott",0.00%,0.00%,"Gambrell, Sam",07/16/2025 03:01 PM,Other
+P20250716.0001,,Moving Endpoints to Intune,City of Kennesaw,Proposal,07/16/2025,07/16/2025,New,"Harike, Scott",0.00%,0.00%,"Gambrell, Sam",07/16/2025 04:59 PM,Other
+P20250723.0001,,Onsite Resources for Tucker Setup,"Ameriserve HQ (Tucker, GA) (GARS,TK & K,Kemco,Howards Refrigeration,HERC,Cajun Air,Southeastern)",Proposal,07/23/2025,07/23/2025,New,"Mooney, Terry",0.00%,0.00%,"Gambrell, Sam",07/23/2025 11:56 AM,Other
+P20250801.0001,,CAD Server,Brindlee Fire Services,Proposal,08/01/2025,08/01/2025,New,"Mooney, Terry",0.00%,0.00%,"Gambrell, Sam",08/01/2025 02:06 PM,Other
+P20250806.0002,,"Project Proposal ""PreSales""","Pagnotti Enterprises, Inc",Proposal,08/06/2025,08/07/2025,New,,0.00%,0.00%,"Ryan, Cara",08/06/2025 03:00 PM,Other
+P20250807.0002,,DV for Hexagon CAD Server,Brindlee Fire Services,Proposal,08/07/2025,08/07/2025,New,"Mooney, Terry",0.00%,0.00%,"Gambrell, Sam",08/07/2025 10:49 AM,Other
+P20250807.0004,,SQL service in Azure Configuration,Patriot Select Property & Casualty Insurance Co.,Proposal,08/07/2025,08/07/2025,New,"White, Yvonne",0.00%,0.00%,"Huggins, Tina",08/07/2025 03:42 PM,Other
+P20250808.0003,,AIT Addendum for O365 Backups,SECO (HQ Southeast Consolidators),Proposal,08/08/2025,08/08/2025,New,"Mooney, Terry",0.00%,0.00%,"Gambrell, Sam",08/08/2025 04:33 PM,Other
+P20250808.0001,,Hexagon CAD Server and Network Equipment,Brindlee Fire Services,Proposal,08/08/2025,08/08/2025,New,"Mooney, Terry",0.00%,0.00%,"Oakley, Kyle",08/12/2025 09:20 AM,Other
+P20250227.0002,,Pre/Post SAP Cutover Support,"Progress Lighting, LLC (HQ) (Coleto)",Proposal,02/27/2025,02/27/2025,New,"Harike, Scott",0.00%,0.00%,"Mooney, Terry",08/19/2025 08:52 AM,Other
+P20221229.0001,Red (1),"Program ""Security"" (NC,BW)","ServIT, Inc. (HQ)",Internal,12/29/2022,12/31/2032,New,"Huelsmann, Gregory",100.00%,0.00%,"Huelsmann, Gregory",08/21/2025 10:14 AM,
+P20250819.0001,,Power System Upgrade,"Consolidated Aerospace Manufacturing, LLC (NatNet)",Proposal,08/19/2025,08/19/2025,New,"Inciardi, Brooks",0.00%,0.00%,"Gambrell, Sam",08/21/2025 04:49 PM,Other
+P20250529.0003,,Yearly User Equipment Audit (All Locations),DiverzifyPro - Itasca - DIT,Client,05/29/2025,07/18/2025,New,"Leverett, Niki",40.00%,0.00%,"Leverett, Niki",08/25/2025 02:30 PM,Niki Leverett
+P20250828.0003,,PC Refresh Configurations,"Progress Lighting, LLC (HQ) (Coleto)",Proposal,08/28/2025,08/28/2025,New,"Inciardi, Brooks",0.00%,0.00%,"Gambrell, Sam",08/28/2025 04:01 PM,Other
+P20250829.0001,,SOC Services Request,Professional Medical Billing,Proposal,08/29/2025,10/01/2025,New,"Stopczynski, Alan",0.00%,0.00%,"Gambrell, Sam",08/29/2025 03:14 PM,Other
+P20250829.0003,,SOC and Bullphish,Patriot Select Property & Casualty Insurance Co.,Proposal,08/29/2025,10/01/2025,New,"White, Yvonne",0.00%,0.00%,"Huggins, Tina",08/29/2025 04:10 PM,Other
+P20250203.0003,,AIT Addendum,"Heyco Products, Inc (HQ)",Proposal,02/03/2025,02/03/2025,New,,33.00%,0.00%,"Oakley, Kyle",09/03/2025 11:26 AM,Other
+P20250205.0001,,Honeywell MD for THOR Device POC,"Progress Lighting, LLC (HQ) (Coleto)",Proposal,02/05/2025,02/05/2025,New,,33.00%,0.00%,"Oakley, Kyle",09/03/2025 11:27 AM,Other
+P20250217.0001,,Firewall cleanup,"Beaumont Products, Inc. (Main)",Proposal,02/17/2025,02/17/2025,New,"Harike, Scott",33.00%,0.00%,"Oakley, Kyle",09/03/2025 11:28 AM,Other
+P20250407.0001,Red (1),UPS Unit for Orlando,General Wholesale Beer Company (615) (HQ),Proposal,04/07/2025,04/07/2025,New,"Harike, Scott",33.00%,0.00%,"Oakley, Kyle",09/03/2025 11:29 AM,Other
+P20250409.0001,,NAS for file server data,SunBelt Displays,Proposal,04/09/2025,04/09/2025,New,"Stopczynski, Alan",33.00%,0.00%,"Oakley, Kyle",09/03/2025 11:31 AM,Other
+P20250417.0005,,Power DMARC,"Beaumont Products, Inc. (Main)",Proposal,04/17/2025,04/17/2025,New,"Harike, Scott",8.00%,0.00%,"Oakley, Kyle",09/03/2025 11:32 AM,Other
+P20250421.0002,,DNS Filter,InReach Community Dx,Proposal,04/21/2025,04/21/2025,New,"Harike, Scott",33.00%,0.00%,"Oakley, Kyle",09/03/2025 11:33 AM,Other
+P20250429.0002,,Email Migration for Cajun Air,"Ameriserve HQ (Tucker, GA) (GARS,TK & K,Kemco,Howards Refrigeration,HERC,Cajun Air,Southeastern)",Proposal,04/29/2025,04/29/2025,New,"Harike, Scott",8.00%,0.00%,"Oakley, Kyle",09/03/2025 11:34 AM,Other
+P20250430.0002,,OS Upgrade for IBM Power System,Tri-City Automotive Warehouse,Proposal,04/30/2025,04/30/2025,New,"Stopczynski, Alan",8.00%,0.00%,"Oakley, Kyle",09/03/2025 11:35 AM,Other
+P20250502.0001,,PortNoX NAC Configuration,"FirstKey Homes, LLC (HQ)",Proposal,05/02/2025,05/02/2025,New,"Harike, Scott",8.00%,0.00%,"Oakley, Kyle",09/03/2025 11:40 AM,Other
+P20250513.0002,,Access Points for HQ,Preferred Personnel Solutions (Kennesaw HQ),Proposal,05/13/2025,05/13/2025,New,"Harike, Scott",8.00%,0.00%,"Oakley, Kyle",09/03/2025 11:41 AM,Other
+P20250522.0007,,Switch Configuration for LV,Penn Engineering (PA),Proposal,05/22/2025,05/22/2025,New,"Inciardi, Brooks",8.00%,0.00%,"Oakley, Kyle",09/03/2025 11:44 AM,Other
+P20250529.0001,,DUO Implementation for VCenter Servers,"Beaumont Products, Inc. (Main)",Proposal,05/29/2025,05/29/2025,New,"Harike, Scott",8.00%,0.00%,"Oakley, Kyle",09/03/2025 11:51 AM,Other
+P20250529.0002,,Replacement Firewall,Thomas & Brown LLC (Galleria),Proposal,05/29/2025,06/03/2025,New,"Harike, Scott",6.00%,0.00%,"Oakley, Kyle",09/03/2025 11:51 AM,Other
+P20250613.0001,,Proofpoint Email Security,TLM Transport,Proposal,06/13/2025,06/16/2025,New,,5.00%,0.00%,"Oakley, Kyle",09/03/2025 11:53 AM,Other
+P20250902.0001,,Security Audit,Times Journal Inc.,Proposal,09/02/2025,09/02/2025,New,"Nunez, Leigh",8.00%,0.00%,"Oakley, Kyle",09/03/2025 11:57 AM,Other
+P20250903.0007,,Filmtech - Replacement 24-Port Switches for IDF,Soteria Flexibles (HQ),Proposal,09/03/2025,01/07/2026,New,"Mooney, Terry",0.00%,0.00%,"Gambrell, Sam",09/03/2025 02:10 PM,Other
+P20250828.0002,,Switch & Firewall,Tellworks Communications (San Francisco),Proposal,08/28/2025,08/28/2025,New,"White, Yvonne",0.00%,0.00%,"Gambrell, Sam",09/04/2025 11:49 AM,Other
+P20250903.0002,,Vulscan Contract,Patriot Select Property & Casualty Insurance Co.,Proposal,09/03/2025,09/03/2025,New,"White, Yvonne",0.00%,0.00%,"Huggins, Tina",09/04/2025 03:36 PM,Other
+P20250903.0001,,Sharepoint File Migration,Tellworks Communications (Atlanta) - HQ,Proposal,09/03/2025,09/03/2025,New,"White, Yvonne",0.00%,0.00%,"Gambrell, Sam",09/05/2025 02:13 PM,Other
+P20250909.0001,,Business premium licenses and SOW,"Gulf Stream Coach, Inc.",Proposal,09/09/2025,09/09/2025,New,"Stopczynski, Alan",0.00%,0.00%,"Ryan, Cara",09/09/2025 12:23 PM,Other
+P20250909.0002,,New Power System,"Consolidated Aerospace Manufacturing, LLC (HQ)",Client,09/09/2025,09/09/2025,New,"Inciardi, Brooks",0.00%,0.00%,"Bordner, Ken",09/09/2025 04:59 PM,Other
+P20250910.0003,,Gulfstream Coach - Proofpoint,"Gulf Stream Coach, Inc.",Proposal,09/10/2025,09/11/2025,New,,0.00%,0.00%,"Ryan, Cara",09/10/2025 09:59 AM,Other
+P20250903.0003,,Continental Products - Replacement firewall,Soteria Flexibles (HQ),Proposal,09/03/2025,01/26/2026,New,"White, Yvonne",0.00%,0.00%,"Gambrell, Sam",09/11/2025 02:46 PM,Other
+P20250917.0002,,Web App Audit,InReach Community Dx,Proposal,09/17/2025,09/17/2025,New,"Leverett, Niki",0.00%,0.00%,"Gambrell, Sam",09/17/2025 02:25 PM,Other
+P20250918.0002,,"Project Proposal ""PreSales""","The Perecman Firm, P.L.L.C.",Proposal,09/18/2025,09/18/2025,New,,0.00%,0.00%,"Ryan, Cara",09/18/2025 11:20 AM,Other
+P20250918.0004,,"Project Proposal ""PreSales""","FAMS (Financial Asset Management Systems, Inc.) - 429 Creekstone HQ",Proposal,09/18/2025,09/18/2025,New,,0.00%,0.00%,"Ryan, Cara",09/18/2025 12:33 PM,Other
+P20250919.0001,,New DC in ServIT Data Center,SECO (HQ Southeast Consolidators),Proposal,09/19/2025,01/09/2026,New,"Nunez, Leigh",0.00%,0.00%,"Gambrell, Sam",09/19/2025 01:34 PM,Other
+P20250925.0005,,NIST Audit,"Progress Lighting, LLC (HQ) (Coleto)",Proposal,09/25/2025,09/25/2025,New,"Raeford, Harold",0.00%,0.00%,"Gambrell, Sam",09/25/2025 03:34 PM,Other
+P20250926.0001,,PTF Upgrade,Henderson Glass (HQ),Proposal,09/26/2025,11/13/2025,New,,0.00%,0.00%,"Marsili, Tony",09/29/2025 09:18 PM,Other
+P20250910.0004,,Netowrk Infrastructure Analysis,Kennesaw United Methodist,Proposal,09/10/2025,09/10/2025,New,"Harike, Scott",0.00%,0.00%,"Marsili, Tony",10/09/2025 02:51 PM,Other
+P20250730.0003,,Move of DHCP from Server to Firewall,"Progress Lighting, LLC (HQ) (Coleto)",Proposal,07/30/2025,07/30/2025,New,"Mooney, Terry",0.00%,0.00%,"Ashby, Dexter",10/14/2025 07:47 AM,Other
+P20251014.0002,,File Sync to Sharepoint,Bercher Homes (Suite 100),Proposal,10/14/2025,04/15/2026,New,"Nunez, Leigh",0.00%,0.00%,"Gambrell, Sam",10/14/2025 12:00 PM,Other
+P20251015.0002,,Quote on Laservault,Midwest Library Services,Proposal,10/15/2025,04/16/2026,New,,0.00%,0.00%,"Ryan, Cara",10/15/2025 01:54 PM,Other
+P20251015.0003,,Adding 6 Drives to Power System,Central PA Blood Bank,Proposal,10/15/2025,04/16/2026,New,,0.00%,0.00%,"Ryan, Cara",10/15/2025 03:07 PM,Other
+P20251016.0001,,MAC OS Upgrades,Turner Chapel AME Church (Main Location),Proposal,10/16/2025,04/17/2026,New,"Bradford, Ashley",0.00%,0.00%,"Gambrell, Sam",10/16/2025 09:51 AM,Other
+P20251022.0001,24x7 Business Operations,Windows 10 Upgrade,Garbage Account,Proposal,10/22/2025,04/23/2026,New,"Gambrell, Sam",0.00%,0.00%,"Gambrell, Sam",10/22/2025 09:09 AM,Other
+P20251021.0003,,Replacement Core Switches,"Gulf Stream Coach, Inc.",Proposal,10/21/2025,04/22/2026,New,"Stopczynski, Alan",0.00%,0.00%,"Gambrell, Sam",10/22/2025 11:42 AM,Other
+P20251023.0003,,One-Time Vulnerability Scan,"Gulf Stream Coach, Inc.",Proposal,10/23/2025,04/24/2026,New,"Stopczynski, Alan",0.00%,0.00%,"Gambrell, Sam",10/23/2025 11:36 AM,Kyle Oakley
+P20251027.0002,,CUM PTF Upgrade,"Fort Wayne Wire Die, Inc.",Proposal,10/27/2025,04/28/2026,New,"Stopczynski, Alan",0.00%,0.00%,"Gambrell, Sam",10/27/2025 02:34 PM,Kyle Oakley
+P20251030.0001,,Pre-Sales Template,Georgia Baptist Foundation,Proposal,10/30/2025,05/22/2026,New,,0.00%,0.00%,"Ryan, Cara",10/30/2025 05:11 PM,Kyle Oakley
+P20251103.0001,,Replacement Firewall for HQ,Roof Management Inc. (HQ),Proposal,11/03/2025,05/05/2026,New,"Nunez, Leigh",0.00%,0.00%,"Gambrell, Sam",11/03/2025 12:41 PM,Kyle Oakley
+P20251104.0001,,Pre-Sales Template,ITW Air Flow Management,Proposal,11/04/2025,05/06/2026,New,,0.00%,0.00%,"Ryan, Cara",11/04/2025 08:43 AM,Kyle Oakley
+P20251105.0001,,Paycor Integration,"Ameriserve HQ (Tucker, GA) (GARS,TK & K,Kemco,Howards Refrigeration,HERC,Cajun Air,Southeastern)",Proposal,11/05/2025,05/07/2026,New,"Nunez, Leigh",0.00%,0.00%,"Gambrell, Sam",11/05/2025 01:40 PM,Kyle Oakley
+P20251105.0002,,Replacement Firewall,Roof Management (NatNet),Proposal,11/05/2025,05/07/2026,New,"Nunez, Leigh",0.00%,0.00%,"Gambrell, Sam",11/05/2025 05:08 PM,Kyle Oakley
+P20251105.0003,,Replacement Firewall,Roof Management (Nashville),Proposal,11/05/2025,05/07/2026,New,"Nunez, Leigh",0.00%,0.00%,"Gambrell, Sam",11/05/2025 05:09 PM,Kyle Oakley
+P20250326.0001,,Wireless Setup for 5 Locaitons,Preferred Personnel Solutions (Kennesaw HQ),Proposal,03/26/2025,03/26/2025,New,"Harike, Scott",0.00%,0.00%,"Burgess, Chris",11/06/2025 12:14 PM,Other
+P20251112.0001,,Bullphish,Beckway,Proposal,11/12/2025,05/14/2026,New,"Bradford, Ashley",0.00%,0.00%,"Gambrell, Sam",11/12/2025 08:42 AM,Kyle Oakley
+P20251120.0003,,Replacement UPS Battery,"Barbe America, Inc",Proposal,11/20/2025,05/22/2026,New,"Bradford, Ashley",0.00%,0.00%,"Gambrell, Sam",11/20/2025 11:51 AM,Kyle Oakley
+P20251124.0002,,Pre-Sales Template,Superior Underwriters General Agency,Proposal,11/24/2025,05/26/2026,New,,0.00%,0.00%,"Ryan, Cara",11/24/2025 10:24 AM,Kyle Oakley
+P20251125.0001,,IBM PTF/CUM Upgrade,Kem Krest Corporation (HQ),Proposal,11/25/2025,05/27/2026,New,"Stopczynski, Alan",0.00%,0.00%,"Gambrell, Sam",11/25/2025 09:30 AM,Kyle Oakley
+P20251202.0002,,Firewall - Forti-40F for New Employee,AV Powell & Associates LLC (HQ),Proposal,12/02/2025,06/24/2026,New,,0.00%,0.00%,"Ryan, Cara",12/02/2025 04:56 PM,Kyle Oakley
+P20251204.0001,,IT Closet Cleanup,Parallax Digital,Proposal,12/05/2025,06/08/2026,New,"Nunez, Leigh",0.00%,0.00%,"Gambrell, Sam",12/05/2025 09:12 AM,Kyle Oakley
+P20251205.0004,,Floors by Beckers - Sage Sever Migration,DiverzifyPro Minneapolis - BNB,Proposal,12/05/2025,06/08/2026,New,"Leverett, Niki",0.00%,0.00%,"Gambrell, Sam",12/05/2025 03:54 PM,Kyle Oakley
+P20251208.0003,,Floors by Beckers - Sage server migration,DiverzifyPro Minneapolis - BNB,Proposal,12/08/2025,06/09/2026,New,"Leverett, Niki",0.00%,0.00%,"Gambrell, Sam",12/08/2025 03:04 PM,Kyle Oakley
+P20251124.0001,,Switches for Continental Products,Soteria Flexibles (HQ),Proposal,11/24/2025,05/26/2026,New,"White, Yvonne",0.00%,0.00%,"Gambrell, Sam",12/10/2025 03:43 PM,Kyle Oakley
+P20250520.0004,,"Project "" EMA400 LPAR shutdown"" (NC,BS)",Brooks Instruments,Client,05/20/2025,06/23/2026,On Hold,"Slaton, Brad",92.00%,0.00%,"Slaton, Brad",12/15/2025 10:19 AM,David Decaria
+P20251216.0001,,eVault Server Replacement,"Hanover Foods, Inc. - HQ",Proposal,12/16/2025,07/16/2026,New,,0.00%,0.00%,"Ryan, Cara",12/18/2025 10:23 AM,Kyle Oakley
+P20251229.0001,,Replacement for EOL Firewall,Milan Supply Chain Solutions (NatNet),Proposal,12/29/2025,06/30/2026,New,"Stopczynski, Alan",0.00%,0.00%,"Gambrell, Sam",12/29/2025 11:56 AM,Kyle Oakley
+P20260109.0002,,Entra ID Migration,LOUD Security,Proposal,01/09/2026,07/13/2026,New,"Harike, Scott",0.00%,0.00%,"Gambrell, Sam",01/09/2026 03:52 PM,Kyle Oakley
+P20260112.0002,,Pre-Sales Template,Hershey Entertainment & Resorts,Proposal,01/12/2026,07/14/2026,New,"Bradford, Ashley",0.00%,0.00%,"Ryan, Cara",01/12/2026 12:59 PM,Kyle Oakley
+P20250917.0001,,Conditional Access Implmentation,"Gulf Stream Coach, Inc.",Client,09/17/2025,06/23/2026,III-In Progress,"Slaton, Brad",78.00%,0.00%,"Slaton, Brad",01/14/2026 09:25 AM,NOC - Ryan Pardue
+P20260119.0002,,Provide IBM Db2 for i SQL Performance Analysis and Review,"Pencor Services, Inc",Proposal,01/19/2026,07/21/2026,New,,0.00%,0.00%,"Ryan, Cara",01/19/2026 10:33 AM,Kyle Oakley
+P20260122.0002,,Alternate VPN Configuration,AV Powell & Associates LLC (HQ),Proposal,01/22/2026,07/24/2026,New,"Nunez, Leigh",0.00%,0.00%,"Gambrell, Sam",01/22/2026 02:57 PM,Kyle Oakley
+P20260128.0002,,Contract Termination,Parallax Digital,Proposal,01/28/2026,01/28/2026,New,,0.00%,0.00%,"Ryan, Cara",01/28/2026 10:36 AM,Kyle Oakley
+P20251111.0001,,Replacement Switch,Preferred Personnel Solutions (Kennesaw HQ),Proposal,11/11/2025,05/13/2026,New,"White, Yvonne",0.00%,0.00%,"Ryan, Cara",02/05/2026 09:15 AM,Kyle Oakley
+P20260204.0002,,Migrate from Intermedia to 3CX,"Pagnotti Enterprises, Inc",Proposal,02/04/2026,08/06/2026,New,,0.00%,0.00%,"Ryan, Cara",02/05/2026 03:12 PM,Kyle Oakley
+P20260209.0001,,WattBox and USB Wireless,Brindlee Fire Services,Proposal,02/09/2026,08/11/2026,New,"White, Yvonne",0.00%,0.00%,"Gambrell, Sam",02/10/2026 11:18 AM,Kyle Oakley
+P20260209.0002,,Dell Controller Card Replacements,City of Kennesaw,Proposal,02/09/2026,08/11/2026,New,"Harike, Scott",0.00%,0.00%,"Gambrell, Sam",02/10/2026 03:52 PM,Kyle Oakley
+P20250410.0005,,Cisco DUO Implmentation,"Beaumont Products, Inc. (Main)",Proposal,04/10/2025,09/02/2025,New,"Harike, Scott",3.00%,0.00%,"Harike, Scott",02/11/2026 06:08 PM,Other
+P20260212.0001,,Intune Implementation,United Sales Agency,Proposal,02/12/2026,08/14/2026,New,"Bradford, Ashley",0.00%,0.00%,"Gambrell, Sam",02/12/2026 04:51 PM,Kyle Oakley
+P20260209.0005,,OpenVPN/CloudConnexa -,Patriot Select Property & Casualty Insurance Co.,Proposal,02/09/2026,08/11/2026,New,,0.00%,0.00%,"Ryan, Cara",02/13/2026 02:13 PM,Kyle Oakley
+P20260216.0002,,SECO Email Archiving,SECO (HQ Southeast Consolidators),Proposal,02/16/2026,08/18/2026,New,,0.00%,0.00%,"Ryan, Cara",02/16/2026 10:06 AM,Kyle Oakley
+P20260219.0002,,CUM PTF Upgrades,Josam Company (HQ),Proposal,02/19/2026,08/21/2026,New,"Stopczynski, Alan",0.00%,0.00%,"Ryan, Cara",02/20/2026 09:53 AM,Kyle Oakley
+P20260223.0002,,Cyber Security Incident Response and Remediation,"Progress Lighting, LLC (HQ) (Coleto)",Proposal,02/23/2026,08/25/2026,New,,0.00%,0.00%,"Ryan, Cara",02/23/2026 08:35 AM,Kyle Oakley
+P20260223.0001,,Cyber Security Incident - onsite support,"Progress Lighting, LLC (HQ) (Coleto)",Proposal,02/23/2026,08/25/2026,New,,0.00%,0.00%,"Ryan, Cara",02/23/2026 08:36 AM,Kyle Oakley
+P20251208.0002,,Roll Out T&C to All Sites,Soteria Flexibles (HQ),Proposal,12/08/2025,06/09/2026,New,,0.00%,0.00%,"Ryan, Cara",02/23/2026 12:10 PM,Kyle Oakley
+P20260223.0005,,New Switches,Castles Tech,Proposal,02/23/2026,08/25/2026,New,"Harike, Scott",0.00%,0.00%,"Gambrell, Sam",02/24/2026 10:25 AM,Kyle Oakley
+P20260224.0001,,Entra ID Implementation,"Progress Lighting, LLC (HQ) (Coleto)",Proposal,02/24/2026,08/26/2026,New,"Harike, Scott",0.00%,0.00%,"Gambrell, Sam",02/24/2026 04:08 PM,Kyle Oakley
+P20260224.0002,,SSO for Concur,Beckway,Proposal,02/24/2026,08/26/2026,New,"Bradford, Ashley",0.00%,0.00%,"Gambrell, Sam",02/24/2026 05:02 PM,Kyle Oakley
+P20260304.0002,,Proofpoint,Preferred Personnel Solutions (Kennesaw HQ),Proposal,03/04/2026,09/03/2026,New,,0.00%,0.00%,"Ryan, Cara",03/04/2026 03:57 PM,Kyle Oakley
+P20251125.0002,,Firewall Configuration - AIT,Elite Administration & Insurance Group (HQ),Client,11/25/2025,03/13/2028,V-Pending Complete,"Slaton, Brad",24.00%,0.00%,"Slaton, Brad",03/11/2026 02:42 PM,Dexter Ashby
+P20260305.0001,,DV Addendum,Elite Administration & Insurance Group (HQ),Proposal,03/05/2026,06/10/2027,New,"Stopczynski, Alan",5.00%,0.00%,"Slaton, Brad",03/11/2026 04:31 PM,David Decaria
+P20251118.0001,,AIT Firewall Management,Elite Administration & Insurance Group (HQ),Client,11/18/2025,02/23/2027,New,"Slaton, Brad",76.00%,0.00%,"Slaton, Brad",03/13/2026 02:30 PM,Jason Morhaus
+P20260223.0004,,Proofpoint,Thomas & Brown LLC (HQ),Client,02/23/2026,01/11/2027,New,"Slaton, Brad",8.00%,0.00%,"Integrations, MSP",03/16/2026 04:13 PM,NOC - Anthony Dickerson
+P20250313.0001,,New Switch for MDF,"Progress Lighting, LLC (HQ) (Coleto)",Proposal,03/13/2025,03/13/2025,New,"Harike, Scott",0.00%,0.00%,"Ashby, Dexter",03/18/2026 09:09 AM,Other
+P20251205.0002,,"Project "" IBM Cloud Migration"" (TBBTM, TM)","Mitsui Sumitomo Marine Management (U.S.A.), Inc.",Client,11/19/2025,06/08/2026,On Hold,"Marsili, Tony",9.00%,0.00%,"Marsili, Tony",03/18/2026 01:56 PM,Kyle Oakley
+P20250425.0001,,SOC Contract with Dark Web Scan,Elite Administration & Insurance Group (HQ),Client,04/25/2025,06/18/2026,I-Call Scheduled,"Slaton, Brad",73.00%,0.00%,"Integrations, MSP",03/18/2026 02:13 PM,Greg Huelsmann
+P20260323.0001,,Security Audit,German American Chamber of Commerce (HQ),Proposal,03/23/2026,09/22/2026,New,"Russell, Stacey",0.00%,0.00%,"Gambrell, Sam",03/23/2026 09:51 AM,Kyle Oakley
+P20260323.0005,,Quipment - AIT Addendum - Switch,Quipment,Proposal,03/23/2026,09/22/2026,New,,0.00%,0.00%,"Ryan, Cara",03/23/2026 01:54 PM,Kyle Oakley
+P20250930.0003,,Replacement Server,WLM Contracting,Client,09/30/2025,07/06/2026,New,"Slaton, Brad",82.00%,0.00%,"Integrations, MSP",03/23/2026 09:34 PM,NOC - Ryan Pardue
+P20260204.0001,Red (1),ServIT Managed Veeam Backup Restructure,"ServIT, Inc. (HQ)",Internal,02/04/2026,08/06/2026,III-In Progress,"Marsili, Tony",3.00%,2.98%,"Integrations, MSP",03/25/2026 03:50 PM,Kyle Oakley
+P20260323.0002,,Knowledge transfer and side-by-side IBM System Operator,Oldcastle APG,Proposal,03/23/2026,09/22/2026,New,,0.00%,0.00%,"Marsili, Tony",03/26/2026 01:27 PM,Kyle Oakley
+P20260401.0002,,Server Drive Expansion,Boxercraft: Division of NG Labs,Proposal,04/01/2026,10/01/2026,New,"Russell, Stacey",0.00%,0.00%,"Gambrell, Sam",04/06/2026 09:50 AM,Kyle Oakley
+P20260406.0006,,Short Term Gap Coverage *,Conair LLC,Proposal,04/06/2026,10/06/2026,New,,0.00%,0.00%,"Ryan, Cara",04/06/2026 03:26 PM,Kyle Oakley
+P20260302.0001,,Yearly restore testing,Simco-Ion Industrial Group,Client,03/02/2026,06/07/2027,New,"Slaton, Brad",77.00%,0.00%,"Slaton, Brad",04/08/2026 12:10 PM,Mike Schneider
+P20250409.0003,,"Project ""SOC - Security items - SOC Vipre Phishing"" (BS)",Geosurvey LTD,Client,04/09/2025,05/21/2026,V-Pending Complete,"Slaton, Brad",95.00%,0.00%,"Integrations, MSP",04/10/2026 02:08 PM,Greg Huelsmann
+P20260128.0003,,Offboarding,Parallax Digital,Client,01/28/2026,05/28/2026,New,"Slaton, Brad",86.00%,0.00%,"Leverett, Niki",04/13/2026 04:52 PM,Jason Morhaus
+P20260311.0001,,Remove Service on MCDC02 and MCDC03,Josam Company (HQ),Client,03/11/2026,05/29/2026,New,"Slaton, Brad",79.00%,0.00%,"Slaton, Brad",04/14/2026 09:27 AM,Jason Morhaus
+P20260413.0001,,Replacement Access Points,Georgia Baptist Foundation,Proposal,04/13/2026,10/13/2026,New,"Russell, Stacey",0.00%,0.00%,"Gambrell, Sam",04/14/2026 01:26 PM,Kyle Oakley
+P20260324.0001,,ProofPoint,SECO (HQ Southeast Consolidators),Client,03/24/2026,09/23/2026,On Hold,"Brown, Steven",0.00%,0.00%,"Brown, Steven",04/14/2026 04:19 PM,Kyle Oakley
+P20240515.0002,,"Project ""Azure Active Directory Joined Configuration""",SECO (HQ Southeast Consolidators),Client,05/15/2024,07/30/2026,On Hold,"Brown, Steven",4.00%,18.49%,"Ashby, Dexter",04/15/2026 09:04 AM,Dexter Ashby
+P20251029.0002,,Sever and Switch Refresh Project National Net,Heyco/National Net,Client,10/29/2025,02/03/2027,New,"Slaton, Brad",14.00%,0.00%,"Ashby, Dexter",04/15/2026 09:05 AM,Dexter Ashby
+P20260415.0001,,Proofpoint Implementation,Gertsen Interstate System,Proposal,04/15/2026,10/15/2026,New,"Stopczynski, Alan",0.00%,0.00%,"Gambrell, Sam",04/15/2026 09:47 AM,Kyle Oakley
+P20260216.0006,,replacement Sonicwall Firewall,Consumer Collection Management,Client,02/16/2026,01/04/2027,New,"Slaton, Brad",29.00%,93.75%,"Slaton, Brad",04/15/2026 02:41 PM,NOC - Anthony Dickerson
+P20260216.0007,,Replacement Sonicwall firewall,Grissom Services Inc,Client,02/16/2026,01/04/2027,New,"Slaton, Brad",14.00%,50.00%,"Slaton, Brad",04/15/2026 02:42 PM,NOC - Anthony Dickerson
+P20260216.0005,,AIT Onboarding,"Asphalt Enterprises, Inc.",Client,02/16/2026,08/16/2026,On Hold,"Slaton, Brad",74.00%,0.00%,"Integrations, MSP",04/21/2026 01:23 PM,Jason Morhaus
+P20260421.0007,,MFA on Sonicwll VPN,Oriental Weavers Sphinx,Proposal,04/21/2026,10/21/2026,New,"Bradford, Ashley",0.00%,0.00%,"Gambrell, Sam",04/21/2026 03:41 PM,Kyle Oakley
+P20260423.0001,Red (1),3CX Phone System,Beulah Heights University (Main Campus),Proposal,04/23/2026,10/23/2026,New,"Bradford, Ashley",0.00%,0.00%,"Gambrell, Sam",04/23/2026 12:08 AM,Kyle Oakley
+P20260427.0001,,HiTrust Assistance,InReach Community Dx,Proposal,04/27/2026,10/27/2026,New,"Leverett, Niki",0.00%,0.00%,"Gambrell, Sam",04/27/2026 12:20 AM,Kyle Oakley
+P20260427.0003,,Pharmalife - All Inclusive Technologies Agreement,"MEI Services, Inc. dba PharmaLife LTC",Proposal,04/27/2026,10/27/2026,New,,0.00%,0.00%,"Ryan, Cara",04/27/2026 02:59 PM,Kyle Oakley
+P20250514.0002,Red (1),Firewall and Access Point Replacement,"Bomarko, Inc.",Client,05/14/2025,07/31/2029,III-Waiting Customer,"Slaton, Brad",32.00%,0.00%,"Burgess, Chris",04/27/2026 04:11 PM,Dexter Ashby
+P20260428.0001,,Offboarding for Blue Ridge Location,Thomas & Brown LLC (Blue Ridge),Proposal,04/28/2026,10/28/2026,New,"White, Yvonne",0.00%,0.00%,"Gambrell, Sam",04/28/2026 01:19 PM,Kyle Oakley
+P20260428.0004,,IBM Power Migration to Cloud Services,Goodville Mutual Insurance Co.,Proposal,04/29/2026,10/29/2026,New,"Bradford, Ashley",0.00%,0.00%,"Gambrell, Sam",04/28/2026 11:48 PM,Kyle Oakley
+P20260326.0002,,Wireless Setup for new call center in Huntsville,Brindlee Fire Services,Client,03/26/2026,02/11/2027,New,"Slaton, Brad",24.00%,33.00%,"Slaton, Brad",04/29/2026 01:44 PM,Jon Schivone
+P20260309.0001,,AS400 Automated Process,Elite Administration & Insurance Group (HQ),Proposal,03/09/2026,06/14/2027,New,"Slaton, Brad",24.00%,0.00%,"Slaton, Brad",04/29/2026 01:55 PM,Third Party
+P20260504.0001,,Domain Join,Legis Consultancy,Proposal,05/04/2026,11/03/2026,New,"Russell, Stacey",0.00%,0.00%,"Gambrell, Sam",05/04/2026 01:49 PM,Kyle Oakley
+P20260506.0003,,Crowdstrike Implementation,"Beaumont Products, Inc. (Main)",Proposal,05/06/2026,11/05/2026,New,"White, Yvonne",0.00%,0.00%,"Gambrell, Sam",05/06/2026 01:23 AM,Kyle Oakley
+P20260114.0002,,Vipre/ Proofpoint upgrade,"Powell Tool Supply, Inc.",Client,01/14/2026,04/21/2027,New,"Slaton, Brad",29.00%,0.00%,"Nguyen, Timmy",05/06/2026 02:05 PM,NOC - Timmy Nguygen
+P20240516.0006,,"Project ""Configure Single Sign-on""(TBB, SB)",SECO (HQ Southeast Consolidators),Client,05/16/2024,08/27/2026,On Hold,"Brown, Steven",14.00%,12.73%,"Brown, Steven",05/06/2026 04:40 PM,Dexter Ashby
+P20260508.0001,,DMARC Implementation,Grissom Services Inc,Proposal,05/08/2026,11/09/2026,New,"White, Yvonne",0.00%,0.00%,"Gambrell, Sam",05/08/2026 12:32 AM,Kyle Oakley
+P20260506.0001,,HQ Firewall Replacement,"Pagnotti Enterprises, Inc",Proposal,05/06/2026,11/05/2026,New,"Bradford, Ashley",0.00%,0.00%,"Gambrell, Sam",05/08/2026 01:35 PM,Kyle Oakley
+P20260506.0002,,Firewall move to Virtual Firewall,Pagnotti Enterprises/NatNet,Proposal,05/06/2026,11/05/2026,New,"Bradford, Ashley",0.00%,0.00%,"Gambrell, Sam",05/08/2026 02:14 PM,Kyle Oakley
+P20260511.0001,,Short Term Gap Coverage - SOW - Change order request,Conair LLC,Proposal,05/11/2026,11/10/2026,New,,0.00%,0.00%,"Ryan, Cara",05/11/2026 11:02 AM,Kyle Oakley
+P20260429.0002,,Rockford Location - Replacement Firewall,Fulton Industries,Client,04/29/2026,11/09/2027,New,"Slaton, Brad",5.00%,0.00%,"Slaton, Brad",05/11/2026 11:03 AM,James Harp
+P20260406.0004,,"Project ""Short Term Gap Coverage"" (TBBTM, TM)",Conair LLC,Client,04/06/2026,10/06/2026,III-In Progress,"Marsili, Tony",6.00%,0.00%,"Marsili, Tony",05/12/2026 11:03 AM,NOC - Ryan Pardue
+P20260304.0001,,"Project ""RPG Programming"" (TBBTM, TM)",Consumer Collection Management,Client,12/18/2025,06/30/2026,III-In Progress,"Marsili, Tony",0.00%,0.00%,"Marsili, Tony",05/12/2026 11:05 AM,Third Party
+P20260429.0001,,Granger Location - Replacement Firewall,Fulton Industries,Client,04/29/2026,11/09/2027,New,"Slaton, Brad",5.00%,6.67%,"Winklesky, Brad",05/12/2026 11:17 AM,James Harp
+P20250109.0002,,Sonicwall Firewall Replacements,Grey Eagle Distributors,Client,01/09/2025,10/15/2026,New,"Slaton, Brad",4.00%,159.27%,"Ashby, Dexter",05/13/2026 08:14 AM,Dexter Ashby
+P20260219.0001,Red (1),"Project ""SSLVPN Sunset"" (NC, TM)","ServIT, Inc. (HQ)",Client,02/19/2026,03/27/2026,New,"Marsili, Tony",88.00%,0.00%,"Winklesky, Brad",05/14/2026 05:20 PM,NOC - Anthony Dickerson
+P20251104.0003,,DR test 2025,Zenith Products Corporation,Client,11/04/2025,02/09/2027,New,"Slaton, Brad",50.00%,0.00%,"Huggins, Tina",05/15/2026 10:51 AM,David Decaria
+P20260515.0001,,Soteria Flexibles - Compass - Replacement Firewall,Soteria Flexibles (HQ),Proposal,05/15/2026,12/07/2026,New,,0.00%,0.00%,"Ryan, Cara",05/15/2026 12:03 PM,Kyle Oakley
+P20260520.0001,,Heat Map for Jefferson,"Progress Lighting, LLC (Jefferson, GA)",Proposal,05/20/2026,11/19/2026,New,,0.00%,0.00%,"Ryan, Cara",05/20/2026 09:11 AM,Kyle Oakley
+P20260521.0001,,Revised AIT Contract,Fencing Supply Group,Proposal,05/21/2026,11/20/2026,New,,0.00%,0.00%,"Ryan, Cara",05/21/2026 08:47 AM,Kyle Oakley
+P20260522.0001,,Hybrid Domain Join,Soteria Flexibles (HQ),Proposal,05/22/2026,11/23/2026,New,"White, Yvonne",0.00%,0.00%,"Gambrell, Sam",05/22/2026 02:57 AM,Kyle Oakley
+P20260303.0001,,Website & Domain Migration,Gertsen Interstate System,Client,03/03/2026,06/08/2027,New,"Slaton, Brad",10.00%,322.50%,"Ashby, Dexter",05/27/2026 07:49 AM,Dexter Ashby
+P20260527.0001,,Hyper-V Server Conversion,ITW ASSM Deltar (Elmhurst),Proposal,05/27/2026,11/26/2026,New,"Stopczynski, Alan",0.00%,0.00%,"Gambrell, Sam",05/27/2026 02:10 PM,Kyle Oakley
+P20260123.0001,,SOC services,Grey Eagle Distributors,Client,01/23/2026,08/05/2026,New,"Slaton, Brad",68.00%,0.00%,"Huelsmann, Gregory",05/28/2026 10:04 AM,Greg Huelsmann
+P20260108.0001,,New AIT Agreement,"FirstKey Homes, LLC (HQ)",Client,01/08/2026,04/15/2027,New,"Slaton, Brad",71.00%,0.00%,"Huelsmann, Gregory",05/28/2026 10:07 AM,Greg Huelsmann
+P20260129.0002,,Knowbe4,Beckway,Client,01/29/2026,05/06/2027,New,"Slaton, Brad",33.00%,0.00%,"Huelsmann, Gregory",05/28/2026 10:07 AM,Greg Huelsmann
+P20251031.0001,,Rapidfire Report with Audit,"Beaumont Products, Inc. (Main)",Client,10/31/2025,11/27/2026,New,"Slaton, Brad",29.00%,0.00%,"Huelsmann, Gregory",05/28/2026 10:11 AM,Greg Huelsmann
+P20260529.0001,,TISAX Recertification Assistance,ITW Deltar Fasteners (Chippewa Falls),Proposal,05/29/2026,11/30/2026,New,"Stopczynski, Alan",0.00%,0.00%,"Gambrell, Sam",05/29/2026 03:45 PM,Kyle Oakley
+P20260601.0001,,Staffing Considerations for Diverzify,Diverzify Atlanta (HQ) - DHQ,Proposal,06/01/2026,12/01/2026,New,,0.00%,0.00%,"Ryan, Cara",06/01/2026 09:35 AM,Kyle Oakley
+P20260507.0001,,Wireless Access Point Relocation - Marietta Location,Beulah Heights (Marietta Campus),Client,05/07/2026,03/25/2027,III-In Progress,"Marsili, Tony",6.00%,0.00%,"Marsili, Tony",06/01/2026 02:26 PM,James Harp
+P20250710.0001,,Change from Vipre to Proofpoint,"Worley, Schilling & Randall",Client,07/10/2025,09/02/2026,III-In Progress,"Slaton, Brad",14.00%,0.00%,"Nguyen, Timmy",06/02/2026 02:22 PM,NOC - Timmy Nguygen
+P20251031.0003,Red (1),Replacement Firewall,Beulah Heights University (Main Campus),Client,10/31/2025,06/06/2030,New,"Slaton, Brad",23.00%,144.44%,"Dickerson, Anthony",06/03/2026 10:49 AM,NOC - Anthony Dickerson
+P20260225.0001,,Replacement BDR and DR test,PA Housing Finance Agency,Client,02/20/2026,06/02/2027,New,"Marsili, Tony",17.00%,0.00%,"Marsili, Tony",06/04/2026 02:01 PM,David Decaria
+P20260420.0001,,Proofpoint,Brasington Bailey Contractors,Client,04/21/2026,05/18/2027,III-Project Scheduled,"Marsili, Tony",13.00%,0.00%,"Marsili, Tony",06/05/2026 02:35 PM,NOC - Timmy Nguygen
+P20260428.0003,,MFA for Firewall,Oriental Weavers Sphinx,Client,04/29/2026,07/07/2027,III-In Progress,"Marsili, Tony",12.00%,91.67%,"Marsili, Tony",06/05/2026 04:07 PM,NOC - Ryan Pardue
+P20250827.0001,,Replacement Firewall,United Fabrics,Client,08/27/2025,07/27/2027,III-Project Scheduled,"Marsili, Tony",74.00%,0.00%,"Marsili, Tony",06/05/2026 04:08 PM,NOC - Ryan Pardue
+P20260323.0004,,system management and operational support,Oldcastle APG,Proposal,03/23/2026,09/22/2026,New,,0.00%,0.00%,"Pardue, Ryan",06/08/2026 08:55 AM,Kyle Oakley
+P20260119.0001,,IBM i Operating System Upgrade project,"Pencor Services, Inc",Client,01/19/2026,04/26/2027,New,"Marsili, Tony",36.00%,17.02%,"Bordner, Ken",06/08/2026 01:01 PM,Ken Bordner
+P20260609.0001,,Entra ID Implementation,"Continental Products (Mexico, MO)",Proposal,06/09/2026,12/09/2026,New,"White, Yvonne",0.00%,0.00%,"Gambrell, Sam",06/09/2026 03:34 PM,Kyle Oakley
+P20240710.0002,,"Project ""Hosted Server Creation """,SECO (HQ Southeast Consolidators),Client,07/10/2024,11/26/2026,III-In Progress,"Brown, Steven",96.00%,236.80%,"Ashby, Dexter",06/10/2026 08:17 AM,Dexter Ashby
+P20251016.0002,,"Project ""VPN Migration from Fortigate to Azure"" (TBBTM, TM)","Progress Lighting, LLC (HQ) (Coleto)",Client,10/16/2025,05/15/2026,III-Project Scheduled,"Marsili, Tony",30.00%,196.25%,"Ashby, Dexter",06/10/2026 09:16 AM,Dexter Ashby
+P20250806.0003,,AIT & SOC for 3 Locations,Soteria Flexibles (HQ),Client,08/06/2025,10/29/2026,V-Pending Complete,"Brown, Steven",39.00%,11.31%,"Morhaus, Jason",06/10/2026 09:20 AM,Jason Morhaus
+P20260129.0003,,firewall AIT contract,Fulton Industries,Client,01/29/2026,05/06/2027,New,"Slaton, Brad",44.00%,0.45%,"Morhaus, Jason",06/10/2026 09:23 AM,Jason Morhaus
+P20260320.0002,,Firewall & UPS Replacement,HEFCO,Client,03/20/2026,07/06/2028,New,"Slaton, Brad",41.00%,78.95%,"Harp, James",06/10/2026 12:26 PM,James Harp
+P20260406.0003,,Replacement Firewall - Peru IL Location,Fulton Industries,Client,04/06/2026,10/15/2027,New,"Slaton, Brad",17.00%,62.73%,"Burgess, Chris",06/10/2026 01:49 PM,James Harp
+P20250328.0001,Red (1),Network Segmentation SOW,General Wholesale Beer Company (615) (HQ),Client,03/28/2025,08/27/2026,V-Pending Complete,"Brown, Steven",16.00%,36.84%,"Pardue, Ryan",06/10/2026 03:02 PM,NOC - Ryan Pardue
+P20260611.0002,,Replacement Firewalls for 2 Locations,Katz Capital Management LLC (HQ),Proposal,06/11/2026,12/11/2026,New,"Harike, Scott",0.00%,0.00%,"Gambrell, Sam",06/11/2026 11:23 AM,Kyle Oakley
+P20260612.0002,,IBM Upgrade / Power 8 to Power 11,Josam Company (HQ),Proposal,06/12/2026,07/14/2027,New,,0.00%,0.00%,"Ryan, Cara",06/12/2026 11:40 AM,Kyle Oakley
+P20260217.0001,,Networking Equipment for new warehouse,RTCO Packaging LLC,Client,02/17/2026,09/10/2026,V-Pending Complete,"Brown, Steven",34.00%,78.04%,"Integrations, MSP",06/15/2026 04:22 PM,Dexter Ashby
+P20260616.0001,,Move Support Ramp Up,Meyn America LLC,Proposal,06/16/2026,12/16/2026,New,,0.00%,0.00%,"Ryan, Cara",06/16/2026 03:23 PM,Kyle Oakley
+P20251106.0002,,Email Migration,Division 9 Commercial Inc Construction,Client,11/06/2025,07/30/2026,V-Pending Complete,"Brown, Steven",6.00%,220.63%,"Brown, Steven",06/16/2026 04:04 PM,Dexter Ashby
+P20260618.0001,,Email Migration,Gertsen Interstate System,Proposal,06/18/2026,12/18/2026,New,"Stopczynski, Alan",0.00%,0.00%,"Gambrell, Sam",06/18/2026 07:22 AM,Kyle Oakley
+P20260519.0001,,"IT Equipment Cleanup (TBB-TM,SB)",Quality Extrusion Inc,Client,05/19/2026,11/18/2026,III-In Progress,"Brown, Steven",35.00%,107.29%,"Huelsmann, Gregory",06/18/2026 08:28 AM,Greg Huelsmann
+P20260618.0002,,OS Upgrade from V7R3 to V7R5,ITW Air Flow Management,Proposal,06/18/2026,07/20/2027,New,,0.00%,0.00%,"Ryan, Cara",06/18/2026 08:57 AM,Kyle Oakley
+P20260520.0002,,"Project ""Cancellation AIT"" (MS-AIT, TM)","Progress Lighting, LLC (HQ) (Coleto)",Client,05/20/2026,11/19/2026,I-Accepted,"Marsili, Tony",3.00%,0.00%,"Integrations, MSP",06/18/2026 09:55 AM,Kyle Oakley
+P20260508.0002,,"Project ""TPX to Comcast Masergy Migration"" (TBBTM, TM)",Boxercraft: Division of NG Labs,Client,05/08/2026,11/09/2026,New,"Marsili, Tony",6.00%,0.00%,"Integrations, MSP",06/18/2026 11:04 AM,Jon Schivone
+P20260612.0001,,"Project ""IBM Upgrade to Power 11"" (TBBTM, TM)","Four Seasons Sales & Service, Inc.",Client,06/12/2026,12/14/2026,New,,0.00%,0.00%,"Marsili, Tony",06/18/2026 11:40 AM,Kyle Oakley
+P20250818.0001,,Server and Switch Refresh Project for HQ,"Heyco Products, Inc (HQ)",Client,08/18/2025,05/22/2026,III-In Progress,"Marsili, Tony",7.00%,0.00%,"Integrations, MSP",06/18/2026 03:40 PM,Dexter Ashby
+P20260423.0002,,"Project ""Auvik Network Monitoring"" (MS-AIT,TM)",DiverzifyPro - Itasca - DIT,Client,04/23/2026,10/23/2026,III-In Progress,"Marsili, Tony",18.00%,0.00%,"Integrations, MSP",06/18/2026 04:20 PM,Kyle Oakley
+P20260526.0004,,"Project ""Cancelation of services with ServIT"" (MS-AIT, TM)","ETC Hearing Solutions, Inc.",Client,05/26/2026,11/25/2026,III-In Progress,"Marsili, Tony",4.00%,0.00%,"Leverett, Niki",06/22/2026 09:53 AM,Kyle Oakley
+P20251209.0001,,Exclaimer Implementation,Soteria Flexibles (HQ),Client,12/09/2025,01/28/2027,On Hold,"Brown, Steven",6.00%,0.00%,"Brown, Steven",06/23/2026 10:32 AM,NOC - Anthony Dickerson
+P20260206.0001,Red (1),IBM Cloud Migration,"ServIT, Inc. (HQ)",Internal,01/26/2026,08/10/2026,New,"Marsili, Tony",3.00%,0.00%,"Decaria, David",06/23/2026 11:30 AM,Kyle Oakley
+P20260426.0002,,Network Improvement Project,Castles Tech,Client,04/27/2026,10/27/2026,III-In Progress,"Brown, Steven",7.00%,90.00%,"Integrations, MSP",06/23/2026 11:32 AM,NOC - Ryan Pardue
+P20260511.0002,,"Data Vaulting Agreement (MS-DV, BS)","ABL Wholesale Distributors, Inc.",Client,05/11/2026,03/29/2027,III-Waiting Materials,"Marsili, Tony",5.00%,0.00%,"Integrations, MSP",06/24/2026 09:55 AM,David Decaria
+P20251217.0001,,Autotask Setup Assistance,Fencing Supply Group,Client,12/17/2025,03/24/2027,New,"Slaton, Brad",24.00%,160.00%,"Leverett, Niki",06/26/2026 10:50 AM,Niki Leverett
+P20250814.0002,Red (1),Vipre MX records and Smarthost,"ServIT, Inc. (HQ)",Internal,08/14/2025,07/30/2026,V-Pending Complete,"Brown, Steven",11.00%,0.00%,"Brown, Steven",06/26/2026 04:26 PM,NOC - Ryan Pardue
+P20260629.0001,,IBM i OS Upgrade (V7R4 to V7R5),"Camfil USA, Inc",Proposal,06/29/2026,08/02/2027,New,,0.00%,0.00%,"Ryan, Cara",06/29/2026 08:22 AM,Kyle Oakley
+P20260629.0002,,DMARC Implementation,Soteria Flexibles (HQ),Proposal,06/29/2026,12/29/2026,New,"White, Yvonne",0.00%,0.00%,"Gambrell, Sam",06/29/2026 10:03 AM,Kyle Oakley
+P20260508.0003,,"Project ""Sophos XDR Deployment"" (TBBTM, TM)",Boxercraft: Division of NG Labs,Client,05/08/2026,11/09/2026,III-In Progress,"Marsili, Tony",36.00%,7.05%,"Integrations, MSP",06/29/2026 01:38 PM,Kyle Oakley
+P20260421.0001,,MDM Implementation,German American Chamber of Commerce (HQ),Client,04/21/2026,07/27/2027,III-In Progress,"Marsili, Tony",10.00%,0.00%,"Integrations, MSP",06/29/2026 01:41 PM,Greg Huelsmann
+P20260528.0002,,"Project ""Wireless Environment Setup"" (TBBTM, TM)",HEFCO,Client,05/28/2026,11/27/2026,III-Waiting ServIT,"Marsili, Tony",24.00%,190.00%,"Harp, James",06/29/2026 01:56 PM,Kyle Oakley
+P20230912.0004,,"Project ""Ongoing Security Support "" (TBBTM, TM)",DiverzifyPro - Itasca - DIT,Client,09/12/2023,12/31/2026,III-In Progress,"Marsili, Tony",50.00%,0.00%,"Huelsmann, Gregory",06/29/2026 02:58 PM,Greg Huelsmann
+P20260605.0002,,"Project ""SQL for New Database"" (TBBTM,TM)",Elite Administration & Insurance Group (HQ),Client,06/05/2026,12/07/2026,New,"Marsili, Tony",6.00%,0.00%,"Integrations, MSP",06/29/2026 04:14 PM,Kyle Oakley
+P20260630.0001,,RDS Proof of Concept,AV Powell & Associates LLC (HQ),Proposal,06/30/2026,12/30/2026,New,"Harike, Scott",0.00%,0.00%,"Gambrell, Sam",06/30/2026 09:23 AM,Kyle Oakley
+P20260216.0008,,VMWare to Hyper-V Host conversion,Consumer Collection Management,Client,02/16/2026,05/24/2027,New,"Slaton, Brad",5.00%,66.00%,"Saeed, Kamran",06/30/2026 01:07 PM,Kamran Saeed
+P20260327.0001,,"FAMS Cancellation - Artic Wolf, Email Security, DMARC, Firewall","FAMS (Financial Asset Management Systems, Inc.) - 429 Creekstone HQ",Client,03/27/2026,07/02/2027,New,"Slaton, Brad",9.00%,0.00%,"Integrations, MSP",06/30/2026 05:22 PM,Greg Huelsmann
+P20251210.0001,,Continental Products - Switches,Soteria Flexibles (HQ),Client,12/10/2025,11/26/2026,V-Pending Complete,"Brown, Steven",3.00%,99.46%,"Brown, Steven",07/01/2026 10:27 AM,NOC - Frankie Hammonds
+P20260422.0001,,Networking Equipment Relocation,Thomas & Brown LLC (Buckhead),Client,04/23/2026,03/11/2027,New,"Marsili, Tony",35.00%,189.17%,"Adams, Shane",07/01/2026 11:35 AM,NOC - Mike Meme
+P20260114.0001,Red (1),MRP Domain & Server Decommission,"ServIT, Inc. (HQ)",Internal,01/14/2026,07/30/2026,III-In Progress,"Brown, Steven",7.00%,0.00%,"Adams, Shane",07/01/2026 11:37 AM,Kyle Oakley
+P20251223.0001,,ERP testing V7R6,Ivex Specialty Paper,Client,12/23/2025,03/30/2027,III-In Progress,"Marsili, Tony",17.00%,117.69%,"Integrations, MSP",07/01/2026 02:06 PM,Ken Bordner
+P20260611.0003,,"Project ""Replacement Firewall"" (TBBTM,TM)",Elite Administration & Insurance Group (HQ),Client,06/11/2026,12/11/2026,New,"Marsili, Tony",6.00%,71.43%,"Dickerson, Anthony",07/01/2026 02:10 PM,NOC - Anthony Dickerson
+P20260116.0002,,"Replacement Firewall & VPN Services(TBB-TM, SB)",Thomas & Brown LLC (Nat Net),Client,01/16/2026,07/29/2027,III-In Progress,"Brown, Steven",18.00%,70.00%,"Brown, Steven",07/02/2026 12:14 PM,NOC - Anthony Dickerson
+P20260526.0003,,"Project ""Windows Backup BDR addendum"" (MS-DV, TM)",Josam Company (HQ),Client,05/26/2026,11/25/2026,New,"Marsili, Tony",12.00%,0.00%,"Schnipke, Andrew",07/02/2026 12:43 PM,Kyle Oakley
+P20241030.0002,,"Project ""Entra ID Active Directory Joined Configuration"" (TBBTM,SB)",Preferred Personnel Solutions (Kennesaw HQ),Client,10/30/2024,10/29/2026,III-In Progress,"Brown, Steven",48.00%,42.62%,"Integrations, MSP",07/02/2026 01:27 PM,NOC - Frankie Hammonds
+P20260513.0001,,"Low Voltage Cleanup Project(TBB-FR, SB)",Air Quality Systems,Client,05/13/2026,11/26/2026,III-In Progress,"Brown, Steven",14.00%,0.00%,"Brown, Steven",07/02/2026 02:23 PM,Third Party
+P20260427.0002,,"File Migration(TBB-TM, SB)",Hawthorn Physicians Services Corporation,Client,04/27/2026,10/27/2026,II-Project Planning,"Brown, Steven",6.00%,0.00%,"Integrations, MSP",07/02/2026 02:57 PM,Kyle Oakley
+P20251017.0002,,"SharePoint POC for HR(TBB,TM-SB)",Soteria Flexibles (HQ),Client,10/17/2025,08/27/2026,III-Waiting Customer,"Brown, Steven",19.00%,13.64%,"Brown, Steven",07/02/2026 02:58 PM,NOC - Anthony Dickerson
+P20260323.0006,,"Enable DMARC for 7 domains(MS-AIT,SB)","Beaumont Products, Inc. (Main)",Client,03/23/2026,12/31/2026,I-Call Scheduled,"Brown, Steven",12.00%,0.00%,"Brown, Steven",07/02/2026 03:16 PM,Kyle Oakley
+P20260504.0003,,Cyber Security enhancement,"Beaumont Products, Inc. (Main)",Client,05/04/2026,11/26/2026,III-In Progress,"Brown, Steven",29.00%,0.00%,"Brown, Steven",07/02/2026 03:19 PM,Greg Huelsmann
+P20260522.0002,,"4 - P1 Licenses (MS-AIT, SB)",Division 9 Commercial Inc Construction,Client,05/22/2026,11/23/2026,III-In Progress,"Brown, Steven",6.00%,0.00%,"Brown, Steven",07/02/2026 04:49 PM,Kyle Oakley
+P20260513.0002,Red (1),"General Wholesale’s Backup Environment(MS-DV, SB)",General Wholesale Beer Company (615) (HQ),Client,05/13/2026,12/31/2026,III-Waiting Materials,"Brown, Steven",4.00%,0.00%,"Brown, Steven",07/05/2026 10:31 AM,David Decaria
+P20260109.0001,,DR Test,Georgia Baptist Foundation,Client,01/09/2026,07/13/2026,III-Waiting Customer,"Brown, Steven",50.00%,0.00%,"Brown, Steven",07/05/2026 10:33 AM,David Decaria
+P20250306.0002,,"Project""Replacement Firewall, WattBox and Access Point, TX""(TBB,SB)",German American Chamber of Commerce (HQ),Client,03/06/2025,11/03/2026,On Hold,"Brown, Steven",17.00%,86.36%,"Brown, Steven",07/05/2026 10:38 AM,Joe Mason
+P20250303.0001,,Entra ID & Intune Setup,InReach Community Dx,Client,03/03/2025,12/31/2026,III-Waiting Customer,"Brown, Steven",7.00%,18.92%,"Brown, Steven",07/05/2026 10:40 AM,Dexter Ashby
+P20260624.0002,,"ITW CIP - DV and DR Cancellation(MS-AIT,SB)",ITW CIP,Client,06/24/2026,12/30/2026,III-In Progress,"Brown, Steven",8.00%,0.00%,"Brown, Steven",07/05/2026 10:46 AM,Other
+P20260629.0003,,"cancel the BGP services for Milan/ Ascend at Performive(MS-AIT,SB)",Milan Supply Chain Solutions (HQ),Client,06/29/2026,12/29/2026,II-Project Planning,"Brown, Steven",17.00%,0.00%,"Brown, Steven",07/05/2026 10:58 AM,Kyle Oakley
+P20260115.0002,,Migrate On-Premises Active Directory Environment to Microsoft Entra ID,Patriot Select Property & Casualty Insurance Co.,Client,01/15/2026,07/17/2026,IV-Waiting Customer OK,"Brown, Steven",4.00%,220.48%,"Brown, Steven",07/05/2026 11:00 AM,Dexter Ashby
+P20260612.0003,,"Patriot AIT  SOC - Agreement for Windows(TBB-MC,SB)",Patriot Select Property & Casualty Insurance Co.,Client,06/12/2026,12/14/2026,III-Waiting Customer,"Brown, Steven",5.00%,0.00%,"Brown, Steven",07/05/2026 11:02 AM,Dexter Ashby
+P20250925.0002,,Claims Check Processing Automation,Patriot Select Property & Casualty Insurance Co.,Client,09/25/2025,07/30/2026,III-In Progress,"Brown, Steven",11.00%,116.08%,"Brown, Steven",07/05/2026 11:06 AM,Dexter Ashby
+P20260223.0003,,AIT and SOC Agreements,RTCO Packaging LLC,Client,02/23/2026,08/25/2026,II-Project Planning,"Brown, Steven",44.00%,0.00%,"Brown, Steven",07/05/2026 11:15 AM,Jason Morhaus
+P20260318.0001,,Microsoft Tenant - Entra ID & Email Migration,RTCO Packaging LLC,Client,03/18/2026,09/17/2026,III-In Progress,"Brown, Steven",2.00%,156.96%,"Brown, Steven",07/05/2026 11:17 AM,Dexter Ashby
+P20260323.0003,,Power BI Implementation,SECO (HQ Southeast Consolidators),Client,03/23/2026,09/22/2026,III-In Progress,"Brown, Steven",6.00%,28.73%,"Brown, Steven",07/05/2026 11:19 AM,Dexter Ashby
+P20240516.0003,,"Project  ""Replacement Firewall""(TBB, SB)",SECO (HQ Southeast Consolidators),Client,05/16/2024,07/30/2026,III-Waiting ServIT,"Brown, Steven",35.00%,275.18%,"Brown, Steven",07/05/2026 11:25 AM,Dexter Ashby
+P20251014.0001,,Network Segmentation,Soteria Flexibles (HQ),Client,10/14/2025,10/01/2026,III-In Progress,"Brown, Steven",12.00%,81.25%,"Brown, Steven",07/05/2026 08:43 PM,NOC - Frankie Hammonds
+P20260119.0003,,Email Migration,"Worley, Schilling & Randall",Client,01/19/2026,07/21/2026,III-In Progress,"Brown, Steven",3.00%,0.00%,"Brown, Steven",07/05/2026 08:47 PM,Dexter Ashby
+P20260526.0001,,"11 Lan Drops (TBB-FR, SB)",Castles Tech,Client,05/26/2026,08/27/2026,V-Pending Complete,"Brown, Steven",24.00%,0.00%,"Brown, Steven",07/06/2026 09:03 AM,Third Party
+P20260318.0002,Red (1),Vul Scan and DNS Filtering,General Wholesale Beer Company (615) (HQ),Client,03/18/2026,09/17/2026,V-Pending Complete,"Brown, Steven",5.00%,0.00%,"Brown, Steven",07/06/2026 09:05 AM,Greg Huelsmann
+P20260119.0004,Red (1),"VMWare to Hyper-V Host conversion(TBB-TM,SB)","Bomarko, Inc.",Client,01/19/2026,11/25/2026,III-In Progress,"Brown, Steven",0.00%,0.00%,"Integrations, MSP",07/06/2026 09:25 AM,Kamran Saeed
+P20260603.0002,,"Hyper-V Conversion (TBB-TM, SB)",Fluid Control Services,Client,06/03/2026,12/03/2026,III-In Progress,"Brown, Steven",10.00%,0.00%,"Marsili, Tony",07/06/2026 10:02 AM,Kamran Saeed
+P20260501.0001,,"3CX Phone System(TBB-TM&AIT,SB)",InReach Community Dx,Client,05/01/2026,12/31/2026,III-In Progress,"Brown, Steven",16.00%,33.33%,"Integrations, MSP",07/06/2026 10:19 AM,NOC - Chad Berry
+P20260429.0003,,"Conditional Access implementation(TBB-TM,SB)",Division 9 Commercial Inc Construction,Client,04/29/2026,12/31/2026,III-Waiting Customer,"Brown, Steven",5.00%,0.00%,"Integrations, MSP",07/06/2026 10:21 AM,Other
+P20250903.0008,,Continental Products DC upgrade,Soteria Flexibles (HQ),Client,09/03/2025,10/01/2026,V-Pending Complete,"Brown, Steven",16.00%,66.67%,"Brown, Steven",07/06/2026 10:44 AM,NOC - Ryan Pardue
+P20250903.0004,,Filmtech - Replacement 48-Port Switch,Soteria Flexibles (HQ),Client,09/03/2025,12/31/2026,III-Project Scheduled,"Brown, Steven",13.00%,0.00%,"Brown, Steven",07/06/2026 10:45 AM,NOC - Frankie Hammonds
+P20260522.0003,,"Replacement Cloud Key Controller(TBB-TM,SB)",FilmTech LLC,Client,05/22/2026,11/23/2026,II-Project Planning,"Brown, Steven",0.00%,0.00%,"Marsili, Tony",07/06/2026 10:56 AM,NOC - Frankie Hammonds
+P20260409.0002,,"SharePoint Assessment(TBB-TM,SB)",Atlanta Bonded Warehouse,Client,04/10/2026,10/12/2026,III-In Progress,"Brown, Steven",10.00%,40.00%,"Integrations, MSP",07/06/2026 10:58 AM,NOC - Anthony Dickerson
+P20260319.0001,,PTF Upgrade on Power 8,United Fabrics,Client,03/19/2026,06/24/2027,New,"Slaton, Brad",48.00%,30.00%,"Marsili, Tony",07/06/2026 11:19 AM,Ken Bordner
+P20251027.0003,,Windows 11 VM for QuickBooks,Soteria Flexibles (HQ),Client,10/27/2025,10/01/2026,III-In Progress,"Brown, Steven",20.00%,90.00%,"Dickerson, Anthony",07/06/2026 11:25 AM,NOC - Ryan Pardue
+P20260608.0002,,"Project ""IBM Power Re-Rack"" (TBBTM, TM)","Mitsui Sumitomo Marine Management (U.S.A.), Inc.",Client,06/08/2026,12/08/2026,I-Accepted,"Marsili, Tony",0.00%,0.00%,"Marsili, Tony",07/06/2026 11:32 AM,Third Party
+P20260319.0002,,"Project ""Data migration to cloud"" (TBBTM, TM)",Conair LLC,Client,03/19/2026,09/18/2026,III-In Progress,"Marsili, Tony",3.00%,23.87%,"Marsili, Tony",07/06/2026 11:38 AM,Kyle Oakley
+P20260605.0001,,"Hyper-V Conversion(TBB-TM, SB)",Geosurvey LTD,Client,06/05/2026,12/07/2026,III-In Progress,"Brown, Steven",10.00%,68.06%,"Brown, Steven",07/06/2026 11:44 AM,Kamran Saeed
+P20260123.0002,,"VPN Configuration(MS-AIT,SB)",AV Powell & Associates LLC (HQ),Client,01/23/2026,10/29/2026,IV-Waiting Customer OK,"Brown, Steven",6.00%,0.00%,"Integrations, MSP",07/06/2026 01:42 PM,Brad Winklesky
+P20260428.0002,,Cancellation,Roof Management Inc. (HQ),Client,04/28/2026,10/28/2026,III-Waiting Customer,"Brown, Steven",9.00%,0.00%,"Integrations, MSP",07/06/2026 01:48 PM,Kyle Oakley
+P20251205.0001,,Website Terms & Conditions Update,Soteria Flexibles (HQ),Client,12/05/2025,12/31/2026,On Hold,"Brown, Steven",12.00%,16.67%,"Brown, Steven",07/06/2026 03:26 PM,Other
+P20260528.0001,,"Project ""Replacement Core Switches"" (TBBTM, TM)",Fulton Industries,Client,05/28/2026,11/27/2026,New,"Marsili, Tony",4.00%,0.00%,"Marsili, Tony",07/06/2026 03:48 PM,James Harp
+P20260608.0001,,"Project ""SQL Server Upgrade"" (TBBTM, TM)",ITW Shakeproof (SIP Broadview),Client,06/08/2026,12/08/2026,New,"Marsili, Tony",0.00%,0.00%,"Marsili, Tony",07/06/2026 03:54 PM,John Karlow
+P20260619.0001,,"Project ""CMMC"" (TBBTM,TM)",Diverzify Atlanta (HQ) - DHQ,Client,06/19/2026,12/21/2026,New,"Marsili, Tony",0.00%,0.00%,"Marsili, Tony",07/06/2026 03:57 PM,Greg Huelsmann
+P20260515.0002,,"Soteria Flexibles Colonial Bag Corporation Replacement Firewall(TBB-TM,SB)",Colonial Bag Corporation,Client,05/15/2026,12/07/2026,III-In Progress,"Brown, Steven",22.00%,36.54%,"Brown, Steven",07/06/2026 04:09 PM,NOC - Frankie Hammonds
+P20260115.0001,,Email/Tenant Migration,"Norplex, Inc.",Client,01/15/2026,10/29/2026,V-Pending Complete,"Brown, Steven",13.00%,269.64%,"Brown, Steven",07/06/2026 04:21 PM,Dexter Ashby
+P20250903.0006,,Filmtech - Replacement Firewall,Soteria Flexibles (HQ),Client,09/03/2025,01/05/2027,III-In Progress,"Brown, Steven",23.00%,73.68%,"Pardue, Ryan",07/06/2026 08:05 PM,NOC - Frankie Hammonds
+P20260320.0001,,"Project ""Support Transion"" (TBBTM, TM)","Oldcastle, Inc.",Client,03/20/2026,11/27/2026,III-In Progress,"Marsili, Tony",93.00%,0.00%,"Pardue, Ryan",07/06/2026 08:05 PM,NOC - Ryan Pardue
+P20260410.0001,,"Vipre to ProofPoint change(MS-AIT,SB)",Turner Chapel AME Church (Main Location),Client,04/10/2026,11/26/2026,III-In Progress,"Brown, Steven",8.00%,0.00%,"Integrations, MSP",07/06/2026 10:06 PM,NOC - Timmy Nguygen
+P20250212.0002,,"Project """"TISAX certification cost estimate"" (BS)",ITW Air Flow Management,Client,02/13/2025,10/13/2026,III-In Progress,"Slaton, Brad",80.00%,42.15%,"Huelsmann, Gregory",07/07/2026 10:12 AM,Greg Huelsmann
+P20260426.0001,,"New Location Setup (TBB-FR,SB)",Air Quality Systems,Client,04/27/2026,11/18/2026,III-In Progress,"Brown, Steven",8.00%,0.00%,"Brown, Steven",07/07/2026 12:10 PM,James Harp
+P20260625.0001,,"Project""CloudConnexa Implementation"" (TBBTM, TM)",American Southern Insurance HQ,Client,06/25/2026,12/25/2026,New,"Marsili, Tony",6.00%,0.00%,"Marsili, Tony",07/07/2026 12:25 PM,Kyle Oakley
+P20260424.0001,,Castle Tech AIT,Castles Tech,Client,04/24/2026,03/12/2027,III-In Progress,"Brown, Steven",0.00%,0.00%,"Integrations, MSP",07/07/2026 03:02 PM,Jason Morhaus
+P20260424.0002,,Castle Tech SOC,Castles Tech,Client,04/24/2026,03/12/2027,III-In Progress,"Brown, Steven",31.00%,0.00%,"Brown, Steven",07/07/2026 03:07 PM,Greg Huelsmann
+P20260702.0001,,"Project ""Open VPN Implementation"" (TBBTM, TM)","Gulf Stream Coach, Inc.",Client,07/02/2026,01/01/2027,III-Project Scheduled,"Marsili, Tony",0.00%,0.00%,"Marsili, Tony",07/07/2026 03:33 PM,NOC - Ryan Pardue
+P20260701.0001,,"Project ""Network analysis and redesign"" (TBBTM, TM)",Premium Guard Inc.,Client,07/01/2026,12/31/2026,III-In Progress,"Marsili, Tony",6.00%,0.00%,"Marsili, Tony",07/07/2026 03:36 PM,Jason Morhaus
+P20260707.0001,,Data Vaulting and Disaster Recovery Agreement for IBM POWER,Studio Ray,Proposal,07/07/2026,01/06/2027,New,,0.00%,0.00%,"Ryan, Cara",07/07/2026 04:10 PM,Kyle Oakley
+P20260611.0001,,"PTF and firmware SOW for Power 9(TBB-TM, SB)",Husky Corporation,Client,06/11/2026,07/13/2027,II-Project Planning,"Brown, Steven",8.00%,0.00%,"Integrations, MSP",07/08/2026 08:16 AM,Third Party
+P20230616.0002,,"Project "" Ongoing Support"" (TBBTM,BS)","Barbe America, Inc",Client,06/16/2023,09/27/2026,III-In Progress,"Slaton, Brad",65.00%,"3,182.60%","Ashby, Dexter",07/08/2026 08:54 AM,Dexter Ashby
+P20240516.0005,,"Project ""Lan Subnet Change""(TBB, SB)",SECO (HQ Southeast Consolidators),Client,05/16/2024,12/31/2026,III-In Progress,"Brown, Steven",50.00%,277.09%,"Ashby, Dexter",07/08/2026 08:58 AM,Dexter Ashby
+P20260409.0001,,FortiGate Virtual Firewall Implementation,"MEI Services, Inc. dba PharmaLife LTC",Client,04/09/2026,06/17/2027,New,"Marsili, Tony",5.00%,105.00%,"Ashby, Dexter",07/08/2026 09:03 AM,NOC - Ryan Pardue
+P20250805.0001,,"Project""Hexagon/Network Cutovers"" (TBB,TM)",Brindlee Fire Services,Client,07/01/2025,05/29/2026,III-Waiting Vendor,"Marsili, Tony",88.00%,0.00%,"Ashby, Dexter",07/08/2026 09:04 AM,Dexter Ashby
+P20250625.0002,,Operating System Upgrade,Fromm International,Client,06/25/2025,11/26/2026,III-Waiting Customer,"Brown, Steven",42.00%,82.35%,"Integrations, MSP",07/08/2026 10:08 AM,Ken Bordner
+P20260624.0001,,"3CX Cancellation(MS-AIT, SB)","SKL'D Staffing (Duluth, GA)",Client,06/24/2026,12/31/2026,II-Project Planning,"Brown, Steven",12.00%,0.00%,"Integrations, MSP",07/08/2026 11:03 AM,NOC - Chad Berry
+P20260401.0001,,FIS Migration,Patriot Select Property & Casualty Insurance Co.,Client,04/01/2026,10/01/2026,III-In Progress,"Brown, Steven",17.00%,398.51%,"Integrations, MSP",07/08/2026 11:03 AM,Kyle Oakley

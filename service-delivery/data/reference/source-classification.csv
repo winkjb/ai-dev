@@ -1,0 +1,18 @@
+Source,Classification,Reason,Date Added
+Nable,System-Generated,Automated monitoring tool,2026-07-08
+Auvik,System-Generated,Automated monitoring tool,2026-07-08
+RocketCyber,System-Generated,Automated monitoring tool,2026-07-08
+Solarwinds,System-Generated,Automated monitoring tool,2026-07-08
+Monitoring Alert,System-Generated,Automated monitoring source,2026-07-08
+ITW Nable Tenant,System-Generated,Nable-tenant automated monitoring,2026-07-08
+Meraki Portal,System-Generated,Network monitoring portal alerts,2026-07-08
+Recurring,System-Generated,Scheduled/auto-created recurring ticket,2026-07-08
+Barracuda,System-Generated,Email security appliance alerts,2026-07-08
+Email,Human-Generated,Human-submitted via email,2026-07-08
+Phone,Human-Generated,Human-submitted via phone,2026-07-08
+JotForm,Human-Generated,Human-submitted web form,2026-07-08
+Insourced,Human-Generated,Internally human-created ticket,2026-07-08
+Client Portal,Human-Generated,Human-submitted via client portal,2026-07-08
+In Person/Onsite,Human-Generated,Human-submitted in person,2026-07-08
+Service Desk Plus,Human-Generated,Human-submitted via service desk tool,2026-07-08
+Other,Unclassified,Ambiguous source value - needs manual review,2026-07-08

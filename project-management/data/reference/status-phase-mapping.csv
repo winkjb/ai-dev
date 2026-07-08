@@ -1,0 +1,14 @@
+Status,Phase
+New,Beginning
+I-Call Scheduled,Beginning
+I-Accepted,Beginning
+II-Project Planning,Beginning
+III-In Progress,In Process
+III-Waiting Customer,In Process
+III-Project Scheduled,In Process
+III-Waiting Materials,In Process
+III-Waiting ServIT,In Process
+III-Waiting Vendor,In Process
+IV-Waiting Customer OK,In Process
+V-Pending Complete,Closing
+On Hold,On Hold
