@@ -11,4 +11,4 @@ Root of the ai-dev workspace. Development environment for business automation pr
 - `project-management/`, `security/`, `service-delivery/` — one folder per team; each self-contained with its own `CONTEXT.md`, roles, scripts, and data.
 
 ## Notes
-This file previously described an unrelated "ai-os" workspace (Bandit Zone) — that content was stale and has been corrected to reflect the actual ai-dev workspace. See `CLAUDE.md` for the full CONTEXT.md convention used throughout this repo.
+See `CLAUDE.md` for the full CONTEXT.md convention used throughout this repo.
