@@ -5,14 +5,14 @@ This directory is used as a development environment for business automation proj
 ## Conventions
 
 ### The 60/30/10 Principle
-**[principles.md](principles.md) — read this first.**
+**[PRINCIPLES.md](PRINCIPLES.md) — read this first.**
 
-Default to this ordering when designing any automation in this workspace: 60% programmatic (deterministic code), 30% data-driven (files/config/lookups), 10% AI (credit: John Elder). This is a design bias/ordering preference, not a literal ratio to calculate per project — reach for a rule first, then a file, and bring in AI only when a task genuinely requires judgment or prose generation. `principles.md` covers the full breakdown, the rationale (cost, consistency, hallucination, auditability), and the decision tree for classifying a task.
+Default to this ordering when designing any automation in this workspace: 60% programmatic (deterministic code), 30% data-driven (files/config/lookups), 10% AI (credit: John Elder). This is a design bias/ordering preference, not a literal ratio to calculate per project — reach for a rule first, then a file, and bring in AI only when a task genuinely requires judgment or prose generation. `PRINCIPLES.md` covers the full breakdown, the rationale (cost, consistency, hallucination, auditability), and the decision tree for classifying a task.
 
-Each role's `context.md` should include a **60/30/10 Breakdown** section documenting which of its tasks are Programmatic, Data-Driven, or AI — see `project-management/01-coordinator/context.md` for the first worked example.
+Each role's `CONTEXT.md` should include a **60/30/10 Breakdown** section documenting which of its tasks are Programmatic, Data-Driven, or AI — see `project-management/01-coordinator/CONTEXT.md` for the first worked example.
 
-### context.md Files
-Every folder in this workspace should contain a `context.md` file that describes the purpose of that folder, what it contains, and any relevant notes. This helps Claude (and collaborators) quickly orient to what's in each directory without having to read every file.
+### CONTEXT.md Files
+Every folder in this workspace should contain a `CONTEXT.md` file that describes the purpose of that folder, what it contains, and any relevant notes. This helps Claude (and collaborators) quickly orient to what's in each directory without having to read every file.
 
 ### log.md Files
 
@@ -31,7 +31,7 @@ Format: `NN-role-name` (e.g. `01-coordinator`, `02-client-communication`, `03-in
 
 Reserve the project root's own folders (`data/`, `scripts/`, etc.) for resources genuinely shared/joint across roles — e.g. `data/` for the common source-of-truth data, `scripts/` for cross-role utilities like a shared notify script. If something only serves one role, it belongs in that role's folder, not the shared one.
 
-The intended order should already be established by that project's architecture doc (e.g. `project-management/pm-agent-architecture.md` numbers agents 1-7, with the Orchestrator as a final cross-cutting step). Reuse those numbers rather than re-deriving a new order. If a project has no architecture doc yet, define the process order first, then number folders to match.
+The intended order should already be established by that project's architecture doc (e.g. `project-management/pm-agent-architecture.md` lays out Coordinator through Resource Allocation as Reactive/Proactive tier agents, with the Orchestrator — folder `08` — as the cross-cutting agent that routes between them). Reuse those numbers rather than re-deriving a new order. If a project has no architecture doc yet, define the process order first, then number folders to match.
 
 ### Shared Data Layer vs. Role-Owned Output
 Two valid patterns exist for where a role's generated output lives, and the right one depends on whether that output is consumed by other roles or is a terminal deliverable:

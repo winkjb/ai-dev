@@ -8,7 +8,7 @@ Reactive Tier — Agent #1 in `../support-service-delivery-agent-architecture.md
 - `output/` — generated reports (regenerable; not hand-edited). `ticket-dispatch-report.csv` (every in-scope ticket with Health + flag detail) + `ticket-dispatch-summary.md` (counts, by-queue breakdown).
 
 ## 60/30/10 Breakdown
-(see `../../principles.md` for the full principle)
+(see `../../PRINCIPLES.md` for the full principle)
 
 - **Programmatic (60%)** — all of it so far. Critical/Stalled-Intake/Stale/Waiting/Unassigned are objective status/queue/age comparisons against constants (`STALE_DAYS`, `WAITING_STATUSES`, `INTAKE_QUEUE`, `DISPATCHED_STATUS`); Health prioritization, sorting, and report formatting are all deterministic.
 - **Data-Driven (30%)** — reads `../data/raw` (the ticket export, now including a real `Last Activity Time` column as of 2026-07-08), `../data/reference/excluded-ticket-sources.csv` (human-maintained Queue+Source exclusion rules), and `../data/reference/source-classification.csv` (human-maintained Source → Ticket Origin lookup, added 2026-07-08). No inference involved.

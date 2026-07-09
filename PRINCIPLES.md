@@ -6,7 +6,7 @@
 
 Every automation built in this workspace is governed by a deliberate ratio of how work gets done: 60% programmatic, 30% data-driven, 10% AI. The goal is consistency, cost control, reduced hallucination/error surface, and auditability — a human should be able to look at any flag or recommendation this workspace produces and see exactly why it fired.
 
-This is a design bias, not a literal percentage to calculate per project. See `CLAUDE.md` for how this plugs into the rest of the workspace's conventions.
+This is a design bias, not a literal percentage to calculate per project. See [CLAUDE.md](CLAUDE.md) for how this plugs into the rest of the workspace's conventions.
 
 ---
 
@@ -66,10 +66,10 @@ In this workspace, AI work includes:
 
 ## Applying the Ratio Per Role
 
-Each role's `context.md` should document a **60/30/10 Breakdown** section listing which of its tasks fall into which bucket. Before building a task within a role, work through this in order:
+Each role's `CONTEXT.md` should document a **60/30/10 Breakdown** section listing which of its tasks fall into which bucket. Before building a task within a role, work through this in order:
 
 1. Is there a rule, threshold, or calculation that fully defines this? → **Programmatic**
 2. Is the answer already in a file (raw export, reference lookup, another role's output)? → **Data-Driven**
 3. Does this genuinely require judgment, synthesis, or prose generation? → **AI, but only then**
 
-See `project-management/01-coordinator/context.md` for the first worked example — a role that turned out to be 100% Programmatic + Data-Driven, 0% AI, and works well precisely because "overdue"/"stale" are objective definitions rather than judgment calls.
+See `project-management/01-coordinator/CONTEXT.md` for the first worked example — a role that turned out to be 100% Programmatic + Data-Driven, 0% AI, and works well precisely because "overdue"/"stale" are objective definitions rather than judgment calls.

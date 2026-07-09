@@ -3,7 +3,7 @@
 ## Purpose
 **Shared/cross-role scripts only** — utilities used by more than one agent role (e.g. a shared notify script, common data-loading helpers). Role-specific automation does NOT live here.
 
-Each agent role has its own top-level folder instead: `../01-coordinator/`, `../02-client-communication/`, `../03-intake-triage/`, `../04-planner/`, `../05-analyst/`, `../06-risk-compliance/`, `../07-resource-allocation/`, `../08-orchestrator/` (see `../context.md`).
+Each agent role has its own top-level folder instead: `../01-coordinator/`, `../02-client-communication/`, `../03-intake-triage/`, `../04-planner/`, `../05-analyst/`, `../06-risk-compliance/`, `../07-resource-allocation/`, `../08-orchestrator/` (see `../CONTEXT.md`).
 
 ## Contents
 (empty — to be populated as shared utilities are identified)
