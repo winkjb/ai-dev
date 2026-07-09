@@ -8,7 +8,7 @@ There is no need to ask any clariying questions here.  Simply read these items, 
 
 ## Where things stand
 
-Core framework is built: CLAUDE.md (conventions), README.md (index).  Each folder fits a specific team that Brad supports (Project Managmenent Team | project-management folder, Security Team | security folder, Service Delivery Team | service-delivery folder)  
+Core framework is built: CLAUDE.md (conventions), readme.md (index).  Each folder fits a specific team that Brad supports (Project Managmenent Team | project-management folder, Security Team | security folder, Service Delivery Team | service-delivery folder)  
 
 ## Open loops
 

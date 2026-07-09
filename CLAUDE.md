@@ -5,14 +5,14 @@ This directory is used as a development environment for business automation proj
 ## Conventions
 
 ### The 60/30/10 Principle
-**[PRINCIPLES.md](PRINCIPLES.md) — read this first.**
+**[principles.md](principles.md) — read this first.**
 
-Default to this ordering when designing any automation in this workspace: 60% programmatic (deterministic code), 30% data-driven (files/config/lookups), 10% AI (credit: John Elder). This is a design bias/ordering preference, not a literal ratio to calculate per project — reach for a rule first, then a file, and bring in AI only when a task genuinely requires judgment or prose generation. `PRINCIPLES.md` covers the full breakdown, the rationale (cost, consistency, hallucination, auditability), and the decision tree for classifying a task.
+Default to this ordering when designing any automation in this workspace: 60% programmatic (deterministic code), 30% data-driven (files/config/lookups), 10% AI (credit: John Elder). This is a design bias/ordering preference, not a literal ratio to calculate per project — reach for a rule first, then a file, and bring in AI only when a task genuinely requires judgment or prose generation. `principles.md` covers the full breakdown, the rationale (cost, consistency, hallucination, auditability), and the decision tree for classifying a task.
 
-Each role's `CONTEXT.md` should include a **60/30/10 Breakdown** section documenting which of its tasks are Programmatic, Data-Driven, or AI — see `project-management/01-coordinator/CONTEXT.md` for the first worked example.
+Each role's `context.md` should include a **60/30/10 Breakdown** section documenting which of its tasks are Programmatic, Data-Driven, or AI — see `project-management/01-coordinator/context.md` for the first worked example.
 
-### CONTEXT.md Files
-Every folder in this workspace should contain a `CONTEXT.md` file that describes the purpose of that folder, what it contains, and any relevant notes. This helps Claude (and collaborators) quickly orient to what's in each directory without having to read every file.
+### context.md Files
+Every folder in this workspace should contain a `context.md` file that describes the purpose of that folder, what it contains, and any relevant notes. This helps Claude (and collaborators) quickly orient to what's in each directory without having to read every file.
 
 ### log.md Files
 
@@ -47,6 +47,6 @@ Don't force both projects into the same pattern for consistency's sake — pick 
 
 To be prepared.
 
-### BOOTSTRAP.md Maintenance
+### bootstrap.md Maintenance
 
 To be prepared.

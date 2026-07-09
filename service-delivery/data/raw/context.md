@@ -8,4 +8,4 @@ Unmodified data exports — the actual system-of-record data, dropped in as-is, 
 - `Ticket Search Results-yesterda.csv` — prior day's export, kept alongside the current one for day-over-day comparison.
 
 ## Notes
-Re-export and drop the replacement file in here to refresh; the filename is what `ticket_report.py` reads (see `../../01-coordinator/CONTEXT.md` for the full revision history).
+Re-export and drop the replacement file in here to refresh; the filename is what `ticket_report.py` reads (see `../../01-coordinator/context.md` for the full revision history).
