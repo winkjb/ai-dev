@@ -2,13 +2,22 @@ Status,Phase
 New,Beginning
 I-Call Scheduled,Beginning
 I-Accepted,Beginning
+II-Chg Order Preinstall,Beginning
 II-Project Planning,Beginning
 III-In Progress,In Process
 III-Waiting Customer,In Process
 III-Project Scheduled,In Process
+III-Testing,In Process
 III-Waiting Materials,In Process
 III-Waiting ServIT,In Process
+III-Chg Order Install,In Process
 III-Waiting Vendor,In Process
+IV-Monitoring,In Process
+IV-Chg Order Postinstall,In Process
 IV-Waiting Customer OK,In Process
 V-Pending Complete,Closing
-On Hold,On Hold
+V-To Be Billed/Open,Final Closure
+V-To Be Billed/Closed,Final Closure
+V-To Be Billed/Weekend,Final Closure
+On Hold,On Hold/Inactive
+Inactive,On Hold/Inactive
