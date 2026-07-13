@@ -1,31 +1,32 @@
-# Service Delivery Coordinator Report (Tickets) - 2026-07-10 03:58
+# Service Delivery Coordinator Report (Tickets) - 2026-07-13 08:22
 
-Excluded 473 automated-monitoring / out-of-scope-queue ticket(s) from analysis (see ../data/reference/excluded-ticket-sources.csv).
+Excluded 463 automated-monitoring / out-of-scope-queue ticket(s) from analysis (see ../data/reference/excluded-ticket-sources.csv).
 
-- Critical Unassigned: 0
-- Stalled Intake (New queue, or Dispatched elsewhere): 45
+- Critical Unassigned: 1
+- Stalled Intake (New queue, or Dispatched elsewhere): 60
 - Stale (no activity 7+ days): 119
-- Waiting External (customer/vendor): 161
-- Unassigned (other): 3
-- Active: 262
-- Total in scope: 590
+- Waiting External (customer/vendor): 156
+- Unassigned (other): 13
+- Active: 282
+- Total in scope: 631
 
 ## By Queue (flagged tickets only, sorted worst first)
 
 | Queue | Critical Unassigned | Stalled Intake | Stale | Waiting External | Unassigned | Total Flagged |
 |---|---|---|---|---|---|
-| Tier 1 | 0 | 5 | 30 | 58 | 0 | 93 |
-| Diverzify | 0 | 7 | 20 | 58 | 0 | 85 |
-| Tier 2 | 0 | 2 | 15 | 24 | 0 | 41 |
-| New | 0 | 21 | 0 | 0 | 0 | 21 |
-| Pre Sale | 0 | 0 | 15 | 3 | 1 | 19 |
-| Security | 0 | 3 | 10 | 1 | 1 | 15 |
-| Field Service Request | 0 | 0 | 12 | 1 | 0 | 13 |
-| Alerts | 0 | 3 | 3 | 6 | 0 | 12 |
+| Tier 1 | 0 | 1 | 30 | 55 | 0 | 86 |
+| Diverzify | 0 | 6 | 19 | 57 | 0 | 82 |
+| Tier 2 | 0 | 2 | 13 | 21 | 0 | 36 |
+| Alerts | 0 | 16 | 3 | 8 | 8 | 35 |
+| New | 1 | 30 | 0 | 0 | 0 | 31 |
+| Pre Sale | 0 | 0 | 15 | 3 | 2 | 20 |
+| Field Service Request | 0 | 0 | 13 | 1 | 0 | 14 |
+| Security | 0 | 1 | 10 | 1 | 0 | 12 |
+| PC Refresh & Repair | 0 | 0 | 2 | 8 | 0 | 10 |
 | Tier 3 | Infrastructure | 0 | 3 | 5 | 1 | 0 | 9 |
-| PC Refresh & Repair | 0 | 0 | 0 | 8 | 0 | 8 |
 | ITW Shakeproof | 0 | 0 | 6 | 0 | 0 | 6 |
 | Diverzify Infrastructure Support | 0 | 0 | 2 | 1 | 0 | 3 |
+| Business Continuity | 0 | 0 | 0 | 0 | 2 | 2 |
 | Post Sale | 0 | 0 | 1 | 0 | 1 | 2 |
 | O&C | 0 | 1 | 0 | 0 | 0 | 1 |
 
