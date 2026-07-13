@@ -2,6 +2,10 @@
 
 This directory is used as a development environment for business automation projects.
 
+## This Is a Prototyping Ground
+
+This workspace exists to prove things out before they move into a production data structure. Keep documentation lightweight and don't let it block iteration — renaming output files, dropping in new test reports/exports, or reshaping a script mid-experiment should never require updating a chain of other documents. Fix docs opportunistically when you're already there; don't chase every change through the whole tree.
+
 ## Conventions
 
 ### The 60/30/10 Principle
@@ -9,10 +13,10 @@ This directory is used as a development environment for business automation proj
 
 Default to this ordering when designing any automation in this workspace: 60% programmatic (deterministic code), 30% data-driven (files/config/lookups), 10% AI (credit: John Elder). This is a design bias/ordering preference, not a literal ratio to calculate per project — reach for a rule first, then a file, and bring in AI only when a task genuinely requires judgment or prose generation. `principles.md` covers the full breakdown, the rationale (cost, consistency, hallucination, auditability), and the decision tree for classifying a task.
 
-Each role's `context.md` should include a **60/30/10 Breakdown** section documenting which of its tasks are Programmatic, Data-Driven, or AI — see `project-management/01-coordinator/context.md` for the first worked example.
-
 ### context.md Files
-Every folder in this workspace should contain a `context.md` file that describes the purpose of that folder, what it contains, and any relevant notes. This helps Claude (and collaborators) quickly orient to what's in each directory without having to read every file.
+`context.md` is required in exactly two places: the workspace root and each team's root folder (`project-management/`, `security/`, `service-delivery/`). It describes the purpose of that folder and what it contains, so Claude (and collaborators) can orient quickly.
+
+Nested folders (role folders, `data/`, `scripts/`, `output/`, etc.) don't need their own context.md. These four files are a best-effort map, not a contract — update them when convenient, not as a mandatory side effect of every change elsewhere.
 
 ### log.md Files
 
