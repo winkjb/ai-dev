@@ -1,10 +1,15 @@
-Queue,Source,Reason,Date Added
-Customer Taskfire,,Customer-facing queue - out of scope for this analysis,7/7/2026
-Diverzify Enhancement Requests,,Customer-facing queue - out of scope for this analysis,7/7/2026
-Diverzify Application Support,,Customer-facing queue - out of scope for this analysis,7/7/2026
-Fencing Supply Group,,Customer-facing queue - out of scope for this analysis,7/7/2026
-MRP Depot Ticket Queue,,Customer-facing queue - out of scope for this analysis,7/7/2026
-RMF Application Support,,Customer-facing queue - out of scope for this analysis,7/7/2026
-Test Queue,,Test/internal queue - not real ticket data,7/7/2026
-Audit & Compliance,Recurring,Recurring compliance-check tickets in this queue are not real dispatch work,2026-07-08
-Business Continuity,Recurring,Recurring continuity-check tickets in this queue are not real dispatch work,2026-07-08
+Queue,Source,Resource,Reason,Date Added
+Customer Taskfire,,,Customer-facing queue - out of scope for this analysis,7/7/2026
+Diverzify,,"Duran, Angela",Customer resource - not our dispatch work,7/13/2026
+Diverzify Enhancement Requests,,,Customer-facing queue - out of scope for this analysis,7/7/2026
+Diverzify Application Support,,,Customer-facing queue - out of scope for this analysis,7/7/2026
+ITW Shakeproof,,"Herbert, Paul",Customer resource - not our dispatch work,7/13/2026
+ITW Shakeproof,,"Hernandez, Wilson",Customer resource - not our dispatch work,7/13/2026
+Fencing Supply Group,,,Customer-facing queue - out of scope for this analysis,7/7/2026
+MRP Depot Ticket Queue,,,Customer-facing queue - out of scope for this analysis,7/7/2026
+Pre Sale,,,Internal queue - another team's responsibility,7/13/2026
+Post Sale,,,Internal queue - another team's responsibility,7/13/2026
+RMF Application Support,,,Customer-facing queue - out of scope for this analysis,7/7/2026
+Test Queue,,,Test/internal queue - not real ticket data,7/7/2026
+Audit & Compliance,Recurring,,Recurring compliance-check tickets in this queue are not real dispatch work,7/8/2026
+Business Continuity,Recurring,,Recurring continuity-check tickets in this queue are not real dispatch work,7/8/2026

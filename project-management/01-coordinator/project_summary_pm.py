@@ -8,15 +8,13 @@ RAW_EXPORT = Path("../data/raw/Project Search Results.csv")
 EXCLUDED_LIST = Path("../data/reference/excluded-projects.csv")
 PHASE_MAPPING = Path("../data/reference/status-phase-mapping.csv")
 OUTPUT_DIR = Path("./output")
-OUTPUT_DETAIL = OUTPUT_DIR / "coordinator-project-report.csv"
-OUTPUT_SUMMARY = OUTPUT_DIR / "coordinator-project-summary.md"
+OUTPUT_DETAIL = OUTPUT_DIR / "coordinator-project-pm-detail.csv"
+OUTPUT_SUMMARY = OUTPUT_DIR / "coordinator-project-pm-summary.md"
+OUTPUT_SUMMARY_CSV = OUTPUT_DIR / "coordinator-project-pm-summary.csv"
 
 PHASE_ORDER = ["Beginning", "In Process", "Closing", "Final Closure", "On Hold/Inactive"]
 NO_LEAD_LABEL = "(No Project Lead Listed)"
 UNKNOWN_PHASE_LABEL = "Unknown Phase"
-
-STALE_DAYS = 14
-STALE_DAYS_ON_HOLD = 21
 
 
 def load_data():
@@ -26,45 +24,11 @@ def load_data():
     return df, excluded, phase_map
 
 
-def _blank(value):
-    return pd.isna(value) or str(value).strip() == ""
-
-
 def apply_exclusions(df, excluded):
     excl_numbers = set(excluded.loc[excluded["Match Type"] == "Project Number", "Value"])
     excl_types = set(excluded.loc[excluded["Match Type"] == "Project Type", "Value"])
     mask = df["Project Number"].isin(excl_numbers) | df["Project Type"].isin(excl_types)
     return df[~mask].copy(), int(mask.sum())
-
-
-def clean(df):
-    df = df.copy()
-    df["Last Activity Time"] = pd.to_datetime(
-        df["Last Activity Time"], format="%m/%d/%Y %I:%M %p", errors="coerce"
-    )
-    return df
-
-
-def flag(df, now):
-    df = df.copy()
-    df["Days Since Last Activity"] = (
-        (now - df["Last Activity Time"]).dt.total_seconds() / 86400
-    ).apply(lambda x: int(x) if pd.notna(x) else None)
-
-    stale_threshold = pd.Series(STALE_DAYS, index=df.index)
-    stale_threshold[df["Phase"] == "On Hold/Inactive"] = STALE_DAYS_ON_HOLD
-    stale = df["Days Since Last Activity"].notna() & (
-        df["Days Since Last Activity"] > stale_threshold
-    )
-    stalled_intake = (df["Status"] == "New") & stale
-    no_lead = df["Project Lead"].apply(_blank) | df["Project Team Tech Lead"].apply(_blank)
-    need_pcm = df["Phase"] == "Closing"
-
-    df["Flag: Stalled Intake"] = stalled_intake
-    df["Flag: Stale"] = stale
-    df["Flag: No Lead(s)"] = no_lead
-    df["Flag: Need PCM"] = need_pcm
-    return df
 
 
 def add_phase(df, phase_map):
@@ -107,55 +71,41 @@ def build_pivot(df):
 def write_outputs(df, pivot, phase_cols, excluded_count):
     OUTPUT_DIR.mkdir(exist_ok=True)
 
-    grand_total = pivot.sum(axis=0)
-    grand_total.name = "Grand Total"
-
     # Detail CSV - one row per in-scope project, for drill-down/audit.
     detail_cols = [
         "Project Number", "Account", "Project Name", "Project Lead",
-        "Status", "Phase", "Project Team Tech Lead",
-        "Last Activity Time", "Days Since Last Activity",
-        "Flag: Stalled Intake", "Flag: Stale", "Flag: No Lead(s)", "Flag: Need PCM",
+        "Status", "Phase", "Project Team Tech Lead", "Last Activity Time",
     ]
     df[detail_cols].sort_values(["Project Lead", "Phase"]).to_csv(
         OUTPUT_DETAIL, index=False
     )
 
-    flag_cols = ["Flag: Stalled Intake", "Flag: Stale", "Flag: No Lead(s)", "Flag: Need PCM"]
-    flag_labels = [c.removeprefix("Flag: ") for c in flag_cols]
-    flag_counts = {label: int(df[col].sum()) for col, label in zip(flag_cols, flag_labels)}
+    totals = pivot.sum(axis=0)
 
-    # By Project Lead - flagged projects only. Flags aren't mutually exclusive
-    # (a project can trip more than one), so "Total Flagged" counts distinct
-    # flagged projects rather than summing the flag columns.
-    flagged = df[df[flag_cols].any(axis=1)]
-    by_lead = flagged.groupby("Project Lead")[flag_cols].sum().astype(int)
-    by_lead.columns = flag_labels
-    by_lead["Total Flagged"] = flagged.groupby("Project Lead").size()
-    by_lead = by_lead.sort_values("Total Flagged", ascending=False)
+    # CSV equivalent of the markdown summary table, Total row included.
+    summary_csv = pivot.reset_index()
+    total_row = pd.DataFrame([{
+        "Project Lead": "Total",
+        **{col: int(totals[col]) for col in phase_cols},
+        "Total": int(totals["Total"]),
+    }])
+    pd.concat([summary_csv, total_row], ignore_index=True).to_csv(
+        OUTPUT_SUMMARY_CSV, index=False
+    )
 
     lines = []
-    lines.append(f"# Project Management Coordinator Report (Projects) - {datetime.now().strftime('%Y-%m-%d %H:%M')}")
+    lines.append(f"# Project Management Coordinator Report (By Project Manager) - {datetime.now().strftime('%Y-%m-%d %H:%M')}")
     lines.append("")
     lines.append("## Executive Summary")
     lines.append("")
-    lines.append(f"Project(s) excluded: {excluded_count} - (see ../data/reference/excluded-projects.csv).")
+    lines.append(f"Project(s) excluded: {excluded_count} (see ../data/reference/excluded-projects.csv).")
     lines.append("")
     lines.append(f"Project(s) analyzed: {len(df)}")
     lines.append("")
-    for label in flag_labels:
-        lines.append(f"- {label}: {flag_counts[label]}")
+    for col in phase_cols:
+        lines.append(f"- {col}: {int(totals[col])}")
     lines.append("")
-    lines.append("## Flags by Project Lead")
-    lines.append("")
-    flag_header = "| Project Lead | " + " | ".join(flag_labels) + " | Total Flagged |"
-    lines.append(flag_header)
-    lines.append("|" + "---|" * (len(flag_labels) + 2))
-    for lead, row in by_lead.iterrows():
-        vals = " | ".join(str(row[c]) for c in flag_labels)
-        lines.append(f"| {lead} | {vals} | {row['Total Flagged']} |")
-    lines.append("")
-    lines.append("## Projects By Project Lead")
+    lines.append("## Projects By Project Manager")
     lines.append("")
     header = "| Project Lead | " + " | ".join(phase_cols) + " | Total |"
     lines.append(header)
@@ -163,9 +113,10 @@ def write_outputs(df, pivot, phase_cols, excluded_count):
     for lead, row in pivot.iterrows():
         vals = " | ".join(str(row[c]) for c in phase_cols)
         lines.append(f"| {lead} | {vals} | {row['Total']} |")
-    total_vals = " | ".join(str(int(grand_total[c])) for c in phase_cols)
-    lines.append(f"| **Grand Total** | {total_vals} | {int(grand_total['Total'])} |")
+    total_vals = " | ".join(str(int(totals[c])) for c in phase_cols)
+    lines.append(f"| **Total** | {total_vals} | {int(totals['Total'])} |")
     lines.append("")
+    lines.append(f"Summary (CSV): {OUTPUT_SUMMARY_CSV.name}  ")
     lines.append(f"Per-project detail: {OUTPUT_DETAIL.name}")
 
     OUTPUT_SUMMARY.write_text("\n".join(lines))
@@ -174,18 +125,14 @@ def write_outputs(df, pivot, phase_cols, excluded_count):
 def main():
     df, excluded, phase_map = load_data()
     df, excluded_count = apply_exclusions(df, excluded)
-    df = clean(df)
     df = add_phase(df, phase_map)
-    now = pd.Timestamp(datetime.now())
-    df = flag(df, now)
     df = fill_no_lead_label(df)
 
     pivot, phase_cols = build_pivot(df)
     write_outputs(df, pivot, phase_cols, excluded_count)
 
     print(f"Projects analyzed: {len(df)} (excluded {excluded_count} project(s))")
-    print(f"Project Leads: {len(pivot)}")
-    print(f"Wrote {OUTPUT_DETAIL} and {OUTPUT_SUMMARY}")
+    print(f"Wrote {OUTPUT_DETAIL}, {OUTPUT_SUMMARY}, and {OUTPUT_SUMMARY_CSV}")
 
 
 if __name__ == "__main__":

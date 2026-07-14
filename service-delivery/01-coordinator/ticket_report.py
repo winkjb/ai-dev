@@ -30,12 +30,18 @@ Coordinator had to compute Health independently of the source's own
 unreliable status field).
 
 Excludes tickets matching any rule in ../data/reference/excluded-ticket-sources.csv.
-Each row is a Queue+Source rule where a blank cell is a wildcard (matches
-anything) and non-blank cells must ALL match (AND) for that row; a ticket
-is excluded if ANY row matches (OR across rows) - e.g. a row with only
-Queue set excludes that whole queue regardless of source, while a row with
-both Queue and Source set (e.g. Audit & Compliance + Recurring) only
-excludes that combination.
+Each row is a Queue+Source+Resource rule where a blank cell is a wildcard
+(matches anything) and non-blank cells must ALL match (AND) for that row; a
+ticket is excluded if ANY row matches (OR across rows) - e.g. a row with
+only Queue set excludes that whole queue regardless of source, while a row
+with both Queue and Source set (e.g. Audit & Compliance + Recurring) only
+excludes that combination. Queue and Source match exactly; Resource matches
+as a case-insensitive substring, since the Resources field can hold
+multiple assignees (e.g. "Saeed, Kamran (primary) | Decaria, David") - a
+Queue+Resource rule excludes tickets in that queue where the named
+resource is assigned, even alongside other assignees. Added to support
+excluding queues worked jointly by internal techs and named customer
+contacts, where only the customer-resource tickets should be dropped.
 
 Also labels every in-scope ticket with a Ticket Origin (Human-Generated /
 System-Generated / Unclassified) via ../data/reference/source-classification.csv,
@@ -97,6 +103,10 @@ def apply_exclusions(df, excluded):
             rule_mask &= df["Queue"] == rule["Queue"]
         if not _blank(rule["Source"]):
             rule_mask &= df["Source"] == rule["Source"]
+        if "Resource" in rule.index and not _blank(rule["Resource"]):
+            rule_mask &= df["Resources"].fillna("").str.contains(
+                rule["Resource"], case=False, regex=False
+            )
         mask |= rule_mask
     return df[~mask].copy(), int(mask.sum())
 
@@ -110,10 +120,13 @@ def classify_origin(df, classification):
     return df
 
 
+DATE_FORMAT = "%m/%d/%Y %I:%M %p"
+
+
 def clean(df):
-    df["Created"] = pd.to_datetime(df["Created"], errors="coerce")
-    df["Due"] = pd.to_datetime(df["Due"], errors="coerce")
-    df["Last Activity Time"] = pd.to_datetime(df["Last Activity Time"], errors="coerce")
+    df["Created"] = pd.to_datetime(df["Created"], format=DATE_FORMAT, errors="coerce")
+    df["Due"] = pd.to_datetime(df["Due"], format=DATE_FORMAT, errors="coerce")
+    df["Last Activity Time"] = pd.to_datetime(df["Last Activity Time"], format=DATE_FORMAT, errors="coerce")
     return df
 
 
@@ -235,12 +248,14 @@ def write_outputs(df, now, excluded_count):
     lines.append("")
     lines.append("## By Queue (flagged tickets only, sorted worst first)")
     lines.append("")
-    header = "| Queue | " + " | ".join(c for c in health_order if c != "Active") + " | Total Flagged |"
+    health_cols = [c for c in health_order if c != "Active"]
+    header = "| Queue | " + " | ".join(health_cols) + " | Total Flagged |"
     lines.append(header)
-    lines.append("|" + "---|" * (len(health_order)))
+    lines.append("|" + "---|" * (len(health_cols) + 2))
     for queue, row in by_queue.head(15).iterrows():
-        vals = " | ".join(str(row[c]) for c in health_order if c != "Active")
-        lines.append(f"| {queue} | {vals} | {row['Total Flagged']} |")
+        queue_display = str(queue).replace("|", "\\|")
+        vals = " | ".join(str(row[c]) for c in health_cols)
+        lines.append(f"| {queue_display} | {vals} | {row['Total Flagged']} |")
     lines.append("")
     lines.append(f"Full detail (every in-scope ticket, not just flagged ones): {OUTPUT_CSV.name}")
 
