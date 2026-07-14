@@ -50,13 +50,14 @@ tickets stay in scope (e.g. a system-generated monitoring ticket still
 needs a human to review it, it's just not a dispatch-noise exclusion).
 
 Usage:
-    python ticket_report.py
+    python ticket_report_flags.py
 
 Reads:  ../data/raw/Ticket Search Results.csv
         ../data/reference/excluded-ticket-sources.csv
         ../data/reference/source-classification.csv
-Writes: ./output/ticket-dispatch-report.csv   (every in-scope ticket)
-        ./output/ticket-dispatch-summary.md
+Writes: ./output/coordinator-ticket-flags-detail.csv   (every in-scope ticket)
+        ./output/coordinator-ticket-flags-summary.md
+        ./output/coordinator-ticket-flags-summary.csv
 """
 
 import pandas as pd
@@ -69,8 +70,9 @@ RAW_EXPORT = Path("../data/raw/Ticket Search Results.csv")
 EXCLUDED_LIST = Path("../data/reference/excluded-ticket-sources.csv")
 SOURCE_CLASSIFICATION = Path("../data/reference/source-classification.csv")
 OUTPUT_DIR = Path("./output")
-OUTPUT_CSV = OUTPUT_DIR / "coordinator-ticket-report.csv"
-OUTPUT_SUMMARY = OUTPUT_DIR / "coordinator-ticket-summary.md"
+OUTPUT_CSV = OUTPUT_DIR / "coordinator-ticket-flags-detail.csv"
+OUTPUT_SUMMARY = OUTPUT_DIR / "coordinator-ticket-flags-summary.md"
+OUTPUT_SUMMARY_CSV = OUTPUT_DIR / "coordinator-ticket-flags-summary.csv"
 
 STALE_DAYS = 7
 
@@ -230,13 +232,28 @@ def write_outputs(df, now, excluded_count):
     by_queue["Total Flagged"] = by_queue.sum(axis=1)
     by_queue = by_queue.sort_values("Total Flagged", ascending=False)
 
-    lines = []
-    lines.append(f"# Service Delivery Coordinator Report (Tickets) - {now.strftime('%Y-%m-%d %H:%M')}")
-    lines.append("")
-    lines.append(
-        f"Excluded {excluded_count} automated-monitoring / out-of-scope-queue ticket(s) from "
-        f"analysis (see ../data/reference/excluded-ticket-sources.csv)."
+    health_cols = [c for c in health_order if c != "Active"]
+    total_flagged = sum(n[c] for c in health_cols)
+
+    # CSV equivalent of the markdown table - all queues, Total row included.
+    summary_csv = by_queue.reset_index()
+    total_row = pd.DataFrame([{
+        "Queue": "Total",
+        **{c: n[c] for c in health_cols},
+        "Total Flagged": total_flagged,
+    }])
+    pd.concat([summary_csv, total_row], ignore_index=True).to_csv(
+        OUTPUT_SUMMARY_CSV, index=False
     )
+
+    lines = []
+    lines.append(f"# Service Delivery Coordinator Report (Flags) - {now.strftime('%Y-%m-%d %H:%M')}")
+    lines.append("")
+    lines.append("## Executive Summary")
+    lines.append("")
+    lines.append(f"Ticket(s) excluded {excluded_count} (see ../data/reference/excluded-ticket-sources.csv).")
+    lines.append("")
+    lines.append(f"Ticket(s) analyzed: {len(df)}")
     lines.append("")
     lines.append(f"- Critical Unassigned: {n['Critical Unassigned']}")
     lines.append(f"- Stalled Intake (New queue, or Dispatched elsewhere): {n['Stalled Intake']}")
@@ -244,11 +261,9 @@ def write_outputs(df, now, excluded_count):
     lines.append(f"- Waiting External (customer/vendor): {n['Waiting External']}")
     lines.append(f"- Unassigned (other): {n['Unassigned']}")
     lines.append(f"- Active: {n['Active']}")
-    lines.append(f"- Total in scope: {len(df)}")
     lines.append("")
-    lines.append("## By Queue (flagged tickets only, sorted worst first)")
+    lines.append("## Flags by Queue (sorted worst first)")
     lines.append("")
-    health_cols = [c for c in health_order if c != "Active"]
     header = "| Queue | " + " | ".join(health_cols) + " | Total Flagged |"
     lines.append(header)
     lines.append("|" + "---|" * (len(health_cols) + 2))
@@ -256,7 +271,10 @@ def write_outputs(df, now, excluded_count):
         queue_display = str(queue).replace("|", "\\|")
         vals = " | ".join(str(row[c]) for c in health_cols)
         lines.append(f"| {queue_display} | {vals} | {row['Total Flagged']} |")
+    total_vals = " | ".join(str(n[c]) for c in health_cols)
+    lines.append(f"| **Total** | {total_vals} | {total_flagged} |")
     lines.append("")
+    lines.append(f"Summary (CSV): {OUTPUT_SUMMARY_CSV.name}  ")
     lines.append(f"Full detail (every in-scope ticket, not just flagged ones): {OUTPUT_CSV.name}")
 
     OUTPUT_SUMMARY.write_text("\n".join(lines))
@@ -280,7 +298,7 @@ def main():
         f"| Stale: {n['Stale']} | Waiting External: {n['Waiting External']} "
         f"| Unassigned: {n['Unassigned']} | Active: {n['Active']}"
     )
-    print(f"Wrote {OUTPUT_CSV} and {OUTPUT_SUMMARY}")
+    print(f"Wrote {OUTPUT_CSV}, {OUTPUT_SUMMARY}, and {OUTPUT_SUMMARY_CSV}")
 
 
 if __name__ == "__main__":
