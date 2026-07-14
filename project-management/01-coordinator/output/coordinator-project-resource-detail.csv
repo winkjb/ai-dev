@@ -1,0 +1,148 @@
+Project Number,Account,Project Name,Project Team Tech Lead,Status,Phase,Project Lead,Last Activity Time
+P20230605.0001,"ServIT, Inc. (HQ)","Project ""Full SAM Process"" (XX,XX)",(No Tech Lead Listed),New,Beginning,,06/05/2023 04:00 PM
+P20230713.0002,"ServIT, Inc. (HQ)","CST - Program ""Offerings"" (NC,XX)",(No Tech Lead Listed),New,Beginning,,07/13/2023 11:41 AM
+P20221229.0001,"ServIT, Inc. (HQ)","Program ""Security"" (NC,BW)",(No Tech Lead Listed),New,Beginning,"Huelsmann, Gregory",08/21/2025 10:14 AM
+P20260123.0002,AV Powell & Associates LLC (HQ),"VPN Configuration(MS-AIT,SB)",Brad Winklesky,IV-Waiting Customer OK,In Process,"Brown, Steven",07/06/2026 01:42 PM
+P20251104.0003,Zenith Products Corporation,DR test 2025,David Decaria,New,Beginning,"Slaton, Brad",05/15/2026 10:51 AM
+P20260225.0001,PA Housing Finance Agency,Replacement BDR and DR test,David Decaria,New,Beginning,"Marsili, Tony",06/04/2026 02:01 PM
+P20260511.0002,"ABL Wholesale Distributors, Inc.","Data Vaulting Agreement (MS-DV, BS)",David Decaria,III-Waiting Materials,In Process,"Marsili, Tony",06/24/2026 09:55 AM
+P20260513.0002,General Wholesale Beer Company (615) (HQ),"General Wholesale’s Backup Environment(MS-DV, SB)",David Decaria,III-Waiting Materials,In Process,"Brown, Steven",07/05/2026 10:31 AM
+P20260109.0001,Georgia Baptist Foundation,DR Test,David Decaria,III-Waiting Customer,In Process,"Brown, Steven",07/05/2026 10:33 AM
+P20250520.0004,Brooks Instruments,"Project "" EMA400 LPAR shutdown"" (NC,BS)",David Decaria,On Hold,On Hold/Inactive,"Slaton, Brad",12/15/2025 10:19 AM
+P20251029.0002,Heyco/National Net,Sever and Switch Refresh Project National Net,Dexter Ashby,New,Beginning,"Slaton, Brad",04/15/2026 09:05 AM
+P20250109.0002,Grey Eagle Distributors,Sonicwall Firewall Replacements,Dexter Ashby,New,Beginning,"Slaton, Brad",05/13/2026 08:14 AM
+P20260303.0001,Gertsen Interstate System,Website & Domain Migration,Dexter Ashby,New,Beginning,"Slaton, Brad",05/27/2026 07:49 AM
+P20260709.0001,"ServIT, Inc. (HQ)","Project ""ServIT Website Security"" (NC,TM)",Dexter Ashby,New,Beginning,"Marsili, Tony",07/09/2026 01:22 PM
+P20251125.0002,Elite Administration & Insurance Group (HQ),Firewall Configuration - AIT,Dexter Ashby,V-Pending Complete,Closing,"Slaton, Brad",03/11/2026 02:42 PM
+P20260217.0001,RTCO Packaging LLC,Networking Equipment for new warehouse,Dexter Ashby,V-Pending Complete,Closing,"Brown, Steven",06/15/2026 04:22 PM
+P20251106.0002,Division 9 Commercial Inc Construction,Email Migration,Dexter Ashby,V-Pending Complete,Closing,"Brown, Steven",06/16/2026 04:04 PM
+P20260115.0001,"Norplex, Inc.",Email/Tenant Migration,Dexter Ashby,V-Pending Complete,Closing,"Brown, Steven",07/06/2026 04:21 PM
+P20260323.0003,SECO (HQ Southeast Consolidators),Power BI Implementation,Dexter Ashby,V-Pending Complete,Closing,"Brown, Steven",07/10/2026 03:46 PM
+P20250514.0002,"Bomarko, Inc.",Firewall and Access Point Replacement,Dexter Ashby,III-Waiting Customer,In Process,"Slaton, Brad",04/27/2026 04:11 PM
+P20240710.0002,SECO (HQ Southeast Consolidators),"Project ""Hosted Server Creation """,Dexter Ashby,III-In Progress,In Process,"Brown, Steven",06/10/2026 08:17 AM
+P20251016.0002,"Progress Lighting, LLC (HQ) (Coleto)","Project ""VPN Migration from Fortigate to Azure"" (TBBTM, TM)",Dexter Ashby,III-Project Scheduled,In Process,"Marsili, Tony",06/10/2026 09:16 AM
+P20250818.0001,"Heyco Products, Inc (HQ)",Server and Switch Refresh Project for HQ,Dexter Ashby,III-In Progress,In Process,"Marsili, Tony",06/18/2026 03:40 PM
+P20260115.0002,Patriot Select Property & Casualty Insurance Co.,Migrate On-Premises Active Directory Environment to Microsoft Entra ID,Dexter Ashby,IV-Waiting Customer OK,In Process,"Brown, Steven",07/05/2026 11:00 AM
+P20250925.0002,Patriot Select Property & Casualty Insurance Co.,Claims Check Processing Automation,Dexter Ashby,III-In Progress,In Process,"Brown, Steven",07/05/2026 11:06 AM
+P20260318.0001,RTCO Packaging LLC,Microsoft Tenant - Entra ID & Email Migration,Dexter Ashby,III-In Progress,In Process,"Brown, Steven",07/05/2026 11:17 AM
+P20260119.0003,"Worley, Schilling & Randall",Email Migration,Dexter Ashby,III-In Progress,In Process,"Brown, Steven",07/05/2026 08:47 PM
+P20240516.0005,SECO (HQ Southeast Consolidators),"Project ""Lan Subnet Change""(TBB, SB)",Dexter Ashby,III-In Progress,In Process,"Brown, Steven",07/08/2026 08:58 AM
+P20250805.0001,Brindlee Fire Services,"Project""Hexagon/Network Cutovers"" (TBB,TM)",Dexter Ashby,III-Waiting Vendor,In Process,"Marsili, Tony",07/08/2026 09:04 AM
+P20260612.0003,Patriot Select Property & Casualty Insurance Co.,"Patriot AIT  SOC - Agreement for Windows(TBB-MC,SB)",Dexter Ashby,III-Waiting Customer,In Process,"Brown, Steven",07/08/2026 02:10 PM
+P20250303.0001,InReach Community Dx,Entra ID & Intune Setup,Dexter Ashby,III-Waiting Customer,In Process,"Brown, Steven",07/09/2026 03:10 PM
+P20240516.0003,SECO (HQ Southeast Consolidators),"Project  ""Replacement Firewall""(TBB, SB)",Dexter Ashby,III-Waiting ServIT,In Process,"Brown, Steven",07/10/2026 02:43 PM
+P20240515.0002,SECO (HQ Southeast Consolidators),"Project ""Azure Active Directory Joined Configuration""",Dexter Ashby,On Hold,On Hold/Inactive,"Brown, Steven",04/15/2026 09:04 AM
+P20240516.0006,SECO (HQ Southeast Consolidators),"Project ""Configure Single Sign-on""(TBB, SB)",Dexter Ashby,On Hold,On Hold/Inactive,"Brown, Steven",05/06/2026 04:40 PM
+P20250425.0001,Elite Administration & Insurance Group (HQ),SOC Contract with Dark Web Scan,Greg Huelsmann,I-Call Scheduled,Beginning,"Slaton, Brad",03/18/2026 02:13 PM
+P20260123.0001,Grey Eagle Distributors,SOC services,Greg Huelsmann,New,Beginning,"Slaton, Brad",05/28/2026 10:04 AM
+P20260108.0001,"FirstKey Homes, LLC (HQ)",New AIT Agreement,Greg Huelsmann,New,Beginning,"Slaton, Brad",05/28/2026 10:07 AM
+P20260129.0002,Beckway,Knowbe4,Greg Huelsmann,New,Beginning,"Slaton, Brad",05/28/2026 10:07 AM
+P20251031.0001,"Beaumont Products, Inc. (Main)",Rapidfire Report with Audit,Greg Huelsmann,New,Beginning,"Slaton, Brad",05/28/2026 10:11 AM
+P20260327.0001,"FAMS (Financial Asset Management Systems, Inc.) - 429 Creekstone HQ","FAMS Cancellation - Artic Wolf, Email Security, DMARC, Firewall",Greg Huelsmann,New,Beginning,"Slaton, Brad",06/30/2026 05:22 PM
+P20260619.0001,Diverzify Atlanta (HQ) - DHQ,"Project ""CMMC"" (TBBTM,TM)",Greg Huelsmann,New,Beginning,"Marsili, Tony",07/06/2026 03:57 PM
+P20250409.0003,Geosurvey LTD,"Project ""SOC - Security items - SOC Vipre Phishing"" (BS)",Greg Huelsmann,V-Pending Complete,Closing,"Slaton, Brad",04/10/2026 02:08 PM
+P20260318.0002,General Wholesale Beer Company (615) (HQ),Vul Scan and DNS Filtering,Greg Huelsmann,V-Pending Complete,Closing,"Brown, Steven",07/06/2026 09:05 AM
+P20260519.0001,Quality Extrusion Inc,"IT Equipment Cleanup (TBB-TM,SB)",Greg Huelsmann,III-In Progress,In Process,"Brown, Steven",06/18/2026 08:28 AM
+P20260421.0001,German American Chamber of Commerce (HQ),MDM Implementation,Greg Huelsmann,III-In Progress,In Process,"Marsili, Tony",06/29/2026 01:41 PM
+P20260504.0003,"Beaumont Products, Inc. (Main)",Cyber Security enhancement,Greg Huelsmann,III-In Progress,In Process,"Brown, Steven",07/02/2026 03:19 PM
+P20250212.0002,ITW Air Flow Management,"Project """"TISAX certification cost estimate"" (BS)",Greg Huelsmann,III-In Progress,In Process,"Slaton, Brad",07/07/2026 10:12 AM
+P20260424.0002,Castles Tech,Castle Tech SOC,Greg Huelsmann,III-In Progress,In Process,"Brown, Steven",07/07/2026 03:07 PM
+P20260429.0002,Fulton Industries,Rockford Location - Replacement Firewall,James Harp,New,Beginning,"Slaton, Brad",05/11/2026 11:03 AM
+P20260429.0001,Fulton Industries,Granger Location - Replacement Firewall,James Harp,New,Beginning,"Slaton, Brad",05/12/2026 11:17 AM
+P20260320.0002,HEFCO,Firewall & UPS Replacement,James Harp,New,Beginning,"Slaton, Brad",06/10/2026 12:26 PM
+P20260528.0001,Fulton Industries,"Project ""Replacement Core Switches"" (TBBTM, TM)",James Harp,New,Beginning,"Marsili, Tony",07/06/2026 03:48 PM
+P20260406.0003,Fulton Industries,Replacement Firewall - Peru IL Location,James Harp,New,Beginning,"Slaton, Brad",07/09/2026 10:12 AM
+P20260507.0001,Beulah Heights (Marietta Campus),Wireless Access Point Relocation - Marietta Location,James Harp,III-In Progress,In Process,"Marsili, Tony",06/01/2026 02:26 PM
+P20260426.0001,Air Quality Systems,"New Location Setup (TBB-FR,SB)",James Harp,III-In Progress,In Process,"Brown, Steven",07/09/2026 10:01 AM
+P20251118.0001,Elite Administration & Insurance Group (HQ),AIT Firewall Management,Jason Morhaus,New,Beginning,"Slaton, Brad",03/13/2026 02:30 PM
+P20260128.0003,Parallax Digital,Offboarding,Jason Morhaus,New,Beginning,"Slaton, Brad",04/13/2026 04:52 PM
+P20260311.0001,Josam Company (HQ),Remove Service on MCDC02 and MCDC03,Jason Morhaus,New,Beginning,"Slaton, Brad",04/14/2026 09:27 AM
+P20260129.0003,Fulton Industries,firewall AIT contract,Jason Morhaus,New,Beginning,"Slaton, Brad",06/10/2026 09:23 AM
+P20260223.0003,RTCO Packaging LLC,AIT and SOC Agreements,Jason Morhaus,II-Project Planning,Beginning,"Brown, Steven",07/05/2026 11:15 AM
+P20250806.0003,Soteria Flexibles (HQ),AIT & SOC for 3 Locations,Jason Morhaus,V-Pending Complete,Closing,"Brown, Steven",06/10/2026 09:20 AM
+P20260424.0001,Castles Tech,Castle Tech AIT,Jason Morhaus,III-In Progress,In Process,"Brown, Steven",07/07/2026 03:02 PM
+P20260701.0001,Premium Guard Inc.,"Project ""Network analysis and redesign"" (TBBTM, TM)",Jason Morhaus,III-In Progress,In Process,"Marsili, Tony",07/07/2026 03:36 PM
+P20260216.0005,"Asphalt Enterprises, Inc.",AIT Onboarding,Jason Morhaus,On Hold,On Hold/Inactive,"Slaton, Brad",04/21/2026 01:23 PM
+P20250306.0002,German American Chamber of Commerce (HQ),"Project""Replacement Firewall, WattBox and Access Point, TX""(TBB,SB)",Joe Mason,On Hold,On Hold/Inactive,"Brown, Steven",07/05/2026 10:38 AM
+P20260608.0001,ITW Shakeproof (SIP Broadview),"Project ""SQL Server Upgrade"" (TBBTM, TM)",John Karlow,New,Beginning,"Marsili, Tony",07/06/2026 03:54 PM
+P20260326.0002,Brindlee Fire Services,Wireless Setup for new call center in Huntsville,Jon Schivone,New,Beginning,"Slaton, Brad",04/29/2026 01:44 PM
+P20260508.0002,Boxercraft: Division of NG Labs,"Project ""TPX to Comcast Masergy Migration"" (TBBTM, TM)",Jon Schivone,New,Beginning,"Marsili, Tony",06/18/2026 11:04 AM
+P20260216.0008,Consumer Collection Management,VMWare to Hyper-V Host conversion,Kamran Saeed,New,Beginning,"Slaton, Brad",06/30/2026 01:07 PM
+P20260603.0002,Fluid Control Services,"Hyper-V Conversion (TBB-TM, SB)",Kamran Saeed,III-In Progress,In Process,"Brown, Steven",07/06/2026 10:02 AM
+P20260605.0001,Geosurvey LTD,"Hyper-V Conversion(TBB-TM, SB)",Kamran Saeed,III-In Progress,In Process,"Brown, Steven",07/06/2026 11:44 AM
+P20260119.0004,"Bomarko, Inc.","VMWare to Hyper-V Host conversion(TBB-TM,SB)",Kamran Saeed,III-In Progress,In Process,"Brown, Steven",07/09/2026 03:19 PM
+P20260119.0001,"Pencor Services, Inc",IBM i Operating System Upgrade project,Ken Bordner,New,Beginning,"Marsili, Tony",06/08/2026 01:01 PM
+P20260319.0001,United Fabrics,PTF Upgrade on Power 8,Ken Bordner,New,Beginning,"Slaton, Brad",07/06/2026 11:19 AM
+P20251223.0001,Ivex Specialty Paper,ERP testing V7R6,Ken Bordner,III-In Progress,In Process,"Marsili, Tony",07/09/2026 02:19 PM
+P20250625.0002,Fromm International,Operating System Upgrade,Ken Bordner,III-Waiting Customer,In Process,"Brown, Steven",07/10/2026 03:16 PM
+P20260520.0002,"Progress Lighting, LLC (HQ) (Coleto)","Project ""Cancellation AIT"" (MS-AIT, TM)",Kyle Oakley,I-Accepted,Beginning,"Marsili, Tony",06/18/2026 09:55 AM
+P20260612.0001,"Four Seasons Sales & Service, Inc.","Project ""IBM Upgrade to Power 11"" (TBBTM, TM)",Kyle Oakley,New,Beginning,,06/18/2026 11:40 AM
+P20260206.0001,"ServIT, Inc. (HQ)",IBM Cloud Migration,Kyle Oakley,New,Beginning,"Marsili, Tony",06/23/2026 11:30 AM
+P20260605.0002,Elite Administration & Insurance Group (HQ),"Project ""SQL for New Database"" (TBBTM,TM)",Kyle Oakley,New,Beginning,"Marsili, Tony",06/29/2026 04:14 PM
+P20260526.0003,Josam Company (HQ),"Project ""Windows Backup BDR addendum"" (MS-DV, TM)",Kyle Oakley,New,Beginning,"Marsili, Tony",07/02/2026 12:43 PM
+P20260625.0001,American Southern Insurance HQ,"Project""CloudConnexa Implementation"" (TBBTM, TM)",Kyle Oakley,New,Beginning,"Marsili, Tony",07/07/2026 12:25 PM
+P20260323.0006,"Beaumont Products, Inc. (Main)","Enable DMARC for 7 domains(MS-AIT,SB)",Kyle Oakley,II-Project Planning,Beginning,"Brown, Steven",07/09/2026 10:25 AM
+P20260427.0002,Hawthorn Physicians Services Corporation,"File Migration(TBB-TM, SB)",Kyle Oakley,II-Project Planning,Beginning,"Brown, Steven",07/09/2026 02:07 PM
+P20260629.0003,Milan Supply Chain Solutions (HQ),"cancel the BGP services for Milan/ Ascend at Performive(MS-AIT,SB)",Kyle Oakley,V-Pending Complete,Closing,"Brown, Steven",07/09/2026 12:13 PM
+P20260204.0001,"ServIT, Inc. (HQ)",ServIT Managed Veeam Backup Restructure,Kyle Oakley,III-In Progress,In Process,"Marsili, Tony",03/25/2026 03:50 PM
+P20260423.0002,DiverzifyPro - Itasca - DIT,"Project ""Auvik Network Monitoring"" (MS-AIT,TM)",Kyle Oakley,III-In Progress,In Process,"Marsili, Tony",06/18/2026 04:20 PM
+P20260526.0004,"ETC Hearing Solutions, Inc.","Project ""Cancelation of services with ServIT"" (MS-AIT, TM)",Kyle Oakley,III-In Progress,In Process,"Marsili, Tony",06/22/2026 09:53 AM
+P20260508.0003,Boxercraft: Division of NG Labs,"Project ""Sophos XDR Deployment"" (TBBTM, TM)",Kyle Oakley,III-In Progress,In Process,"Marsili, Tony",06/29/2026 01:38 PM
+P20260528.0002,HEFCO,"Project ""Wireless Environment Setup"" (TBBTM, TM)",Kyle Oakley,III-Waiting ServIT,In Process,"Marsili, Tony",06/29/2026 01:56 PM
+P20260114.0001,"ServIT, Inc. (HQ)",MRP Domain & Server Decommission,Kyle Oakley,III-In Progress,In Process,"Brown, Steven",07/01/2026 11:37 AM
+P20260522.0002,Division 9 Commercial Inc Construction,"4 - P1 Licenses (MS-AIT, SB)",Kyle Oakley,III-In Progress,In Process,"Brown, Steven",07/02/2026 04:49 PM
+P20260319.0002,Conair LLC,"Project ""Data migration to cloud"" (TBBTM, TM)",Kyle Oakley,III-In Progress,In Process,"Marsili, Tony",07/06/2026 11:38 AM
+P20260428.0002,Roof Management Inc. (HQ),Cancellation,Kyle Oakley,III-Waiting Customer,In Process,"Brown, Steven",07/06/2026 01:48 PM
+P20260401.0001,Patriot Select Property & Casualty Insurance Co.,FIS Migration,Kyle Oakley,III-In Progress,In Process,"Brown, Steven",07/10/2026 11:45 AM
+P20260707.0001,Studio Ray,"Data Vaulting and Disaster Recovery Agreement for IBM POWER(MS-AIT,SB)",Kyle Oakley,III-Waiting Materials,In Process,"Brown, Steven",07/10/2026 03:35 PM
+P20251205.0002,"Mitsui Sumitomo Marine Management (U.S.A.), Inc.","Project "" IBM Cloud Migration"" (TBBTM, TM)",Kyle Oakley,On Hold,On Hold/Inactive,"Marsili, Tony",03/18/2026 01:56 PM
+P20260324.0001,SECO (HQ Southeast Consolidators),ProofPoint,Kyle Oakley,On Hold,On Hold/Inactive,"Brown, Steven",04/14/2026 04:19 PM
+P20260302.0001,Simco-Ion Industrial Group,Yearly restore testing,Mike Schneider,New,Beginning,"Slaton, Brad",04/08/2026 12:10 PM
+P20260223.0004,Thomas & Brown LLC (HQ),Proofpoint,NOC - Anthony Dickerson,New,Beginning,"Slaton, Brad",03/16/2026 04:13 PM
+P20260216.0006,Consumer Collection Management,replacement Sonicwall Firewall,NOC - Anthony Dickerson,New,Beginning,"Slaton, Brad",04/15/2026 02:41 PM
+P20260216.0007,Grissom Services Inc,Replacement Sonicwall firewall,NOC - Anthony Dickerson,New,Beginning,"Slaton, Brad",04/15/2026 02:42 PM
+P20260219.0001,"ServIT, Inc. (HQ)","Project ""SSLVPN Sunset"" (NC, TM)",NOC - Anthony Dickerson,New,Beginning,"Marsili, Tony",05/14/2026 05:20 PM
+P20251031.0003,Beulah Heights University (Main Campus),Replacement Firewall,NOC - Anthony Dickerson,New,Beginning,"Slaton, Brad",06/03/2026 10:49 AM
+P20260611.0003,Elite Administration & Insurance Group (HQ),"Project ""Replacement Firewall"" (TBBTM,TM)",NOC - Anthony Dickerson,New,Beginning,"Marsili, Tony",07/09/2026 11:02 AM
+P20260116.0002,Thomas & Brown LLC (Nat Net),"Replacement Firewall & VPN Services(TBB-TM, SB)",NOC - Anthony Dickerson,III-In Progress,In Process,"Brown, Steven",07/02/2026 12:14 PM
+P20260409.0002,Atlanta Bonded Warehouse,"SharePoint Assessment(TBB-TM,SB)",NOC - Anthony Dickerson,III-In Progress,In Process,"Brown, Steven",07/08/2026 12:16 PM
+P20251017.0002,Soteria Flexibles (HQ),"SharePoint POC for HR(TBB,TM-SB)",NOC - Anthony Dickerson,III-Waiting Customer,In Process,"Brown, Steven",07/09/2026 12:40 PM
+P20251209.0001,Soteria Flexibles (HQ),Exclaimer Implementation,NOC - Anthony Dickerson,On Hold,On Hold/Inactive,"Brown, Steven",06/23/2026 10:32 AM
+P20260501.0001,InReach Community Dx,"3CX Phone System(TBB-TM&AIT,SB)",NOC - Chad Berry,III-In Progress,In Process,"Brown, Steven",07/06/2026 10:19 AM
+P20260624.0001,"SKL'D Staffing (Duluth, GA)","3CX Cancellation(MS-AIT, SB)",NOC - Chad Berry,III-In Progress,In Process,"Brown, Steven",07/10/2026 03:39 PM
+P20260522.0003,FilmTech LLC,"Replacement Cloud Key Controller(TBB-TM,SB)",NOC - Frankie Hammonds,II-Project Planning,Beginning,"Brown, Steven",07/06/2026 10:56 AM
+P20251210.0001,Soteria Flexibles (HQ),Continental Products - Switches,NOC - Frankie Hammonds,V-Pending Complete,Closing,"Brown, Steven",07/01/2026 10:27 AM
+P20251014.0001,Soteria Flexibles (HQ),Network Segmentation,NOC - Frankie Hammonds,III-In Progress,In Process,"Brown, Steven",07/05/2026 08:43 PM
+P20250903.0006,Soteria Flexibles (HQ),Filmtech - Replacement Firewall,NOC - Frankie Hammonds,III-In Progress,In Process,"Brown, Steven",07/09/2026 11:12 AM
+P20241030.0002,Preferred Personnel Solutions (Kennesaw HQ),"Project ""Entra ID Active Directory Joined Configuration"" (TBBTM,SB)",NOC - Frankie Hammonds,III-In Progress,In Process,"Brown, Steven",07/09/2026 11:17 AM
+P20250903.0004,Soteria Flexibles (HQ),Filmtech - Replacement 48-Port Switch,NOC - Frankie Hammonds,III-In Progress,In Process,"Brown, Steven",07/10/2026 01:34 PM
+P20260515.0002,Colonial Bag Corporation,"Soteria Flexibles Colonial Bag Corporation Replacement Firewall(TBB-TM,SB)",NOC - Frankie Hammonds,III-In Progress,In Process,"Brown, Steven",07/10/2026 04:34 PM
+P20260422.0001,Thomas & Brown LLC (Buckhead),Networking Equipment Relocation,NOC - Mike Meme,New,Beginning,"Marsili, Tony",07/01/2026 11:35 AM
+P20250930.0003,WLM Contracting,Replacement Server,NOC - Ryan Pardue,New,Beginning,"Slaton, Brad",03/23/2026 09:34 PM
+P20260409.0001,"MEI Services, Inc. dba PharmaLife LTC",FortiGate Virtual Firewall Implementation,NOC - Ryan Pardue,New,Beginning,"Marsili, Tony",07/08/2026 09:03 AM
+P20250328.0001,General Wholesale Beer Company (615) (HQ),Network Segmentation SOW,NOC - Ryan Pardue,V-Pending Complete,Closing,"Brown, Steven",06/10/2026 03:02 PM
+P20250903.0008,Soteria Flexibles (HQ),Continental Products DC upgrade,NOC - Ryan Pardue,V-Pending Complete,Closing,"Brown, Steven",07/06/2026 10:44 AM
+P20250814.0002,"ServIT, Inc. (HQ)",Vipre MX records and Smarthost,NOC - Ryan Pardue,V-Pending Complete,Closing,"Brown, Steven",07/08/2026 04:02 PM
+P20250917.0001,"Gulf Stream Coach, Inc.",Conditional Access Implmentation,NOC - Ryan Pardue,III-In Progress,In Process,"Slaton, Brad",01/14/2026 09:25 AM
+P20260406.0004,Conair LLC,"Project ""Short Term Gap Coverage"" (TBBTM, TM)",NOC - Ryan Pardue,III-In Progress,In Process,"Marsili, Tony",05/12/2026 11:03 AM
+P20260428.0003,Oriental Weavers Sphinx,MFA for Firewall,NOC - Ryan Pardue,III-In Progress,In Process,"Marsili, Tony",06/05/2026 04:07 PM
+P20250827.0001,United Fabrics,Replacement Firewall,NOC - Ryan Pardue,III-Project Scheduled,In Process,"Marsili, Tony",06/05/2026 04:08 PM
+P20251027.0003,Soteria Flexibles (HQ),Windows 11 VM for QuickBooks,NOC - Ryan Pardue,III-In Progress,In Process,"Brown, Steven",07/06/2026 11:25 AM
+P20260320.0001,"Oldcastle, Inc.","Project ""Support Transion"" (TBBTM, TM)",NOC - Ryan Pardue,III-In Progress,In Process,"Marsili, Tony",07/06/2026 08:05 PM
+P20260702.0001,"Gulf Stream Coach, Inc.","Project ""Open VPN Implementation"" (TBBTM, TM)",NOC - Ryan Pardue,III-Project Scheduled,In Process,"Marsili, Tony",07/07/2026 03:33 PM
+P20260426.0002,Castles Tech,Network Improvement Project,NOC - Ryan Pardue,III-In Progress,In Process,"Brown, Steven",07/10/2026 02:54 PM
+P20260114.0002,"Powell Tool Supply, Inc.",Vipre/ Proofpoint upgrade,NOC - Timmy Nguygen,New,Beginning,"Slaton, Brad",05/06/2026 02:05 PM
+P20250710.0001,"Worley, Schilling & Randall",Change from Vipre to Proofpoint,NOC - Timmy Nguygen,III-In Progress,In Process,"Slaton, Brad",06/02/2026 02:22 PM
+P20260420.0001,Brasington Bailey Contractors,Proofpoint,NOC - Timmy Nguygen,III-Project Scheduled,In Process,"Marsili, Tony",06/05/2026 02:35 PM
+P20260410.0001,Turner Chapel AME Church (Main Location),"Vipre to ProofPoint change(MS-AIT,SB)",NOC - Timmy Nguygen,III-In Progress,In Process,"Brown, Steven",07/10/2026 04:43 PM
+P20250529.0003,DiverzifyPro - Itasca - DIT,Yearly User Equipment Audit (All Locations),Niki Leverett,New,Beginning,"Leverett, Niki",08/25/2025 02:30 PM
+P20251217.0001,Fencing Supply Group,Autotask Setup Assistance,Niki Leverett,New,Beginning,"Slaton, Brad",06/26/2026 10:50 AM
+P20250909.0002,"Consolidated Aerospace Manufacturing, LLC (HQ)",New Power System,Other,New,Beginning,"Inciardi, Brooks",09/09/2025 04:59 PM
+P20260624.0002,ITW CIP,"ITW CIP - DV and DR Cancellation(MS-AIT,SB)",Other,III-In Progress,In Process,"Brown, Steven",07/09/2026 03:22 PM
+P20260429.0003,Division 9 Commercial Inc Construction,"Conditional Access implementation(TBB-TM,SB)",Other,III-Waiting Customer,In Process,"Brown, Steven",07/10/2026 01:19 PM
+P20251205.0001,Soteria Flexibles (HQ),Website Terms & Conditions Update,Other,On Hold,On Hold/Inactive,"Brown, Steven",07/06/2026 03:26 PM
+P20260608.0002,"Mitsui Sumitomo Marine Management (U.S.A.), Inc.","Project ""IBM Power Re-Rack"" (TBBTM, TM)",Third Party,I-Accepted,Beginning,"Marsili, Tony",07/06/2026 11:32 AM
+P20260611.0001,Husky Corporation,"PTF and firmware SOW for Power 9(TBB-TM, SB)",Third Party,II-Project Planning,Beginning,"Brown, Steven",07/10/2026 10:37 AM
+P20260526.0001,Castles Tech,"11 Lan Drops (TBB-FR, SB)",Third Party,V-To Be Billed/Closed,Final Closure,"Brown, Steven",07/08/2026 03:27 PM
+P20260304.0001,Consumer Collection Management,"Project ""RPG Programming"" (TBBTM, TM)",Third Party,III-In Progress,In Process,"Marsili, Tony",05/12/2026 11:05 AM
+P20260513.0001,Air Quality Systems,"Low Voltage Cleanup Project(TBB-FR, SB)",Third Party,III-In Progress,In Process,"Brown, Steven",07/02/2026 02:23 PM
