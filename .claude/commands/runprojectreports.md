@@ -2,13 +2,13 @@
 description: Run the project-management coordinator reports (flags, PM, resource)
 ---
 
-Run all three project-management coordinator reports, in order:
+Refresh the raw project pull from Autotask, then run all three project-management coordinator reports, in order (run from the repo root, using the PowerShell tool):
 
 ```
-cd project-management/01-coordinator
-python project_summary_flags.py
-python project_summary_pm.py
-python project_summary_resource.py
+./project-management/01-coordinator/Get-CoordinatorProjectData.ps1
+./project-management/01-coordinator/Export-CoordinatorFlagsReport.ps1
+./project-management/01-coordinator/Export-CoordinatorPMReport.ps1
+./project-management/01-coordinator/Export-CoordinatorResourceReport.ps1
 ```
 
 Then, if all three ran successfully, email the results (run from the repo root, using the PowerShell tool):
