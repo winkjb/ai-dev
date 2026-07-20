@@ -8,7 +8,9 @@ There is no need to ask any clariying questions here.  Simply read these items, 
 
 ## Where things stand
 
-Core framework is built: CLAUDE.md (conventions), readme.md (index).  Each folder fits a specific team that Brad supports (Project Managmenent Team | project-management folder, Security Team | security folder, Service Delivery Team | service-delivery folder)  
+Core framework is built: CLAUDE.md (conventions), readme.md (index).  Each folder fits a specific team that Brad supports (Project Management Team | project-management folder, Program Management Team | program-management folder, Security Team | security folder, Service Delivery Team | service-delivery folder)
+
+`program-management` (new 2026-07-16) has an architecture doc and context.md scaffolded — recurring, multi-client assessments of firewalls/M365 tenants/etc., client-facing reporting, self-contained from Service Delivery/PM for now. No role folders built yet; Coordinator (asset registry) is next per the build sequence in `program-management-agent-architecture.md`.
 
 ## Open loops
 
@@ -16,6 +18,7 @@ None right now.
 
 ## Recent decisions worth knowing
 
+- program-management scope: multi-client/MSP-style, client-facing deliverables, API/export access to assessed platforms already exists, findings stay self-contained (no Service Delivery/PM handoff wiring) for now.
 
 ## What's next
 

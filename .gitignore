@@ -1,13 +1,4 @@
-#Folder 1
-.vscode/
-#Folder 2
-.alcache/
-#Folder 3
-.alpackages/
-#File Type 1
-rad.json
-#File Type 2
-*.g.xlf
-*.bclicense
-#File Type 3
-TestResults.xml
+# ServIT / customer settings
+**/*.csv
+# Exceptions
+!**/ScriptsAndFrequency.csv

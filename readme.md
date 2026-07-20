@@ -12,6 +12,7 @@ Development environment for business automation projects supporting Brad Winkles
 ## Teams
 
 - [project-management/](project-management/) — reactive coordination (status, client comms, intake) and proactive planning (scheduling, risk, resourcing) for the PM team. See `pm-agent-architecture.md`.
+- [program-management/](program-management/) — recurring, ongoing technical assessments (firewalls, Microsoft tenants, and other managed platforms) across the supported client book, with client-facing reporting. See `program-management-agent-architecture.md`.
 - [security/](security/) — placeholder pending scope definition.
 - [service-delivery/](service-delivery/) — reactive ticket handling and proactive pattern detection/capacity planning for technical support. See `support-service-delivery-agent-architecture.md`.
 

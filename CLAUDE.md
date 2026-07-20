@@ -28,6 +28,9 @@ All code and apps created in this workspace must use **relative paths**, never s
 Bad: `C:\GitHub\directory\data\file.csv`
 Good: `./data/file.csv` or `../data/file.csv`
 
+### Root-Level `scripts/` — Workspace-Wide Shared Functions
+The workspace root's `scripts/` folder is for functions genuinely common across **all** teams — not just cross-role sharing within one team (that's what each team's own `scripts/` folder is for; see below). Things like importing encrypted customer/client settings, ensuring a directory exists, or sending a result email belong here once more than one team would plausibly reuse them. Team-specific variants or single-use scripts stay inside that team's own folders instead of being promoted here speculatively.
+
 ### Role/Agent Folder Naming
 Within a project's root directory (not nested under `scripts/`), each individual agent role gets its own top-level folder, prefixed with a two-digit number reflecting its order in that project's process/workflow — not alphabetical order, not build order.
 
