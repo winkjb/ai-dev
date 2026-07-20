@@ -7,26 +7,26 @@
 ## Architecture Overview
 
 ```
-                        ┌───────────────────┐
-                        │    ORCHESTRATOR    │
+                        ┌─────────────────────┐
+                        │    ORCHESTRATOR     │
                         │  (routes, resolves  │
                         │  conflicts, escal-  │
                         │  ates PATTERNS not  │
                         │  individual tickets)│
-                        └─────────┬──────────┘
+                        └─────────┬───────────┘
                                   │
-        ┌─────────────────────────┼─────────────────────────┐
+        ┌─────────────────────────┼──────────────────────────┐
         │                         │                          │
    REACTIVE TIER             PROACTIVE TIER              DATA LAYER
    (event-driven)          (scheduled/polling)         (shared source
                                                           of truth)
-  ┌───────────────┐       ┌───────────────┐
-  │ Coordinator    │       │ Planner        │
-  │ Client Comms   │       │ Analyst        │
-  │ Intake/Triage  │       │ Risk/Compliance│
+  ┌───────────────┐       ┌────────────────┐
+  │ Coordinator   │       │ Planner        │
+  │ Client Comms  │       │ Analyst        │
+  │ Intake/Triage │       │ Risk/Compliance│
   └───────────────┘       │ Resource       │
-                           │  Allocation    │
-                           └───────────────┘
+                          │  Allocation    │
+                          └────────────────┘
 ```
 
 ---
