@@ -5,7 +5,7 @@
 ##
 ###################################################################################################################
 
-function Import-CustomerSettings {
+function Import-Settings {
     
     [CmdletBinding()]
     
@@ -32,14 +32,14 @@ function Import-CustomerSettings {
         $JsonData = [Runtime.InteropServices.Marshal]::PtrToStringAuto($bstr)
         [Runtime.InteropServices.Marshal]::ZeroFreeBSTR($bstr)
 
-        $CustomerSettings = $JsonData | ConvertFrom-Json
-        if (-not $CustomerSettings) { throw "Failed to parse JSON from $SettingsPath" }
-        return $CustomerSettings
+        $Settings = $JsonData | ConvertFrom-Json
+        if (-not $Settings) { throw "Failed to parse JSON from $SettingsPath" }
+        return $Settings
     
     }
     catch {
     
-        throw "Import-CustomerSettings failed: $($_.Exception.Message)"
+        throw "Import-Settings failed: $($_.Exception.Message)"
     
     }
 

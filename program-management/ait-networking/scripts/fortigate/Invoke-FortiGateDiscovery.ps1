@@ -5,7 +5,7 @@
 
 .DESCRIPTION
     Walks data/reference/customers/**/CustomerSettings.txt recursively. For each one
-    found, decrypts it via Import-CustomerSettings and checks the NetworkDevice field -
+    found, decrypts it via Import-Settings and checks the NetworkDevice field -
     only sites where NetworkDevice is "FortiGate" are assessed (this is the FortiGate
     discovery wrapper; SonicWall/WatchGuard get their own under scripts/sonicwall,
     scripts/watchguard once those exist). Onboarding a new client/site is then just
@@ -44,7 +44,7 @@ param(
 
     [switch]$SkipSecurityProfiles,
 
-    # Passed through to Import-CustomerSettings for every site; leave blank to use its
+    # Passed through to Import-Settings for every site; leave blank to use its
     # own default/env-var resolution (see scripts/VA-Functions-Common.ps1).
     [string]$KeyPath
 )
@@ -89,7 +89,7 @@ $Results = foreach ($SettingsFile in $SettingsFiles) {
     if ($KeyPath) { $ImportParams["KeyPath"] = $KeyPath }
 
     try {
-        $CustomerSettings = Import-CustomerSettings @ImportParams
+        $CustomerSettings = Import-Settings @ImportParams
     }
     catch {
         Write-Host "  Skipped - failed to decrypt settings: $($_.Exception.Message)" -ForegroundColor Red

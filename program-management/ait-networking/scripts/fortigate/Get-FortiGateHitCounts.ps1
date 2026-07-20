@@ -61,7 +61,7 @@ param(
     # for the decrypt side used here).
     [string]$CustomerSettingsPath,
 
-    # Only relevant with -CustomerSettingsPath. Passed through to Import-CustomerSettings;
+    # Only relevant with -CustomerSettingsPath. Passed through to Import-Settings;
     # leave blank to use its own default/env-var resolution (see scripts/VA-Functions-Common.ps1).
     [string]$KeyPath,
 
@@ -70,7 +70,7 @@ param(
 
 # ---------------------------------------------------------------------------
 # Optional (preferred): load FortiGate / ApiKey / Vdom from an encrypted
-# CustomerSettings file via the shared Import-CustomerSettings function.
+# CustomerSettings file via the shared Import-Settings function.
 # CLI parameters always win if supplied; this fills in whatever's missing.
 # ---------------------------------------------------------------------------
 if ($CustomerSettingsPath) {
@@ -83,7 +83,7 @@ if ($CustomerSettingsPath) {
 
     $ImportParams = @{ SettingsPath = $CustomerSettingsPath }
     if ($KeyPath) { $ImportParams["KeyPath"] = $KeyPath }
-    $CustomerSettings = Import-CustomerSettings @ImportParams
+    $CustomerSettings = Import-Settings @ImportParams
 
     # Flat shape (NetworkDevice, IpAddress, ApiKey, Smtp* - matches CustomerSettings.csv
     # columns directly), not nested - this is whatever the settings-encryption process
