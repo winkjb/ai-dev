@@ -1,4 +1,4 @@
-# ServIT / customer settings
+# Plain text settings
 **/*.csv
 # Exceptions
 !**/ScriptsAndFrequency.csv
