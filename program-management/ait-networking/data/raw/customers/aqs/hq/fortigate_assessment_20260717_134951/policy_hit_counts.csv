@@ -1,0 +1,8 @@
+"PolicyID","Name","SrcIntf","DstIntf","Action","Status","HitCount","Bytes","Packets","ActiveSessions"
+"0",,"","",,,"246092","15733518","245405","0"
+"1","LAN > WAN","lan","wan","accept","enable","61619887","25641955302056","24731434855","1310"
+"3","Guest Wireless > WAN","Guest Wireless","wan","accept","enable","1895322","2787864402514","2157214557","148"
+"4","ServIT NMS > LAN","ServIT NMS","lan","accept","enable","180825814","192836852088","1716005664","504"
+"5","WAN > LAN","wan","lan","accept","disable","0","0","0","0"
+"6","","lan","ServIT NMS","accept","disable","0","0","0","0"
+"8","Scanner NAT rule","wan","lan","accept","disable","0","0","0","0"

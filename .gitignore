@@ -1,4 +1,3 @@
 # Plain text settings
-**/*.csv
-# Exceptions
-!**/ScriptsAndFrequency.csv
+**/AutotaskSettings.csv
+**/CustomerSettings.csv
