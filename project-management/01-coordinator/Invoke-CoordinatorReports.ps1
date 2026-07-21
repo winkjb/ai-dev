@@ -25,7 +25,8 @@ function Write-Log {
     Add-Content -LiteralPath $LogPath -Value $Line
 }
 
-$ToAddresses = @("bwinklesky@servit.net", "tmarsili@servit.net")
+#$ToAddresses = @("bwinklesky@servit.net","tmarsili@servit.net")
+$ToAddresses = @("bwinklesky@servit.net")
 $EmailScript = Join-Path $PSScriptRoot "..\..\scripts\Send-ReportEmail.ps1"
 
 try {
