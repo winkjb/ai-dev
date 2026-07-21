@@ -1,0 +1,2 @@
+﻿SmtpServer,SmtpPort,SmtpSsl,SmtpFrom,SmtpUsername,SmtpPassword
+alerts-servit-net.mail.protection.outlook.com,25,Yes,ServIT Virtual Administrator <noreply@alerts.servit.net>,,

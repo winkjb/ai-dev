@@ -1,0 +1,4 @@
+"PolicyID","Name","SrcIntf","DstIntf","Action","Status","HitCount","Bytes","Packets","ActiveSessions"
+"5","WAN > LAN","wan","lan","accept","disable","0","0","0","0"
+"6","","lan","ServIT NMS","accept","disable","0","0","0","0"
+"8","Scanner NAT rule","wan","lan","accept","disable","0","0","0","0"
