@@ -6,6 +6,7 @@ Automation for the program management function — recurring, ongoing technical 
 ## Contents
 - `program-management-agent-architecture.md` — multi-agent design doc: agent roles, triggers, inputs/outputs, handoffs, and build sequence.
 - `<offering>/` (e.g. `ait-networking/`) — one top-level folder per offering being program-managed. Each offering owns its own `data/` (raw collector output + reference/settings, per-client subfolders) and role folders for offering-specific work (Collector, Analyst — the roles whose logic is genuinely platform-specific and can't be shared across offerings).
+- `ait-patching/` (2026-07-21) — a one-off, not part of the numbered-role architecture: flags devices sitting in Failed/Not Installed patch status (from a monthly patch export) for account management to open tickets against, grouped by customer/location. Business rules (Windows 10 EOL exclusion unless the customer has ESU, a customer ignore list, workstations/laptops only) are documented in `ait-patching/scripts/patch_action_flags.py`'s docstring. Run manually, not scheduled.
 - `01-coordinator/`, `02-client-communication/`, `07-orchestrator/` — (not yet created) roles that stay shared at this root level rather than duplicated per offering, since they need a cross-offering view: one asset registry, one client-facing report covering everything a client is assessed on, one escalation point.
 
 ## Notes

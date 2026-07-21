@@ -100,6 +100,27 @@ function Invoke-AutotaskQuery {
     return $Items
 }
 
+function Get-InBatches {
+
+    # Autotask's "in" filter has an undocumented practical limit - chunk to be safe rather
+    # than find that limit the hard way against several hundred distinct IDs at once.
+    #
+    # PowerShell enumerates any IEnumerable placed in a function's output stream, including
+    # nested one level deep - a List[object] containing one 69-item array gets flattened
+    # into 69 separate outputs by the time `foreach ($b in Get-InBatches ...)` sees it. The
+    # unary-comma trick doesn't survive an intermediate variable assignment; the only fix
+    # that actually holds is Write-Output -NoEnumerate on the final result.
+
+    [CmdletBinding()]
+    param([array]$Values, [int]$BatchSize = 200)
+    $Batches = [System.Collections.Generic.List[object]]::new()
+    for ($i = 0; $i -lt $Values.Count; $i += $BatchSize) {
+        $End = [Math]::Min($i + $BatchSize - 1, $Values.Count - 1)
+        $Batches.Add([object[]]($Values[$i..$End]))
+    }
+    Write-Output -NoEnumerate $Batches
+}
+
 function Get-AutotaskPicklist {
 
     # Returns the picklist value->label map (a hashtable keyed by the string value) for

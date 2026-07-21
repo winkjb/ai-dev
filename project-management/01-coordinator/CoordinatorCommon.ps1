@@ -4,6 +4,8 @@
 ##
 ###################################################################################################################
 
+. (Join-Path $PSScriptRoot "..\..\scripts\ReportFormatting-Common.ps1")
+
 $PHASE_ORDER = @("Beginning", "In Process", "Closing", "Final Closure", "On Hold/Inactive")
 $UNKNOWN_PHASE_LABEL = "Unknown Phase"
 $NO_LEAD_LABEL = "(No Project Lead Listed)"
@@ -58,36 +60,6 @@ function Remove-ExcludedProjects {
         Projects      = $Kept
         ExcludedCount = $ExcludedCount
     }
-}
-
-function Set-Utf8NoBomContent {
-
-    # Windows PowerShell 5.1's -Encoding UTF8 always writes a BOM; the original Python
-    # reports never had one. Matches Python's write_text - exact content, no BOM, no
-    # trailing newline added.
-
-    [CmdletBinding()]
-    param(
-        [Parameter(Mandatory)] [string]$Path,
-        [Parameter(Mandatory)] [string]$Value
-    )
-
-    [System.IO.File]::WriteAllText($Path, $Value, [System.Text.UTF8Encoding]::new($false))
-}
-
-function Export-Utf8NoBomCsv {
-
-    # Same BOM problem as Set-Utf8NoBomContent, for CSV output (the original pandas
-    # to_csv() output files - unlike the BOM'd raw Autotask export - never had one).
-
-    [CmdletBinding()]
-    param(
-        [Parameter(Mandatory)] [string]$Path,
-        [Parameter(Mandatory)] [array]$InputObject
-    )
-
-    $Csv = $InputObject | ConvertTo-Csv -NoTypeInformation
-    Set-Utf8NoBomContent -Path $Path -Value (($Csv -join "`r`n") + "`r`n")
 }
 
 function Add-ProjectPhase {
