@@ -4,3 +4,8 @@
 [2026-07-20 21:06:32] ERROR: SMTP settings file not found: C:\GitHub\ai-dev\scripts\..\data\reference\SmtpSettings.csv
 [2026-07-20 21:06:32] === Run failed ===
 [2026-07-20 21:06:32] Also failed to send failure notification: SMTP settings file not found: C:\GitHub\ai-dev\scripts\..\data\reference\SmtpSettings.csv
+[2026-07-20 21:26:26] === Starting coordinator report run ===
+[2026-07-20 21:26:57] Fetched project data from Autotask
+[2026-07-20 21:26:58] Generated all three reports
+[2026-07-20 21:28:23] Emailed reports to bwinklesky@servit.net
+[2026-07-20 21:28:23] === Run completed successfully ===
