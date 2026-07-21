@@ -1,7 +1,7 @@
 Queue,Critical Unassigned,Stalled Intake,Stale,Waiting External,Unassigned,Total Flagged
 Diverzify,0,9,23,61,0,93
-Tier 1,0,6,17,53,1,77
-Tier 2,0,1,15,22,0,38
+Tier 1,0,6,22,53,1,82
+Tier 2,0,1,16,22,0,39
 PC Refresh & Repair,0,1,4,12,0,17
 Security,0,3,5,0,2,10
 Alerts,0,2,2,4,0,8
@@ -11,4 +11,4 @@ Diverzify Infrastructure Support,0,0,0,1,0,1
 Audit & Compliance,0,0,0,0,1,1
 O&C,0,1,0,0,0,1
 Tier 3 | Infrastructure,0,0,1,0,0,1
-Total,0,25,67,155,4,251
+Total,0,25,73,155,4,257
