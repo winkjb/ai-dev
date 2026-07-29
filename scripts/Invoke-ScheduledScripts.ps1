@@ -6,35 +6,77 @@
 .DESCRIPTION
     Reads a manifest (ScriptManifest.csv) describing each script and its cadence.
     Reads a state file (ScriptRunState.json) tracking the last successful run of each script.
-    Determines which scripts are due today, AND which ones are overdue/missed
-    (e.g. box was off, previous run failed) and catches them up.
+    Determines which scripts are due today, AND which ones are overdue/missed and catches them up.
     Logs every run, success, failure, and skip to a rolling log file.
-
-.NOTES
-    Schedule THIS script once in Task Scheduler (e.g. daily at 6:00 AM).
-    It decides internally what actually needs to run.
 
 .PARAMETER DryRun
     If specified, evaluates what WOULD run and logs it, but does not execute anything
     or update the state file. Consistent with the -DryRun pattern used in combine_assessments.py.
 
 .PARAMETER ManifestPath
-    Path to the JSON manifest of scripts. Defaults to .\ScriptManifest.json (same folder as this script).
+    Path to the JSON manifest of scripts. Defaults to ..\data\input\ScriptManifest.csv.
 
 .PARAMETER StatePath
-    Path to the JSON file tracking last-run timestamps. Defaults to .\ScriptRunState.json.
+    Path to the JSON file tracking last-run timestamps. Defaults to ..\data\input\ScriptRunState.json.
 
 .PARAMETER Force
     Runs every enabled script regardless of schedule/state. Useful for manual re-runs or testing.
+
+.PARAMETER SkipTimingGuard
+    Bypasses the run-timing window guard (see NOTES) - independent of -Force, since forcing
+    every script to run and ignoring a suspicious trigger time are different concerns. Useful
+    for manual re-runs/testing at any time of day.
+
+.PARAMETER ExpectedHour
+    Hour (24h) this dispatcher is expected to be triggered at. Defaults to 7 (matches the
+    "e.g. daily at 7:00 AM" Task Scheduler trigger documented above).
+
+.PARAMETER ExpectedMinute
+    Minute this dispatcher is expected to be triggered at. Defaults to 0.
+
+.PARAMETER MaxTimingDifferenceMinutes
+    How many minutes before/after the expected time still count as a legitimate trigger.
+    Defaults to 15.
+
+.PARAMETER DelaySeconds
+    Pause between actually-executed scripts (not before the first one, and never a trailing
+    wait after the last), to avoid back-to-back API/SMTP hits or piling straight into a
+    transient issue right after a prior script failed. Defaults to 30. Set to 0 to disable.
+    Doesn't apply to skipped/disabled entries or -DryRun (nothing real happens either way).
+
+.NOTES
+    Schedule this script once in Task Scheduler (e.g. daily at 7:00 AM).
+    It decides internally what actually needs to run.
+
+    Run-timing window guard: on multiple customer servers in a previous architecture, a
+    Task Scheduler trigger ended up firing outside its expected window in ways that caused
+    duplicate/repeated runs - especially around DST changes. Since this dispatcher is meant
+    to fire once a day at a known time, a trigger landing well outside that window is treated
+    as suspect and the whole run is skipped (not just one script) rather than trusting it.
 #>
 
 [CmdletBinding()]
 param(
     [switch]$DryRun,
-    [string]$ManifestPath = (Join-Path $PSScriptRoot "..\data\input\ScriptManifest.csv"),
-    [string]$StatePath    = (Join-Path $PSScriptRoot "..\data\input\ScriptRunState.json"),
-    [switch]$Force
+    [string]$ManifestPath,
+    [string]$StatePath,
+    [switch]$Force,
+    [switch]$SkipTimingGuard,
+    [int]$ExpectedHour = 7,
+    [int]$ExpectedMinute = 0,
+    [int]$MaxTimingDifferenceMinutes = 15,
+    [int]$DelaySeconds = 30
 )
+
+# $PSScriptRoot is unreliable (empty) at param-default-value evaluation time when a script
+# is invoked via "powershell.exe -File <fullpath>" - exactly how Task Scheduler runs this
+# dispatcher - even though it works fine when dot-sourced/invoked from an already-running
+# session. Confirmed live: this silently broke the production scheduled task with
+# "Join-Path : Cannot bind argument to parameter 'Path' because it is an empty string."
+# Resolving these in the body instead (same pattern already used safely elsewhere in this
+# workspace, e.g. Get-CoordinatorProjectData.ps1, Connect-Autotask) sidesteps it entirely.
+if (-not $ManifestPath) { $ManifestPath = Join-Path $PSScriptRoot "..\data\input\ScriptManifest.csv" }
+if (-not $StatePath)    { $StatePath    = Join-Path $PSScriptRoot "..\data\input\ScriptRunState.json" }
 
 $ErrorActionPreference = "Stop"
 $LogDir  = Join-Path $PSScriptRoot "..\data\output"
@@ -59,6 +101,17 @@ function Write-Log {
         "SUCCESS" { Write-Host $line -ForegroundColor Green }
         "SKIP"    { Write-Host $line -ForegroundColor DarkGray }
         default   { Write-Host $line }
+    }
+}
+
+if (-not $SkipTimingGuard) {
+    $Now = Get-Date
+    $ExpectedTime = Get-Date -Hour $ExpectedHour -Minute $ExpectedMinute -Second 0
+    $TimingDifference = [math]::Abs((New-TimeSpan -Start $ExpectedTime -End $Now).TotalMinutes)
+
+    if ($TimingDifference -gt $MaxTimingDifferenceMinutes) {
+        Write-Log "Skipping run - triggered outside expected window. Now: $Now. Expected: $ExpectedTime (+/-$MaxTimingDifferenceMinutes min). Difference: $([math]::Round($TimingDifference, 1)) min." -Level WARN
+        exit 0
     }
 }
 
@@ -151,23 +204,78 @@ function Test-IsOverdue {
     }
 }
 
+function Resolve-ScriptDefPath {
+    <#
+        Manifest Path values can be absolute (for scripts genuinely outside the repo, like
+        the Proofpoint/Quarterly-ClientReview legacy entries under C:\Scripts\...) or
+        relative to the repo root (e.g. project-management\01-coordinator\Invoke-
+        CoordinatorReports.ps1) - relative paths keep the manifest portable if this
+        workspace ever gets cloned/moved somewhere other than its current location, per
+        CLAUDE.md's relative-paths convention. $PSScriptRoot here is always this dispatcher's
+        own scripts\ folder, so its parent is a stable repo-root anchor regardless of how
+        or from where the dispatcher gets invoked.
+    #>
+    param([string]$Path)
+    if ([System.IO.Path]::IsPathRooted($Path)) { return $Path }
+    $RepoRoot = Split-Path $PSScriptRoot -Parent
+    return Join-Path $RepoRoot $Path
+}
+
+function ConvertTo-ArgumentHashtable {
+    <#
+        Converts a simple "-Name value -Switch -Other value" Arguments string into a
+        hashtable for splatting (@hashtable) into a PowerShell script's own named/switch
+        parameters. Deliberately NOT a plain array splat (@array) - confirmed live that
+        array splatting only binds POSITIONALLY, so a leading "-DryRun" silently landed on
+        Remove-OldLogs.ps1's first positional parameter ($RetentionMonths, an int) and threw
+        a type-conversion error instead of being recognized as the switch it looks like.
+        Only affects the PowerShell-script branch below - the python branch passes argv
+        straight through to a native exe, where dash-prefixed tokens were never a binding
+        problem in the first place (python's own argparse handles them, not PowerShell).
+    #>
+    param([string]$ArgumentString)
+
+    $Result = @{}
+    if ([string]::IsNullOrWhiteSpace($ArgumentString)) { return $Result }
+
+    $Tokens = @($ArgumentString -split '\s+' | Where-Object { $_ })
+    $i = 0
+    while ($i -lt $Tokens.Count) {
+        $Token = $Tokens[$i]
+        if ($Token -notlike '-*') {
+            throw "Unexpected positional argument '$Token' in Arguments string '$ArgumentString' - only named/switch parameters (-Name value / -Switch) are supported."
+        }
+        $Name = $Token.TrimStart('-')
+        $NextIsValue = ($i + 1 -lt $Tokens.Count) -and ($Tokens[$i + 1] -notlike '-*')
+        if ($NextIsValue) {
+            $Result[$Name] = $Tokens[$i + 1]
+            $i += 2
+        } else {
+            $Result[$Name] = $true
+            $i += 1
+        }
+    }
+    return $Result
+}
+
 function Invoke-ScriptDef {
     param($ScriptDef)
 
-    if (-not (Test-Path $ScriptDef.Path)) {
-        Write-Log "$($ScriptDef.Name): script not found at $($ScriptDef.Path)" -Level ERROR
+    $ResolvedPath = Resolve-ScriptDefPath -Path $ScriptDef.Path
+
+    if (-not (Test-Path $ResolvedPath)) {
+        Write-Log "$($ScriptDef.Name): script not found at $ResolvedPath" -Level ERROR
         return $false
     }
 
     try {
         if (ConvertTo-Bool $ScriptDef.IsPython) {
-            $argList = @($ScriptDef.Path)
+            $argList = @($ResolvedPath)
             if ($ScriptDef.Arguments) { $argList += $ScriptDef.Arguments -split ' ' }
             & python $argList
         } else {
-            $argList = @()
-            if ($ScriptDef.Arguments) { $argList = $ScriptDef.Arguments -split ' ' }
-            & $ScriptDef.Path @argList
+            $ArgHash = ConvertTo-ArgumentHashtable -ArgumentString $ScriptDef.Arguments
+            & $ResolvedPath @ArgHash
         }
 
         if ($LASTEXITCODE -and $LASTEXITCODE -ne 0) {
@@ -198,6 +306,7 @@ $state    = Get-State -Path $StatePath
 $today    = Get-Date
 
 $results = @()
+$HasRunAny = $false
 
 foreach ($scriptDef in $manifest) {
 
@@ -225,7 +334,13 @@ foreach ($scriptDef in $manifest) {
         continue
     }
 
+    if ($HasRunAny -and $DelaySeconds -gt 0) {
+        Write-Log "Waiting $DelaySeconds second(s) before $($scriptDef.Name)..."
+        Start-Sleep -Seconds $DelaySeconds
+    }
+
     $success = Invoke-ScriptDef -ScriptDef $scriptDef
+    $HasRunAny = $true
 
     if ($success) {
         $state[$scriptDef.Name] = $today.ToString("o")

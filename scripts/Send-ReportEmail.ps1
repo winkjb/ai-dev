@@ -22,11 +22,17 @@ param(
 
     [bool]$BodyAsHtml = $false,
 
-    # Falls back to data/reference/SmtpSettings.csv (sibling of this script's scripts/ folder)
-    [string]$SettingsPath = $(Join-Path $PSScriptRoot "..\data\reference\SmtpSettings.csv")
+    [string]$SettingsPath
 )
 
-$CommonScript = Join-Path $PSScriptRoot "VA-Functions-Common.ps1"
+# $PSScriptRoot is unreliable (empty) at param-default-value evaluation time when this script
+# is invoked via "powershell.exe -File <fullpath>" (confirmed live - see
+# scripts/Invoke-ScheduledScripts.ps1 for the same bug and full explanation). Resolving in the
+# body instead - falls back to data/reference/SmtpSettings.csv (sibling of this script's
+# scripts/ folder).
+if (-not $SettingsPath) { $SettingsPath = Join-Path $PSScriptRoot "..\data\reference\SmtpSettings.csv" }
+
+$CommonScript = Join-Path $PSScriptRoot "Functions-VA-Common.ps1"
 if (-not (Test-Path -LiteralPath $CommonScript)) {
     Write-Error "Shared functions script not found: $CommonScript"
     exit 1

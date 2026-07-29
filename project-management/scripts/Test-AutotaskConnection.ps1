@@ -4,7 +4,7 @@
     are valid and reachable - no project data is pulled, just a connectivity check.
 
 .DESCRIPTION
-    Uses the shared scripts/Autotask-Functions-Common.ps1 library (Connect-Autotask,
+    Uses the shared scripts/Functions-Autotask-Common.ps1 library (Connect-Autotask,
     Invoke-AutotaskQuery) to run a minimal, read-only Projects query and confirm auth
     succeeds end-to-end.
 
@@ -18,7 +18,7 @@ param(
     [string]$KeyPath
 )
 
-$FunctionsScript = Join-Path $PSScriptRoot "..\..\scripts\Autotask-Functions-Common.ps1"
+$FunctionsScript = Join-Path $PSScriptRoot "..\..\scripts\Functions-Autotask-Common.ps1"
 if (-not (Test-Path -LiteralPath $FunctionsScript)) {
     Write-Error "Shared functions script not found: $FunctionsScript"
     exit 1

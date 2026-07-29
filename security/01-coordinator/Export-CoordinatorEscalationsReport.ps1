@@ -28,7 +28,7 @@
 [CmdletBinding()]
 param()
 
-. (Join-Path $PSScriptRoot "..\scripts\Huntress-Functions-Common.ps1")
+. (Join-Path $PSScriptRoot "..\..\scripts\Functions-Huntress-Common.ps1")
 . (Join-Path $PSScriptRoot "..\..\scripts\ReportFormatting-Common.ps1")
 
 $OutputDir = Join-Path $PSScriptRoot "output"

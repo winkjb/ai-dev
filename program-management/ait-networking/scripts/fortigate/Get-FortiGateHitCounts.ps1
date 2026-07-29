@@ -31,7 +31,7 @@
 
 .EXAMPLE
     # Preferred: credentials pulled from an encrypted CustomerSettings file (see
-    # scripts/VA-Functions-Common.ps1 for the decrypt side; the file itself is
+    # scripts/Functions-VA-Common.ps1 for the decrypt side; the file itself is
     # produced by the existing VA settings-encryption process, not by this repo)
     .\Get-FortiGateHitCounts.ps1 -CustomerSettingsPath "..\..\data\reference\customers\aqs\hq\CustomerSettings.txt" -ExcludeDisabled -ExportCsv
 
@@ -57,12 +57,12 @@ param(
     [string]$ConfigFile,
 
     # Preferred credential source - path to a per-client encrypted settings file
-    # (produced by the existing VA settings-encryption process; see scripts/VA-Functions-Common.ps1
+    # (produced by the existing VA settings-encryption process; see scripts/Functions-VA-Common.ps1
     # for the decrypt side used here).
     [string]$CustomerSettingsPath,
 
     # Only relevant with -CustomerSettingsPath. Passed through to Import-Settings;
-    # leave blank to use its own default/env-var resolution (see scripts/VA-Functions-Common.ps1).
+    # leave blank to use its own default/env-var resolution (see scripts/Functions-VA-Common.ps1).
     [string]$KeyPath,
 
     [string]$OutputPath = ".\fortigate_export_$(Get-Date -Format 'yyyyMMdd_HHmmss')"
@@ -74,7 +74,7 @@ param(
 # CLI parameters always win if supplied; this fills in whatever's missing.
 # ---------------------------------------------------------------------------
 if ($CustomerSettingsPath) {
-    $CommonScript = Join-Path $PSScriptRoot "..\..\..\..\scripts\VA-Functions-Common.ps1"
+    $CommonScript = Join-Path $PSScriptRoot "..\..\..\..\scripts\Functions-VA-Common.ps1"
     if (-not (Test-Path -LiteralPath $CommonScript)) {
         Write-Error "Shared functions script not found: $CommonScript"
         exit 1

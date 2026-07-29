@@ -2,7 +2,8 @@
 .SYNOPSIS
     Unattended entry point for the security coordinator report - runs the escalations
     report and emails the results. Meant to be called from a scheduled task (not yet
-    registered); logs to output/scheduled-run.log since nobody's watching the console.
+    registered); logs to output/scheduled-run-{yyyy-MM}.log (one file per month, cleaned up
+    after 12 months by scripts/Remove-OldLogs.ps1) since nobody's watching the console.
     For interactive/manual runs, see .claude/commands/runsecurityreports.md.
 
 .EXAMPLE
@@ -16,7 +17,7 @@ $ErrorActionPreference = "Stop"
 
 $OutputDir = Join-Path $PSScriptRoot "output"
 if (-not (Test-Path -LiteralPath $OutputDir)) { New-Item -ItemType Directory -Path $OutputDir -Force | Out-Null }
-$LogPath = Join-Path $OutputDir "scheduled-run.log"
+$LogPath = Join-Path $OutputDir ("scheduled-run-{0:yyyy-MM}.log" -f (Get-Date))
 
 function Write-Log {
     param([string]$Message)

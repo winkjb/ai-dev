@@ -45,11 +45,11 @@ param(
     [switch]$SkipSecurityProfiles,
 
     # Passed through to Import-Settings for every site; leave blank to use its
-    # own default/env-var resolution (see scripts/VA-Functions-Common.ps1).
+    # own default/env-var resolution (see scripts/Functions-VA-Common.ps1).
     [string]$KeyPath
 )
 
-$CommonScript = Join-Path $PSScriptRoot "..\..\..\..\scripts\VA-Functions-Common.ps1"
+$CommonScript = Join-Path $PSScriptRoot "..\..\..\..\scripts\Functions-VA-Common.ps1"
 if (-not (Test-Path -LiteralPath $CommonScript)) {
     Write-Error "Shared functions script not found: $CommonScript"
     exit 1

@@ -26,7 +26,7 @@ param(
 
 if (-not $OutputPath) { $OutputPath = Join-Path $PSScriptRoot "..\data\raw\Project Search Results.csv" }
 
-$FunctionsScript = Join-Path $PSScriptRoot "..\..\scripts\Autotask-Functions-Common.ps1"
+$FunctionsScript = Join-Path $PSScriptRoot "..\..\scripts\Functions-Autotask-Common.ps1"
 if (-not (Test-Path -LiteralPath $FunctionsScript)) {
     Write-Error "Shared functions script not found: $FunctionsScript"
     exit 1

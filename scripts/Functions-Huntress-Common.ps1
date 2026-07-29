@@ -1,12 +1,12 @@
 ###################################################################################################################
 ##
 ## Shared Huntress REST API functions, dot source this file to use them. Security-team-specific (not workspace-
-## wide like scripts/Autotask-Functions-Common.ps1) - only the security team's reports talk to Huntress today.
+## wide like scripts/Functions-Autotask-Common.ps1) - only the security team's reports talk to Huntress today.
 ## Generic mechanics only - entity-specific filtering/shaping belongs in the caller.
 ##
 ###################################################################################################################
 
-$CommonScript = Join-Path $PSScriptRoot "..\..\scripts\VA-Functions-Common.ps1"
+$CommonScript = Join-Path $PSScriptRoot "Functions-VA-Common.ps1"
 if (-not (Get-Command Import-Settings -ErrorAction SilentlyContinue)) {
     . $CommonScript
 }

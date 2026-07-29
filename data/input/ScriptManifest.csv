@@ -1,4 +1,4 @@
 Name,Path,IsPython,Frequency,DayOfWeek,DayOfMonth,Enabled,Arguments
-Invoke-CoordinatorReports,C:\GitHub\ai-dev\project-management\01-coordinator\Invoke-CoordinatorReports.ps1,FALSE,Daily,,,TRUE,
-Analyze-ProofpointWhitelistRedundancy,C:\Scripts\Proofpoint\Analyze-ProofpointWhitelistRedundancy.ps1,FALSE,Weekly,Monday,,FALSE,
-Quarterly-ClientReview,C:\Scripts\Reviews\Quarterly-ClientReview.ps1,FALSE,Quarterly,,1,FALSE,
+PM-Invoke-CoordinatorReports,project-management\01-coordinator\Invoke-CoordinatorReports.ps1,FALSE,Daily,,,TRUE,
+SD-Invoke-CoordinatorReports,service-delivery\01-coordinator\Invoke-CoordinatorReports.ps1,FALSE,Daily,,,TRUE,
+Remove-OldLogs,scripts\Remove-OldLogs.ps1,FALSE,Monthly,,1,TRUE,

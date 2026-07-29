@@ -6,7 +6,7 @@
 ##
 ###################################################################################################################
 
-$CommonScript = Join-Path $PSScriptRoot "VA-Functions-Common.ps1"
+$CommonScript = Join-Path $PSScriptRoot "Functions-VA-Common.ps1"
 if (-not (Get-Command Import-Settings -ErrorAction SilentlyContinue)) {
     . $CommonScript
 }

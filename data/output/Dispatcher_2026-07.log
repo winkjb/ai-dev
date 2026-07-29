@@ -60,3 +60,92 @@
 [2026-07-28 21:33:05] [SKIP] Analyze-ProofpointWhitelistRedundancy: disabled in manifest. Skipping.
 [2026-07-28 21:33:05] [SKIP] Quarterly-ClientReview: disabled in manifest. Skipping.
 [2026-07-28 21:33:05] [INFO] ===== Dispatcher run finished =====
+[2026-07-29 10:06:36] [WARN] Skipping run - triggered outside expected window. Now: 07/29/2026 10:06:36. Expected: 07/29/2026 07:00:00 (+/-15 min). Difference: 186.6 min.
+[2026-07-29 10:06:36] [INFO] ===== Dispatcher run started (DRY RUN) =====
+[2026-07-29 10:06:36] [INFO] Invoke-CoordinatorReports: running - scheduled today.
+[2026-07-29 10:06:36] [SKIP] Invoke-CoordinatorReports: DRY RUN - would execute C:\GitHub\ai-dev\project-management\01-coordinator\Invoke-CoordinatorReports.ps1
+[2026-07-29 10:06:36] [SKIP] Analyze-ProofpointWhitelistRedundancy: disabled in manifest. Skipping.
+[2026-07-29 10:06:36] [SKIP] Quarterly-ClientReview: disabled in manifest. Skipping.
+[2026-07-29 10:06:36] [INFO] ===== Dispatcher run finished =====
+[2026-07-29 10:06:36] [INFO] ===== Dispatcher run started (DRY RUN) =====
+[2026-07-29 10:06:36] [INFO] Invoke-CoordinatorReports: running - scheduled today.
+[2026-07-29 10:06:36] [SKIP] Invoke-CoordinatorReports: DRY RUN - would execute C:\GitHub\ai-dev\project-management\01-coordinator\Invoke-CoordinatorReports.ps1
+[2026-07-29 10:06:36] [SKIP] Analyze-ProofpointWhitelistRedundancy: disabled in manifest. Skipping.
+[2026-07-29 10:06:36] [SKIP] Quarterly-ClientReview: disabled in manifest. Skipping.
+[2026-07-29 10:06:36] [INFO] ===== Dispatcher run finished =====
+[2026-07-29 10:08:04] [WARN] Skipping run - triggered outside expected window. Now: 07/29/2026 10:08:04. Expected: 07/29/2026 07:00:00 (+/-15 min). Difference: 188.1 min.
+[2026-07-29 10:08:04] [INFO] ===== Dispatcher run started (DRY RUN) =====
+[2026-07-29 10:08:04] [INFO] Invoke-CoordinatorReports: running - scheduled today.
+[2026-07-29 10:08:04] [SKIP] Invoke-CoordinatorReports: DRY RUN - would execute C:\GitHub\ai-dev\project-management\01-coordinator\Invoke-CoordinatorReports.ps1
+[2026-07-29 10:08:04] [SKIP] Analyze-ProofpointWhitelistRedundancy: disabled in manifest. Skipping.
+[2026-07-29 10:08:04] [SKIP] Quarterly-ClientReview: disabled in manifest. Skipping.
+[2026-07-29 10:08:04] [INFO] ===== Dispatcher run finished =====
+[2026-07-29 11:17:35] [INFO] ===== Dispatcher run started (DRY RUN) =====
+[2026-07-29 11:17:35] [INFO] Invoke-CoordinatorReports: running - scheduled today.
+[2026-07-29 11:17:35] [SKIP] Invoke-CoordinatorReports: DRY RUN - would execute C:\GitHub\ai-dev\project-management\01-coordinator\Invoke-CoordinatorReports.ps1
+[2026-07-29 11:17:35] [SKIP] Analyze-ProofpointWhitelistRedundancy: disabled in manifest. Skipping.
+[2026-07-29 11:17:35] [SKIP] Quarterly-ClientReview: disabled in manifest. Skipping.
+[2026-07-29 11:17:35] [INFO] Remove-OldLogs: running - catch-up (overdue).
+[2026-07-29 11:17:35] [SKIP] Remove-OldLogs: DRY RUN - would execute C:\GitHub\ai-dev\scripts\Remove-OldLogs.ps1
+[2026-07-29 11:17:35] [INFO] ===== Dispatcher run finished =====
+[2026-07-29 12:25:04] [INFO] ===== Dispatcher run started (DRY RUN) =====
+[2026-07-29 12:25:04] [INFO] Invoke-CoordinatorReports: running - scheduled today.
+[2026-07-29 12:25:04] [SKIP] Invoke-CoordinatorReports: DRY RUN - would execute project-management\01-coordinator\Invoke-CoordinatorReports.ps1
+[2026-07-29 12:25:04] [SKIP] Analyze-ProofpointWhitelistRedundancy: disabled in manifest. Skipping.
+[2026-07-29 12:25:04] [SKIP] Quarterly-ClientReview: disabled in manifest. Skipping.
+[2026-07-29 12:25:04] [INFO] Remove-OldLogs: running - catch-up (overdue).
+[2026-07-29 12:25:04] [SKIP] Remove-OldLogs: DRY RUN - would execute scripts\Remove-OldLogs.ps1
+[2026-07-29 12:25:04] [INFO] ===== Dispatcher run finished =====
+[2026-07-29 12:25:53] [INFO] ===== Dispatcher run started  =====
+[2026-07-29 12:25:53] [SKIP] Invoke-CoordinatorReports: disabled in manifest. Skipping.
+[2026-07-29 12:25:53] [SKIP] Analyze-ProofpointWhitelistRedundancy: disabled in manifest. Skipping.
+[2026-07-29 12:25:53] [SKIP] Quarterly-ClientReview: disabled in manifest. Skipping.
+[2026-07-29 12:25:53] [INFO] Remove-OldLogs: running - catch-up (overdue).
+[2026-07-29 12:25:53] [ERROR] Remove-OldLogs: threw an exception - Cannot process argument transformation on parameter 'RetentionMonths'. Cannot convert value "-DryRun" to type "System.Int32". Error: "Input string was not in a correct format."
+[2026-07-29 12:25:53] [ERROR] Remove-OldLogs: failed. Last-run state NOT updated - will retry/catch-up next run.
+[2026-07-29 12:25:53] [INFO] ===== Dispatcher run finished =====
+[2026-07-29 12:27:50] [INFO] ===== Dispatcher run started  =====
+[2026-07-29 12:27:50] [SKIP] Invoke-CoordinatorReports: disabled in manifest. Skipping.
+[2026-07-29 12:27:50] [SKIP] Analyze-ProofpointWhitelistRedundancy: disabled in manifest. Skipping.
+[2026-07-29 12:27:50] [SKIP] Quarterly-ClientReview: disabled in manifest. Skipping.
+[2026-07-29 12:27:50] [INFO] Remove-OldLogs: running - catch-up (overdue).
+[2026-07-29 12:27:50] [SUCCESS] Remove-OldLogs: completed successfully.
+[2026-07-29 12:27:50] [INFO] ===== Dispatcher run finished =====
+[2026-07-29 12:28:28] [INFO] ===== Dispatcher run started (DRY RUN) =====
+[2026-07-29 12:28:28] [INFO] Invoke-CoordinatorReports: running - scheduled today.
+[2026-07-29 12:28:28] [SKIP] Invoke-CoordinatorReports: DRY RUN - would execute project-management\01-coordinator\Invoke-CoordinatorReports.ps1
+[2026-07-29 12:28:28] [SKIP] Analyze-ProofpointWhitelistRedundancy: disabled in manifest. Skipping.
+[2026-07-29 12:28:28] [SKIP] Quarterly-ClientReview: disabled in manifest. Skipping.
+[2026-07-29 12:28:28] [SKIP] Remove-OldLogs: not due. Last run: 2026-07-29T12:27:50.2622612-04:00
+[2026-07-29 12:28:28] [INFO] ===== Dispatcher run finished =====
+[2026-07-29 12:36:10] [INFO] ===== Dispatcher run started  =====
+[2026-07-29 12:36:10] [SKIP] Invoke-CoordinatorReports: disabled in manifest. Skipping.
+[2026-07-29 12:36:10] [SKIP] Analyze-ProofpointWhitelistRedundancy: disabled in manifest. Skipping.
+[2026-07-29 12:36:10] [SKIP] Quarterly-ClientReview: disabled in manifest. Skipping.
+[2026-07-29 12:36:10] [INFO] Remove-OldLogs: running - forced.
+[2026-07-29 12:36:10] [SUCCESS] Remove-OldLogs: completed successfully.
+[2026-07-29 12:36:10] [INFO] Remove-OldLogs-Test2: running - forced.
+[2026-07-29 12:36:10] [INFO] Waiting 3 second(s) before Remove-OldLogs-Test2...
+[2026-07-29 12:36:13] [SUCCESS] Remove-OldLogs-Test2: completed successfully.
+[2026-07-29 12:36:13] [INFO] ===== Dispatcher run finished =====
+[2026-07-29 12:37:43] [INFO] ===== Dispatcher run started (DRY RUN) =====
+[2026-07-29 12:37:44] [INFO] Invoke-CoordinatorReports: running - scheduled today.
+[2026-07-29 12:37:44] [SKIP] Invoke-CoordinatorReports: DRY RUN - would execute project-management\01-coordinator\Invoke-CoordinatorReports.ps1
+[2026-07-29 12:37:44] [SKIP] Analyze-ProofpointWhitelistRedundancy: disabled in manifest. Skipping.
+[2026-07-29 12:37:44] [SKIP] Quarterly-ClientReview: disabled in manifest. Skipping.
+[2026-07-29 12:37:44] [SKIP] Remove-OldLogs: not due. Last run: 2026-07-29T12:36:10.4079440-04:00
+[2026-07-29 12:37:44] [INFO] ===== Dispatcher run finished =====
+[2026-07-29 12:58:20] [INFO] ===== Dispatcher run started (DRY RUN) =====
+[2026-07-29 12:58:20] [INFO] PM-Invoke-CoordinatorReports: running - scheduled today.
+[2026-07-29 12:58:20] [SKIP] PM-Invoke-CoordinatorReports: DRY RUN - would execute project-management\01-coordinator\Invoke-CoordinatorReports.ps1
+[2026-07-29 12:58:20] [INFO] SD-Invoke-CoordinatorReports: running - scheduled today.
+[2026-07-29 12:58:20] [SKIP] SD-Invoke-CoordinatorReports: DRY RUN - would execute service-delivery\01-coordinator\Invoke-CoordinatorReports.ps1
+[2026-07-29 12:58:20] [SKIP] Remove-OldLogs: not due. Last run: 2026-07-29T12:36:10.4079440-04:00
+[2026-07-29 12:58:20] [INFO] ===== Dispatcher run finished =====
+[2026-07-29 13:48:32] [INFO] ===== Dispatcher run started (DRY RUN) =====
+[2026-07-29 13:48:33] [INFO] PM-Invoke-CoordinatorReports: running - scheduled today.
+[2026-07-29 13:48:33] [SKIP] PM-Invoke-CoordinatorReports: DRY RUN - would execute project-management\01-coordinator\Invoke-CoordinatorReports.ps1
+[2026-07-29 13:48:33] [INFO] SD-Invoke-CoordinatorReports: running - scheduled today.
+[2026-07-29 13:48:33] [SKIP] SD-Invoke-CoordinatorReports: DRY RUN - would execute service-delivery\01-coordinator\Invoke-CoordinatorReports.ps1
+[2026-07-29 13:48:33] [SKIP] Remove-OldLogs: not due. Last run: 2026-07-29T12:36:10.4079440-04:00
+[2026-07-29 13:48:33] [INFO] ===== Dispatcher run finished =====
