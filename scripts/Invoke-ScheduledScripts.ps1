@@ -4,7 +4,7 @@
     from a single Task Scheduler trigger.
 
 .DESCRIPTION
-    Reads a manifest (ScriptManifest.json) describing each script and its cadence.
+    Reads a manifest (ScriptManifest.csv) describing each script and its cadence.
     Reads a state file (ScriptRunState.json) tracking the last successful run of each script.
     Determines which scripts are due today, AND which ones are overdue/missed
     (e.g. box was off, previous run failed) and catches them up.
@@ -31,13 +31,13 @@
 [CmdletBinding()]
 param(
     [switch]$DryRun,
-    [string]$ManifestPath = (Join-Path $PSScriptRoot "ScriptManifest.csv"),
-    [string]$StatePath    = (Join-Path $PSScriptRoot "ScriptRunState.json"),
+    [string]$ManifestPath = (Join-Path $PSScriptRoot "..\data\reference\ScriptManifest.csv"),
+    [string]$StatePath    = (Join-Path $PSScriptRoot "..\data\reference\ScriptRunState.json"),
     [switch]$Force
 )
 
 $ErrorActionPreference = "Stop"
-$LogDir  = Join-Path $PSScriptRoot "Logs"
+$LogDir  = Join-Path $PSScriptRoot "logs"
 $LogFile = Join-Path $LogDir ("Dispatcher_{0:yyyy-MM}.log" -f (Get-Date))
 
 if (-not (Test-Path $LogDir)) {
