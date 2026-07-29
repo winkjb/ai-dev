@@ -31,13 +31,13 @@
 [CmdletBinding()]
 param(
     [switch]$DryRun,
-    [string]$ManifestPath = (Join-Path $PSScriptRoot "..\data\reference\ScriptManifest.csv"),
-    [string]$StatePath    = (Join-Path $PSScriptRoot "..\data\reference\ScriptRunState.json"),
+    [string]$ManifestPath = (Join-Path $PSScriptRoot "..\data\input\ScriptManifest.csv"),
+    [string]$StatePath    = (Join-Path $PSScriptRoot "..\data\input\ScriptRunState.json"),
     [switch]$Force
 )
 
 $ErrorActionPreference = "Stop"
-$LogDir  = Join-Path $PSScriptRoot "logs"
+$LogDir  = Join-Path $PSScriptRoot "..\data\output"
 $LogFile = Join-Path $LogDir ("Dispatcher_{0:yyyy-MM}.log" -f (Get-Date))
 
 if (-not (Test-Path $LogDir)) {

@@ -1,0 +1,62 @@
+[2026-07-28 21:31:04] [INFO] ===== Dispatcher run started (DRY RUN) =====
+[2026-07-28 21:31:04] [ERROR] Manifest not found at C:\GitHub\ai-dev\scripts\..\data\reference\ScriptManifest.csv. Aborting.
+[2026-07-28 21:32:38] [INFO] ===== Dispatcher run started (DRY RUN) =====
+[2026-07-28 21:32:38] [INFO] Invoke-CoordinatorReports: running - scheduled today.
+[2026-07-28 21:32:38] [SKIP] Invoke-CoordinatorReports: DRY RUN - would execute C:\GitHub\ai-dev\project-management\01-coordinator\Invoke-CoordinatorReports.ps1
+[2026-07-28 21:32:38] [SKIP] Analyze-ProofpointWhitelistRedundancy: disabled in manifest. Skipping.
+[2026-07-28 21:32:38] [SKIP] Quarterly-ClientReview: disabled in manifest. Skipping.
+[2026-07-28 21:32:38] [INFO] ===== Dispatcher run finished =====
+[2026-07-28 21:33:00] [INFO] ===== Dispatcher run started (DRY RUN) =====
+[2026-07-28 21:33:00] [INFO] Invoke-CoordinatorReports: running - scheduled today.
+[2026-07-28 21:33:00] [SKIP] Invoke-CoordinatorReports: DRY RUN - would execute C:\GitHub\ai-dev\project-management\01-coordinator\Invoke-CoordinatorReports.ps1
+[2026-07-28 21:33:00] [SKIP] Analyze-ProofpointWhitelistRedundancy: disabled in manifest. Skipping.
+[2026-07-28 21:33:00] [SKIP] Quarterly-ClientReview: disabled in manifest. Skipping.
+[2026-07-28 21:33:00] [INFO] ===== Dispatcher run finished =====
+[2026-07-28 21:33:02] [INFO] ===== Dispatcher run started (DRY RUN) =====
+[2026-07-28 21:33:02] [INFO] Invoke-CoordinatorReports: running - scheduled today.
+[2026-07-28 21:33:02] [SKIP] Invoke-CoordinatorReports: DRY RUN - would execute C:\GitHub\ai-dev\project-management\01-coordinator\Invoke-CoordinatorReports.ps1
+[2026-07-28 21:33:02] [SKIP] Analyze-ProofpointWhitelistRedundancy: disabled in manifest. Skipping.
+[2026-07-28 21:33:02] [SKIP] Quarterly-ClientReview: disabled in manifest. Skipping.
+[2026-07-28 21:33:02] [INFO] ===== Dispatcher run finished =====
+[2026-07-28 21:33:03] [INFO] ===== Dispatcher run started (DRY RUN) =====
+[2026-07-28 21:33:03] [INFO] Invoke-CoordinatorReports: running - scheduled today.
+[2026-07-28 21:33:03] [SKIP] Invoke-CoordinatorReports: DRY RUN - would execute C:\GitHub\ai-dev\project-management\01-coordinator\Invoke-CoordinatorReports.ps1
+[2026-07-28 21:33:03] [SKIP] Analyze-ProofpointWhitelistRedundancy: disabled in manifest. Skipping.
+[2026-07-28 21:33:03] [SKIP] Quarterly-ClientReview: disabled in manifest. Skipping.
+[2026-07-28 21:33:03] [INFO] ===== Dispatcher run finished =====
+[2026-07-28 21:33:03] [INFO] ===== Dispatcher run started (DRY RUN) =====
+[2026-07-28 21:33:03] [INFO] Invoke-CoordinatorReports: running - scheduled today.
+[2026-07-28 21:33:03] [SKIP] Invoke-CoordinatorReports: DRY RUN - would execute C:\GitHub\ai-dev\project-management\01-coordinator\Invoke-CoordinatorReports.ps1
+[2026-07-28 21:33:03] [SKIP] Analyze-ProofpointWhitelistRedundancy: disabled in manifest. Skipping.
+[2026-07-28 21:33:03] [SKIP] Quarterly-ClientReview: disabled in manifest. Skipping.
+[2026-07-28 21:33:03] [INFO] ===== Dispatcher run finished =====
+[2026-07-28 21:33:04] [INFO] ===== Dispatcher run started (DRY RUN) =====
+[2026-07-28 21:33:04] [INFO] Invoke-CoordinatorReports: running - scheduled today.
+[2026-07-28 21:33:04] [SKIP] Invoke-CoordinatorReports: DRY RUN - would execute C:\GitHub\ai-dev\project-management\01-coordinator\Invoke-CoordinatorReports.ps1
+[2026-07-28 21:33:04] [SKIP] Analyze-ProofpointWhitelistRedundancy: disabled in manifest. Skipping.
+[2026-07-28 21:33:04] [SKIP] Quarterly-ClientReview: disabled in manifest. Skipping.
+[2026-07-28 21:33:04] [INFO] ===== Dispatcher run finished =====
+[2026-07-28 21:33:04] [INFO] ===== Dispatcher run started (DRY RUN) =====
+[2026-07-28 21:33:04] [INFO] Invoke-CoordinatorReports: running - scheduled today.
+[2026-07-28 21:33:04] [SKIP] Invoke-CoordinatorReports: DRY RUN - would execute C:\GitHub\ai-dev\project-management\01-coordinator\Invoke-CoordinatorReports.ps1
+[2026-07-28 21:33:04] [SKIP] Analyze-ProofpointWhitelistRedundancy: disabled in manifest. Skipping.
+[2026-07-28 21:33:04] [SKIP] Quarterly-ClientReview: disabled in manifest. Skipping.
+[2026-07-28 21:33:04] [INFO] ===== Dispatcher run finished =====
+[2026-07-28 21:33:04] [INFO] ===== Dispatcher run started (DRY RUN) =====
+[2026-07-28 21:33:04] [INFO] Invoke-CoordinatorReports: running - scheduled today.
+[2026-07-28 21:33:04] [SKIP] Invoke-CoordinatorReports: DRY RUN - would execute C:\GitHub\ai-dev\project-management\01-coordinator\Invoke-CoordinatorReports.ps1
+[2026-07-28 21:33:04] [SKIP] Analyze-ProofpointWhitelistRedundancy: disabled in manifest. Skipping.
+[2026-07-28 21:33:04] [SKIP] Quarterly-ClientReview: disabled in manifest. Skipping.
+[2026-07-28 21:33:04] [INFO] ===== Dispatcher run finished =====
+[2026-07-28 21:33:05] [INFO] ===== Dispatcher run started (DRY RUN) =====
+[2026-07-28 21:33:05] [INFO] Invoke-CoordinatorReports: running - scheduled today.
+[2026-07-28 21:33:05] [SKIP] Invoke-CoordinatorReports: DRY RUN - would execute C:\GitHub\ai-dev\project-management\01-coordinator\Invoke-CoordinatorReports.ps1
+[2026-07-28 21:33:05] [SKIP] Analyze-ProofpointWhitelistRedundancy: disabled in manifest. Skipping.
+[2026-07-28 21:33:05] [SKIP] Quarterly-ClientReview: disabled in manifest. Skipping.
+[2026-07-28 21:33:05] [INFO] ===== Dispatcher run finished =====
+[2026-07-28 21:33:05] [INFO] ===== Dispatcher run started (DRY RUN) =====
+[2026-07-28 21:33:05] [INFO] Invoke-CoordinatorReports: running - scheduled today.
+[2026-07-28 21:33:05] [SKIP] Invoke-CoordinatorReports: DRY RUN - would execute C:\GitHub\ai-dev\project-management\01-coordinator\Invoke-CoordinatorReports.ps1
+[2026-07-28 21:33:05] [SKIP] Analyze-ProofpointWhitelistRedundancy: disabled in manifest. Skipping.
+[2026-07-28 21:33:05] [SKIP] Quarterly-ClientReview: disabled in manifest. Skipping.
+[2026-07-28 21:33:05] [INFO] ===== Dispatcher run finished =====
