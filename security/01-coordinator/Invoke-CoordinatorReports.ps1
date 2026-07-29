@@ -1,10 +1,9 @@
 <#
 .SYNOPSIS
-    Unattended entry point for the service-delivery coordinator report - runs the ticket
-    flags report and emails the results. Meant to be called from a scheduled task (not yet
-    registered - scheduling is planned for later); logs to output/scheduled-run.log since
-    nobody's watching the console. For interactive/manual runs, see
-    .claude/commands/runticketreports.md.
+    Unattended entry point for the security coordinator report - runs the escalations
+    report and emails the results. Meant to be called from a scheduled task (not yet
+    registered); logs to output/scheduled-run.log since nobody's watching the console.
+    For interactive/manual runs, see .claude/commands/runsecurityreports.md.
 
 .EXAMPLE
     .\Invoke-CoordinatorReports.ps1
@@ -26,24 +25,21 @@ function Write-Log {
     Add-Content -LiteralPath $LogPath -Value $Line
 }
 
-$ToAddresses = @("bwinklesky@servit.net","rpardue@servit.net","abradford@servit.net")
+$ToAddresses = @("bwinklesky@servit.net")
 $EmailScript = Join-Path $PSScriptRoot "..\..\scripts\Send-ReportEmail.ps1"
 
 try {
     Write-Log "=== Starting coordinator report run ==="
 
-    & (Join-Path $PSScriptRoot "Get-CoordinatorTicketData.ps1")
-    Write-Log "Fetched ticket data from Autotask"
-
-    & (Join-Path $PSScriptRoot "Export-CoordinatorTicketFlagsReport.ps1")
-    Write-Log "Generated the ticket flags report"
+    & (Join-Path $PSScriptRoot "Export-CoordinatorEscalationsReport.ps1")
+    Write-Log "Generated the escalations report"
 
     $Attachments = @(
-        Join-Path $OutputDir "coordinator-ticket-flags-detail.csv"
-        Join-Path $OutputDir "coordinator-ticket-flags-summary.csv"
+        Join-Path $OutputDir "coordinator-escalations-detail.csv"
+        Join-Path $OutputDir "coordinator-escalations-summary.csv"
     )
 
-    & $EmailScript -To $ToAddresses -Subject "Service Delivery Coordinator Reports" -Attachments $Attachments
+    & $EmailScript -To $ToAddresses -Subject "Security Coordinator Report" -Attachments $Attachments
     Write-Log "Emailed reports to $($ToAddresses -join ', ')"
     Write-Log "=== Run completed successfully ==="
 }
@@ -54,7 +50,7 @@ catch {
     # Best-effort failure notice - if this fails too (e.g. SMTP settings themselves are the
     # problem), don't let that mask the original error's exit code.
     try {
-        & $EmailScript -To $ToAddresses -Subject "Service Delivery Coordinator Reports - FAILED" `
+        & $EmailScript -To $ToAddresses -Subject "Security Coordinator Report - FAILED" `
             -Body "The scheduled coordinator report run failed: $($_.Exception.Message)`n`nSee $LogPath on the host machine for details."
     }
     catch {

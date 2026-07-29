@@ -50,7 +50,7 @@ import openpyxl
 
 # --- config -------------------------------------------------------------
 
-RAW_WORKBOOK = Path("../data/raw/July Patch Status.xlsx")
+RAW_WORKBOOK = Path("../data/raw/Patch Status.xlsx")
 ESU_LIST = Path("../data/reference/customers-with-esu.csv")
 IGNORE_LIST = Path("../data/reference/customers-to-ignore.csv")
 OUTPUT_DIR = Path("../data/reports")
