@@ -15,7 +15,7 @@ function Import-Settings {
 
         # Falls back to $env:VA_KEY_PATH when set, then the default below - lets the key
         # location be overridden per-machine/service-account without editing every caller.
-        [string]$KeyPath = $(if ($env:VA_KEY_PATH) { $env:VA_KEY_PATH } else { "C:\PS\Settings\Key.txt" })
+        [string]$KeyPath = $(if ($env:VA_KEY_PATH) { $env:VA_KEY_PATH } else { "C:\VA\data\reference\Key.txt" })
     )
 
     if (-not (Test-Path -LiteralPath $SettingsPath)) { throw "Settings file not found: $SettingsPath" }
