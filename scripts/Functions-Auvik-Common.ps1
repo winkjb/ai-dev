@@ -1,44 +1,82 @@
 ﻿################################################################################################################### 
 ##
-## This script contains common/shared Auvik functions to dot source
+## This script contains shared Auvik functions to dot source
 ## Version 1.0
 ##
 ###################################################################################################################
 
-function Invoke-AuvikRequest {
+function Set-AuvikApiContext {
+
+    [CmdletBinding()]
+    param(
+        [Parameter(Mandatory)]
+        [array]$Settings
+    )
+
+    try {
+        $Username = $Settings.Username
+        $ApiKey = $Settings.ApiKey
+        $Region = $Settings.Region
+
+        $b64Creds = [Convert]::ToBase64String([Text.Encoding]::ASCII.GetBytes("$($Username):$($ApiKey)"))
+        $Headers = @{
+            Authorization  = "Basic $b64Creds"
+            "Content-Type" = "application/json"
+        }
+
+        $BaseUri = "https://auvikapi.$Region.my.auvik.com/v1"
+
+        return [PSCustomObject]@{
+            Headers  = $Headers
+            BaseUri  = $BaseUri
+        }
+    }
+    catch {
+        throw "Set-AuvikApiContext failed: $($_.Exception.Message)"
+    }
+
+}
+
+function Invoke-AuvikApiRequest {
+
     param(
         [string]$Uri
     )
+
     try {
-        $response = Invoke-RestMethod -Uri $Uri -Headers $Headers -Method Get -ErrorAction Stop
+        $Response = Invoke-RestMethod -Uri $Uri -Headers $Headers -Method Get -ErrorAction Stop
         Start-Sleep -Milliseconds $ThrottleMs
-        return $response
+        return $Response
     }
     catch {
         Write-Warning "Request failed: $Uri`n$($_.Exception.Message)"
         Start-Sleep -Milliseconds $ThrottleMs
         return $null
     }
+
 }
 
-function Get-AllPages {
+function Get-AllAuvikResults {
+
     param(
         [string]$InitialUri
     )
-    $allResults = [System.Collections.Generic.List[object]]::new()
-    $uri = $InitialUri
 
-    while ($uri) {
-        $resp = Invoke-AuvikRequest -Uri $uri
+    $AllAuvikResults = [System.Collections.Generic.List[object]]::new()
+    $Uri = $InitialUri
+
+    while ($Uri) {
+        $Resp = Invoke-AuvikApiRequest -Uri $Uri
         if (-not $resp) { break }
 
         if ($resp.data) {
-            foreach ($item in $resp.data) { $allResults.Add($item) }
+            foreach ($item in $resp.data) { $AllAuvikResults.Add($item) }
         }
 
         # Auvik uses JSON:API style pagination links
-        $uri = $resp.links.next
+        $Uri = $Resp.links.next
     }
 
-    return $allResults
+    return $AllAuvikResults
+
 }
