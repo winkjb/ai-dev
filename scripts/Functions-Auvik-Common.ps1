@@ -40,7 +40,8 @@ function Set-AuvikApiContext {
 function Invoke-AuvikApiRequest {
 
     param(
-        [string]$Uri
+        [string]$Uri,
+        [hashtable]$Headers
     )
 
     try {
@@ -59,14 +60,15 @@ function Invoke-AuvikApiRequest {
 function Get-AllAuvikResults {
 
     param(
-        [string]$InitialUri
+        [string]$InitialUri,
+        [hashtable]$Headers
     )
 
     $AllAuvikResults = [System.Collections.Generic.List[object]]::new()
     $Uri = $InitialUri
 
     while ($Uri) {
-        $Resp = Invoke-AuvikApiRequest -Uri $Uri
+        $Resp = Invoke-AuvikApiRequest -Uri $Uri -Headers $Headers
         if (-not $resp) { break }
 
         if ($resp.data) {
