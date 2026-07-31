@@ -8,6 +8,12 @@ $ThrottleMs = 400
 # endpoint 403s on it (confirmed live), so skip it outright rather than let it warn every run.
 $ExcludedTenants = @("servit")
 
+# Matches against AlertName + Description (case-insensitive substring). Confirmed live: every
+# Auvik collector-health alert (name "Auvik Collector Disconnected"/"Auvik Collector Discovery",
+# and description text like "The collector, X ... is OFFLINE" or "New Auvik collector ... detected")
+# contains the word "collector" in one or both fields, so a single keyword is sufficient.
+$CollectorKeywords = @("collector")
+
 
 $Timestamp = Get-Date -Format "yyyyMMdd_HHmmss"
 
@@ -121,7 +127,7 @@ foreach ($tenant in $tenants) {
         }
  
         if ($isCollectorAlert) {
-            Write-Host "    FLAGGED: $alertName (Entity: $entityName, Severity: $severity)" -ForegroundColor Red
+            Write-Host "    FLAGGED: $alertName (Entity: $entityRef, Severity: $severity)" -ForegroundColor Red
             $FlaggedResults.Add($record)
         }
     }
