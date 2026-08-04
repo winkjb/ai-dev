@@ -6,7 +6,7 @@
 
 .DESCRIPTION
     Every log file this workspace writes is named with a trailing yyyy-MM month stamp
-    (e.g. Dispatcher_2026-07.log, scheduled-run-2026-07.log) - one file per calendar month,
+    (e.g. dispatcher_2026-07.log, scheduled-run-2026-07.log) - one file per calendar month,
     never appended to across a month boundary. That makes retention simple: a file's *name*
     says its age, so there's no need to parse individual log lines - just delete whole files
     whose stamped month is older than the cutoff.

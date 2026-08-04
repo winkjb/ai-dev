@@ -45,6 +45,44 @@ function Import-Settings {
 
 }
 
+function Test-Directory {
+
+    param (
+        [Parameter(Mandatory=$true)]
+        [string]$Path
+    )
+
+    if (-not (Test-Path $Path)) {
+        try {
+            New-Item -ItemType Directory -Path $Path -Force | Out-Null
+            Write-Verbose "Created directory: $Path"
+        } catch {
+            throw "Failed to create directory $Path. Error: $_"
+        }
+    }
+
+}
+
+function Write-Log {
+    
+    param(
+        [string]$Message,
+        [ValidateSet("INFO","WARN","ERROR","SUCCESS","SKIP")]
+        [string]$Level = "INFO"
+    )
+    
+    $timestamp = Get-Date -Format "yyyy-MM-dd HH:mm:ss"
+    $line = "[$timestamp] [$Level] $Message"
+    Add-Content -Path $LogFile -Value $line
+    switch ($Level) {
+        "ERROR"   { Write-Host $line -ForegroundColor Red }
+        "WARN"    { Write-Host $line -ForegroundColor Yellow }
+        "SUCCESS" { Write-Host $line -ForegroundColor Green }
+        "SKIP"    { Write-Host $line -ForegroundColor DarkGray }
+        default   { Write-Host $line }
+    }
+}
+
 function Add-ToIndex {
 
     param(
@@ -56,24 +94,6 @@ function Add-ToIndex {
     if (-not $Index.ContainsKey($Key)) { $Index[$Key] = @() }
     $Index[$Key] += $Value
 
-}
-
-function Ensure-Directory {
-    
-    param (
-        [Parameter(Mandatory=$true)]
-        [string]$Path
-    )
-
-    $Directory = Split-Path $Path -Parent
-    if (-not (Test-Path $Directory)) {
-        try {
-            New-Item -ItemType Directory -Path $Directory -Force | Out-Null
-            Write-Verbose "Created directory: $Directory"
-        } catch {
-            throw "Failed to create directory $Directory. Error: $_"
-        }
-    }
 }
 
 function Send-Results {
