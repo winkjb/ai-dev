@@ -1,26 +1,12 @@
-[2026-08-01 07:00:02] [INFO] ===== Dispatcher run started  =====
-[2026-08-01 07:00:02] [INFO] PM-Invoke-CoordinatorReports: running - scheduled today.
-[2026-08-01 07:00:33] [SUCCESS] PM-Invoke-CoordinatorReports: completed successfully.
-[2026-08-01 07:00:33] [INFO] SD-Invoke-CoordinatorReports: running - scheduled today.
-[2026-08-01 07:00:33] [INFO] Waiting 30 second(s) before SD-Invoke-CoordinatorReports...
-[2026-08-01 07:01:30] [SUCCESS] SD-Invoke-CoordinatorReports: completed successfully.
-[2026-08-01 07:01:30] [INFO] Remove-OldLogs: running - scheduled today.
-[2026-08-01 07:01:30] [INFO] Waiting 30 second(s) before Remove-OldLogs...
-[2026-08-01 07:02:00] [SUCCESS] Remove-OldLogs: completed successfully.
-[2026-08-01 07:02:01] [INFO] ===== Dispatcher run finished =====
-[2026-08-02 07:00:02] [INFO] ===== Dispatcher run started  =====
-[2026-08-02 07:00:02] [INFO] PM-Invoke-CoordinatorReports: running - scheduled today.
-[2026-08-02 07:00:37] [SUCCESS] PM-Invoke-CoordinatorReports: completed successfully.
-[2026-08-02 07:00:37] [INFO] SD-Invoke-CoordinatorReports: running - scheduled today.
-[2026-08-02 07:00:37] [INFO] Waiting 30 second(s) before SD-Invoke-CoordinatorReports...
-[2026-08-02 07:01:35] [SUCCESS] SD-Invoke-CoordinatorReports: completed successfully.
-[2026-08-02 07:01:35] [SKIP] Remove-OldLogs: not due. Last run: 2026-08-01T07:00:02.1321011-04:00
-[2026-08-02 07:01:35] [INFO] ===== Dispatcher run finished =====
-[2026-08-03 07:00:04] [INFO] ===== Dispatcher run started  =====
-[2026-08-03 07:00:04] [INFO] PM-Invoke-CoordinatorReports: running - scheduled today.
-[2026-08-03 07:00:36] [SUCCESS] PM-Invoke-CoordinatorReports: completed successfully.
-[2026-08-03 07:00:36] [INFO] SD-Invoke-CoordinatorReports: running - scheduled today.
-[2026-08-03 07:00:36] [INFO] Waiting 30 second(s) before SD-Invoke-CoordinatorReports...
-[2026-08-03 07:01:37] [SUCCESS] SD-Invoke-CoordinatorReports: completed successfully.
-[2026-08-03 07:01:37] [SKIP] Remove-OldLogs: not due. Last run: 2026-08-01T07:00:02.1321011-04:00
-[2026-08-03 07:01:37] [INFO] ===== Dispatcher run finished =====
+[2026-08-03 20:16:07] [WARN] Skipping run - triggered outside expected window. Now: 08/03/2026 20:16:07. Expected: 08/03/2026 07:00:00 (+/-15 min). Difference: 796.1 min.
+[2026-08-03 20:16:27] [INFO] ===== Dispatcher run started  =====
+[2026-08-03 20:16:27] [INFO] PM-Invoke-CoordinatorReports: running - scheduled today.
+[2026-08-03 20:17:28] [INFO] ===== Dispatcher run started  =====
+[2026-08-03 20:17:28] [INFO] PM-Invoke-CoordinatorReports: running - scheduled today.
+[2026-08-03 20:39:26] [INFO] ===== Dispatcher run started (DRY RUN) =====
+[2026-08-03 20:39:26] [INFO] PM-Invoke-CoordinatorReports: running - scheduled today.
+[2026-08-03 20:39:26] [SKIP] PM-Invoke-CoordinatorReports: DRY RUN - would execute project-management\01-coordinator\Invoke-CoordinatorReports.ps1
+[2026-08-03 20:39:26] [INFO] SD-Invoke-CoordinatorReports: running - scheduled today.
+[2026-08-03 20:39:26] [SKIP] SD-Invoke-CoordinatorReports: DRY RUN - would execute service-delivery\01-coordinator\Invoke-CoordinatorReports.ps1
+[2026-08-03 20:39:26] [SKIP] Remove-OldLogs: not due. Last run: 2026-07-29T12:36:10.4079440-04:00
+[2026-08-03 20:39:26] [INFO] ===== Dispatcher run finished =====
