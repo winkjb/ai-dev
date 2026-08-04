@@ -1,17 +1,16 @@
 <#
 .SYNOPSIS
     Central dispatcher for running scripts on Daily / Weekly / Monthly / Quarterly cadences
-    from a single Task Scheduler trigger.
 
 .DESCRIPTION
-    Reads a manifest (ScriptManifest.csv) describing each script and its cadence.
-    Reads a state file (ScriptRunState.json) tracking the last successful run of each script.
-    Determines which scripts are due today, AND which ones are overdue/missed and catches them up.
-    Logs every run, success, failure, and skip to a rolling log file.
+    Reads a manifest CSV describing each script and its cadence. Reads a state file tracking 
+    the last successful run of each script. Determines which scripts are due today, and which 
+    ones are overdue/missed and catches them up. Logs every run, success, failure, and skip to 
+    a rolling log file.
 
 .PARAMETER DryRun
     If specified, evaluates what WOULD run and logs it, but does not execute anything
-    or update the state file. Consistent with the -DryRun pattern used in combine_assessments.py.
+    or update the state file. 
 
 .PARAMETER ManifestPath
     Path to the JSON manifest of scripts. Defaults to ..\data\input\ScriptManifest.csv.
@@ -23,13 +22,13 @@
     Runs every enabled script regardless of schedule/state. Useful for manual re-runs or testing.
 
 .PARAMETER SkipTimingGuard
-    Bypasses the run-timing window guard (see NOTES) - independent of -Force, since forcing
-    every script to run and ignoring a suspicious trigger time are different concerns. Useful
-    for manual re-runs/testing at any time of day.
+    Bypasses the run-timing window guard - independent of -Force, since forcing every script to 
+    run and ignoring a suspicious trigger time are different concerns. Useful for manual 
+    re-runs/testing at any time of day.
 
 .PARAMETER ExpectedHour
     Hour (24h) this dispatcher is expected to be triggered at. Defaults to 7 (matches the
-    "e.g. daily at 7:00 AM" Task Scheduler trigger documented above).
+    "e.g. daily at 7:00 AM" Task Scheduler trigger).
 
 .PARAMETER ExpectedMinute
     Minute this dispatcher is expected to be triggered at. Defaults to 0.
@@ -45,7 +44,7 @@
     Doesn't apply to skipped/disabled entries or -DryRun (nothing real happens either way).
 
 .NOTES
-    Schedule this script once in Task Scheduler (e.g. daily at 7:00 AM).
+    Schedule this script once in Task Scheduler (e.g. daily at 7:00 AM). 
     It decides internally what actually needs to run.
 
     Run-timing window guard: on multiple customer servers in a previous architecture, a
@@ -68,52 +67,26 @@ param(
     [int]$DelaySeconds = 30
 )
 
-# $PSScriptRoot is unreliable (empty) at param-default-value evaluation time when a script
-# is invoked via "powershell.exe -File <fullpath>" - exactly how Task Scheduler runs this
-# dispatcher - even though it works fine when dot-sourced/invoked from an already-running
-# session. Confirmed live: this silently broke the production scheduled task with
-# "Join-Path : Cannot bind argument to parameter 'Path' because it is an empty string."
-# Resolving these in the body instead (same pattern already used safely elsewhere in this
-# workspace, e.g. Get-CoordinatorProjectData.ps1, Connect-Autotask) sidesteps it entirely.
-if (-not $ManifestPath) { $ManifestPath = Join-Path $PSScriptRoot "..\data\input\ScriptManifest.csv" }
-if (-not $StatePath)    { $StatePath    = Join-Path $PSScriptRoot "..\data\input\ScriptRunState.json" }
+# ---------------------------------------------------------------------------
+# Setup
+# ---------------------------------------------------------------------------
+
+# System settings and variables
 
 $ErrorActionPreference = "Stop"
 $LogDir  = Join-Path $PSScriptRoot "..\data\output"
-$LogFile = Join-Path $LogDir ("Dispatcher_{0:yyyy-MM}.log" -f (Get-Date))
+$LogFile = Join-Path $LogDir ("dispatcher_{0:yyyy-MM}.log" -f (Get-Date))
 
-if (-not (Test-Path $LogDir)) {
-    New-Item -ItemType Directory -Path $LogDir -Force | Out-Null
-}
+# Derived settings and variables
 
-function Write-Log {
-    param(
-        [string]$Message,
-        [ValidateSet("INFO","WARN","ERROR","SUCCESS","SKIP")]
-        [string]$Level = "INFO"
-    )
-    $timestamp = Get-Date -Format "yyyy-MM-dd HH:mm:ss"
-    $line = "[$timestamp] [$Level] $Message"
-    Add-Content -Path $LogFile -Value $line
-    switch ($Level) {
-        "ERROR"   { Write-Host $line -ForegroundColor Red }
-        "WARN"    { Write-Host $line -ForegroundColor Yellow }
-        "SUCCESS" { Write-Host $line -ForegroundColor Green }
-        "SKIP"    { Write-Host $line -ForegroundColor DarkGray }
-        default   { Write-Host $line }
-    }
-}
+if (-not $ManifestPath) { $ManifestPath = Join-Path $PSScriptRoot "..\data\input\ScriptManifest.csv" }
+if (-not $StatePath)    { $StatePath    = Join-Path $PSScriptRoot "..\data\input\ScriptRunState.json" }
 
-if (-not $SkipTimingGuard) {
-    $Now = Get-Date
-    $ExpectedTime = Get-Date -Hour $ExpectedHour -Minute $ExpectedMinute -Second 0
-    $TimingDifference = [math]::Abs((New-TimeSpan -Start $ExpectedTime -End $Now).TotalMinutes)
+# Import functions
 
-    if ($TimingDifference -gt $MaxTimingDifferenceMinutes) {
-        Write-Log "Skipping run - triggered outside expected window. Now: $Now. Expected: $ExpectedTime (+/-$MaxTimingDifferenceMinutes min). Difference: $([math]::Round($TimingDifference, 1)) min." -Level WARN
-        exit 0
-    }
-}
+. ".\Functions-VA-Common.ps1"
+
+# Additional functions
 
 function ConvertTo-Bool {
     <#
@@ -290,8 +263,25 @@ function Invoke-ScriptDef {
     }
 }
 
+# Validate logfile directory
+
+Test-Directory $LogDir
+
+# Validate run time
+
+if (-not $SkipTimingGuard) {
+    $Now = Get-Date
+    $ExpectedTime = Get-Date -Hour $ExpectedHour -Minute $ExpectedMinute -Second 0
+    $TimingDifference = [math]::Abs((New-TimeSpan -Start $ExpectedTime -End $Now).TotalMinutes)
+
+    if ($TimingDifference -gt $MaxTimingDifferenceMinutes) {
+        Write-Log "Skipping run - triggered outside expected window. Now: $Now. Expected: $ExpectedTime (+/-$MaxTimingDifferenceMinutes min). Difference: $([math]::Round($TimingDifference, 1)) min." -Level WARN
+        exit 0
+    }
+}
+
 # ---------------------------------------------------------------------------
-# Main
+# Run scripts
 # ---------------------------------------------------------------------------
 
 Write-Log "===== Dispatcher run started $(if ($DryRun) {'(DRY RUN)'}) ====="
@@ -350,7 +340,10 @@ foreach ($scriptDef in $manifest) {
         Write-Log "$($scriptDef.Name): failed. Last-run state NOT updated - will retry/catch-up next run." -Level ERROR
         $results += [PSCustomObject]@{ Name = $scriptDef.Name; Status = "Failed" }
     }
+
 }
+
+# Update run states
 
 if (-not $DryRun) {
     Save-State -State $state -Path $StatePath

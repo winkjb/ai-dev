@@ -1,0 +1,12 @@
+[2026-08-03 20:16:07] [WARN] Skipping run - triggered outside expected window. Now: 08/03/2026 20:16:07. Expected: 08/03/2026 07:00:00 (+/-15 min). Difference: 796.1 min.
+[2026-08-03 20:16:27] [INFO] ===== Dispatcher run started  =====
+[2026-08-03 20:16:27] [INFO] PM-Invoke-CoordinatorReports: running - scheduled today.
+[2026-08-03 20:17:28] [INFO] ===== Dispatcher run started  =====
+[2026-08-03 20:17:28] [INFO] PM-Invoke-CoordinatorReports: running - scheduled today.
+[2026-08-03 20:39:26] [INFO] ===== Dispatcher run started (DRY RUN) =====
+[2026-08-03 20:39:26] [INFO] PM-Invoke-CoordinatorReports: running - scheduled today.
+[2026-08-03 20:39:26] [SKIP] PM-Invoke-CoordinatorReports: DRY RUN - would execute project-management\01-coordinator\Invoke-CoordinatorReports.ps1
+[2026-08-03 20:39:26] [INFO] SD-Invoke-CoordinatorReports: running - scheduled today.
+[2026-08-03 20:39:26] [SKIP] SD-Invoke-CoordinatorReports: DRY RUN - would execute service-delivery\01-coordinator\Invoke-CoordinatorReports.ps1
+[2026-08-03 20:39:26] [SKIP] Remove-OldLogs: not due. Last run: 2026-07-29T12:36:10.4079440-04:00
+[2026-08-03 20:39:26] [INFO] ===== Dispatcher run finished =====
