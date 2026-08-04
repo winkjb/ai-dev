@@ -1,15 +1,10 @@
 ###################################################################################################################
 ##
-## Shared Autotask REST API functions, dot source this file to use them. Workspace-wide (not team-specific) -
-## any team's scripts that need to talk to Autotask should use this rather than rolling their own HTTP/auth/
-## pagination handling. Generic mechanics only - entity-specific filtering/shaping belongs in the caller.
+## This script contains shared Autotask functions to dot source
+## Version 1.0
 ##
 ###################################################################################################################
 
-$CommonScript = Join-Path $PSScriptRoot "Functions-VA-Common.ps1"
-if (-not (Get-Command Import-Settings -ErrorAction SilentlyContinue)) {
-    . $CommonScript
-}
 Add-Type -AssemblyName System.Net.Http
 
 function Connect-Autotask {

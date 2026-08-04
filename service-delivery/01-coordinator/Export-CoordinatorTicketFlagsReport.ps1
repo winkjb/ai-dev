@@ -40,7 +40,7 @@
 [CmdletBinding()]
 param()
 
-. (Join-Path $PSScriptRoot "..\..\scripts\ReportFormatting-Common.ps1")
+. (Join-Path $PSScriptRoot "..\..\scripts\Functions-Formatting-Common.ps1")
 
 $STALE_DAYS = 7
 

@@ -84,7 +84,7 @@ if (-not $StatePath)    { $StatePath    = Join-Path $PSScriptRoot "..\data\input
 
 # Import functions
 
-. ".\Functions-VA-Common.ps1"
+. (Join-Path $PSScriptRoot "..\..\scripts\Functions-VA-Common.ps1")
 
 # Additional functions
 

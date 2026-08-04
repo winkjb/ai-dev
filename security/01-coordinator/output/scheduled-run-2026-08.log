@@ -1,0 +1,8 @@
+[2026-08-04 15:25:47] [INFO] === Starting coordinator report run ===
+[2026-08-04 15:25:48] [INFO] Generated the escalations report
+[2026-08-04 15:25:48] [INFO] ERROR: Cannot bind argument to parameter 'Path' because it is null.
+[2026-08-04 15:25:48] [INFO] === Run failed ===
+[2026-08-04 15:32:58] [INFO] === Starting coordinator report run ===
+[2026-08-04 15:32:59] [INFO] Generated the escalations report
+[2026-08-04 15:33:01] [INFO] Emailed reports to bwinklesky@servit.net
+[2026-08-04 15:33:01] [INFO] === Run completed successfully ===

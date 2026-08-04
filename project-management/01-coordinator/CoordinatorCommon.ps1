@@ -4,7 +4,7 @@
 ##
 ###################################################################################################################
 
-. (Join-Path $PSScriptRoot "..\..\scripts\ReportFormatting-Common.ps1")
+. (Join-Path $PSScriptRoot "..\..\scripts\Functions-Formatting-Common.ps1")
 
 $PHASE_ORDER = @("Beginning", "In Process", "Closing", "Final Closure", "On Hold/Inactive")
 $UNKNOWN_PHASE_LABEL = "Unknown Phase"

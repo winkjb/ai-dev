@@ -1,15 +1,9 @@
 ###################################################################################################################
 ##
-## Shared Huntress REST API functions, dot source this file to use them. Security-team-specific (not workspace-
-## wide like scripts/Functions-Autotask-Common.ps1) - only the security team's reports talk to Huntress today.
-## Generic mechanics only - entity-specific filtering/shaping belongs in the caller.
+## This script contains shared Huntress functions to dot source
+## Version 1.0
 ##
 ###################################################################################################################
-
-$CommonScript = Join-Path $PSScriptRoot "Functions-VA-Common.ps1"
-if (-not (Get-Command Import-Settings -ErrorAction SilentlyContinue)) {
-    . $CommonScript
-}
 
 function Set-HuntressApiContext {
 
@@ -26,11 +20,11 @@ function Set-HuntressApiContext {
         $b64Creds = [Convert]::ToBase64String([System.Text.Encoding]::ASCII.GetBytes("$($ApiKey):$($SecretKey)"))
         $Headers = @{ Authorization = "Basic $b64Creds" }
 
-        $BaseUrl = "https://api.huntress.io/v1/"
+        $BaseUri = "https://api.huntress.io/v1/"
 
         return [PSCustomObject]@{
             Headers  = $Headers
-            BaseUrl  = $BaseUrl
+            BaseUri  = $BaseUri
         }
     }
     catch {
@@ -72,7 +66,7 @@ function Get-AllHuntressResults {
     }) -join "&"
 
     $Items = [System.Collections.Generic.List[object]]::new()
-    $Uri = "$($Connection.BaseUrl)$Endpoint" + $(if ($QueryString) { "?$QueryString" } else { "" })
+    $Uri = "$($Connection.BaseUri)$Endpoint" + $(if ($QueryString) { "?$QueryString" } else { "" })
 
     while ($Uri) {
         $Response = Invoke-RestMethod -Uri $Uri -Headers $Connection.Headers -Method Get
@@ -81,4 +75,26 @@ function Get-AllHuntressResults {
     }
 
     return $Items
+}
+
+function Get-HuntressOrganizationLookup {
+
+    # Builds an organization_id -> name lookup via Add-ToIndex (Functions-VA-Common.ps1).
+    # Needed for endpoints like incident_reports that only return organization_id, unlike
+    # escalations which embeds the organization name directly on each item.
+
+    [CmdletBinding()]
+
+    param(
+        [Parameter(Mandatory)] $Connection
+    )
+
+    $Orgs = Get-AllHuntressResults -Connection $Connection -Endpoint "organizations"
+
+    $Lookup = @{}
+    foreach ($org in $Orgs) {
+        Add-ToIndex -Index $Lookup -Key ([string]$org.id) -Value $org.name
+    }
+
+    return $Lookup
 }

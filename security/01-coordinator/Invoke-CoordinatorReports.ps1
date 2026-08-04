@@ -13,21 +13,31 @@
 [CmdletBinding()]
 param()
 
+# ---------------------------------------------------------------------------
+# Setup
+# ---------------------------------------------------------------------------
+
+# System settings and variables
+
 $ErrorActionPreference = "Stop"
-
 $OutputDir = Join-Path $PSScriptRoot "output"
-if (-not (Test-Path -LiteralPath $OutputDir)) { New-Item -ItemType Directory -Path $OutputDir -Force | Out-Null }
-$LogPath = Join-Path $OutputDir ("scheduled-run-{0:yyyy-MM}.log" -f (Get-Date))
-
-function Write-Log {
-    param([string]$Message)
-    $Line = "[$(Get-Date -Format 'yyyy-MM-dd HH:mm:ss')] $Message"
-    Write-Host $Line
-    Add-Content -LiteralPath $LogPath -Value $Line
-}
-
+$LogFile = Join-Path $OutputDir ("scheduled-run-{0:yyyy-MM}.log" -f (Get-Date))
 $ToAddresses = @("bwinklesky@servit.net")
+
+# Derived settings and variables
+
+# Import functions
+
+. (Join-Path $PSScriptRoot "..\..\scripts\Functions-VA-Common.ps1")
 $EmailScript = Join-Path $PSScriptRoot "..\..\scripts\Send-ReportEmail.ps1"
+
+# Validate logfile directory
+
+Test-Directory $OutputDir
+
+# ---------------------------------------------------------------------------
+# Run scripts and log results
+# ---------------------------------------------------------------------------
 
 try {
     Write-Log "=== Starting coordinator report run ==="
