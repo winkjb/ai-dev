@@ -28,19 +28,45 @@
 [CmdletBinding()]
 param()
 
-. (Join-Path $PSScriptRoot "..\..\scripts\Functions-Huntress-Common.ps1")
-. (Join-Path $PSScriptRoot "..\..\scripts\ReportFormatting-Common.ps1")
+# ---------------------------------------------------------------------------
+# Setup
+# ---------------------------------------------------------------------------
 
-$OutputDir = Join-Path $PSScriptRoot "output"
+# System settings and variables
+
+$OutputDir = Join-Path $PSScriptRoot ".\output"
+$RESOLVED_STATUS = "resolved"
+
+# Derived settings and variables
+
 $OutputDetail = Join-Path $OutputDir "coordinator-escalations-detail.csv"
 $OutputSummary = Join-Path $OutputDir "coordinator-escalations-summary.md"
 $OutputSummaryCsv = Join-Path $OutputDir "coordinator-escalations-summary.csv"
 
-$RESOLVED_STATUS = "resolved"
+# Import functions
 
-$Connection = Connect-Huntress
-$All = Invoke-HuntressQuery -Connection $Connection -Endpoint "escalations"
-$Open = @($All | Where-Object { $_.status -ne $RESOLVED_STATUS })
+#. (Join-Path $PSScriptRoot "..\..\scripts\Functions-Huntress-Common.ps1")
+#. (Join-Path $PSScriptRoot "..\..\scripts\ReportFormatting-Common.ps1")
+
+. "..\..\scripts\Functions-VA-Common.ps1"
+. "..\..\scripts\Functions-Huntress-Common.ps1"
+. "..\..\scripts\ReportFormatting-Common.ps1"
+
+# Validate output directory
+
+Test-Directory $OutputDir
+
+# Import settings and set API context
+
+$Settings = Import-Settings -SettingsPath "..\..\data\reference\HuntressSettings.txt"
+$HuntressApiContext = Set-HuntressApiContext -Settings $Settings
+
+# ---------------------------------------------------------------------------
+# Step 1: Get all escalations
+# ---------------------------------------------------------------------------
+
+$All = Get-AllHuntressResults -Connection $HuntressApiContext -Endpoint "escalations"
+$Open = @($All | Where-Object { $_.status -ne "resolved" })
 
 $Now = Get-Date
 
@@ -62,7 +88,6 @@ $Rows = foreach ($e in $Open) {
 }
 $Rows = @($Rows | Sort-Object "Days Waiting" -Descending)
 
-if (-not (Test-Path -LiteralPath $OutputDir)) { New-Item -ItemType Directory -Path $OutputDir -Force | Out-Null }
 Export-Utf8NoBomCsv -Path $OutputDetail -InputObject $Rows
 
 # By customer - oldest-waiting first, so the account needing the most attention surfaces

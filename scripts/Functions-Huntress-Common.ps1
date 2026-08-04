@@ -11,35 +11,35 @@ if (-not (Get-Command Import-Settings -ErrorAction SilentlyContinue)) {
     . $CommonScript
 }
 
-function Connect-Huntress {
-
-    # Decrypts HuntressSettings.txt (ApiKey/SecretKey) and returns a ready-to-use connection
-    # object (Basic auth header + base URL) for Invoke-HuntressQuery.
+function Set-HuntressApiContext {
 
     [CmdletBinding()]
-
     param(
-        [string]$SettingsPath
+        [Parameter(Mandatory)]
+        [array]$Settings
     )
 
-    if (-not $SettingsPath) { $SettingsPath = Join-Path $PSScriptRoot "..\data\reference\HuntressSettings.txt" }
+    try {
+        $ApiKey = $Settings.ApiKey
+        $SecretKey = $Settings.SecretKey
 
-    $Settings = Import-Settings -SettingsPath $SettingsPath
-    if (-not $Settings.ApiKey -or -not $Settings.SecretKey) {
-        throw "Decrypted Huntress settings are missing ApiKey or SecretKey."
+        $b64Creds = [Convert]::ToBase64String([System.Text.Encoding]::ASCII.GetBytes("$($ApiKey):$($SecretKey)"))
+        $Headers = @{ Authorization = "Basic $b64Creds" }
+
+        $BaseUrl = "https://api.huntress.io/v1/"
+
+        return [PSCustomObject]@{
+            Headers  = $Headers
+            BaseUrl  = $BaseUrl
+        }
+    }
+    catch {
+        throw "Set-HuntressApiContext failed: $($_.Exception.Message)"
     }
 
-    # Huntress API auth is HTTP Basic, ApiKey as username / SecretKey as password.
-    $Pair = "$($Settings.ApiKey):$($Settings.SecretKey)"
-    $Base64 = [Convert]::ToBase64String([System.Text.Encoding]::ASCII.GetBytes($Pair))
-
-    [PSCustomObject]@{
-        Headers = @{ Authorization = "Basic $Base64" }
-        BaseUrl = "https://api.huntress.io/v1/"
-    }
 }
 
-function Invoke-HuntressQuery {
+function Get-AllHuntressResults {
 
     # GETs the given endpoint and follows pagination.next_page_url until exhausted,
     # returning every item across all pages (Huntress's own cursor-token pagination -
