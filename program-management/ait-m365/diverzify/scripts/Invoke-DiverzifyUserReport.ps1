@@ -5,4 +5,4 @@
 ##
 ################################################################################################################### 
 
-& (Join-Path $PSScriptRoot "Export-DiverzifyUserReport.ps1")
+& (Join-Path $PSScriptRoot "Export-DiverzifyUserReport.ps1") -ExcludedUsers "scanner@diverzify.com" -Logging $true
