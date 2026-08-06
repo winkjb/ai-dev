@@ -1,51 +1,102 @@
-################################################################################################################### 
-##
-## This script audits billable domains in PowerDMARC
-## Version 1.1
-##
-## Search and analysis variables
-$SettingsPath = "C:\PS\servit-msp\Settings\CustomerSettings.txt"
-##
-## Output options 
-$Logging = $true # Set to $false to Disable Logging
-$LogFile = "C:\PS\servit-msp\Logs\PowerDmarcDomainAudit-BillableDomains.csv" # ie. c:\mylog.csv
-$ToEmailAddr = @("bwinklesky@servit.net","tmarsili@servit.net","nleverett@servit.net","chart@servit.net") # Multiple addr allowed but MUST be independent strings separated by comma
-##
-################################################################################################################### 
+<#
+.SYNOPSIS
+    
+
+.DESCRIPTION
+    
+
+.EXAMPLE
+    .\Export-BillableDomains.ps1
+#>
+
+[CmdletBinding()]
+param()
+
+# ---------------------------------------------------------------------------
+# Setup
+# ---------------------------------------------------------------------------
 
 # System settings and variables
 
+$OutputDir = Join-Path $PSScriptRoot ".\output"
 $Date = Get-Date -Format yyyy-MM-dd
 $DateFrom = (Get-Date).AddDays(-30).ToString("yyyy-MM-dd")
+
+# Derived settings and variables
+
+$OutputCsv = Join-Path $OutputDir "billable-domains.csv"
+
+# Import functions
+
+. (Join-Path $PSScriptRoot "..\..\scripts\Functions-VA-Common.ps1")
+. (Join-Path $PSScriptRoot "..\..\scripts\Functions-Formatting-Common.ps1")
+
+# Additional functions
+
+function Set-PowerDmarcApiContext {
+
+    [CmdletBinding()]
+    param(
+        [Parameter(Mandatory)]
+        [array]$Settings
+    )
+
+    try {
+        $ApiToken = $Settings.ApiToken
+        
+        $Headers = @{
+            "Authorization" = "Bearer "+$ApiToken+""
+            "Accept" = "application/json" 
+        }
+
+
+        $Uri = "https://servit.powerdmarc.com/api/v1/mssp/accounts?per_page=50&dateFrom=$DateFrom&dateTo=$Date"
+
+        return [PSCustomObject]@{
+            Headers  = $Headers
+            Uri  = $Uri
+        }
+    }
+    catch {
+        throw "Set-PowerDmarcApiContext failed: $($_.Exception.Message)"
+    }
+
+}
+
+# Validate output directory
+
+Test-Directory $OutputDir
+
+# Import settings and set API context
+
+Write-Host "Connecting to PowerDMARC..." -ForegroundColor Cyan
+$Settings = Import-Settings -SettingsPath "..\..\data\reference\PowerDmarcSettings.txt"
+$ApiContext = Set-PowerDmarcApiContext -Settings $Settings
+
+
+
+
+
+# $ToEmailAddr = @("bwinklesky@servit.net","tmarsili@servit.net","nleverett@servit.net","chart@servit.net") # Multiple addr allowed but MUST be independent strings separated by comma
+
+
+
+
+# System settings and variables
+
 $CountCustomers = 0
 $i = 0
 $CountResults = 0
 $Customers = @()
 $Results = @()
 
-# Import functions
-
-. "C:\PS\Scripts\VA-Functions.ps1"
-
 # Start processing
 
 $StartTime = Get-Date
 
-# Import settings
-
-$Key = Get-Content "C:\PS\Settings\Key.txt"
-[System.Array]::Reverse($Key)
-$SecureString = Get-Content $SettingsPath | ConvertTo-SecureString -Key $Key
-$JsonData = [System.Runtime.InteropServices.Marshal]::PtrToStringAuto([System.Runtime.InteropServices.Marshal]::SecureStringToBSTR($SecureString))
-$CustomerSettings = $JsonData | ConvertFrom-Json
-
 # Get customers
 
-$Uri = "https://servit.powerdmarc.com/api/v1/mssp/accounts?per_page=50&dateFrom=$DateFrom&dateTo=$Date"
-$Headers = @{
-        "Authorization" = "Bearer "+$CustomerSettings.PowerDmarcToken+""
-        "Accept" = "application/json" }
-$ApiResponse = Invoke-RestMethod -Uri $Uri -Headers $Headers
+$ApiResponse = Invoke-RestMethod -Uri $ApiContext.Uri -Headers $ApiContext.Headers
 
 # Page results
 
@@ -91,6 +142,9 @@ $Seconds = "{0:N0}" -f ($TotalTime%60)
 Write-Host "`r`nAudit conducted on PowerDMARC customers in $Minutes minutes and $Seconds seconds.`r`n"
 
 Write-Host "$CountResults customer(s) identified."
+
+$Results = @($Results | Sort CustomerName)
+Export-Utf8NoBomCsv -Path $OutputCsv -InputObject $Results 
 
 # Log results
 
