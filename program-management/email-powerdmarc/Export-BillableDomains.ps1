@@ -1,9 +1,9 @@
 <#
 .SYNOPSIS
-    
+    This script audits billable domains in PowerDMARC for billing
 
 .DESCRIPTION
-    
+    This 
 
 .EXAMPLE
     .\Export-BillableDomains.ps1
@@ -19,17 +19,12 @@ param()
 # System settings and variables
 
 $OutputDir = Join-Path $PSScriptRoot ".\output"
-$Date = Get-Date -Format yyyy-MM-dd
-$DateFrom = (Get-Date).AddDays(-30).ToString("yyyy-MM-dd")
-
-# Derived settings and variables
-
-$OutputCsv = Join-Path $OutputDir "billable-domains.csv"
+$OutputSummary = Join-Path $OutputDir "billable-domains-summary.csv"
+$OutputDetail = Join-Path $OutputDir "billable-domains-detail.csv"
 
 # Import functions
 
 . (Join-Path $PSScriptRoot "..\..\scripts\Functions-VA-Common.ps1")
-. (Join-Path $PSScriptRoot "..\..\scripts\Functions-Formatting-Common.ps1")
 
 # Additional functions
 
@@ -38,10 +33,11 @@ function Set-PowerDmarcApiContext {
     [CmdletBinding()]
     param(
         [Parameter(Mandatory)]
-        [array]$Settings
+        [PSCustomObject]$Settings
     )
 
     try {
+        $Domain = $Settings.Domain
         $ApiToken = $Settings.ApiToken
         
         $Headers = @{
@@ -50,7 +46,7 @@ function Set-PowerDmarcApiContext {
         }
 
 
-        $Uri = "https://servit.powerdmarc.com/api/v1/mssp/accounts?per_page=50&dateFrom=$DateFrom&dateTo=$Date"
+        $Uri = "https://$Domain.powerdmarc.com/api/v1/mssp/accounts?per_page=50&dateFrom=$DateFrom&dateTo=$Date"
 
         return [PSCustomObject]@{
             Headers  = $Headers
@@ -63,74 +59,119 @@ function Set-PowerDmarcApiContext {
 
 }
 
-# Validate output directory
+# Import settings and validate output directory
 
+$Settings = Import-Settings -SettingsPath "..\..\data\reference\PowerDmarcSettings.txt"
 Test-Directory $OutputDir
+
+# ---------------------------------------------------------------------------
+# Step 1: Get all customers  
+# ---------------------------------------------------------------------------
+
+# Script settings and variables
+
+$DateFrom = (Get-Date).AddDays(-30).ToString("yyyy-MM-dd")
+$Date = Get-Date -Format yyyy-MM-dd
+$i = 0
+$CountResults = 0
+$CountDomains = 0
+$DetailResults = @()
 
 # Import settings and set API context
 
 Write-Host "Connecting to PowerDMARC..." -ForegroundColor Cyan
-$Settings = Import-Settings -SettingsPath "..\..\data\reference\PowerDmarcSettings.txt"
 $ApiContext = Set-PowerDmarcApiContext -Settings $Settings
-
-
-
-
-
-# $ToEmailAddr = @("bwinklesky@servit.net","tmarsili@servit.net","nleverett@servit.net","chart@servit.net") # Multiple addr allowed but MUST be independent strings separated by comma
-
-
-
-
-# System settings and variables
-
-$CountCustomers = 0
-$i = 0
-$CountResults = 0
-$Customers = @()
-$Results = @()
 
 # Start processing
 
 $StartTime = Get-Date
 
-# Get customers
+# Get customers and page results
 
 $ApiResponse = Invoke-RestMethod -Uri $ApiContext.Uri -Headers $ApiContext.Headers
+$Customers = @($ApiResponse.data)
 
-# Page results
+$Page = $ApiResponse.meta.current_page
+$LastPage = $ApiResponse.meta.last_page
 
-$Customers = $ApiResponse.data 
-$CountCustomers = $Customers.count
+while ($Page -lt $LastPage) {
 
-# Audit customers
+    $Page++
+    $PageResponse = Invoke-RestMethod -Uri "$($ApiContext.Uri)&page=$Page" -Headers $ApiContext.Headers
+    $Customers += $PageResponse.data
 
-foreach ($Customer in $Customers) {
+}
+
+if (-not $Customers -or $Customers.Count -eq 0) {
+    Write-Error "No customers returned. Check credentials and API access scope."
+    return
+}
+
+$CountCustomers = @($Customers).count
+
+Write-Host "Found $CountCustomers customer(s)." -ForegroundColor Green
+
+# ---------------------------------------------------------------------------
+# Step 2: Audit customers  
+# ---------------------------------------------------------------------------
+
+# Iterate through customers
+
+$Results = foreach ($Customer in $Customers) {
 
     $i++
 
-    Write-Progress -activity "Processing..." -status "$i out of $CountCustomers customers completed" -PercentComplete ([int](($i/$CountCustomers)*100))
-    
-    if ($Customer.name -like "ServIT*") { continue } 
-    
-    # Audit customers
+    # Normalize customer information
 
     $CustomerName = $Customer.name
     $Plan = $Customer.plan.name
     $BillableDomains = $Customer.active_domains_count
-
-    $Results += [PSCustomObject][ordered] @{ 
     
+    # Write-Progress -activity "Processing..." -status "$i out of $CountCustomers customers completed" -PercentComplete ([int](($i/$CountCustomers)*100))
+    
+    if ($CustomerName -like "ServIT*") { 
+        
+        Write-Host "[$i/$($CountCustomers)] Skipping customer: $CustomerName (excluded)" -ForegroundColor DarkGray        
+        continue 
+    
+    }
+
+    Write-Host "[$i/$($CountCustomers)] Auditing customer: $CustomerName" -ForegroundColor Yellow
+
+    [PSCustomObject][ordered] @{
+
         Date              = $Date
         CustomerName      = $CustomerName
         Plan              = $Plan
-        BillableDomains   = $BillableDomains 
-    
+        BillableDomains   = $BillableDomains
+
     }
-    
+
     $CountResults++
 
+    # Normalize domain information
+
+    foreach ($Domain in $Customer.domains) {
+
+        $DetailResults += [PSCustomObject][ordered] @{
+
+            Date                   = $Date
+            CustomerName           = $CustomerName
+            Domain                 = $Domain.name
+            DmarcRecordCorrect     = $Domain.is_dmarc_record_correct
+            SetupCompleted         = $Domain.is_setup_completed
+
+        }
+
+        $CountDomains++
+
+    }
+
 }
+
+# ---------------------------------------------------------------------------
+# Step 3: Complete and output
+# ---------------------------------------------------------------------------
 
 # End processing
 
@@ -139,67 +180,9 @@ $TotalTime = ($EndTime-$StartTime).TotalSeconds
 $Minutes = "{0:N0}" -f ($TotalTime/60)
 $Seconds = "{0:N0}" -f ($TotalTime%60)
 
-Write-Host "`r`nAudit conducted on PowerDMARC customers in $Minutes minutes and $Seconds seconds.`r`n"
+Write-Host "`r`nAudit conducted on PowerDMARC customers in $Minutes minutes and $Seconds seconds.`r`n" -ForegroundColor Green
+Write-Host "$CountResults customer(s) logged." -ForegroundColor Blue
+Write-Host "$CountDomains domain(s) logged." -ForegroundColor Blue
 
-Write-Host "$CountResults customer(s) identified."
-
-$Results = @($Results | Sort CustomerName)
-Export-Utf8NoBomCsv -Path $OutputCsv -InputObject $Results 
-
-# Log results
-
-if ($Logging -eq $true) {
-
-    if ($LogFile) { 
-
-        # Export log file
-
-        Ensure-Directory ($LogFile)
-        $Results | Sort CustomerName | Export-CSV -Path $LogFile -NoTypeInformation 
-        Write-Host "CSV File created at $LogFile.`r`n"
-
-    }
-
-    if ($ToEmailAddr) {
-    
-        # Email the CSV and stats to admin(s) 
-
-        $Body = ""
-    
-        if ($Results) { $Body+= "CSV Attached for $Date<br>" } else { $Body+="No CSV Attached for $Date - No Results<br>" }
-
-        $Body+="
-        Audit conducted on PowerDMARC customers in $Minutes minutes and $Seconds seconds.<br>
-        <br>
-        $CountResults customer(s) identified.<br>
-        "
-        # Format the email parameters
-
-        $SmtpServer  = $CustomerSettings.SmtpServer
-        $Port        = $CustomerSettings.SmtpPort
-        $From        = $CustomerSettings.SmtpFrom
-        $To          = $ToEmailAddr
-        $Subject     = "PowerDMARC Domain Audit - Billable Domains"
-        $Body        = $Body
-        $UseSsl      = $CustomerSettings.SmtpSsl -eq "Yes"
-
-        if ($Results) { $Attachment = $LogFile } else { $Attachment = $null }
-       
-        if ( ($CustomerSettings.SmtpUsername -ne "") -and ($CustomerSettings.SmtpPassword -ne "") ) { 
-    
-            $SmtpPassword = ConvertTo-SecureString $CustomerSettings.SmtpPassword -AsPlainText -Force
-            $Credentials = New-Object System.Management.Automation.PSCredential($CustomerSettings.SmtpUsername, $SmtpPassword)
-
-        } else {
-
-           $Credentials = $null 
-
-        }
-
-        # Send the email
-
-        Send-Results -SmtpServer $SmtpServer -Port $Port -From $From -To $To -Subject $Subject -Body $Body -BodyAsHtml $true -UseSsl $UseSsl -Credential $Credentials -Attachment $Attachment
-
-    }
-
-}
+$Results | Sort-Object CustomerName | Export-Csv -Path $OutputSummary -NoTypeInformation
+$DetailResults | Sort-Object CustomerName, Domain | Export-Csv -Path $OutputDetail -NoTypeInformation
