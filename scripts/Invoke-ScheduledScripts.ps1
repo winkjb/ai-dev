@@ -84,7 +84,7 @@ if (-not $StatePath)    { $StatePath    = Join-Path $PSScriptRoot "..\data\input
 
 # Import functions
 
-. (Join-Path $PSScriptRoot "..\..\scripts\Functions-VA-Common.ps1")
+. (Join-Path $PSScriptRoot "Functions-VA-Common.ps1")
 
 # Additional functions
 
@@ -96,6 +96,28 @@ function ConvertTo-Bool {
     param([string]$Value)
     if ([string]::IsNullOrWhiteSpace($Value)) { return $false }
     return $Value.Trim() -match '^(true|1|yes)$'
+}
+
+function Get-ScriptStateKey {
+    <#
+        Unique identity for run-state tracking: Customer + Path. Path alone already differs
+        across teams/folders (e.g. project-management vs service-delivery both having their
+        own Invoke-CoordinatorReports.ps1); Customer differs across tenants reusing the same
+        boilerplate script path. Name/Purpose are cosmetic only and deliberately excluded
+        from this key so they never need to be hand-crafted unique.
+    #>
+    param($ScriptDef)
+    return "$($ScriptDef.Customer)::$($ScriptDef.Path)"
+}
+
+function Get-ScriptDisplayLabel {
+    <#
+        Human-readable label for log lines - joins whichever of Purpose/Customer/Name are
+        populated (most rows today have no Customer, since they're internal, not per-tenant).
+    #>
+    param($ScriptDef)
+    $Parts = @($ScriptDef.Purpose, $ScriptDef.Customer, $ScriptDef.Name) | Where-Object { -not [string]::IsNullOrWhiteSpace($_) }
+    return ($Parts -join " / ")
 }
 
 function Get-State {
@@ -150,7 +172,7 @@ function Test-IsDue {
         }
 
         default {
-            Write-Log "Unknown frequency '$($ScriptDef.Frequency)' for $($ScriptDef.Name). Skipping." -Level WARN
+            Write-Log "Unknown frequency '$($ScriptDef.Frequency)' for $(Get-ScriptDisplayLabel -ScriptDef $ScriptDef). Skipping." -Level WARN
             return $false
         }
     }
@@ -237,7 +259,7 @@ function Invoke-ScriptDef {
     $ResolvedPath = Resolve-ScriptDefPath -Path $ScriptDef.Path
 
     if (-not (Test-Path $ResolvedPath)) {
-        Write-Log "$($ScriptDef.Name): script not found at $ResolvedPath" -Level ERROR
+        Write-Log "$(Get-ScriptDisplayLabel -ScriptDef $ScriptDef): script not found at $ResolvedPath" -Level ERROR
         return $false
     }
 
@@ -252,13 +274,13 @@ function Invoke-ScriptDef {
         }
 
         if ($LASTEXITCODE -and $LASTEXITCODE -ne 0) {
-            Write-Log "$($ScriptDef.Name): exited with code $LASTEXITCODE" -Level ERROR
+            Write-Log "$(Get-ScriptDisplayLabel -ScriptDef $ScriptDef): exited with code $LASTEXITCODE" -Level ERROR
             return $false
         }
 
         return $true
     } catch {
-        Write-Log "$($ScriptDef.Name): threw an exception - $_" -Level ERROR
+        Write-Log "$(Get-ScriptDisplayLabel -ScriptDef $ScriptDef): threw an exception - $_" -Level ERROR
         return $false
     }
 }
@@ -300,32 +322,35 @@ $HasRunAny = $false
 
 foreach ($scriptDef in $manifest) {
 
+    $Label    = Get-ScriptDisplayLabel -ScriptDef $scriptDef
+    $StateKey = Get-ScriptStateKey -ScriptDef $scriptDef
+
     if (-not (ConvertTo-Bool $scriptDef.Enabled)) {
-        Write-Log "$($scriptDef.Name): disabled in manifest. Skipping." -Level SKIP
+        Write-Log "$Label`: disabled in manifest. Skipping." -Level SKIP
         continue
     }
 
-    $lastRun    = $state[$scriptDef.Name]
+    $lastRun    = $state[$StateKey]
     $dueToday   = Test-IsDue -ScriptDef $scriptDef -Today $today
     $overdue    = Test-IsOverdue -ScriptDef $scriptDef -Today $today -LastRun $lastRun
     $shouldRun  = $Force -or $dueToday -or $overdue
 
     if (-not $shouldRun) {
-        Write-Log "$($scriptDef.Name): not due. Last run: $(if ($lastRun) {$lastRun} else {'never'})" -Level SKIP
+        Write-Log "$Label`: not due. Last run: $(if ($lastRun) {$lastRun} else {'never'})" -Level SKIP
         continue
     }
 
     $reason = if ($Force) { "forced" } elseif ($dueToday) { "scheduled today" } else { "catch-up (overdue)" }
-    Write-Log "$($scriptDef.Name): running - $reason."
+    Write-Log "$Label`: running - $reason."
 
     if ($DryRun) {
-        Write-Log "$($scriptDef.Name): DRY RUN - would execute $($scriptDef.Path)" -Level SKIP
-        $results += [PSCustomObject]@{ Name = $scriptDef.Name; Status = "DryRun" }
+        Write-Log "$Label`: DRY RUN - would execute $($scriptDef.Path)" -Level SKIP
+        $results += [PSCustomObject]@{ Name = $scriptDef.Name; Customer = $scriptDef.Customer; Purpose = $scriptDef.Purpose; Status = "DryRun" }
         continue
     }
 
     if ($HasRunAny -and $DelaySeconds -gt 0) {
-        Write-Log "Waiting $DelaySeconds second(s) before $($scriptDef.Name)..."
+        Write-Log "Waiting $DelaySeconds second(s) before $Label..."
         Start-Sleep -Seconds $DelaySeconds
     }
 
@@ -333,12 +358,12 @@ foreach ($scriptDef in $manifest) {
     $HasRunAny = $true
 
     if ($success) {
-        $state[$scriptDef.Name] = $today.ToString("o")
-        Write-Log "$($scriptDef.Name): completed successfully." -Level SUCCESS
-        $results += [PSCustomObject]@{ Name = $scriptDef.Name; Status = "Success" }
+        $state[$StateKey] = $today.ToString("o")
+        Write-Log "$Label`: completed successfully." -Level SUCCESS
+        $results += [PSCustomObject]@{ Name = $scriptDef.Name; Customer = $scriptDef.Customer; Purpose = $scriptDef.Purpose; Status = "Success" }
     } else {
-        Write-Log "$($scriptDef.Name): failed. Last-run state NOT updated - will retry/catch-up next run." -Level ERROR
-        $results += [PSCustomObject]@{ Name = $scriptDef.Name; Status = "Failed" }
+        Write-Log "$Label`: failed. Last-run state NOT updated - will retry/catch-up next run." -Level ERROR
+        $results += [PSCustomObject]@{ Name = $scriptDef.Name; Customer = $scriptDef.Customer; Purpose = $scriptDef.Purpose; Status = "Failed" }
     }
 
 }

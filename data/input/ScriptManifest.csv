@@ -1,4 +1,4 @@
-Name,Path,IsPython,Frequency,DayOfWeek,DayOfMonth,Enabled,Arguments
-PM-Invoke-CoordinatorReports,project-management\01-coordinator\Invoke-CoordinatorReports.ps1,FALSE,Daily,,,TRUE,
-SD-Invoke-CoordinatorReports,service-delivery\01-coordinator\Invoke-CoordinatorReports.ps1,FALSE,Daily,,,TRUE,
-Remove-OldLogs,scripts\Remove-OldLogs.ps1,FALSE,Monthly,,1,TRUE,
+Name,Path,Customer,Purpose,IsPython,Frequency,DayOfWeek,DayOfMonth,Enabled,Arguments
+Invoke-CoordinatorReports,project-management\01-coordinator\Invoke-CoordinatorReports.ps1,,Project Management,FALSE,Daily,,,TRUE,
+Invoke-CoordinatorReports,service-delivery\01-coordinator\Invoke-CoordinatorReports.ps1,,Service Delivery,FALSE,Daily,,,TRUE,
+Remove-OldLogs,scripts\Remove-OldLogs.ps1,,Maintenance,FALSE,Monthly,,1,TRUE,
