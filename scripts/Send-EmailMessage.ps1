@@ -1,10 +1,10 @@
 ###################################################################################################################
 ##
-## Opt-in helper to email report output (e.g. coordinator CSV/MD files) using the shared SMTP settings in
-## data/reference/SmtpSettings.csv. Not wired into any report run automatically - call it explicitly.
+## Helper to email reports output using the shared SMTP settings in data/reference/SmtpSettings.csv. 
+## Not wired into any report run automatically - call it explicitly.
 ##
 ## Example:
-##   ./scripts/Send-ReportEmail.ps1 -To "brad.winklesky@gmail.com" -Subject "Ticket flags report" `
+##   ./scripts/Send-EmailMessage.ps1 -To "brad.winklesky@gmail.com" -Subject "Ticket flags report" `
 ##       -Attachments "service-delivery/01-coordinator/output/coordinator-ticket-flags-summary.csv"
 ##
 ###################################################################################################################
@@ -20,31 +20,37 @@ param(
 
     [string]$Body = "See attached report output.",
 
-    [bool]$BodyAsHtml = $false,
+    [bool]$BodyAsHtml = $true,
 
     [string]$SettingsPath
 )
 
-# $PSScriptRoot is unreliable (empty) at param-default-value evaluation time when this script
-# is invoked via "powershell.exe -File <fullpath>" (confirmed live - see
-# scripts/Invoke-ScheduledScripts.ps1 for the same bug and full explanation). Resolving in the
-# body instead - falls back to data/reference/SmtpSettings.csv (sibling of this script's
-# scripts/ folder).
-if (-not $SettingsPath) { $SettingsPath = Join-Path $PSScriptRoot "..\data\reference\SmtpSettings.csv" }
+# ---------------------------------------------------------------------------
+# Setup
+# ---------------------------------------------------------------------------
 
-$CommonScript = Join-Path $PSScriptRoot "Functions-VA-Common.ps1"
-if (-not (Test-Path -LiteralPath $CommonScript)) {
-    Write-Error "Shared functions script not found: $CommonScript"
+# Import functions
+
+$CommonFunctions = Join-Path $PSScriptRoot "Functions-VA-Common.ps1"
+if (-not (Test-Path -LiteralPath $CommonFunctions)) {
+    Write-Error "Shared functions script not found: $CommonFunctions"
     exit 1
 }
-. $CommonScript
+. $CommonFunctions
+
+# Set $SettingsPath if not passed 
+
+if (-not $SettingsPath) { $SettingsPath = Join-Path $PSScriptRoot "..\data\reference\SmtpSettings.csv" }
 
 if (-not (Test-Path -LiteralPath $SettingsPath)) {
     Write-Error "SMTP settings file not found: $SettingsPath"
     exit 1
 }
 
-$Settings = Import-Csv -LiteralPath $SettingsPath | Select-Object -First 1
+# Import settings
+
+$Settings = Import-Csv -LiteralPath $SettingsPath
+
 if (-not $Settings) { throw "No rows found in $SettingsPath" }
 
 $UseSsl = $Settings.SmtpSsl -match '^(yes|true|1)$'
@@ -54,6 +60,10 @@ if ($Settings.SmtpUsername) {
     $SecurePassword = ConvertTo-SecureString $Settings.SmtpPassword -AsPlainText -Force
     $Credentials = New-Object System.Management.Automation.PSCredential($Settings.SmtpUsername, $SecurePassword)
 }
+
+# ---------------------------------------------------------------------------
+# Send email 
+# ---------------------------------------------------------------------------
 
 Send-Results `
     -SmtpServer $Settings.SmtpServer `

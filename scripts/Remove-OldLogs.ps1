@@ -11,16 +11,19 @@
     says its age, so there's no need to parse individual log lines - just delete whole files
     whose stamped month is older than the cutoff.
 
-    Scans a fixed list of known log directories (below) rather than searching the whole repo,
-    so a coincidentally-named .log file elsewhere never gets caught up in this by accident.
+    Discovers log directories dynamically (every folder literally named "output" anywhere in
+    the repo) rather than relying on a hand-maintained list, so new coordinators/dispatched
+    scripts get covered automatically. Safety instead comes from the .log extension filter plus
+    the required yyyy-MM stamp below - a coincidentally-named .log file elsewhere still won't
+    get caught up in this by accident, it just gets reported as unmatched and left alone.
 
 .PARAMETER RetentionMonths
     Keep log files stamped with a month within this many months of today; delete anything
     older. Defaults to 12.
 
 .PARAMETER LogDirectories
-    Directories to scan for dated .log files. Defaults to every known logging location in
-    this workspace - add new ones here as new coordinators/dispatched scripts start logging.
+    Directories to scan for dated .log files. Defaults to every folder named "output" found
+    anywhere under the repo root - pass this explicitly to override/restrict the scan.
 
 .PARAMETER DryRun
     Lists what WOULD be deleted without deleting anything.
@@ -33,15 +36,19 @@
 param(
     [int]$RetentionMonths = 12,
 
-    [string[]]$LogDirectories = @(
-        (Join-Path $PSScriptRoot "..\data\output"),
-        (Join-Path $PSScriptRoot "..\project-management\01-coordinator\output"),
-        (Join-Path $PSScriptRoot "..\service-delivery\01-coordinator\output"),
-        (Join-Path $PSScriptRoot "..\security\01-coordinator\output")
-    ),
+    [string[]]$LogDirectories,
 
     [switch]$DryRun
 )
+
+# $PSScriptRoot is unreliable (empty) at param-default-value evaluation time when this script
+# is invoked via "powershell.exe -File <fullpath>" (Task Scheduler's invocation style) -
+# confirmed live; see scripts/Invoke-ScheduledScripts.ps1 for the same bug and full
+# explanation. Resolving the repo root and default directories here in the body instead.
+if (-not $LogDirectories) {
+    $RepoRoot = Split-Path $PSScriptRoot -Parent
+    $LogDirectories = @(Get-ChildItem -LiteralPath $RepoRoot -Recurse -Directory -Filter "output" | Select-Object -ExpandProperty FullName)
+}
 
 # First-of-month cutoff, so "12 months" means "keep this month and the 11 before it" -
 # a clean calendar-month boundary rather than a fuzzy day-count.

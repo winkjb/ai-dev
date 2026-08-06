@@ -1,0 +1,13 @@
+[2026-08-06 12:46:54] [INFO] === Starting runs ===
+[2026-08-06 12:46:56] [INFO] Generated PowerDMARC reports
+[2026-08-06 12:46:56] [ERROR] ERROR: Cannot bind argument to parameter 'LiteralPath' because it is null.
+[2026-08-06 12:46:56] [ERROR] === Run failed ===
+[2026-08-06 12:46:56] [ERROR] Also failed to send failure notification: Cannot bind argument to parameter 'LiteralPath' because it is null.
+[2026-08-06 12:52:18] [INFO] === Starting runs ===
+[2026-08-06 12:52:19] [INFO] Generated PowerDMARC reports
+[2026-08-06 12:52:22] [INFO] Emailed reports to bwinklesky@servit.net
+[2026-08-06 12:52:22] [INFO] === Run completed successfully ===
+[2026-08-06 14:23:09] [INFO] === Starting runs ===
+[2026-08-06 14:23:12] [INFO] Generated PowerDMARC reports
+[2026-08-06 14:23:14] [INFO] Emailed reports to bwinklesky@servit.net
+[2026-08-06 14:23:14] [INFO] === Run completed successfully ===

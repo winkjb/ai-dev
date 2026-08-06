@@ -29,7 +29,7 @@ $ToAddresses = @("bwinklesky@servit.net")
 # Import functions
 
 . (Join-Path $PSScriptRoot "..\..\scripts\Functions-VA-Common.ps1")
-$EmailScript = Join-Path $PSScriptRoot "..\..\scripts\Send-ReportEmail.ps1"
+$EmailScript = Join-Path $PSScriptRoot "..\..\scripts\Send-EmailMessage.ps1"
 
 # Validate logfile directory
 

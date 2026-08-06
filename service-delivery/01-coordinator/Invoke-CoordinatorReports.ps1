@@ -28,7 +28,7 @@ function Write-Log {
 }
 
 $ToAddresses = @("bwinklesky@servit.net","rpardue@servit.net","abradford@servit.net")
-$EmailScript = Join-Path $PSScriptRoot "..\..\scripts\Send-ReportEmail.ps1"
+$EmailScript = Join-Path $PSScriptRoot "..\..\scripts\Send-EmailMessage.ps1"
 
 try {
     Write-Log "=== Starting coordinator report run ==="

@@ -25,39 +25,7 @@ $OutputDetail = Join-Path $OutputDir "billable-domains-detail.csv"
 # Import functions
 
 . (Join-Path $PSScriptRoot "..\..\scripts\Functions-VA-Common.ps1")
-
-# Additional functions
-
-function Set-PowerDmarcApiContext {
-
-    [CmdletBinding()]
-    param(
-        [Parameter(Mandatory)]
-        [PSCustomObject]$Settings
-    )
-
-    try {
-        $Domain = $Settings.Domain
-        $ApiToken = $Settings.ApiToken
-        
-        $Headers = @{
-            "Authorization" = "Bearer "+$ApiToken+""
-            "Accept" = "application/json" 
-        }
-
-
-        $Uri = "https://$Domain.powerdmarc.com/api/v1/mssp/accounts?per_page=50&dateFrom=$DateFrom&dateTo=$Date"
-
-        return [PSCustomObject]@{
-            Headers  = $Headers
-            Uri  = $Uri
-        }
-    }
-    catch {
-        throw "Set-PowerDmarcApiContext failed: $($_.Exception.Message)"
-    }
-
-}
+. (Join-Path $PSScriptRoot "..\..\scripts\Functions-PowerDmarc-Common.ps1")
 
 # Import settings and validate output directory
 
@@ -73,9 +41,9 @@ Test-Directory $OutputDir
 $DateFrom = (Get-Date).AddDays(-30).ToString("yyyy-MM-dd")
 $Date = Get-Date -Format yyyy-MM-dd
 $i = 0
-$CountResults = 0
-$CountDomains = 0
-$DetailResults = @()
+$CountResultsSummary = 0
+$CountResultsDetail = 0
+$ResultsDetail = @()
 
 # Import settings and set API context
 
@@ -88,19 +56,8 @@ $StartTime = Get-Date
 
 # Get customers and page results
 
-$ApiResponse = Invoke-RestMethod -Uri $ApiContext.Uri -Headers $ApiContext.Headers
-$Customers = @($ApiResponse.data)
-
-$Page = $ApiResponse.meta.current_page
-$LastPage = $ApiResponse.meta.last_page
-
-while ($Page -lt $LastPage) {
-
-    $Page++
-    $PageResponse = Invoke-RestMethod -Uri "$($ApiContext.Uri)&page=$Page" -Headers $ApiContext.Headers
-    $Customers += $PageResponse.data
-
-}
+$ApiResponse = Get-AllPowerDmarcResults -Uri $ApiContext.Uri -Headers $ApiContext.Headers
+$Customers = $ApiResponse
 
 if (-not $Customers -or $Customers.Count -eq 0) {
     Write-Error "No customers returned. Check credentials and API access scope."
@@ -117,7 +74,7 @@ Write-Host "Found $CountCustomers customer(s)." -ForegroundColor Green
 
 # Iterate through customers
 
-$Results = foreach ($Customer in $Customers) {
+$ResultsSummary = foreach ($Customer in $Customers) {
 
     $i++
 
@@ -138,6 +95,8 @@ $Results = foreach ($Customer in $Customers) {
 
     Write-Host "[$i/$($CountCustomers)] Auditing customer: $CustomerName" -ForegroundColor Yellow
 
+    # Log finding
+
     [PSCustomObject][ordered] @{
 
         Date              = $Date
@@ -147,13 +106,13 @@ $Results = foreach ($Customer in $Customers) {
 
     }
 
-    $CountResults++
+    $CountResultsSummary++
 
-    # Normalize domain information
+    # Log finding
 
     foreach ($Domain in $Customer.domains) {
 
-        $DetailResults += [PSCustomObject][ordered] @{
+        $ResultsDetail += [PSCustomObject][ordered] @{
 
             Date                   = $Date
             CustomerName           = $CustomerName
@@ -163,7 +122,7 @@ $Results = foreach ($Customer in $Customers) {
 
         }
 
-        $CountDomains++
+        $CountResultsDetail++
 
     }
 
@@ -181,8 +140,8 @@ $Minutes = "{0:N0}" -f ($TotalTime/60)
 $Seconds = "{0:N0}" -f ($TotalTime%60)
 
 Write-Host "`r`nAudit conducted on PowerDMARC customers in $Minutes minutes and $Seconds seconds.`r`n" -ForegroundColor Green
-Write-Host "$CountResults customer(s) logged." -ForegroundColor Blue
-Write-Host "$CountDomains domain(s) logged." -ForegroundColor Blue
+Write-Host "$CountResultsSummary customer(s) logged." -ForegroundColor Blue
+Write-Host "$CountResultsDetail domain(s) logged." -ForegroundColor Blue
 
-$Results | Sort-Object CustomerName | Export-Csv -Path $OutputSummary -NoTypeInformation
-$DetailResults | Sort-Object CustomerName, Domain | Export-Csv -Path $OutputDetail -NoTypeInformation
+$ResultsSummary | Sort-Object CustomerName | Export-Csv -Path $OutputSummary -NoTypeInformation
+$ResultsDetail | Sort-Object CustomerName, Domain | Export-Csv -Path $OutputDetail -NoTypeInformation
