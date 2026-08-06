@@ -1,5 +1,8 @@
-# Plain text settings
+# Filename exclusions
 **/AutotaskSettings.csv
 **/AuvikSettings.csv
 **/CustomerSettings.csv
 **/HuntressSettings.csv
+**/PowerDmarcSettings.csv
+**/ProofpointSettings.csv
+**/VipreSettings.csv
