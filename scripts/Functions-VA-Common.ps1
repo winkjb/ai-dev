@@ -110,6 +110,63 @@ function Write-ToLog {
 
 }
 
+function Get-DaysSince {
+
+    [CmdletBinding()]
+    param(
+        [Parameter(Mandatory)]
+        [AllowNull()]
+        [AllowEmptyString()]
+        $Value,
+
+        # Exact format for TryParseExact (e.g. "MM/dd/yyyy hh:mm tt"). Omit for free-form parsing (ISO 8601, etc).
+        [string]$Format,
+
+        # Treat a numeric $Value as Unix epoch seconds instead of a date string.
+        [switch]$Epoch,
+
+        [datetime]$Reference = (Get-Date)
+    )
+
+    if ($null -eq $Value -or [string]::IsNullOrWhiteSpace([string]$Value)) { return $null }
+
+    $Parsed = $null
+
+    if ($Value -is [datetime]) {
+
+        $Parsed = $Value
+
+    } elseif ($Epoch) {
+
+        $Seconds = 0.0
+        if ([double]::TryParse([string]$Value, [ref]$Seconds)) {
+            $Parsed = [datetime]::new(1970, 1, 1, 0, 0, 0, [DateTimeKind]::Utc).AddSeconds($Seconds)
+        }
+
+    } elseif ($Format) {
+
+        $Temp = [datetime]::MinValue
+        if ([datetime]::TryParseExact([string]$Value, $Format, [System.Globalization.CultureInfo]::InvariantCulture, [System.Globalization.DateTimeStyles]::None, [ref]$Temp)) {
+            $Parsed = $Temp
+        }
+
+    } else {
+
+        $Temp = [datetime]::MinValue
+        if ([datetime]::TryParse([string]$Value, [System.Globalization.CultureInfo]::InvariantCulture, [System.Globalization.DateTimeStyles]::None, [ref]$Temp)) {
+            $Parsed = $Temp
+        }
+
+    }
+
+    if (-not $Parsed) { return $null }
+
+    # Truncate toward zero rather than round to nearest - a login 23 hours ago should read
+    # as 0 days, not 1.
+    return [int][math]::Truncate(($Reference - $Parsed).TotalDays)
+
+}
+
 function Add-ToIndex {
 
     param(

@@ -1,19 +1,22 @@
 <#
 .SYNOPSIS
-    This script audits billable domains in PowerDMARC for billing
+    This script audits customer administrators in PowerDMARC
 
 .DESCRIPTION
     This 
 
 .EXAMPLE
-    .\Export-BillableDomains.ps1
+    .\Export-CustomerAdmins.ps1
 #>
 
 [CmdletBinding()]
-param() 
+param(
 
-    $EnabledOnly = $false # Set to $true to only capture enabled admins
-    $LogExclusions = $false # Set to $false to only capture issues
+    [string[]]$ExcludedAdmins,
+    [switch]$EnabledOnly = $false,
+    [switch]$LogExclusions = $false
+
+) 
 
 # ---------------------------------------------------------------------------
 # Setup
@@ -22,7 +25,7 @@ param()
 # System settings and variables
 
 $OutputDir = Join-Path $PSScriptRoot ".\output"
-$OutputSummary = Join-Path $OutputDir "admins-customer.csv"
+$OutputSummary = Join-Path $OutputDir "proofpointadmins-customer.csv"
 
 # Import functions
 
@@ -41,12 +44,12 @@ Test-Directory $OutputDir
 # Script settings and variables
 
 $Date = Get-Date -Format yyyy-MM-dd
-$CountCustomers = 0
+$i = 0
+$CountCustomersSkipped = 0
+$CountCustomersAudited = 0
 $CountAdmins = 0
 $CountExclusions = 0
 $CountResults = 0
-$i = 0
-$Results = @()
 
 # Import settings and set API context
 
@@ -82,17 +85,17 @@ $Results = foreach ($Customer in $Customers) {
 
     $i++
 
-    # Write-Progress -activity "Processing..." -status "$i out of $CountCustomers customers completed" -PercentComplete ([int](($i/$CountCustomers)*100))
-    
-    if ($Customer.name -like "ServIT*") { 
-        
-        Write-Host "[$i/$($CountCustomers)] Skipping customer: $($Customer.name) (excluded)" -ForegroundColor DarkGray        
-        continue 
-    
+    if ($Customer.name -like "ServIT*") {
+
+        $CountCustomersSkipped++
+        Write-Host "[$i/$($CountCustomers)] Skipping customer: $($Customer.name) (excluded)" -ForegroundColor DarkGray
+        continue
+
     }
-    
+
+    $CountCustomersAudited++
     Write-Host "[$i/$($CountCustomers)] Auditing customer: $($Customer.name)" -ForegroundColor Yellow
-    
+
     # Get customer admins
 
     $Uri = "https://us2.proofpointessentials.com/api/v1/orgs/"+$Customer.primary_domain+"/users/"
@@ -101,38 +104,60 @@ $Results = foreach ($Customer in $Customers) {
     # Filter admins
 
     if ($EnabledOnly -eq $false) { 
-        $Admins = $ApiResponse.users | Where-Object { $_.type -like "*admin" }
+        $Admins = $ApiResponse.users.Where({ $_.type -like "*admin" })
     } else { 
-        $Admins = $ApiResponse.users | Where-Object { $_.type -like "*admin" -and $_.is_active -eq $true } }
-    
+        $Admins = $ApiResponse.users.Where({ $_.type -like "*admin" -and $_.is_active -eq $true }) 
+    }
+
     # Log finding
 
     foreach ($Admin in $Admins) {
         
-        $CountAdmins ++
+        $CountAdmins++
 
-        # Compare $Admins to excluded admins
+        # Identify exclusions
 
-        if ($ExcludedAdmins -contains $Admin.primary_email) {
+        $InExclusion = $ExcludedAdmins -contains $Admin.primary_email
 
-            $CountExclusions ++
-            if ($LogExclusions -eq $true) { 
-            
-            [PSCustomObject][ordered] @{ Date=$Date; CustomerName=$Customer.name; FirstName=$Admin.firstname; LastName=$Admin.surname; Username=$Admin.primary_email; Role=$Admin.type; ReadOnlyUser=$Admin.read_only_user; CreationDate=$Admin.creation_date; LastLogin=$Admin.last_login; Enabled=$Admin.is_active; InExclusionGroup="Y" }
-            $CountResults++
-            
+        if ($InExclusion) { $CountExclusions++ }
+
+        # Log finding
+
+        if (-not $InExclusion -or $LogExclusions) {
+
+            # Normalize finding
+
+            $Finding = [ordered] @{ 
+                
+                Date          = $Date
+                CustomerName  = $Customer.name
+                FirstName     = $Admin.firstname
+                LastName      = $Admin.surname
+                Username      = $Admin.primary_email
+                Role          = $Admin.type
+                ReadOnlyUser  = $Admin.read_only_user
+                CreationDate  = $Admin.creation_date
+                LastLogin     = $Admin.last_login
+                DaysAgo       = Get-DaysSince -Value $Admin.last_login
+                Enabled       = $Admin.is_active
+
             }
 
-        } else {
-    
-            [PSCustomObject][ordered] @{ Date=$Date; CustomerName=$Customer.name; FirstName=$Admin.firstname; LastName=$Admin.surname; Username=$Admin.primary_email; Role=$Admin.type; ReadOnlyUser=$Admin.read_only_user; CreationDate=$Admin.creation_date; LastLogin=$Admin.last_login; Enabled=$Admin.is_active; InExclusionGroup="N" }
-            $CountResults ++
+            if ($LogExclusions) { $Finding.InExclusionGroup = if ($InExclusion) {"Y"} else {$null} }
+
+            $CountResults++
+
+            [PSCustomObject]$Finding
 
         }
           
     }
 
 }
+
+# ---------------------------------------------------------------------------
+# Step 3: Complete and output
+# ---------------------------------------------------------------------------
 
 # End processing
 
@@ -141,61 +166,9 @@ $TotalTime = ($EndTime-$StartTime).TotalSeconds
 $Minutes = "{0:N0}" -f ($TotalTime/60)
 $Seconds = "{0:N0}" -f ($TotalTime%60)
 
-Write-Host "`r`nAudit conducted on Proofpoint admins in $Minutes minutes and $Seconds seconds.`r`n"
+Write-Host "`r`nAudit conducted on Proofpoint admins in $Minutes minutes and $Seconds seconds.`r`n" -ForegroundColor Green
 
-Write-Host "$i customer(s) audited."
-Write-Host "$CountAdmins admin(s) audited."
-Write-Host "$CountExclusions admin(s) in exclusion groups."
-Write-Host "$CountResults admin(s) identified."
+Write-Host "Customers: $CountCustomers total, $CountCustomersAudited audited, $CountCustomersSkipped skipped." -ForegroundColor Blue
+Write-Host "Admins: $CountAdmins found, $CountExclusions excluded, $CountResults logged." -ForegroundColor Blue
 
-# Log results
-
-if ($Logging -eq $true) {
-
-    # Export log file
-
-    Write-Host "CSV File created at $LogFile.`r`n"
-    $Results | Sort CustomerName,Role,FirstName | Export-CSV -Path $LogFile -NoTypeInformation 
-    
-    # Email the CSV and stats to admin(s) 
-
-    $Body = ""
-    
-    if ($Results) { $Body+= "CSV Attached for $Date<br>" } else { $Body+="No CSV Attached for $Date - No Results<br>" }
-
-    $Body+="
-    Audit conducted on Proofpoint admins in $Minutes minutes and $Seconds seconds.<br>
-    <br>
-    $i customer(s) audited.<br>
-    $CountAdmins admin(s) audited.<br>
-    $CountExclusions admin(s) in exclusion groups.<br>
-    $CountResults admin(s) identified.
-    "
-    # Format the email parameters
-
-    $SmtpServer  = $CustomerSettings.SmtpServer
-    $Port        = $CustomerSettings.SmtpPort
-    $From        = $CustomerSettings.SmtpFrom
-    $To          = $ToEmailAddr
-    $Subject     = "Proofpoint Admin Audit - Customers"
-    $Body        = $Body
-    $UseSsl      = $CustomerSettings.SmtpSsl -eq "Yes"
-
-    if ($Results) { $Attachment = $LogFile } else { $Attachment = $null }
-       
-    if ( ($CustomerSettings.SmtpUsername -ne "") -and ($CustomerSettings.SmtpPassword -ne "") ) { 
-    
-        $SmtpPassword = ConvertTo-SecureString $CustomerSettings.SmtpPassword -AsPlainText -Force
-        $Credentials = New-Object System.Management.Automation.PSCredential($CustomerSettings.SmtpUsername, $SmtpPassword)
-
-    } else {
-
-       $Credentials = $null 
-
-    }
-
-    # Send the email
-
-    Send-Results -SmtpServer $SmtpServer -Port $Port -From $From -To $To -Subject $Subject -Body $Body -BodyAsHtml $true -UseSsl $UseSsl -Credential $Credentials -Attachment $Attachment
-
-}
+$Results | Sort-Object CustomerName,Role,FirstName | Export-CSV -Path $OutputSummary -NoTypeInformation

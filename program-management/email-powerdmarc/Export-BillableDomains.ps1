@@ -41,6 +41,7 @@ Test-Directory $OutputDir
 $DateFrom = (Get-Date).AddDays(-30).ToString("yyyy-MM-dd")
 $Date = Get-Date -Format yyyy-MM-dd
 $i = 0
+$CountCustomersSkipped = 0
 $CountResultsSummary = 0
 $CountResultsDetail = 0
 $ResultsDetail = @()
@@ -84,10 +85,9 @@ $ResultsSummary = foreach ($Customer in $Customers) {
     $Plan = $Customer.plan.name
     $BillableDomains = $Customer.active_domains_count
     
-    # Write-Progress -activity "Processing..." -status "$i out of $CountCustomers customers completed" -PercentComplete ([int](($i/$CountCustomers)*100))
-    
     if ($CustomerName -like "ServIT*") { 
         
+        $CountCustomersSkipped++
         Write-Host "[$i/$($CountCustomers)] Skipping customer: $CustomerName (excluded)" -ForegroundColor DarkGray        
         continue 
     
@@ -140,8 +140,8 @@ $Minutes = "{0:N0}" -f ($TotalTime/60)
 $Seconds = "{0:N0}" -f ($TotalTime%60)
 
 Write-Host "`r`nAudit conducted on PowerDMARC customers in $Minutes minutes and $Seconds seconds.`r`n" -ForegroundColor Green
-Write-Host "$CountResultsSummary customer(s) logged." -ForegroundColor Blue
-Write-Host "$CountResultsDetail domain(s) logged." -ForegroundColor Blue
+Write-Host "Customers: $CountCustomers total, $CountResultsSummary audited, $CountCustomersSkipped skipped." -ForegroundColor Blue
+Write-Host "Domains: $CountResultsDetail logged." -ForegroundColor Blue
 
 $ResultsSummary | Sort-Object CustomerName | Export-Csv -Path $OutputSummary -NoTypeInformation
 $ResultsDetail | Sort-Object CustomerName, Domain | Export-Csv -Path $OutputDetail -NoTypeInformation

@@ -39,8 +39,7 @@ foreach ($p in $Projects) {
     $PctTask = [double]($p.'% Complete - Task' -replace '[%,]', '')
     $PctHours = [double]($p.'% Complete - Hours' -replace '[%,]', '')
 
-    $DaysSinceLastActivity = $null
-    if ($LastActivity) { $DaysSinceLastActivity = [int]($Now - $LastActivity).TotalDays }
+    $DaysSinceLastActivity = Get-DaysSince -Value $LastActivity -Reference $Now
 
     $StaleThreshold = if ($p.Phase -eq "On Hold/Inactive") { $STALE_DAYS_ON_HOLD } else { $STALE_DAYS }
     $Stale = ($null -ne $DaysSinceLastActivity) -and ($DaysSinceLastActivity -gt $StaleThreshold)

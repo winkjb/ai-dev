@@ -32,6 +32,7 @@ $Results = @()
 # Import functions
 
 . "C:\PS\Scripts\VA-Functions.ps1"
+. (Join-Path $PSScriptRoot "..\..\scripts\Functions-VA-Common.ps1")
 
 # Start processing
 
@@ -96,17 +97,18 @@ foreach ($Customer in $Customers) {
     foreach ($Admin in $Admins) {
 
         $LastLogin = ($Epoch.AddSeconds($Admin.last_login_time)).ToString("yyyy-MM-dd")
+        $DaysAgo = Get-DaysSince -Value $Admin.last_login_time -Epoch
 
         # Compare $Admins to excluded sites
 
         if ($ExcludedAdmins -contains $Admin.box_fulladdress) {
 
             $CountExclusions ++
-            if ($LogExclusions -eq $true) { $Results += New-Object PSObject -Property @{ Date=$Date; CustomerName=$CustomerName; FirstName=$Admin.first_name; LastName=$Admin.last_name; Username=$Admin.box_fulladdress; Role=$Admin.role_name; LastLogin=$LastLogin; Enabled=$Admin.is_active; InExclusionGroup="Y" }}
+            if ($LogExclusions -eq $true) { $Results += New-Object PSObject -Property @{ Date=$Date; CustomerName=$CustomerName; FirstName=$Admin.first_name; LastName=$Admin.last_name; Username=$Admin.box_fulladdress; Role=$Admin.role_name; LastLogin=$LastLogin; DaysAgo=$DaysAgo; Enabled=$Admin.is_active; InExclusionGroup="Y" }}
 
         } else {
-    
-            $Results += New-Object PSObject -Property @{ Date=$Date; CustomerName=$CustomerName; FirstName=$Admin.first_name; LastName=$Admin.last_name; Username=$Admin.box_fulladdress; Role=$Admin.role_name; LastLogin=$LastLogin; Enabled=$Admin.is_active; InExclusionGroup="N" }
+
+            $Results += New-Object PSObject -Property @{ Date=$Date; CustomerName=$CustomerName; FirstName=$Admin.first_name; LastName=$Admin.last_name; Username=$Admin.box_fulladdress; Role=$Admin.role_name; LastLogin=$LastLogin; DaysAgo=$DaysAgo; Enabled=$Admin.is_active; InExclusionGroup="N" }
             $CountResults ++
 
         }
@@ -138,7 +140,7 @@ if ($Logging -eq $true) {
     # Export log file
 
     Write-Host "CSV File created at $LogFile.`r`n"
-    $Results | Select Date,CustomerName,FirstName,LastName,Username,Role,LastLogin,Enabled | Sort CustomerName,Role,FirstName | Export-CSV -Path $LogFile -NoTypeInformation 
+    $Results | Select Date,CustomerName,FirstName,LastName,Username,Role,LastLogin,DaysAgo,Enabled | Sort CustomerName,Role,FirstName | Export-CSV -Path $LogFile -NoTypeInformation
     
     # Email the CSV and stats to admin(s) 
 

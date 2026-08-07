@@ -41,6 +41,7 @@
 param()
 
 . (Join-Path $PSScriptRoot "..\..\scripts\Functions-Formatting-Common.ps1")
+. (Join-Path $PSScriptRoot "..\..\scripts\Functions-VA-Common.ps1")
 
 $STALE_DAYS = 7
 
@@ -131,9 +132,7 @@ foreach ($t in $InScope) {
     $LastActivity = ConvertTo-NullableDate $t.'Last Activity Time'
 
     $AgeDays = if ($Created) { [math]::Round(($Now - $Created).TotalDays, 1) } else { $null }
-    # [int] casts round to nearest in PowerShell (unlike Python's int(), which truncates
-    # toward zero) - [math]::Truncate() matches the original pandas .apply(int) behavior.
-    $DaysSinceLastActivity = if ($LastActivity) { [int][math]::Truncate(($Now - $LastActivity).TotalDays) } else { $null }
+    $DaysSinceLastActivity = Get-DaysSince -Value $LastActivity -Reference $Now
 
     $Unassigned = Test-Blank $t.Resources
     $Critical = $t.Priority -eq "1 (Critical)"
