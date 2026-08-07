@@ -14,7 +14,6 @@ param()
 
 # System settings and variables
 
-$ToAddresses = @("bwinklesky@servit.net")
 $OutputDir = Join-Path $PSScriptRoot ".\output"
 $OutputFile = Join-Path $OutputDir ("run-logs-{0:yyyy-MM}.log" -f (Get-Date))
 
@@ -39,24 +38,32 @@ Test-Directory $OutputDir
 
 try {
 
-    Write-ToLog -LogFile $OutputFile -Message "=== Starting runs ==="
+    # ---------------------------------------------------------------------------
+    # Beginning tasks
+    # ---------------------------------------------------------------------------
 
-    # Run tasks
+    Write-ToLog -LogFile $OutputFile -Message "=== Starting runs ==="
 
     & (Join-Path $PSScriptRoot "Export-BillableDomains.ps1")
     Write-ToLog -LogFile $OutputFile -Message "Generated PowerDMARC reports"
 
-    # Format email message
-
+    # ---------------------------------------------------------------------------
+    # Email 1: Format and send email results
+    # ---------------------------------------------------------------------------
+        
+    $ToAddresses = @("bwinklesky@servit.net")
     $Attachments = @(
         Join-Path $OutputDir "billable-domains-summary.csv"
         Join-Path $OutputDir "billable-domains-detail.csv"
     )
 
-    # Send email results
-
     & $EmailScript -To $ToAddresses -Subject "PowerDMARC Reports" -Attachments $Attachments
     Write-ToLog -LogFile $OutputFile -Message "Emailed reports to $($ToAddresses -join ', ')"
+    
+    # ---------------------------------------------------------------------------
+    # Ending tasks
+    # ---------------------------------------------------------------------------
+
     Write-ToLog -LogFile $OutputFile -Message "=== Run completed successfully ==="
 
 }
