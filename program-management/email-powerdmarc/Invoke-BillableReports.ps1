@@ -2,7 +2,7 @@
 .SYNOPSIS
     
 .EXAMPLE
-    .\Invoke-ProofpointReports.ps1
+    .\Invoke-BillableReports.ps1
 #>
 
 [CmdletBinding()]
@@ -45,27 +45,29 @@ try {
 
     Write-ToLog -LogFile $OutputFile -Message "=== Starting runs ==="
 
-    & (Join-Path $PSScriptRoot "Export-CustomerAdmins.ps1")
-    Write-ToLog -LogFile $OutputFile -Message "Generated Proofpoint admin reports"
+    & (Join-Path $PSScriptRoot "Export-BillableDomains.ps1")
+    Write-ToLog -LogFile $OutputFile -Message "Generated PowerDMARC billable reports"
 
     # ---------------------------------------------------------------------------
     # Format email
     # ---------------------------------------------------------------------------
-
+        
         $Attachments = @(
-        Join-Path $OutputDir "proofpointadmins-customer.csv"
+        Join-Path $OutputDir "billable-domains-summary.csv"
+        Join-Path $OutputDir "billable-domains-detail.csv"
     )
+
     # ---------------------------------------------------------------------------
     # Send email
     # ---------------------------------------------------------------------------
 
-    & $EmailScript -To $ToAddresses -Subject "Proofpoint Reports - Admins" -Attachments $Attachments
+    & $EmailScript -To $ToAddresses -Subject "PowerDMARC Reports - Billables" -Attachments $Attachments
     Write-ToLog -LogFile $OutputFile -Message "Emailed reports to $($ToAddresses -join ', ')"
     
     # ---------------------------------------------------------------------------
     # Ending tasks
     # ---------------------------------------------------------------------------
-        
+
     Write-ToLog -LogFile $OutputFile -Message "=== Run completed successfully ==="
 
 }
@@ -77,7 +79,7 @@ catch {
     # Best-effort failure notice - if this fails too (e.g. SMTP settings themselves are the
     # problem), don't let that mask the original error's exit code.
     try {
-        & $EmailScript -To $ToAddresses -Subject "Proofpoint Reports - Admins (FAILED)" `
+        & $EmailScript -To $ToAddresses -Subject "PowerDMARC Reports - Billables (FAILED)" `
             -Body "The report run failed: $($_.Exception.Message)`n`nSee $OutputFile on the host machine for details."
     }
     catch {

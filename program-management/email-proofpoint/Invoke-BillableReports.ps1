@@ -2,7 +2,7 @@
 .SYNOPSIS
     
 .EXAMPLE
-    .\Invoke-PowerDmarcReports.ps1
+    .\Invoke-BillableReports.ps1
 #>
 
 [CmdletBinding()]
@@ -14,6 +14,7 @@ param()
 
 # System settings and variables
 
+$ToAddresses = @("bwinklesky@servit.net")
 $OutputDir = Join-Path $PSScriptRoot ".\output"
 $OutputFile = Join-Path $OutputDir ("run-logs-{0:yyyy-MM}.log" -f (Get-Date))
 
@@ -44,26 +45,27 @@ try {
 
     Write-ToLog -LogFile $OutputFile -Message "=== Starting runs ==="
 
-    & (Join-Path $PSScriptRoot "Export-BillableDomains.ps1")
-    Write-ToLog -LogFile $OutputFile -Message "Generated PowerDMARC reports"
+    & (Join-Path $PSScriptRoot "Export-BillableUsers.ps1")
+    Write-ToLog -LogFile $OutputFile -Message "Generated Proofpoint billable reports"
 
     # ---------------------------------------------------------------------------
-    # Email 1: Format and send email results
+    # Format email
     # ---------------------------------------------------------------------------
-        
-    $ToAddresses = @("bwinklesky@servit.net")
-    $Attachments = @(
-        Join-Path $OutputDir "billable-domains-summary.csv"
-        Join-Path $OutputDir "billable-domains-detail.csv"
+
+        $Attachments = @(
+        Join-Path $OutputDir "billable-users-summary.csv"
     )
+    # ---------------------------------------------------------------------------
+    # Send email
+    # ---------------------------------------------------------------------------
 
-    & $EmailScript -To $ToAddresses -Subject "PowerDMARC Reports" -Attachments $Attachments
+    & $EmailScript -To $ToAddresses -Subject "Proofpoint Reports - Billables" -Attachments $Attachments
     Write-ToLog -LogFile $OutputFile -Message "Emailed reports to $($ToAddresses -join ', ')"
     
     # ---------------------------------------------------------------------------
     # Ending tasks
     # ---------------------------------------------------------------------------
-
+        
     Write-ToLog -LogFile $OutputFile -Message "=== Run completed successfully ==="
 
 }
@@ -75,7 +77,7 @@ catch {
     # Best-effort failure notice - if this fails too (e.g. SMTP settings themselves are the
     # problem), don't let that mask the original error's exit code.
     try {
-        & $EmailScript -To $ToAddresses -Subject "PowerDMARC Reports - FAILED" `
+        & $EmailScript -To $ToAddresses -Subject "Proofpoint Reports - Billables (FAILED)" `
             -Body "The report run failed: $($_.Exception.Message)`n`nSee $OutputFile on the host machine for details."
     }
     catch {
