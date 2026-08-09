@@ -12,7 +12,7 @@
 [CmdletBinding()]
 param(
 
-    [string[]]$ExcludedAdmins,
+    [string[]]$ExcludedTenants,
     [switch]$EnabledOnly = $false,
     [switch]$LogExclusions = $false
 
@@ -25,8 +25,7 @@ param(
 # System settings and variables
 
 $OutputDir = Join-Path $PSScriptRoot ".\output"
-$OutputSummaryCustomers = Join-Path $OutputDir "proofpointadmins-customer.csv"
-$OutputSummaryServit = Join-Path $OutputDir "proofpointadmins-customer.csv"
+$OutputSummary = Join-Path $OutputDir "proofpointadmins-all.csv"
 
 # Import functions
 
@@ -39,15 +38,14 @@ $Settings = Import-Settings -SettingsPath "..\..\data\reference\ProofpointSettin
 Test-Directory $OutputDir
 
 # ---------------------------------------------------------------------------
-# Step 1: Get all tenants  
+# Step 1: Get all tenants
 # ---------------------------------------------------------------------------
 
 # Script settings and variables
 
 $Date = Get-Date -Format yyyy-MM-dd
 $i = 0
-$CountAdminsCustomers = 0
-$CountAdminsServit = 0
+$CountAudited = 0
 $CountExclusions = 0
 $CountResults = 0
 
@@ -64,65 +62,66 @@ $StartTime = Get-Date
 
 $Uri = "https://us2.proofpointessentials.com/api/v1/orgs/servit.net/orgs"
 $ApiResponse = Invoke-RestMethod -Uri $Uri -Headers $ApiContext.Headers
-$Customers = $ApiResponse.orgs 
+$Tenants = $ApiResponse.orgs 
 
-if (-not $Customers -or $Customers.Count -eq 0) {
-    Write-Error "No customers returned. Check credentials and API access scope."
+if (-not $Tenants -or $Tenants.Count -eq 0) {
+    Write-Error "No tenants returned. Check credentials and API access scope."
     return
 }
 
-$CountCustomers = @($Customers).count
+$CountTenants = @($Tenants).count
 
-Write-Host "Found $CountCustomers customer(s)." -ForegroundColor Green
+Write-Host "Found $CountTenants tenant(s)." -ForegroundColor Green
 
 # ---------------------------------------------------------------------------
-# Step 2: Audit customers  
+# Step 2: Audit tenants  
 # ---------------------------------------------------------------------------
 
-# Iterate through customers
+# Iterate through tenants
 
-$Results = foreach ($Customer in $Customers) {
+$Results = foreach ($Tenant in $Tenants) {
 
     $i++
 
-    Write-Host "[$i/$($CountCustomers)] Auditing customer: $($Customer.name)" -ForegroundColor Yellow
+    # Identify exclusions
 
-    # Get customer admins
+    $InExclusion = $ExcludedTenants -contains $Tenant.name
 
-    $Uri = "https://us2.proofpointessentials.com/api/v1/orgs/"+$Customer.primary_domain+"/users/"
-    $ApiResponse = Invoke-RestMethod -Uri $Uri -Headers $ApiContext.Headers
+    if ($InExclusion) { 
+    
+        $CountExclusions++ 
+        Write-Host "[$i/$($CountTenants)] Skipping tenant: $($Tenant.name) (excluded)" -ForegroundColor DarkGray
+        
+    } else {
 
-    # Filter admins
+        Write-Host "[$i/$($CountTenants)] Auditing tenant: $($Tenant.name)" -ForegroundColor Yellow
 
-    if ($EnabledOnly -eq $false) { 
-        $Admins = $ApiResponse.users.Where({ $_.type -like "*admin" })
-    } else { 
-        $Admins = $ApiResponse.users.Where({ $_.type -like "*admin" -and $_.is_active -eq $true }) 
     }
 
-    # Log finding
+    if (-not $InExclusion -or $LogExclusions) {
 
-    foreach ($Admin in $Admins) {
-        
-        $CountAdmins++
+        $CountAudited++
 
-        # Identify exclusions
+        # Get tenant admins
 
-        $InExclusion = $ExcludedAdmins -contains $Admin.primary_email
+        $Uri = "https://us2.proofpointessentials.com/api/v1/orgs/"+$Tenant.primary_domain+"/users/"
+        $ApiResponse = Invoke-RestMethod -Uri $Uri -Headers $ApiContext.Headers
 
-        if ($InExclusion) { $CountExclusions++ }
+        # Filter admins
+
+        if ($EnabledOnly -eq $false) { 
+            $Admins = $ApiResponse.users.Where({ $_.type -like "*admin" })
+        } else { 
+            $Admins = $ApiResponse.users.Where({ $_.type -like "*admin" -and $_.is_active -eq $true }) 
+        }
 
         # Log finding
 
-        if (-not $InExclusion -or $LogExclusions) {
+        foreach ($Admin in $Admins) {
+        
+            $CountResults++
 
-            if ($Customer.name -eq "ServIT MSP") {
-                $CountAdminsServit++
-            } else {
-                $CountAdminsCustomers++
-            }
-
-            # Normalize finding
+            # Log finding
 
             $Finding = [ordered] @{ 
                 
@@ -142,15 +141,14 @@ $Results = foreach ($Customer in $Customers) {
 
             if ($LogExclusions) { $Finding.InExclusionGroup = if ($InExclusion) {"Y"} else {$null} }
 
-            $CountResults++
-
             [PSCustomObject]$Finding
 
         }
           
-    }
+    }   
 
-}
+ }
+
 
 # ---------------------------------------------------------------------------
 # Step 3: Complete and output
@@ -165,7 +163,7 @@ $Seconds = "{0:N0}" -f ($TotalTime%60)
 
 Write-Host "`r`nAudit conducted on Proofpoint admins in $Minutes minutes and $Seconds seconds.`r`n" -ForegroundColor Green
 
-Write-Host "Tenants: $CountCustomers total." -ForegroundColor Blue
-Write-Host "Admins: $CountAdmins found ($CountAdminsCustomers customers / $CountAdminsServit ServIT), $CountExclusions excluded, $CountResults logged." -ForegroundColor Blue
+Write-Host "Tenants: $CountTenants total, $CountAudited audited, $CountExclusions excluded." -ForegroundColor Blue
+Write-Host "Admins: $CountResults logged." -ForegroundColor Blue
 
-$Results | Sort-Object CustomerName,Role,FirstName | Export-CSV -Path $OutputSummaryCustomers -NoTypeInformation
+$Results | Sort-Object CustomerName,Role,FirstName | Export-Csv -Path $OutputSummary -NoTypeInformation
