@@ -42,10 +42,16 @@ param(
 if (-not $OutputPath) { $OutputPath = Join-Path $PSScriptRoot "..\data\raw\Ticket Search Results.csv" }
 
 $FunctionsScript = Join-Path $PSScriptRoot "..\..\scripts\Functions-Autotask-Common.ps1"
+$VAFunctionsScript = Join-Path $PSScriptRoot "..\..\scripts\Functions-VA-Common.ps1"
 if (-not (Test-Path -LiteralPath $FunctionsScript)) {
     Write-Error "Shared functions script not found: $FunctionsScript"
     exit 1
 }
+if (-not (Test-Path -LiteralPath $VAFunctionsScript)) {
+    Write-Error "Shared functions script not found: $VAFunctionsScript"
+    exit 1
+}
+. $VAFunctionsScript
 . $FunctionsScript
 
 # The "done" family - confirmed none of these appear in the historical manual export.

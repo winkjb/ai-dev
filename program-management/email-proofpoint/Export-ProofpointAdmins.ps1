@@ -24,7 +24,7 @@ param(
 
 # System settings and variables
 
-$OutputDir = Join-Path $PSScriptRoot ".\output"
+$OutputDir = Join-Path $PSScriptRoot ".\data\raw"
 $OutputSummary = Join-Path $OutputDir "proofpointadmins-all.csv"
 
 # Import functions

@@ -3,6 +3,20 @@
     Coordinator report: Stalled Intake / Stale / No Lead(s) / Need PCM flags by Project Lead.
     PowerShell rewrite of the retired project_summary_flags.py.
 
+.DESCRIPTION
+    Flag: Stale is the OR of three independent signals, each with its own threshold, replacing
+    the old single-field read of Autotask's lastActivityDateTime (found unreliable for Projects -
+    it fires on any record edit, not just real activity):
+      - Hours/Tasks: % Complete - Hours / % Complete - Task aren't stored in Autotask, so their
+        "last changed" dates are tracked locally via ProjectSnapshotHistory.ps1, in
+        ../data/state/project-snapshot-history.json.
+      - Phase: sourced directly from Autotask's own statusDateTime field (native, no local
+        tracking needed) - a reasonable but imperfect proxy, since Phase is a many-to-one
+        grouping of Status (status-phase-mapping.csv), so a status change that doesn't cross a
+        phase boundary still resets this.
+    See ProjectSnapshotHistory.ps1's header for the cold-start ("unknown until we see it change")
+    behavior of the two locally-tracked signals.
+
 .EXAMPLE
     .\Export-CoordinatorFlagsReport.ps1
 #>
@@ -11,9 +25,16 @@
 param()
 
 . (Join-Path $PSScriptRoot "CoordinatorCommon.ps1")
+. (Join-Path $PSScriptRoot "ProjectSnapshotHistory.ps1")
 
-$STALE_DAYS = 14
-$STALE_DAYS_ON_HOLD = 21
+# Three independent staleness signals (see ProjectSnapshotHistory.ps1 for Hours/Tasks; Phase
+# uses Autotask's own statusDateTime directly). Flag: Stale is the OR of all three - any one
+# signal alone can trip it.
+$STALE_DAYS_HOURS = 14
+$STALE_DAYS_TASKS = 14
+$STALE_DAYS_PHASE = 21
+
+$SnapshotPath = Join-Path $PSScriptRoot "..\data\state\project-snapshot-history.json"
 
 $OutputDir = Join-Path $PSScriptRoot "output"
 $OutputDetail = Join-Path $OutputDir "coordinator-project-flags-detail.csv"
@@ -26,6 +47,12 @@ $Projects = Add-ProjectPhase -Projects $Result.Projects -PhaseMap $Data.PhaseMap
 
 $Now = Get-Date
 
+# % Complete - Hours and % Complete - Task aren't stored anywhere in Autotask, so their
+# "last changed" dates are tracked locally here, updated with this run's values before the
+# per-project flag pass below reads them back.
+$History = Get-ProjectSnapshotHistory -Path $SnapshotPath
+Update-ProjectSnapshotHistory -History $History -Projects $Projects -Path $SnapshotPath -Today $Now
+
 foreach ($p in $Projects) {
 
     $LastActivity = $null
@@ -36,13 +63,33 @@ foreach ($p in $Projects) {
         }
     }
 
+    $StatusDate = $null
+    if (-not [string]::IsNullOrWhiteSpace($p.'Status Date')) {
+        $Parsed = [datetime]::MinValue
+        if ([datetime]::TryParseExact($p.'Status Date', "MM/dd/yyyy hh:mm tt", [System.Globalization.CultureInfo]::InvariantCulture, [System.Globalization.DateTimeStyles]::None, [ref]$Parsed)) {
+            $StatusDate = $Parsed
+        }
+    }
+
     $PctTask = [double]($p.'% Complete - Task' -replace '[%,]', '')
     $PctHours = [double]($p.'% Complete - Hours' -replace '[%,]', '')
 
     $DaysSinceLastActivity = Get-DaysSince -Value $LastActivity -Reference $Now
+    $DaysSinceStatusChange = Get-DaysSince -Value $StatusDate -Reference $Now
 
-    $StaleThreshold = if ($p.Phase -eq "On Hold/Inactive") { $STALE_DAYS_ON_HOLD } else { $STALE_DAYS }
-    $Stale = ($null -ne $DaysSinceLastActivity) -and ($DaysSinceLastActivity -gt $StaleThreshold)
+    $Snapshot = $History[[string]$p.'Project ID']
+    $HoursSignal = if ($Snapshot) { $Snapshot.Hours } else { $null }
+    $TaskSignal  = if ($Snapshot) { $Snapshot.Task }  else { $null }
+    $DaysSinceHoursChange = Get-DaysSinceSignalChange -Signal $HoursSignal -Reference $Now
+    $DaysSinceTaskChange  = Get-DaysSinceSignalChange -Signal $TaskSignal -Reference $Now
+    $HoursLastChangedStr = if ($HoursSignal -and $HoursSignal.LastChanged) { $HoursSignal.LastChanged } else { "" }
+    $TaskLastChangedStr  = if ($TaskSignal -and $TaskSignal.LastChanged) { $TaskSignal.LastChanged } else { "" }
+
+    # Three independent signals, any one of which is enough to call the project stale.
+    $StaleHours = ($null -ne $DaysSinceHoursChange) -and ($DaysSinceHoursChange -gt $STALE_DAYS_HOURS)
+    $StaleTasks = ($null -ne $DaysSinceTaskChange) -and ($DaysSinceTaskChange -gt $STALE_DAYS_TASKS)
+    $StalePhase = ($null -ne $DaysSinceStatusChange) -and ($DaysSinceStatusChange -gt $STALE_DAYS_PHASE)
+    $Stale = $StaleHours -or $StaleTasks -or $StalePhase
 
     # "New" + stale alone isn't enough - some projects sit at Status "New" while real work
     # (task/hours) has already been logged, meaning Status just never got updated. Those
@@ -55,11 +102,20 @@ foreach ($p in $Projects) {
     $NeedPCM = $p.Phase -eq "Closing"
 
     $p | Add-Member -NotePropertyName "LastActivityParsed" -NotePropertyValue $LastActivity -Force
+    $p | Add-Member -NotePropertyName "StatusDateParsed" -NotePropertyValue $StatusDate -Force
     $p | Add-Member -NotePropertyName "% Complete - Task" -NotePropertyValue $PctTask -Force
     $p | Add-Member -NotePropertyName "% Complete - Hours" -NotePropertyValue $PctHours -Force
     $p | Add-Member -NotePropertyName "Days Since Last Activity" -NotePropertyValue $DaysSinceLastActivity -Force
+    $p | Add-Member -NotePropertyName "Days Since Status Change" -NotePropertyValue $DaysSinceStatusChange -Force
+    $p | Add-Member -NotePropertyName "Days Since Hours Change" -NotePropertyValue $DaysSinceHoursChange -Force
+    $p | Add-Member -NotePropertyName "Days Since Task Change" -NotePropertyValue $DaysSinceTaskChange -Force
+    $p | Add-Member -NotePropertyName "% Hours Last Changed" -NotePropertyValue $HoursLastChangedStr -Force
+    $p | Add-Member -NotePropertyName "% Task Last Changed" -NotePropertyValue $TaskLastChangedStr -Force
     $p | Add-Member -NotePropertyName "Flag: Stalled Intake" -NotePropertyValue $StalledIntake -Force
     $p | Add-Member -NotePropertyName "Flag: Stale" -NotePropertyValue $Stale -Force
+    $p | Add-Member -NotePropertyName "Flag: Stale - Hours" -NotePropertyValue $StaleHours -Force
+    $p | Add-Member -NotePropertyName "Flag: Stale - Tasks" -NotePropertyValue $StaleTasks -Force
+    $p | Add-Member -NotePropertyName "Flag: Stale - Phase" -NotePropertyValue $StalePhase -Force
     $p | Add-Member -NotePropertyName "Flag: No Lead(s)" -NotePropertyValue $NoLead -Force
     $p | Add-Member -NotePropertyName "Flag: Need PCM" -NotePropertyValue $NeedPCM -Force
 }
@@ -82,12 +138,21 @@ $DetailRows = foreach ($p in ($Projects | Sort-Object "Project Lead", "Phase")) 
         "Status"                   = $p.Status
         "Phase"                    = $p.Phase
         "Project Team Tech Lead"   = $p.'Project Team Tech Lead'
+        "Status Date"              = if ($p.StatusDateParsed) { $p.StatusDateParsed.ToString("yyyy-MM-dd HH:mm:ss") } else { "" }
+        "Days Since Status Change" = $p.'Days Since Status Change'
+        "% Complete - Task"        = $p.'% Complete - Task'
+        "% Task Last Changed"      = $p.'% Task Last Changed'
+        "Days Since Task Change"   = $p.'Days Since Task Change'
+        "% Complete - Hours"       = $p.'% Complete - Hours'
+        "% Hours Last Changed"     = $p.'% Hours Last Changed'
+        "Days Since Hours Change"  = $p.'Days Since Hours Change'
         "Last Activity Time"       = if ($p.LastActivityParsed) { $p.LastActivityParsed.ToString("yyyy-MM-dd HH:mm:ss") } else { "" }
         "Days Since Last Activity" = $p.'Days Since Last Activity'
-        "% Complete - Task"        = $p.'% Complete - Task'
-        "% Complete - Hours"       = $p.'% Complete - Hours'
         "Flag: Stalled Intake"     = $p.'Flag: Stalled Intake'
         "Flag: Stale"              = $p.'Flag: Stale'
+        "Flag: Stale - Hours"      = $p.'Flag: Stale - Hours'
+        "Flag: Stale - Tasks"      = $p.'Flag: Stale - Tasks'
+        "Flag: Stale - Phase"      = $p.'Flag: Stale - Phase'
         "Flag: No Lead(s)"         = $p.'Flag: No Lead(s)'
         "Flag: Need PCM"           = $p.'Flag: Need PCM'
     }

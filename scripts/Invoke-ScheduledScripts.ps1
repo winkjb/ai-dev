@@ -16,7 +16,7 @@
     Path to the JSON manifest of scripts. Defaults to ..\data\input\ScriptManifest.csv.
 
 .PARAMETER StatePath
-    Path to the JSON file tracking last-run timestamps. Defaults to ..\data\input\ScriptRunState.json.
+    Path to the JSON file tracking last-run timestamps. Defaults to ..\data\state\ScriptRunState.json.
 
 .PARAMETER Force
     Runs every enabled script regardless of schedule/state. Useful for manual re-runs or testing.
@@ -80,7 +80,7 @@ $LogFile = Join-Path $LogDir ("dispatcher_{0:yyyy-MM}.log" -f (Get-Date))
 # Derived settings and variables
 
 if (-not $ManifestPath) { $ManifestPath = Join-Path $PSScriptRoot "..\data\input\ScriptManifest.csv" }
-if (-not $StatePath)    { $StatePath    = Join-Path $PSScriptRoot "..\data\input\ScriptRunState.json" }
+if (-not $StatePath)    { $StatePath    = Join-Path $PSScriptRoot "..\data\state\ScriptRunState.json" }
 
 # Import functions
 

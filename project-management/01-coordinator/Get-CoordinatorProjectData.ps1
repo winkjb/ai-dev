@@ -15,6 +15,11 @@
     the historical export (Autotask's own UI likely weights this differently internally), but
     it reproduces the zero/nonzero behavior the "Stalled Intake" flag downstream depends on.
 
+    "Status Date" is Autotask's own statusDateTime field - when the project's Status last
+    changed, maintained natively by Autotask (unlike lastActivityDateTime, which is unreliable
+    as a staleness signal since it also fires on unrelated record edits). "Project ID" is the
+    raw Autotask id, kept as a stable key for the Flags report's local staleness snapshot.
+
 .EXAMPLE
     .\Get-CoordinatorProjectData.ps1
 #>
@@ -27,10 +32,16 @@ param(
 if (-not $OutputPath) { $OutputPath = Join-Path $PSScriptRoot "..\data\raw\Project Search Results.csv" }
 
 $FunctionsScript = Join-Path $PSScriptRoot "..\..\scripts\Functions-Autotask-Common.ps1"
+$VAFunctionsScript = Join-Path $PSScriptRoot "..\..\scripts\Functions-VA-Common.ps1"
 if (-not (Test-Path -LiteralPath $FunctionsScript)) {
     Write-Error "Shared functions script not found: $FunctionsScript"
     exit 1
 }
+if (-not (Test-Path -LiteralPath $VAFunctionsScript)) {
+    Write-Error "Shared functions script not found: $VAFunctionsScript"
+    exit 1
+}
+. $VAFunctionsScript
 . $FunctionsScript
 
 Write-Host "Connecting to Autotask..." -ForegroundColor Cyan
@@ -97,6 +108,7 @@ $Rows = foreach ($p in $Projects) {
     $PctHours = if ($p.estimatedTime -and $p.estimatedTime -ne 0) { ($p.actualHours / $p.estimatedTime) * 100 } else { 0 }
 
     [PSCustomObject]@{
+        "Project ID"           = $p.id
         "Project Number"       = $p.projectNumber
         "Project Name"         = $p.projectName
         "Account"              = $CompanyNames[[string]$p.companyID]
@@ -108,6 +120,7 @@ $Rows = foreach ($p in $Projects) {
         "% Complete - Task"    = "{0:N2}%" -f $PctTask
         "% Complete - Hours"   = "{0:N2}%" -f $PctHours
         "Last Activity Time"   = if ($p.lastActivityDateTime) { [datetime]$p.lastActivityDateTime | Get-Date -Format "MM/dd/yyyy hh:mm tt" } else { "" }
+        "Status Date"          = if ($p.statusDateTime) { [datetime]$p.statusDateTime | Get-Date -Format "MM/dd/yyyy hh:mm tt" } else { "" }
         "Project Team Tech Lead" = $TechLead
     }
 }
