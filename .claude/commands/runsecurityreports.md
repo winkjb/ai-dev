@@ -11,7 +11,7 @@ Run the security coordinator escalations report (run from the repo root, using t
 Then, if the report ran successfully, email the results (run from the repo root, using the PowerShell tool):
 
 ```
-./scripts/Send-ReportEmail.ps1 -To "bwinklesky@servit.net" -Subject "Security Coordinator Report" -Attachments "security/01-coordinator/output/coordinator-escalations-detail.csv","security/01-coordinator/output/coordinator-escalations-summary.csv"
+./scripts/Send-EmailMessage.ps1 -To "bwinklesky@servit.net" -Subject "Security Coordinator Report" -Attachments "security/01-coordinator/output/coordinator-escalations-detail.csv","security/01-coordinator/output/coordinator-escalations-summary.csv"
 ```
 
 Don't summarize the output data or open the resulting files. Just report back whether the report ran successfully and whether the email sent, or the error(s) if either failed.

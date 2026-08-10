@@ -12,7 +12,7 @@ Refresh the raw ticket pull from Autotask, then run the service-delivery ticket 
 Then, if the report ran successfully, email the results (run from the repo root, using the PowerShell tool):
 
 ```
-./scripts/Send-ReportEmail.ps1 -To "bwinklesky@servit.net","rpardue@servit.net" -Subject "Service Delivery Coordinator Reports" -Attachments "service-delivery/01-coordinator/output/coordinator-ticket-flags-detail.csv","service-delivery/01-coordinator/output/coordinator-ticket-flags-summary.csv"
+./scripts/Send-EmailMessage.ps1 -To "bwinklesky@servit.net","rpardue@servit.net" -Subject "Service Delivery Coordinator Reports" -Attachments "service-delivery/01-coordinator/output/coordinator-ticket-flags-detail.csv","service-delivery/01-coordinator/output/coordinator-ticket-flags-summary.csv"
 ```
 
 Don't summarize the output data or open the resulting files. Just report back whether the report ran successfully and whether the email sent, or the error(s) if either failed.

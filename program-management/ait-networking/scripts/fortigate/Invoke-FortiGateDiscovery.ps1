@@ -1,7 +1,7 @@
 <#
 .SYNOPSIS
     Discovers every FortiGate client/site under data/reference/customers and runs the
-    hit-count and security-profile collectors against each one.
+    hit-count, security-profile, admin-audit, and WAN-redundancy collectors against each one.
 
 .DESCRIPTION
     Walks data/reference/customers/**/CustomerSettings.txt recursively. For each one
@@ -29,7 +29,7 @@
 
 .EXAMPLE
     # Exclude disabled policies everywhere, and only run the security-profile audit
-    .\Invoke-FortiGateDiscovery.ps1 -ExcludeDisabled -SkipHitCounts
+    .\Invoke-FortiGateDiscovery.ps1 -ExcludeDisabled -SkipHitCounts -SkipAdminAudit -SkipWanRedundancy
 #>
 
 [CmdletBinding()]
@@ -43,6 +43,10 @@ param(
     [switch]$SkipHitCounts,
 
     [switch]$SkipSecurityProfiles,
+
+    [switch]$SkipAdminAudit,
+
+    [switch]$SkipWanRedundancy,
 
     # Passed through to Import-Settings for every site; leave blank to use its
     # own default/env-var resolution (see scripts/Functions-VA-Common.ps1).
@@ -66,6 +70,8 @@ if (-not (Test-Path -LiteralPath $CustomersRoot)) {
 
 $HitCountsScript = Join-Path $PSScriptRoot "Get-FortiGateHitCounts.ps1"
 $SecurityProfilesScript = Join-Path $PSScriptRoot "Get-FortiGateSecurityProfiles.ps1"
+$AdminAuditScript = Join-Path $PSScriptRoot "Get-FortiGateAdminAudit.ps1"
+$WanRedundancyScript = Join-Path $PSScriptRoot "Get-FortiGateWanRedundancy.ps1"
 
 $SettingsFiles = Get-ChildItem -Path $CustomersRoot -Filter "CustomerSettings.txt" -Recurse -File
 
@@ -140,6 +146,41 @@ $Results = foreach ($SettingsFile in $SettingsFiles) {
         catch {
             Write-Host "  Security-profiles run failed: $($_.Exception.Message)" -ForegroundColor Red
             [PSCustomObject]@{ Site = $SiteLabel; Report = "SecurityProfiles"; Status = "Error"; Detail = $_.Exception.Message }
+        }
+    }
+
+    if (-not $SkipAdminAudit) {
+        try {
+            # No -ExcludeDisabled here - admin accounts/interfaces/global settings
+            # don't have the enable/disable policy concept that switch was built for.
+            & $AdminAuditScript -CustomerSettingsPath $SettingsFile.FullName -ExportCsv -OutputPath $OutPath | Out-Host
+            if ($LASTEXITCODE -and $LASTEXITCODE -ne 0) {
+                [PSCustomObject]@{ Site = $SiteLabel; Report = "AdminAudit"; Status = "Error"; Detail = "Exited with code $LASTEXITCODE" }
+            }
+            else {
+                [PSCustomObject]@{ Site = $SiteLabel; Report = "AdminAudit"; Status = "OK"; Detail = $OutPath }
+            }
+        }
+        catch {
+            Write-Host "  Admin-audit run failed: $($_.Exception.Message)" -ForegroundColor Red
+            [PSCustomObject]@{ Site = $SiteLabel; Report = "AdminAudit"; Status = "Error"; Detail = $_.Exception.Message }
+        }
+    }
+
+    if (-not $SkipWanRedundancy) {
+        try {
+            # No -ExcludeDisabled here either - same reasoning as AdminAudit above.
+            & $WanRedundancyScript -CustomerSettingsPath $SettingsFile.FullName -ExportCsv -OutputPath $OutPath | Out-Host
+            if ($LASTEXITCODE -and $LASTEXITCODE -ne 0) {
+                [PSCustomObject]@{ Site = $SiteLabel; Report = "WanRedundancy"; Status = "Error"; Detail = "Exited with code $LASTEXITCODE" }
+            }
+            else {
+                [PSCustomObject]@{ Site = $SiteLabel; Report = "WanRedundancy"; Status = "OK"; Detail = $OutPath }
+            }
+        }
+        catch {
+            Write-Host "  WAN-redundancy run failed: $($_.Exception.Message)" -ForegroundColor Red
+            [PSCustomObject]@{ Site = $SiteLabel; Report = "WanRedundancy"; Status = "Error"; Detail = $_.Exception.Message }
         }
     }
 }

@@ -1,0 +1,5 @@
+"Date","SiteName","ComputerName","IsActive","IsUpToDate","Infected","ActiveThreats","Quarantine"
+"2026-08-10","J&A Engineering LLC","JAE-Files","True","True","True","1","False"
+"2026-08-10","Kichler HQ","CNSH-LWGFGQ","False","True","True","1","False"
+"2026-08-10","Kichler HQ","COLETO-PF6AFCRP","True","True","True","4","False"
+"2026-08-10","ServIT, Inc._Elite Administration and Insurance Group*","EliteAdminHyperV","True","True","True","4","False"

@@ -1,37 +1,37 @@
-# Security Coordinator Report (Incidents) - 2026-08-04 17:18
+# Security Coordinator Report (Incidents) - 2026-08-10 11:57
 
 ## Executive Summary
 
-Open (non-closed) incident(s): 39
+Open (non-closed) incident(s): 43
 
-Longest-waiting: 76 day(s) since sent - Ameriserve - LOW - Incident on leighann.smith@ameriserve.com (Ameriserve)
+Longest-waiting: 81.8 day(s) since sent - Ameriserve - LOW - Incident on leighann.smith@ameriserve.com (Ameriserve)
 
-- low: 38
-- high: 1
+- low: 41
+- high: 2
 
 ## By Customer (sorted by longest-waiting first)
 
 | Customer | Open Incidents | Oldest (Days) |
 |---|---|---|
-| Brosnahan Lawfirm | 6 | 76 |
-| Ameriserve | 3 | 76 |
-| MRP | 2 | 48.5 |
-| Soteria Flexibles | 2 | 47.3 |
-| J&A Engineering | 1 | 47.2 |
-| Consumer Collection Management | 3 | 47.2 |
-| Division 9 Construction | 2 | 47.2 |
-| Worley, Schilling, & Randall | 1 | 46.5 |
-| SECO | 3 | 46.5 |
-| Gulf Stream | 3 | 42.5 |
-| ViscoTec America | 1 | 40.5 |
-| Habitat for Humanity | 3 | 40.5 |
-| General Wholesale Company | 1 | 34.5 |
-| Coleto Brands | 3 | 28.1 |
-| ServIT, Inc. | 2 | 24.5 |
-| HEFCO | 1 | 6.2 |
-| Onsite Technical Services LLC | 1 | 1.5 |
-| Control by Web | 1 | 1.3 |
-| **Total** | 39 | |
+| Brosnahan Lawfirm | 7 | 81.8 |
+| Ameriserve | 4 | 81.8 |
+| MRP | 2 | 54.2 |
+| Soteria Flexibles | 2 | 53.1 |
+| J&A Engineering | 1 | 53 |
+| Consumer Collection Management | 3 | 53 |
+| Division 9 Construction | 3 | 53 |
+| Worley, Schilling, & Randall | 1 | 52.2 |
+| SECO | 3 | 52.2 |
+| Gulf Stream | 4 | 48.2 |
+| ViscoTec America | 1 | 46.2 |
+| Habitat for Humanity | 3 | 46.2 |
+| General Wholesale Company | 1 | 40.2 |
+| Coleto Brands | 3 | 33.9 |
+| ServIT, Inc. | 2 | 30.2 |
+| HEFCO | 1 | 12 |
+| Onsite Technical Services LLC | 1 | 7.2 |
+| Control by Web | 1 | 7.1 |
+| **Total** | 43 | |
 
 Summary (CSV): coordinator-incidents-summary.csv  
 Full detail (every open incident): coordinator-incidents-detail.csv
