@@ -22,11 +22,11 @@
     always-empty ones.
 
 .EXAMPLE
-    .\Export-SentinelOneThreats.ps1
+    .\Export-SentinelOneEvents.ps1
 
 .EXAMPLE
     # Skip specific sites entirely
-    .\Export-SentinelOneThreats.ps1 -ExcludedSites "Decommissioned Site","Test Lab"
+    .\Export-SentinelOneEvents.ps1 -ExcludedSites "Decommissioned Site","Test Lab"
 #>
 
 [CmdletBinding()]
@@ -44,7 +44,7 @@ param(
 
 # System settings and variables
 
-$OutputDir = Join-Path $PSScriptRoot ".\data\raw"
+$OutputDir = Join-Path $PSScriptRoot "output"
 $OutputSummary = Join-Path $OutputDir "sentinelonethreats-all.csv"
 
 # Number of site IDs per batched agents query - keeps the comma-joined siteIds

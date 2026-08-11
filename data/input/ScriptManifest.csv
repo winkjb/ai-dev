@@ -1,4 +1,5 @@
 Customer,Name,Path,Purpose,IsPython,Frequency,DayOfWeek,DayOfMonth,Enabled,Arguments
 ServIT,Invoke-CoordinatorReports,project-management\01-coordinator\Invoke-CoordinatorReports.ps1,Project Management,FALSE,Daily,,,TRUE,
 ServIT,Invoke-CoordinatorReports,service-delivery\01-coordinator\Invoke-CoordinatorReports.ps1,Service Delivery,FALSE,Daily,,,TRUE,
+ServIT,Invoke-CoordinatorReports,security\01-coordinator\Invoke-CoordinatorReports.ps1,Security,FALSE,Daily,,,TRUE,
 ServIT,Remove-OldLogs,scripts\Remove-OldLogs.ps1,Maintenance,FALSE,Monthly,,1,TRUE,
