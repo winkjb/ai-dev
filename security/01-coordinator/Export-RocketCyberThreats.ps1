@@ -62,7 +62,7 @@ param(
 
 # System settings and variables
 
-$OutputDir = Join-Path $PSScriptRoot ".\data\raw"
+$OutputDir = Join-Path $PSScriptRoot "output"
 $OutputIncidents = Join-Path $OutputDir "rocketcyber-open-incidents.csv"
 $OutputIsolated = Join-Path $OutputDir "rocketcyber-isolated-devices.csv"
 

@@ -73,14 +73,8 @@ param(
 
 # System settings and variables
 
-$ErrorActionPreference = "Stop"
-$LogDir  = Join-Path $PSScriptRoot "..\data\output"
-$LogFile = Join-Path $LogDir ("dispatcher_{0:yyyy-MM}.log" -f (Get-Date))
-
-# Derived settings and variables
-
-if (-not $ManifestPath) { $ManifestPath = Join-Path $PSScriptRoot "..\data\input\ScriptManifest.csv" }
-if (-not $StatePath)    { $StatePath    = Join-Path $PSScriptRoot "..\data\state\ScriptRunState.json" }
+$OutputDir  = Join-Path $PSScriptRoot "..\data\output"
+$OutputFile = Join-Path $OutputDir ("dispatcher_{0:yyyy-MM}.log" -f (Get-Date))
 
 # Import functions
 
@@ -132,7 +126,7 @@ function Get-State {
             }
             return $ht
         } catch {
-            Write-Log "State file at $Path is corrupt or unreadable. Starting fresh. Error: $_" -Level WARN
+            Write-ToLog -LogFile $OutputFile -Message "State file at $Path is corrupt or unreadable. Starting fresh. Error: $_" -Level WARN
             return @{}
         }
     }
@@ -161,9 +155,13 @@ function Test-IsDue {
         }
 
         "Monthly" {
-            $targetDom = if ($ScriptDef.DayOfMonth) { [int]$ScriptDef.DayOfMonth } else { 1 }
-            return ($Today.Day -eq $targetDom)
+        if ($ScriptDef.DayOfMonth -eq "Last") {
+            $lastDayOfMonth = [datetime]::DaysInMonth($Today.Year, $Today.Month)
+            return ($Today.Day -eq $lastDayOfMonth)
         }
+        $targetDom = if ($ScriptDef.DayOfMonth) { [int]$ScriptDef.DayOfMonth } else { 1 }
+        return ($Today.Day -eq $targetDom)
+    }
 
         "Quarterly" {
             $targetDom = if ($ScriptDef.DayOfMonth) { [int]$ScriptDef.DayOfMonth } else { 1 }
@@ -172,7 +170,7 @@ function Test-IsDue {
         }
 
         default {
-            Write-Log "Unknown frequency '$($ScriptDef.Frequency)' for $(Get-ScriptDisplayLabel -ScriptDef $ScriptDef). Skipping." -Level WARN
+            Write-ToLog -LogFile $OutputFile -Message "Unknown frequency '$($ScriptDef.Frequency)' for $(Get-ScriptDisplayLabel -ScriptDef $ScriptDef). Skipping." -Level WARN
             return $false
         }
     }
@@ -259,7 +257,7 @@ function Invoke-ScriptDef {
     $ResolvedPath = Resolve-ScriptDefPath -Path $ScriptDef.Path
 
     if (-not (Test-Path $ResolvedPath)) {
-        Write-Log "$(Get-ScriptDisplayLabel -ScriptDef $ScriptDef): script not found at $ResolvedPath" -Level ERROR
+        Write-ToLog -LogFile $OutputFile -Message "$(Get-ScriptDisplayLabel -ScriptDef $ScriptDef): script not found at $ResolvedPath" -Level ERROR
         return $false
     }
 
@@ -274,20 +272,30 @@ function Invoke-ScriptDef {
         }
 
         if ($LASTEXITCODE -and $LASTEXITCODE -ne 0) {
-            Write-Log "$(Get-ScriptDisplayLabel -ScriptDef $ScriptDef): exited with code $LASTEXITCODE" -Level ERROR
+            Write-ToLog -LogFile $OutputFile -Message "$(Get-ScriptDisplayLabel -ScriptDef $ScriptDef): exited with code $LASTEXITCODE" -Level ERROR
             return $false
         }
 
         return $true
     } catch {
-        Write-Log "$(Get-ScriptDisplayLabel -ScriptDef $ScriptDef): threw an exception - $_" -Level ERROR
+        Write-ToLog -LogFile $OutputFile -Message "$(Get-ScriptDisplayLabel -ScriptDef $ScriptDef): threw an exception - $_" -Level ERROR
         return $false
     }
 }
 
-# Validate logfile directory
+# ---------------------------------------------------------------------------
+# Step 1: Import task manifest and latest task states
+# ---------------------------------------------------------------------------
 
-Test-Directory $LogDir
+# Script settings and variables
+
+$ErrorActionPreference = "Stop"
+if (-not $ManifestPath) { $ManifestPath = Join-Path $PSScriptRoot "..\data\input\ScriptManifest.csv" }
+if (-not $StatePath)    { $StatePath    = Join-Path $PSScriptRoot "..\data\state\ScriptRunState.json" }
+
+# Validate output directory
+
+Test-Directory $OutputDir
 
 # Validate run time
 
@@ -297,19 +305,21 @@ if (-not $SkipTimingGuard) {
     $TimingDifference = [math]::Abs((New-TimeSpan -Start $ExpectedTime -End $Now).TotalMinutes)
 
     if ($TimingDifference -gt $MaxTimingDifferenceMinutes) {
-        Write-Log "Skipping run - triggered outside expected window. Now: $Now. Expected: $ExpectedTime (+/-$MaxTimingDifferenceMinutes min). Difference: $([math]::Round($TimingDifference, 1)) min." -Level WARN
+        Write-ToLog -LogFile $OutputFile -Message "Skipping run - triggered outside expected window. Now: $Now. Expected: $ExpectedTime (+/-$MaxTimingDifferenceMinutes min). Difference: $([math]::Round($TimingDifference, 1)) min." -Level WARN
         exit 0
     }
 }
 
 # ---------------------------------------------------------------------------
-# Run scripts
+# Step 2: Identify tasks to run
 # ---------------------------------------------------------------------------
 
-Write-Log "===== Dispatcher run started $(if ($DryRun) {'(DRY RUN)'}) ====="
+# Identify appropriate tasks to run
+
+Write-ToLog -LogFile $OutputFile -Message "===== Dispatcher run started $(if ($DryRun) {'(DRY RUN)'}) ====="
 
 if (-not (Test-Path $ManifestPath)) {
-    Write-Log "Manifest not found at $ManifestPath. Aborting." -Level ERROR
+    Write-ToLog -LogFile $OutputFile -Message "Manifest not found at $ManifestPath. Aborting." -Level ERROR
     exit 1
 }
 
@@ -320,13 +330,17 @@ $today    = Get-Date
 $results = @()
 $HasRunAny = $false
 
+# ---------------------------------------------------------------------------
+# Step 3: Run the tasks
+# ---------------------------------------------------------------------------
+
 foreach ($scriptDef in $manifest) {
 
     $Label    = Get-ScriptDisplayLabel -ScriptDef $scriptDef
     $StateKey = Get-ScriptStateKey -ScriptDef $scriptDef
 
     if (-not (ConvertTo-Bool $scriptDef.Enabled)) {
-        Write-Log "$Label`: disabled in manifest. Skipping." -Level SKIP
+        Write-ToLog -LogFile $OutputFile -Message "$Label`: disabled in manifest. Skipping." -Level SKIP
         continue
     }
 
@@ -336,21 +350,21 @@ foreach ($scriptDef in $manifest) {
     $shouldRun  = $Force -or $dueToday -or $overdue
 
     if (-not $shouldRun) {
-        Write-Log "$Label`: not due. Last run: $(if ($lastRun) {$lastRun} else {'never'})" -Level SKIP
+        Write-ToLog -LogFile $OutputFile -Message "$Label`: not due. Last run: $(if ($lastRun) {$lastRun} else {'never'})" -Level SKIP
         continue
     }
 
     $reason = if ($Force) { "forced" } elseif ($dueToday) { "scheduled today" } else { "catch-up (overdue)" }
-    Write-Log "$Label`: running - $reason."
+    Write-ToLog -LogFile $OutputFile -Message "$Label`: running - $reason."
 
     if ($DryRun) {
-        Write-Log "$Label`: DRY RUN - would execute $($scriptDef.Path)" -Level SKIP
+        Write-ToLog -LogFile $OutputFile -Message "$Label`: DRY RUN - would execute $($scriptDef.Path)" -Level SKIP
         $results += [PSCustomObject]@{ Name = $scriptDef.Name; Customer = $scriptDef.Customer; Purpose = $scriptDef.Purpose; Status = "DryRun" }
         continue
     }
 
     if ($HasRunAny -and $DelaySeconds -gt 0) {
-        Write-Log "Waiting $DelaySeconds second(s) before $Label..."
+        Write-ToLog -LogFile $OutputFile -Message "Waiting $DelaySeconds second(s) before $Label..."
         Start-Sleep -Seconds $DelaySeconds
     }
 
@@ -359,14 +373,18 @@ foreach ($scriptDef in $manifest) {
 
     if ($success) {
         $state[$StateKey] = $today.ToString("o")
-        Write-Log "$Label`: completed successfully." -Level SUCCESS
+        Write-ToLog -LogFile $OutputFile -Message "$Label`: completed successfully." -Level SUCCESS
         $results += [PSCustomObject]@{ Name = $scriptDef.Name; Customer = $scriptDef.Customer; Purpose = $scriptDef.Purpose; Status = "Success" }
     } else {
-        Write-Log "$Label`: failed. Last-run state NOT updated - will retry/catch-up next run." -Level ERROR
+        Write-ToLog -LogFile $OutputFile -Message "$Label`: failed. Last-run state NOT updated - will retry/catch-up next run." -Level ERROR
         $results += [PSCustomObject]@{ Name = $scriptDef.Name; Customer = $scriptDef.Customer; Purpose = $scriptDef.Purpose; Status = "Failed" }
     }
 
 }
+
+# ---------------------------------------------------------------------------
+# Step 4: Complete and output
+# ---------------------------------------------------------------------------
 
 # Update run states
 
@@ -374,6 +392,6 @@ if (-not $DryRun) {
     Save-State -State $state -Path $StatePath
 }
 
-Write-Log "===== Dispatcher run finished ====="
+Write-ToLog -LogFile $OutputFile -Message "===== Dispatcher run finished ====="
 Write-Host ""
 $results | Format-Table -AutoSize

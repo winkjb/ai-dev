@@ -1,0 +1,10 @@
+[2026-08-11 11:01:51] [INFO] === Starting coordinator report run ===
+[2026-08-11 11:01:51] [ERROR] ERROR: Settings file not found: ..\..\data\reference\HuntressSettings.txt
+[2026-08-11 11:01:51] [ERROR] === Run failed ===
+[2026-08-11 11:03:25] [INFO] === Starting coordinator report run ===
+[2026-08-11 11:03:27] [INFO] Generated the Huntress escalations report
+[2026-08-11 11:03:28] [INFO] Generated the Huntress incidents report
+[2026-08-11 11:03:29] [INFO] Generated the RocketCyber threats report
+[2026-08-11 11:03:42] [INFO] Generated the SentinelOne threats report
+[2026-08-11 11:03:45] [INFO] Emailed reports to bwinklesky@servit.net, ghuelsmann@servit.net, kterza@servit.net
+[2026-08-11 11:03:45] [INFO] === Run completed successfully ===

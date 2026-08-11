@@ -63,26 +63,6 @@ function Test-Directory {
 
 }
 
-function Write-Log {
-
-    param(
-        [string]$Message,
-        [ValidateSet("INFO","WARN","ERROR","SUCCESS","SKIP")]
-        [string]$Level = "INFO"
-    )
-
-    $timestamp = Get-Date -Format "yyyy-MM-dd HH:mm:ss"
-    $line = "[$timestamp] [$Level] $Message"
-    Add-Content -Path $LogFile -Value $line
-    switch ($Level) {
-        "ERROR"   { Write-Host $line -ForegroundColor Red }
-        "WARN"    { Write-Host $line -ForegroundColor Yellow }
-        "SUCCESS" { Write-Host $line -ForegroundColor Green }
-        "SKIP"    { Write-Host $line -ForegroundColor DarkGray }
-        default   { Write-Host $line }
-    }
-}
-
 function Write-ToLog {
 
     [CmdletBinding()]
