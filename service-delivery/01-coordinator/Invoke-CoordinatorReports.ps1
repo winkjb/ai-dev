@@ -18,7 +18,7 @@ $ErrorActionPreference = "Stop"
 
 $OutputDir = Join-Path $PSScriptRoot "output"
 if (-not (Test-Path -LiteralPath $OutputDir)) { New-Item -ItemType Directory -Path $OutputDir -Force | Out-Null }
-$LogPath = Join-Path $OutputDir ("scheduled-run-{0:yyyy-MM}.log" -f (Get-Date))
+$LogPath = Join-Path $OutputDir ("run-logs-{0:yyyy-MM}.log" -f (Get-Date))
 
 function Write-Log {
     param([string]$Message)

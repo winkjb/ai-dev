@@ -34,3 +34,18 @@
 [2026-08-09 21:48:13] [SKIP] Service Delivery / Invoke-CoordinatorReports: DRY RUN - would execute service-delivery\01-coordinator\Invoke-CoordinatorReports.ps1
 [2026-08-09 21:48:13] [SKIP] Maintenance / Remove-OldLogs: not due. Last run: 2026-07-29T12:36:10.4079440-04:00
 [2026-08-09 21:48:13] [INFO] ===== Dispatcher run finished =====
+[2026-08-10 21:18:39] [WARN] Skipping run - triggered outside expected window. Now: 08/10/2026 21:18:39. Expected: 08/10/2026 07:00:00 (+/-15 min). Difference: 858.6 min.
+[2026-08-10 21:18:57] [INFO] ===== Dispatcher run started (DRY RUN) =====
+[2026-08-10 21:18:57] [INFO] Project Management / ServIT / Invoke-CoordinatorReports: running - scheduled today.
+[2026-08-10 21:18:57] [SKIP] Project Management / ServIT / Invoke-CoordinatorReports: DRY RUN - would execute project-management\01-coordinator\Invoke-CoordinatorReports.ps1
+[2026-08-10 21:18:57] [INFO] Service Delivery / ServIT / Invoke-CoordinatorReports: running - scheduled today.
+[2026-08-10 21:18:57] [SKIP] Service Delivery / ServIT / Invoke-CoordinatorReports: DRY RUN - would execute service-delivery\01-coordinator\Invoke-CoordinatorReports.ps1
+[2026-08-10 21:18:58] [SKIP] Maintenance / ServIT / Remove-OldLogs: not due. Last run: 2026-07-29T12:36:10.4079440-04:00
+[2026-08-10 21:18:58] [INFO] ===== Dispatcher run finished =====
+[2026-08-10 21:20:32] [INFO] ===== Dispatcher run started (DRY RUN) =====
+[2026-08-10 21:20:32] [INFO] ServIT / Project Management / Invoke-CoordinatorReports: running - scheduled today.
+[2026-08-10 21:20:32] [SKIP] ServIT / Project Management / Invoke-CoordinatorReports: DRY RUN - would execute project-management\01-coordinator\Invoke-CoordinatorReports.ps1
+[2026-08-10 21:20:32] [INFO] ServIT / Service Delivery / Invoke-CoordinatorReports: running - scheduled today.
+[2026-08-10 21:20:32] [SKIP] ServIT / Service Delivery / Invoke-CoordinatorReports: DRY RUN - would execute service-delivery\01-coordinator\Invoke-CoordinatorReports.ps1
+[2026-08-10 21:20:32] [SKIP] ServIT / Maintenance / Remove-OldLogs: not due. Last run: 2026-07-29T12:36:10.4079440-04:00
+[2026-08-10 21:20:32] [INFO] ===== Dispatcher run finished =====

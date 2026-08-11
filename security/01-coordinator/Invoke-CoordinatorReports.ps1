@@ -21,7 +21,7 @@ param()
 
 $ErrorActionPreference = "Stop"
 $OutputDir = Join-Path $PSScriptRoot "output"
-$LogFile = Join-Path $OutputDir ("scheduled-run-{0:yyyy-MM}.log" -f (Get-Date))
+$LogFile = Join-Path $OutputDir ("run-logs-{0:yyyy-MM}.log" -f (Get-Date))
 $ToAddresses = @("bwinklesky@servit.net")
 
 # Derived settings and variables

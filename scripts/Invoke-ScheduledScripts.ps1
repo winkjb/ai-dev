@@ -116,7 +116,7 @@ function Get-ScriptDisplayLabel {
         populated (most rows today have no Customer, since they're internal, not per-tenant).
     #>
     param($ScriptDef)
-    $Parts = @($ScriptDef.Purpose, $ScriptDef.Customer, $ScriptDef.Name) | Where-Object { -not [string]::IsNullOrWhiteSpace($_) }
+    $Parts = @($ScriptDef.Customer, $ScriptDef.Purpose, $ScriptDef.Name) | Where-Object { -not [string]::IsNullOrWhiteSpace($_) }
     return ($Parts -join " / ")
 }
 
