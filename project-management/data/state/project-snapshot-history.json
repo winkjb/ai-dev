@@ -482,8 +482,8 @@
     "4737":  {
                  "Task":  {
                               "FirstSeen":  "2026-08-09",
-                              "LastChanged":  null,
-                              "Value":  0
+                              "LastChanged":  "2026-08-11",
+                              "Value":  4.76
                           },
                  "Hours":  {
                                "FirstSeen":  "2026-08-09",
@@ -1190,8 +1190,8 @@
     "4920":  {
                  "Task":  {
                               "FirstSeen":  "2026-08-09",
-                              "LastChanged":  null,
-                              "Value":  0
+                              "LastChanged":  "2026-08-11",
+                              "Value":  4.76
                           },
                  "Hours":  {
                                "FirstSeen":  "2026-08-09",
@@ -1279,6 +1279,18 @@
                           },
                  "Hours":  {
                                "FirstSeen":  "2026-08-09",
+                               "LastChanged":  null,
+                               "Value":  0
+                           }
+             },
+    "4942":  {
+                 "Task":  {
+                              "FirstSeen":  "2026-08-11",
+                              "LastChanged":  null,
+                              "Value":  4.35
+                          },
+                 "Hours":  {
+                               "FirstSeen":  "2026-08-11",
                                "LastChanged":  null,
                                "Value":  0
                            }
