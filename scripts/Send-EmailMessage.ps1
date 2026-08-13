@@ -22,7 +22,12 @@ param(
 
     [bool]$BodyAsHtml = $true,
 
-    [string]$SettingsPath
+    [string]$SettingsPath,
+
+    # Overrides SmtpSettings.csv's SmtpFrom - e.g. a per-customer/per-audit friendly name
+    # ("Katz Virtual Administrator <noreply@alerts.servit.net>") so downstream ticket parsers
+    # can identify the source, while still relaying through the same shared SMTP server/creds.
+    [string]$From
 )
 
 # ---------------------------------------------------------------------------
@@ -65,10 +70,12 @@ if ($Settings.SmtpUsername) {
 # Send email 
 # ---------------------------------------------------------------------------
 
+$FromAddress = if ($From) { $From } else { $Settings.SmtpFrom }
+
 Send-Results `
     -SmtpServer $Settings.SmtpServer `
     -Port ([int]$Settings.SmtpPort) `
-    -From $Settings.SmtpFrom `
+    -From $FromAddress `
     -To $To `
     -Subject $Subject `
     -Body $Body `

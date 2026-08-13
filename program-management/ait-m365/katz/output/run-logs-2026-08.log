@@ -1,0 +1,5 @@
+[2026-08-13 11:53:20] [INFO] === Starting Katz temp-groups audit run ===
+[2026-08-13 11:53:21] [INFO] Collected Entra groups
+[2026-08-13 11:53:21] [INFO] Generated the temp-groups audit
+[2026-08-13 11:53:24] [INFO] Emailed reports to bwinklesky@servit.net
+[2026-08-13 11:53:24] [INFO] === Run completed successfully ===
