@@ -7,138 +7,31 @@
 
 function Map-Customer {
 
+    # Data-driven as of 2026-08-13 (was a hardcoded hashtable here) - a bad row in the CSV
+    # fails to match one customer; a bad hashtable entry could break parsing of this entire
+    # file (has happened before, in a different Functions-*-Common.ps1). Lives at the
+    # workspace-root data/reference/ level, not nested under program-management, since this
+    # function is itself workspace-shared and customer lookups may end up needed by more than
+    # one team long-term.
+
     param(
         [Parameter(Mandatory)]
-        [string]$CustomerName
+        [string]$CustomerName,
+
+        [string]$MapPath
     )
 
-    $CustomerMap = @{
+    if (-not $MapPath) { $MapPath = Join-Path $PSScriptRoot "..\data\reference\CustomerMap.csv" }
+    if (-not (Test-Path -LiteralPath $MapPath)) { throw "Customer map not found: $MapPath" }
 
-        "Ameriserve" = [PSCustomObject]@{ 
-            Directory       = "ameriserve"
-            CustomerFolder  = "Ameriserve"
-        }
+    $Row = Import-Csv -LiteralPath $MapPath -Encoding UTF8 | Where-Object { $_.CustomerName -eq $CustomerName }
 
-        "Brindlee Fire Services" = [PSCustomObject]@{
-            Directory       = "brindlee"
-            CustomerFolder  = "Brindlee Fire"
-        }
+    if (-not $Row) { throw "Customer '$CustomerName' was not found in customer map." }
 
-        "Bercher Homes" = [PSCustomObject]@{
-            Directory       = "bercher"
-            CustomerFolder  = "Bercher Homes"
-        }
-        
-        "Beulah" = [PSCustomObject]@{
-            Directory       = "beulah"
-            CustomerFolder  = "Beulah"
-        }
-        
-        "Boxercraft" = [PSCustomObject]@{
-            Directory       = "boxercraft"
-            CustomerFolder  = "Boxercraft"
-        }
-
-        "CCM" = [PSCustomObject]@{
-            Directory       = "ccm"
-            CustomerFolder  = "CCM"
-        }
-
-        "Diverzify" = [PSCustomObject]@{
-            Directory       = "diverzify"
-            CustomerFolder  = "Diverzify"
-        }
-
-        "Division 9" = [PSCustomObject]@{
-            Directory       = "division9"
-            CustomerFolder  = "Division 9"
-        }
-
-        "DSCPA" = [PSCustomObject]@{
-            Directory       = "dscpa"
-            CustomerFolder  = "DSCPA"
-        }
-
-        "Elite Admin" = [PSCustomObject]@{
-            Directory       = "eliteadmin"
-            CustomerFolder  = "Elite Admin"
-        }
-        
-        "General Wholesale Company" = [PSCustomObject]@{
-            Directory       = "gwc"
-            CustomerFolder  = "GWC"
-        }
-    
-        "Geosurvey" = [PSCustomObject]@{
-            Directory       = "geosurvey"
-            CustomerFolder  = "Geosurvey"
-        }
-        
-        "Grey Eagle" = [PSCustomObject]@{
-            Directory       = "greyeagle"
-            CustomerFolder  = "Grey Eagle"
-        }
-        
-        "Grissom" = [PSCustomObject]@{
-            Directory       = "grissom"
-            CustomerFolder  = "Grissom"
-        }
-
-        "HEFCO" = [PSCustomObject]@{
-            Directory       = "hefco"
-            CustomerFolder  = "HEFCO"
-        }
-
-        "InReach" = [PSCustomObject]@{
-            Directory       = "inreach"
-            CustomerFolder  = "InReach"
-        }
-
-        "Katz" = [PSCustomObject]@{
-            Directory       = "katz"
-            CustomerFolder  = "Katz"
-        }
-
-        "Nitterhouse" = [PSCustomObject]@{
-            Directory       = "nitterhouse"
-            CustomerFolder  = "Nitterhouse"
-        }
-        
-        "Patriot Select" = [PSCustomObject]@{
-            Directory       = "patriot"
-            CustomerFolder  = "Patriot Select"
-        }
-        
-        "RTCO" = [PSCustomObject]@{
-            Directory       = "rtco"
-            CustomerFolder  = "RTCO"
-        }
-        
-        "Searchlogix" = [PSCustomObject]@{
-            Directory       = "searchlogix"
-            CustomerFolder  = "Searchlogix"
-        }
-        
-        "Tapestry" = [PSCustomObject]@{
-            Directory       = "tapestry"
-            CustomerFolder  = "Tapestry"
-        }
-        
-        "Thomas and Brown" = [PSCustomObject]@{
-            Directory       = "thomasandbrown"
-            CustomerFolder  = "Thomas and Brown"
-        }
-        
-        "WSR" = [PSCustomObject]@{
-            Directory       = "wsr"
-            CustomerFolder  = "WSR"
-        }
-
+    return [PSCustomObject]@{
+        Directory      = $Row.Directory
+        CustomerFolder = $Row.CustomerFolder
     }
-
-    if (-not $CustomerMap.ContainsKey($CustomerName)) { throw "Customer '$CustomerName' was not found in customer map." }
-
-    return $CustomerMap[$CustomerName]
 
 }
 

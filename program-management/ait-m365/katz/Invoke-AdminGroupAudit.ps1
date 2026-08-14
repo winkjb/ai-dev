@@ -1,11 +1,12 @@
 <#
 .SYNOPSIS
-    Unattended entry point for Katz's Entra temp-groups audit - runs the collector then the
+    Unattended entry point for Katz's Entra admin-group audit - runs the collector then the
     analyst and emails the findings. Meant to be called from a scheduled task; logs to
-    output/run-logs-{yyyy-MM}.log (one file per month) since nobody's watching the console.
+    output/run-logs-{yyyy-MM}.log (shared with Katz's other audits, one file per month) since
+    nobody's watching the console.
 
 .EXAMPLE
-    .\Invoke-TempGroupsAudit.ps1
+    .\Invoke-AdminGroupAudit.ps1
 #>
 
 [CmdletBinding()]
@@ -38,33 +39,34 @@ $OutputFile = Join-Path $OutputDir ("run-logs-{0:yyyy-MM}.log" -f (Get-Date))
 $ErrorActionPreference = "Stop"
 $SettingsPath = Join-Path $PSScriptRoot "CustomerSettings.txt"
 $EmailScript = Join-Path $PSScriptRoot "..\..\..\scripts\Send-EmailMessage.ps1"
-$AuditCsv = Join-Path $PSScriptRoot "..\02-analyst\output\$($CustomerInfo.Directory)\tempgroups-audit.csv"
+$AuditCsv = Join-Path $PSScriptRoot "..\02-analyst\output\$($CustomerInfo.Directory)\admingroup-audit.csv"
 
 # Validate output directory
 
 Test-Directory $OutputDir
 
+
 try {
-    
+
     # ---------------------------------------------------------------------------
     # Beginning tasks
     # ---------------------------------------------------------------------------
 
-    Write-ToLog -LogFile $OutputFile -Message "=== Starting $($CustomerInfo.CustomerFolder) temp-groups audit run ==="
+    Write-ToLog -LogFile $OutputFile -Message "=== Starting $($CustomerInfo.CustomerFolder) admin-group audit run ==="
 
-    & (Join-Path $PSScriptRoot "..\01-collector\Collect-EntraGroups.ps1") -Directory $CustomerInfo.Directory -SettingsPath $SettingsPath
-    Write-ToLog -LogFile $OutputFile -Message "Collected Entra groups"
+    & (Join-Path $PSScriptRoot "..\01-collector\Collect-EntraAdminGroupMembers.ps1") -Directory $CustomerInfo.Directory -SettingsPath $SettingsPath
+    Write-ToLog -LogFile $OutputFile -Message "Collected Entra role assignments/users/licenses"
 
-    & (Join-Path $PSScriptRoot "..\02-analyst\Compare-TempGroupsAudit.ps1") -Directory $CustomerInfo.Directory
-    Write-ToLog -LogFile $OutputFile -Message "Generated the temp-groups audit"
+    & (Join-Path $PSScriptRoot "..\02-analyst\Compare-AdminGroupAudit.ps1") -Directory $CustomerInfo.Directory -IncludeDisabledUsers
+    Write-ToLog -LogFile $OutputFile -Message "Generated the admin-group audit"
 
     # ---------------------------------------------------------------------------
     # Send email
     # ---------------------------------------------------------------------------
 
-    & $EmailScript -To $ToAddresses -Subject "$($CustomerInfo.CustomerFolder) - Entra Temp Groups Audit" `
+    & $EmailScript -To $ToAddresses -Subject "$($CustomerInfo.CustomerFolder) - Entra Admin Group Audit" `
         -From $FromEmail -Attachments @($AuditCsv)
-    
+
     # ---------------------------------------------------------------------------
     # Ending tasks
     # ---------------------------------------------------------------------------
@@ -81,9 +83,9 @@ catch {
     # Best-effort failure notice - if this fails too (e.g. SMTP settings themselves are the
     # problem), don't let that mask the original error's exit code.
     try {
-        & $EmailScript -To $ToAddresses -Subject "$($CustomerInfo.CustomerFolder) - Entra Temp Groups Audit - FAILED" `
+        & $EmailScript -To $ToAddresses -Subject "$($CustomerInfo.CustomerFolder) - Entra Admin Group Audit - FAILED" `
             -From $FromEmail `
-            -Body "The scheduled temp-groups audit run failed: $($_.Exception.Message)`n`nSee $OutputFile on the host machine for details."
+            -Body "The scheduled admin-group audit run failed: $($_.Exception.Message)`n`nSee $OutputFile on the host machine for details."
     }
     catch {
         Write-ToLog -LogFile $OutputFile -Message "Also failed to send failure notification: $($_.Exception.Message)" -Level ERROR
