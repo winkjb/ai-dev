@@ -5,36 +5,6 @@
 ##
 ###################################################################################################################
 
-function Map-Customer {
-
-    # Data-driven as of 2026-08-13 (was a hardcoded hashtable here) - a bad row in the CSV
-    # fails to match one customer; a bad hashtable entry could break parsing of this entire
-    # file (has happened before, in a different Functions-*-Common.ps1). Lives at the
-    # workspace-root data/reference/ level, not nested under program-management, since this
-    # function is itself workspace-shared and customer lookups may end up needed by more than
-    # one team long-term.
-
-    param(
-        [Parameter(Mandatory)]
-        [string]$CustomerName,
-
-        [string]$MapPath
-    )
-
-    if (-not $MapPath) { $MapPath = Join-Path $PSScriptRoot "..\data\reference\CustomerMap.csv" }
-    if (-not (Test-Path -LiteralPath $MapPath)) { throw "Customer map not found: $MapPath" }
-
-    $Row = Import-Csv -LiteralPath $MapPath -Encoding UTF8 | Where-Object { $_.CustomerName -eq $CustomerName }
-
-    if (-not $Row) { throw "Customer '$CustomerName' was not found in customer map." }
-
-    return [PSCustomObject]@{
-        Directory      = $Row.Directory
-        CustomerFolder = $Row.CustomerFolder
-    }
-
-}
-
 # Token cache lives for the life of the PowerShell session/script
 if (-not $script:GraphTokenCache) { $script:GraphTokenCache = @{} }
 

@@ -45,6 +45,35 @@ function Import-Settings {
 
 }
 
+function Map-Customer {
+
+    # Data-driven as of 2026-08-13 (was a hardcoded hashtable here) - a bad row in the CSV
+    # fails to match one customer; a bad hashtable entry could break parsing of this entire
+    # file (has happened before, in a different Functions-*-Common.ps1). Lives here (not
+    # Functions-M365-Common.ps1) since customer lookups are workspace-shared, not M365-specific.
+
+    param(
+        [Parameter(Mandatory)]
+        [string]$CustomerName,
+
+        [string]$MapPath
+    )
+
+    if (-not $MapPath) { $MapPath = Join-Path $PSScriptRoot "..\data\reference\CustomerMap.csv" }
+    if (-not (Test-Path -LiteralPath $MapPath)) { throw "Customer map not found: $MapPath" }
+
+    $Row = Import-Csv -LiteralPath $MapPath -Encoding UTF8 | Where-Object { $_.CustomerName -eq $CustomerName }
+
+    if (-not $Row) { throw "Customer '$CustomerName' was not found in customer map." }
+
+    return [PSCustomObject]@{
+        Directory        = $Row.Directory
+        SharepointFolder = $Row.SharepointFolder
+        FromAddress      = $Row.FromAddress
+    }
+
+}
+
 function Test-Directory {
 
     param (

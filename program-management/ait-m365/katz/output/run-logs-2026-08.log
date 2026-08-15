@@ -13,3 +13,18 @@
 [2026-08-13 16:12:59] [INFO] Generated the temp-groups audit
 [2026-08-13 16:13:01] [INFO] Emailed reports to bwinklesky@servit.net
 [2026-08-13 16:13:01] [INFO] === Run completed successfully ===
+[2026-08-14 20:02:30] [INFO] === Starting Katz admin-group audit run ===
+[2026-08-14 20:02:37] [INFO] Collected Entra role assignments/users/licenses
+[2026-08-14 20:02:37] [INFO] Generated the admin-group audit
+[2026-08-14 20:04:02] [INFO] Emailed reports to bwinklesky@servit.net
+[2026-08-14 20:04:02] [INFO] === Run completed successfully ===
+[2026-08-14 20:12:15] [INFO] === Starting Katz admin-group audit run ===
+[2026-08-14 20:12:21] [INFO] Collected Entra role assignments/users/licenses
+[2026-08-14 20:12:21] [INFO] Generated the admin-group audit
+[2026-08-14 20:13:45] [INFO] Emailed reports to bwinklesky@servit.net
+[2026-08-14 20:13:45] [INFO] === Run completed successfully ===
+[2026-08-14 20:13:51] [INFO] === Starting Katz temp-groups audit run ===
+[2026-08-14 20:13:52] [INFO] Collected Entra groups
+[2026-08-14 20:13:52] [INFO] Generated the temp-groups audit
+[2026-08-14 20:15:16] [INFO] Emailed reports to bwinklesky@servit.net
+[2026-08-14 20:15:16] [INFO] === Run completed successfully ===

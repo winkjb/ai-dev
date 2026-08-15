@@ -10,7 +10,7 @@
     except names containing "Templates" (avoids false-positiving on legitimate naming) - the same
     heuristic the original katz/GroupAudit-TempGroups.ps1 used.
 
-    Groups listed in data/reference/<Directory>/excluded-groups.csv (matched by DisplayName or
+    Groups listed in data/reference/<Directory>/excluded-temp-groups.csv (matched by DisplayName or
     Mail) are dropped from the findings by default. Pass -IncludeExclusions to keep them in the
     output instead, marked via an IsExcluded column - that column only appears in the output at
     all when -IncludeExclusions is used, since it would otherwise be blank on every row.
@@ -31,7 +31,7 @@ param(
 )
 
 if (-not $RawPath)        { $RawPath        = Join-Path $PSScriptRoot "..\data\raw\$Directory\EntraGroups.csv" }
-if (-not $ExclusionsPath) { $ExclusionsPath = Join-Path $PSScriptRoot "..\data\reference\$Directory\excluded-groups.csv" }
+if (-not $ExclusionsPath) { $ExclusionsPath = Join-Path $PSScriptRoot "..\data\reference\$Directory\excluded-temp-groups.csv" }
 if (-not $OutputPath)     { $OutputPath     = Join-Path $PSScriptRoot "output\$Directory\tempgroups-audit.csv" }
 
 . (Join-Path $PSScriptRoot "..\..\..\scripts\Functions-VA-Common.ps1")
