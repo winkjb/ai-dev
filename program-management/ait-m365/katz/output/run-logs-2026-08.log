@@ -28,3 +28,18 @@
 [2026-08-14 20:13:52] [INFO] Generated the temp-groups audit
 [2026-08-14 20:15:16] [INFO] Emailed reports to bwinklesky@servit.net
 [2026-08-14 20:15:16] [INFO] === Run completed successfully ===
+[2026-08-14 20:57:10] [INFO] === Starting Katz temp-groups audit run ===
+[2026-08-14 20:57:11] [INFO] Collected Entra groups
+[2026-08-14 20:57:11] [INFO] Generated the temp-groups audit
+[2026-08-14 20:58:36] [INFO] Emailed reports to bwinklesky@servit.net
+[2026-08-14 20:58:36] [INFO] === Run completed successfully ===
+[2026-08-14 20:59:12] [INFO] === Starting Katz admin-group audit run ===
+[2026-08-14 20:59:17] [INFO] Collected Entra role assignments/users/licenses
+[2026-08-14 20:59:17] [INFO] Generated the admin-group audit
+[2026-08-14 21:00:42] [INFO] Emailed reports to bwinklesky@servit.net
+[2026-08-14 21:00:42] [INFO] === Run completed successfully ===
+[2026-08-14 21:06:50] [INFO] === Starting Katz temp-groups audit run ===
+[2026-08-14 21:06:52] [INFO] Collected Entra groups
+[2026-08-14 21:06:52] [INFO] Generated the temp-groups audit
+[2026-08-14 21:08:16] [ERROR] ERROR: Unable to connect to the remote server
+[2026-08-14 21:08:16] [ERROR] === Run failed ===

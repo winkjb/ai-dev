@@ -230,6 +230,10 @@ function Send-Results {
     } catch {
         Write-Host "Error: Failed to email CSV log to $To via $SmtpServer."
         Write-Host "Details: $($_.Exception.Message)"
+        # Re-throw so callers actually see the failure - swallowing it here meant every
+        # caller's own try/catch (including "did the audit run succeed" logging) thought
+        # a failed send was a success.
+        throw
     }
 
 }

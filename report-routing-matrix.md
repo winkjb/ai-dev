@@ -15,7 +15,6 @@ Scope note: only reports with an actual email step are listed as "wired." The Fo
 | Proofpoint Billables | `email-proofpoint/Invoke-BillableReports.ps1` | bwinklesky | | x | | | x | |
 | PowerDMARC Billables | `email-powerdmarc/Invoke-BillableReports.ps1` | bwinklesky | | x | | | x | |
 | Vipre Billables | `email-vipre/Export-BillableUsers.ps1` | bwinklesky, tmarsili, chart | | x | | | x | Only one with 3 recipients today — chart may already represent Billing/Accounting; worth confirming rather than assuming. |
-| Diverzify User Report | `ait-m365/diverzify/scripts/Export-DiverzifyUserReport.ps1` | passed in at call time, not hardcoded | | ? | ? | | | Don't know this report's actual purpose well enough to guess - needs Brad's input. |
 
 ## Not wired yet (will need routing decisions soon)
 
@@ -29,5 +28,4 @@ Scope note: only reports with an actual email step are listed as "wired." The Fo
 
 1. Does Project Management need its own lane beyond the 5 named groups, or does its routing belong under Tech Support / Account Mgmt as currently guessed?
 2. Is "Application Owner" one person per app, or does it vary — and who owns which app today (Proofpoint, PowerDMARC, Vipre, SentinelOne, FortiGate/networking)?
-3. Diverzify User Report's actual purpose/audience — not enough context in the code to guess responsibly.
-4. Should Proofpoint Admins also cc SOC/Security, given the admin-hygiene parallel to the FortiGate admin audit?
+3. Should Proofpoint Admins also cc SOC/Security, given the admin-hygiene parallel to the FortiGate admin audit?
