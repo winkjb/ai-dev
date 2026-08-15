@@ -44,3 +44,12 @@
 [2026-08-14 21:08:16] [ERROR] ERROR: Unable to connect to the remote server
 [2026-08-14 21:08:16] [ERROR] === Run failed ===
 [2026-08-14 21:09:40] [ERROR] Also failed to send failure notification: Unable to connect to the remote server
+[2026-08-15 03:53:09] [INFO] === Starting Katz admin-group audit run ===
+[2026-08-15 03:53:09] [ERROR] ERROR: Settings file not found: C:\GitHub\ai-dev\program-management\ait-m365\scripts\..\data\reference\katz\M365Settings.txt
+[2026-08-15 03:53:09] [ERROR] === Run failed ===
+[2026-08-15 03:56:42] [INFO] === Starting Katz admin-group audit run ===
+[2026-08-15 03:56:47] [INFO] Collected Entra role assignments/users/licenses
+[2026-08-15 03:56:48] [INFO] Generated the admin-group audit
+[2026-08-15 03:58:12] [ERROR] ERROR: Unable to connect to the remote server
+[2026-08-15 03:58:12] [ERROR] === Run failed ===
+[2026-08-15 03:59:36] [ERROR] Also failed to send failure notification: Unable to connect to the remote server

@@ -141,13 +141,21 @@ function Save-State {
 function Test-IsDue {
     <#
         Returns $true if the script is due to run *today* based purely on its cadence
-        (ignores last-run state — that's handled separately for catch-up).
+        (ignores last-run state that's handled separately for catch-up).
     #>
     param($ScriptDef, [datetime]$Today)
 
     switch ($ScriptDef.Frequency) {
         "Daily" { return $true }
 
+        "Weekdays" {
+            return ($Today.DayOfWeek -ne "Saturday" -and $Today.DayOfWeek -ne "Sunday")
+        }
+
+        "Weekends" {
+            return ($Today.DayOfWeek -eq "Saturday" -or $Today.DayOfWeek -eq "Sunday")
+        }
+        
         "Weekly" {
             $targetDay = $ScriptDef.DayOfWeek
             if (-not $targetDay) { $targetDay = "Monday" }
@@ -190,6 +198,8 @@ function Test-IsOverdue {
 
     switch ($ScriptDef.Frequency) {
         "Daily"     { return $daysSince -ge 2 }      # missed at least one full day
+        "Weekdays"  { return $daysSince -ge 2 }       # missed the weekday window
+        "Weekends"  { return $daysSince -ge 8 }       # missed the weekly window
         "Weekly"    { return $daysSince -ge 8 }       # missed the weekly window
         "Monthly"   { return $daysSince -ge 32 }      # missed the monthly window
         "Quarterly" { return $daysSince -ge 95 }      # missed the quarterly window

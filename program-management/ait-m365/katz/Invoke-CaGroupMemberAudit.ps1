@@ -2,7 +2,7 @@
 .SYNOPSIS
     
 .EXAMPLE
-    .\Invoke-AdminGroupAudit.ps1
+    .\Invoke-CaGroupMemberAudit.ps1
 #>
 
 [CmdletBinding()]
@@ -22,7 +22,7 @@ $ToAddresses = @("bwinklesky@servit.net")
 . (Join-Path $PSScriptRoot "..\..\..\scripts\Functions-VA-Common.ps1")
 
 # ---------------------------------------------------------------------------
-# Run tasks  
+# Run tasks
 # ---------------------------------------------------------------------------
 
 # Script settings and variables
@@ -34,7 +34,7 @@ $FromAddress = $CustomerSettings.FromAddress
 
 try {
 
-    & (Join-Path $PSScriptRoot "..\scripts\Invoke-AdminGroupAudit-Default.ps1") `
+    & (Join-Path $PSScriptRoot "..\scripts\Invoke-CaGroupMemberAudit-Default.ps1") `
     -CustomerDir $CustomerDir `
     -SpFolder $SpFolder `
     -FromAddress $FromAddress `

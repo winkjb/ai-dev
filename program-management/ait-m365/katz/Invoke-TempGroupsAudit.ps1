@@ -34,7 +34,7 @@ $FromAddress = $CustomerSettings.FromAddress
 
 try {
 
-    & (Join-Path $PSScriptRoot "..\scripts\Invoke-TempGroupsAudit.ps1") `
+    & (Join-Path $PSScriptRoot "..\scripts\Invoke-TempGroupsAudit-Default.ps1") `
     -CustomerDir $CustomerDir `
     -SpFolder $SpFolder `
     -FromAddress $FromAddress `
