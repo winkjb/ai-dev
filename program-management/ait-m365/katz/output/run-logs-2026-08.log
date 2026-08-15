@@ -43,3 +43,4 @@
 [2026-08-14 21:06:52] [INFO] Generated the temp-groups audit
 [2026-08-14 21:08:16] [ERROR] ERROR: Unable to connect to the remote server
 [2026-08-14 21:08:16] [ERROR] === Run failed ===
+[2026-08-14 21:09:40] [ERROR] Also failed to send failure notification: Unable to connect to the remote server
