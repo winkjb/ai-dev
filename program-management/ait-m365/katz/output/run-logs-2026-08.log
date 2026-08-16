@@ -53,3 +53,33 @@
 [2026-08-15 03:58:12] [ERROR] ERROR: Unable to connect to the remote server
 [2026-08-15 03:58:12] [ERROR] === Run failed ===
 [2026-08-15 03:59:36] [ERROR] Also failed to send failure notification: Unable to connect to the remote server
+[2026-08-16 14:49:47] [INFO] === Starting Katz admin-group audit run ===
+[2026-08-16 14:49:52] [INFO] Collected Entra role assignments/users/licenses
+[2026-08-16 14:49:52] [INFO] Generated the admin-group audit
+[2026-08-16 14:51:16] [ERROR] ERROR: Unable to connect to the remote server
+[2026-08-16 14:51:16] [ERROR] === Run failed ===
+[2026-08-16 14:51:29] [INFO] === Starting Katz CA group member audit run ===
+[2026-08-16 14:51:30] [INFO] Collected Entra CA exclusion group membership
+[2026-08-16 14:51:30] [INFO] Generated the CA group member audit
+[2026-08-16 14:51:50] [INFO] === Starting Katz license detail audit run ===
+[2026-08-16 14:51:51] [INFO] Collected Entra license catalog/assignments
+[2026-08-16 14:51:51] [INFO] Generated the license detail audit
+[2026-08-16 14:52:08] [INFO] === Starting Katz license summary audit run ===
+[2026-08-16 14:52:09] [INFO] Collected Entra license catalog/assignments
+[2026-08-16 14:52:09] [INFO] Generated the license summary audit
+[2026-08-16 14:52:32] [INFO] === Starting Katz mailbox size audit run ===
+[2026-08-16 14:52:33] [INFO] Collected Entra license catalog/assignments
+[2026-08-16 14:52:34] [INFO] Collected Entra mailbox usage report
+[2026-08-16 14:52:34] [ERROR] ERROR: Cannot bind argument to parameter 'InputObject' because it is an empty collection.
+[2026-08-16 14:52:34] [ERROR] === Run failed ===
+[2026-08-16 14:52:41] [ERROR] Also failed to send failure notification: Unable to connect to the remote server
+[2026-08-16 14:52:54] [ERROR] ERROR: Unable to connect to the remote server
+[2026-08-16 14:52:54] [ERROR] === Run failed ===
+[2026-08-16 14:53:16] [ERROR] ERROR: Unable to connect to the remote server
+[2026-08-16 14:53:16] [ERROR] === Run failed ===
+[2026-08-16 14:53:34] [ERROR] ERROR: Unable to connect to the remote server
+[2026-08-16 14:53:34] [ERROR] === Run failed ===
+[2026-08-16 14:53:59] [ERROR] Also failed to send failure notification: Unable to connect to the remote server
+[2026-08-16 14:54:19] [ERROR] Also failed to send failure notification: Unable to connect to the remote server
+[2026-08-16 14:54:40] [ERROR] Also failed to send failure notification: Unable to connect to the remote server
+[2026-08-16 14:54:58] [ERROR] Also failed to send failure notification: Unable to connect to the remote server

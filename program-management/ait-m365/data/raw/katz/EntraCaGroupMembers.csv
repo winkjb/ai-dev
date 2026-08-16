@@ -1,0 +1,5 @@
+"GroupName","GroupFound","UPN","DisplayName","CreatedDate","AccountEnabled"
+"Block Interactive Login Group","Y",,,,
+"Geo-IP Fencing Exclusion Group","Y",,,,
+"MFA Exclusion Group","N",,,,
+"Modern Authentication Exclusion Group","Y",,,,
