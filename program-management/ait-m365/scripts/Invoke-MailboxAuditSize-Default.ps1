@@ -2,7 +2,7 @@
 .SYNOPSIS
 
 .EXAMPLE
-    .\Invoke-CaGroupMemberAudit-Default.ps1
+    .\Invoke-MailboxAuditSize-Default.ps1
 #>
 
 [CmdletBinding()]
@@ -11,7 +11,13 @@ param(
     [string]$CustomerDir,
     [string]$SpFolder,
     [string]$FromAddress,
-    [string[]]$ToAddresses
+    [string[]]$ToAddresses,
+
+    # No default here - left unbound if the caller omits it, so
+    # ..\02-analyst\Compare-MailboxSizeAudit.ps1's own default (75) is the single source of
+    # truth for the baseline threshold rather than duplicating that number in two places where
+    # it could silently drift out of sync.
+    [double]$MinStoragePercentage
 
 )
 
@@ -38,7 +44,7 @@ $OutputFile = Join-Path $OutputDir ("run-logs-{0:yyyy-MM}.log" -f (Get-Date))
 $ErrorActionPreference = "Stop"
 $SettingsPath = Join-Path $PSScriptRoot "..\data\reference\$($CustomerDir)\M365Settings.txt"
 $EmailScript = Join-Path $PSScriptRoot "..\..\..\scripts\Send-EmailMessage.ps1"
-$AuditCsv = Join-Path $PSScriptRoot "..\02-analyst\output\$($CustomerDir)\cagroup-audit.csv"
+$AuditCsv = Join-Path $PSScriptRoot "..\02-analyst\output\$($CustomerDir)\mailbox-size-audit.csv"
 
 # Validate output directory
 
@@ -50,19 +56,31 @@ try {
     # Beginning tasks
     # ---------------------------------------------------------------------------
 
-    Write-ToLog -LogFile $OutputFile -Message "=== Starting $($SpFolder) CA group member audit run ==="
+    Write-ToLog -LogFile $OutputFile -Message "=== Starting $($SpFolder) mailbox size audit run ==="
 
-    & (Join-Path $PSScriptRoot "..\01-collector\Collect-EntraCaGroupMembers.ps1") -Directory $CustomerDir -SettingsPath $SettingsPath
-    Write-ToLog -LogFile $OutputFile -Message "Collected Entra CA exclusion group membership"
+    & (Join-Path $PSScriptRoot "..\01-collector\Collect-EntraLicenses.ps1") -Directory $CustomerDir -SettingsPath $SettingsPath
+    Write-ToLog -LogFile $OutputFile -Message "Collected Entra license catalog/assignments"
 
-    & (Join-Path $PSScriptRoot "..\02-analyst\Compare-CaGroupAudit.ps1") -Directory $CustomerDir
-    Write-ToLog -LogFile $OutputFile -Message "Generated the CA group member audit"
+    & (Join-Path $PSScriptRoot "..\01-collector\Collect-EntraMailboxUsage.ps1") -Directory $CustomerDir -SettingsPath $SettingsPath
+    Write-ToLog -LogFile $OutputFile -Message "Collected Entra mailbox usage report"
+
+    $AnalystArgs = @{ Directory = $CustomerDir }
+    if ($PSBoundParameters.ContainsKey('MinStoragePercentage')) { $AnalystArgs.MinStoragePercentage = $MinStoragePercentage }
+
+    & (Join-Path $PSScriptRoot "..\02-analyst\Compare-MailboxSizeAudit.ps1") @AnalystArgs
+    Write-ToLog -LogFile $OutputFile -Message "Generated the mailbox size audit"
 
     # ---------------------------------------------------------------------------
     # Send email
     # ---------------------------------------------------------------------------
 
-    & $EmailScript -To $ToAddresses -Subject "$($SpFolder) - Entra CA Group Member Audit" `
+    $Subject = if ($PSBoundParameters.ContainsKey('MinStoragePercentage')) {
+        "$($SpFolder) - Entra Mailbox Size Audit - over $($MinStoragePercentage)% usage"
+    } else {
+        "$($SpFolder) - Entra Mailbox Size Audit"
+    }
+
+    & $EmailScript -To $ToAddresses -Subject $Subject `
         -From $FromAddress -Attachments @($AuditCsv)
 
     # ---------------------------------------------------------------------------
@@ -81,9 +99,9 @@ catch {
     # Best-effort failure notice - if this fails too (e.g. SMTP settings themselves are the
     # problem), don't let that mask the original error's exit code.
     try {
-        & $EmailScript -To $ToAddresses -Subject "$($SpFolder) - Entra CA Group Member Audit - FAILED" `
+        & $EmailScript -To $ToAddresses -Subject "$($SpFolder) - Entra Mailbox Size Audit - FAILED" `
             -From $FromAddress `
-            -Body "The scheduled CA group member audit run failed: $($_.Exception.Message)`n`nSee $OutputFile on the host machine for details."
+            -Body "The scheduled mailbox size audit run failed: $($_.Exception.Message)`n`nSee $OutputFile on the host machine for details."
     }
     catch {
         Write-ToLog -LogFile $OutputFile -Message "Also failed to send failure notification: $($_.Exception.Message)" -Level ERROR

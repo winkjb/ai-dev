@@ -181,74 +181,38 @@ function Write-IncrementalCsv {
 
 function Get-FriendlyLicenseName {
 
-    param ([string]$sku)
+    # Data-driven as of 2026-08-16 (was a hardcoded hashtable here) - same reasoning as
+    # Map-Customer's move to CustomerMap.csv: a bad row in the CSV fails to resolve one SKU
+    # name, a bad hashtable entry risks breaking parsing of this entire file. Cached per
+    # resolved $MapPath (mirrors Get-GraphToken's $script:GraphTokenCache above) since this is
+    # called once per license row/assignment by every caller, not once per script run.
 
-    # Define a hashtable to map input names to friendly names
-    $skuMapping = @{
-        "AAD_BASIC"                                          = "Azure Active Directory Basic"
-        "AAD_PREMIUM"                                        = "Azure Active Directory Premium P1"
-        "AAD_PREMIUM_P2"                                     = "Azure Active Directory Premium P2"
-        "Business_Assist_SMB_WD"                             = "Business Assist"
-        "CPC_E_2C_8GB_256GB​"                                 = "Windows 365 Enterprise 2 vCPU, 8GB, 256GB"
-        "CPC_E_4C_16GB_256GB​"                                = "Windows 365 Enterprise 4 vCPU, 16GB, 256GB"
-        "CPC_E_4C_32GB_256GB​"                                = "Windows 365 Enterprise 8 vCPU, 32GB, 256GB"
-        "Dynamics_365_Onboarding_SKU"                        = "Dynamics 365 Talent: Onboard"
-        "EMSPREMIUM"                                         = "Enterprise Mobility + Security E5"
-        "ENTERPRISEPACK"                                     = "O365 E3"
-        "EXCHANGEARCHIVE_ADDON"                              = "Exchange Online Archiving"
-        "EXCHANGESTANDARD"                                   = "Exchange Online (Plan 1)"
-        "EXCHANGEENTERPRISE"                                 = "Exchange Online (Plan 2)"
-        "FLOW_FREE"                                          = "Microsoft Power Automate Free"
-        "Microsoft_365_Business_Basic_(no Teams)"            = "M365 Business Basic (No Teams)"
-        "Microsoft_365_Copilot"                              = "M365 Copilot"
-        "MICROSOFT_365_COPILOT_FOR_BUSINESS"                 = "M365 Copilot Business"
-        "Microsoft_365_E3_(no_Teams)"                        = "M365 E3 (No Teams)"
-        "Microsoft_365_E5_(no_Teams)"                        = "M365 E5 (No Teams)" 
-        "Microsoft_BUSINESS_CENTER"                          = "Microsoft Business Center"
-        "Microsoft_Entra_Private_Access_Premium"             = "Microsoft Entra Private Access"
-        "Microsoft_Intune_Advanced_Analytics"                = "Microsoft Intune Advanced Analytics"
-        "Microsoft_Intune_Endpoint_Privilege_Management"     = "Microsoft Intune Endpoint Privilege Management"
-        "Microsoft_Teams_Audio_Conferencing_select_dial_out" = "Teams Audio Conferencing"
-        "Microsoft_Teams_Exploratory_Dept"                   = "Teams (Exploratory)"
-        "Microsoft_Teams_Enterprise_New"                     = "Teams Enterprise"
-        "Microsoft_Teams_Premium"                            = "Teams Premium"
-        "Microsoft_Teams_Rooms_Basic"                        = "Teams Rooms Basic"
-        "Microsoft_Teams_Rooms_Pro"                          = "Teams Rooms Pro"
-        "O365_BUSINESS"                                      = "M365 Apps for Business"
-        "O365_BUSINESS_ESSENTIALS"                           = "M365 Business Basic"
-        "O365_BUSINESS_PREMIUM"                              = "M365 Business Standard"
-        "OFFICESUBSCRIPTION"                                 = "M365 Apps for Enterprise"
-        "PBI_PREMIUM_P2_ADDON"                               = "Power BI Premium"
-        "PBI_PREMIUM_PER_USER"                               = "Power BI Premium Per User"
-        "POWERAUTOMATE_ATTENDED_RPA"                         = "Power Automate Premium"
-        "POWER_BI_STANDARD"                                  = "Microsoft Fabric (Free)"
-        "POWERAPPS_DEV"                                      = "Microsoft Power Apps for Developer"
-        "POWERAPPS_PER_USER"                                 = "Microsoft Power Apps (Per User)"
-        "POWERAPPS_VIRAL"                                    = "Microsoft Power Apps Plan 2"
-        "POWER_BI_PRO"                                       = "Power BI Pro"
-        "PROJECT_PLAN3_DEPT"                                 = "Planner and Project Plan 3" 
-        "PROJECTPREMIUM"                                     = "Planner and Project Plan 5"
-        "PROJECTPROFESSIONAL"                                = "Planner and Project Plan 3"
-        "RIGHTSMANAGEMENT_ADHOC"                             = "Rights Management Adhoc"
-        "RMSBASIC"                                           = "Rights Management Basic"
-        "SHAREPOINTSTORAGE"                                  = "SharePoint Storage (GBs)" 
-        "SPB"                                                = "M365 Business Premium"
-        "SPE_E3"                                             = "M365 E3"
-        "SPE_E5"                                             = "M365 E5"
-        "SPE_F1"                                             = "M365 F3"
-        "SPE_F5_COMP"                                        = "M365 F5 Compliance Add-on"
-        "STANDARDPACK"                                       = "O365 E1"
-        "STREAM"                                             = "Microsoft Stream"
-        "TEAMS_ESSENTIALS_AAD"                               = "Teams Essentials"
-        "Teams_Premium_(for_Departments)"                    = "Teams Premium (for Departments)"
-        "VISIOCLIENT"                                        = "Visio Plan 2"
-        "VISIOONLINE_PLAN1"                                  = "Visio Plan 1"
-        "WINDOWS_STORE"                                      = "Windows Store"
+    [CmdletBinding()]
+    param(
+        [string]$sku,
+        [string]$MapPath
+    )
+
+    if (-not $MapPath) { $MapPath = Join-Path $PSScriptRoot "..\data\reference\LicenseSkuNames.csv" }
+
+    if (-not $script:LicenseSkuNameCache) { $script:LicenseSkuNameCache = @{} }
+
+    if (-not $script:LicenseSkuNameCache.ContainsKey($MapPath)) {
+
+        $Map = @{}
+        if (Test-Path -LiteralPath $MapPath) {
+            foreach ($Row in (Import-Csv -LiteralPath $MapPath -Encoding UTF8)) {
+                $Map[$Row.SkuPartNumber] = $Row.FriendlyName
+            }
+        }
+        $script:LicenseSkuNameCache[$MapPath] = $Map
+
     }
 
-    # Return the friendly name if it exists in the mapping, otherwise return the original name
-    if ($skuMapping.ContainsKey($sku)) {
-        return $skuMapping[$sku]
+    $SkuMap = $script:LicenseSkuNameCache[$MapPath]
+
+    if ($SkuMap.ContainsKey($sku)) {
+        return $SkuMap[$sku]
     } else {
         return $sku
     }
