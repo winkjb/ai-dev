@@ -2,7 +2,7 @@
 .SYNOPSIS
     Collector: pulls the tenant's 30-day mailbox usage report via Graph API - raw and
     unfiltered (including soft-deleted mailboxes), no interpretation. Writes one raw snapshot to
-    data/raw/<Directory>/. Analyst scripts (../02-analyst/Compare-MailboxSize.ps1) read this
+    data/raw/<Directory>/. Analyst scripts (../02-analyst/Compare-Mailboxes-Size.ps1) read this
     file rather than calling Graph directly. That Analyst also reuses
     ../01-collector/Collect-EntraLicenses.ps1's raw license catalog/assignment snapshots for
     license lookups rather than this collector re-pulling them - those files already have
@@ -17,6 +17,11 @@
     the Analyst's job. IsDeleted is preserved on every row rather than filtered out here, since
     whether soft-deleted mailboxes should ever be flagged is a policy call, not a data-fidelity
     one.
+
+    LastActivityDate was added 2026-08-17 for ../02-analyst/Compare-Mailboxes-LicensedShared.ps1,
+    which reuses this same raw snapshot rather than pulling its own - the report already
+    contains the column, this collector just wasn't writing it out yet. Purely additive; every
+    existing consumer's columns are unchanged.
 
 .EXAMPLE
     .\Collect-EntraMailboxUsage.ps1 -Directory katz
@@ -57,6 +62,7 @@ $Rows = foreach ($Mailbox in $Mailboxes) {
         HasArchive                    = $Mailbox.'Has Archive'
         StorageUsedBytes              = $Mailbox.'Storage Used (Byte)'
         ProhibitSendReceiveQuotaBytes = $Mailbox.'Prohibit Send/Receive Quota (Byte)'
+        LastActivityDate              = $Mailbox.'Last Activity Date'
     }
 }
 

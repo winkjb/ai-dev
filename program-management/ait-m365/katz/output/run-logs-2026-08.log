@@ -99,3 +99,27 @@
 [2026-08-17 15:40:15] [INFO] Generated the mailbox size audit
 [2026-08-17 15:40:22] [INFO] Emailed reports to bwinklesky@servit.net
 [2026-08-17 15:40:22] [INFO] === Run completed successfully ===
+[2026-08-17 21:22:00] [INFO] === Starting Katz temp user audit run ===
+[2026-08-17 21:22:03] [INFO] Collected Entra users
+[2026-08-17 21:22:04] [INFO] Collected Entra license catalog/assignments
+[2026-08-17 21:22:05] [INFO] Generated the temp user audit
+[2026-08-17 21:23:29] [ERROR] ERROR: Unable to connect to the remote server
+[2026-08-17 21:23:29] [ERROR] === Run failed ===
+[2026-08-17 21:24:27] [INFO] === Starting Katz licensed+disabled user audit run ===
+[2026-08-17 21:24:29] [INFO] Collected Entra users
+[2026-08-17 21:24:30] [INFO] === Starting Katz licensed shared mailbox audit run ===
+[2026-08-17 21:24:30] [INFO] Collected Entra license catalog/assignments
+[2026-08-17 21:24:32] [INFO] Collected Entra users
+[2026-08-17 21:24:33] [INFO] Collected Entra license catalog/assignments
+[2026-08-17 21:24:38] [INFO] Collected Entra mailbox purpose
+[2026-08-17 21:24:39] [INFO] Generated the licensed+disabled user audit
+[2026-08-17 21:24:40] [INFO] Collected Entra mailbox purpose
+[2026-08-17 21:24:41] [INFO] Collected Entra mailbox usage report
+[2026-08-17 21:24:41] [INFO] Generated the licensed shared mailbox audit
+[2026-08-17 21:24:53] [ERROR] Also failed to send failure notification: Unable to connect to the remote server
+[2026-08-17 21:26:03] [ERROR] ERROR: Unable to connect to the remote server
+[2026-08-17 21:26:03] [ERROR] === Run failed ===
+[2026-08-17 21:26:05] [ERROR] ERROR: Unable to connect to the remote server
+[2026-08-17 21:26:05] [ERROR] === Run failed ===
+[2026-08-17 21:27:27] [ERROR] Also failed to send failure notification: Unable to connect to the remote server
+[2026-08-17 21:27:29] [ERROR] Also failed to send failure notification: Unable to connect to the remote server

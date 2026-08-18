@@ -23,7 +23,7 @@
     0 (flagging nearly every mailbox) if the caller simply forgot to pass it.
 
 .EXAMPLE
-    .\Compare-MailboxSize.ps1 -Directory katz
+    .\Compare-Mailboxes-Size.ps1 -Directory katz
 #>
 
 [CmdletBinding()]

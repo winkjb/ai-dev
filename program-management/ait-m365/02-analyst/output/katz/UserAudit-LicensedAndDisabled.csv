@@ -1,0 +1,2 @@
+"DisplayName","UPN","AccountEnabled","UserLicenses","IsSharedMailbox","CreatedDate","DaysAgo","LastSuccessfulLogonDate","LastNonInteractiveLogonDate","LoginDaysAgo","Issue","Action"
+"Bit-Wizards Administrator","bwadmin@pineywoodsfl.onmicrosoft.com","False","Azure Active Directory Premium P2,M365 Business Basic,Microsoft Power Automate Free","False","2015-12-09T21:11:40Z","3904","2026-07-28T21:51:57Z","2026-07-28T21:51:57Z","20","User is licensed and disabled","Reclaim license"
