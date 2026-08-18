@@ -2,7 +2,7 @@
 .SYNOPSIS
     Collector: pulls the full Entra ID group list for a customer tenant via Graph API and
     writes it to data/raw/<Directory>/EntraGroups.csv - raw and unfiltered, no interpretation.
-    Analyst scripts (e.g. ../02-analyst/Compare-TempGroupsAudit.ps1) read this file rather than
+    Analyst scripts (e.g. ../02-analyst/Compare-Groups-Temp.ps1) read this file rather than
     calling Graph directly, so any future audit built off Entra groups can reuse this same
     snapshot instead of re-pulling it.
 
@@ -19,7 +19,7 @@ param(
     [string]$OutputPath
 )
 
-if (-not $SettingsPath) { $SettingsPath = Join-Path $PSScriptRoot "..\$Directory\CustomerSettings.txt" }
+if (-not $SettingsPath) { $SettingsPath = Join-Path $PSScriptRoot "..\data\reference\$Directory\M365Settings.txt" }
 if (-not $OutputPath)   { $OutputPath   = Join-Path $PSScriptRoot "..\data\raw\$Directory\EntraGroups.csv" }
 
 . (Join-Path $PSScriptRoot "..\..\..\scripts\Functions-VA-Common.ps1")

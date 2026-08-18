@@ -2,7 +2,7 @@
 .SYNOPSIS
     Collector: pulls the tenant's 30-day mailbox usage report via Graph API - raw and
     unfiltered (including soft-deleted mailboxes), no interpretation. Writes one raw snapshot to
-    data/raw/<Directory>/. Analyst scripts (../02-analyst/Compare-MailboxSizeAudit.ps1) read this
+    data/raw/<Directory>/. Analyst scripts (../02-analyst/Compare-MailboxSize.ps1) read this
     file rather than calling Graph directly. That Analyst also reuses
     ../01-collector/Collect-EntraLicenses.ps1's raw license catalog/assignment snapshots for
     license lookups rather than this collector re-pulling them - those files already have
@@ -31,7 +31,7 @@ param(
     [string]$OutputPath
 )
 
-if (-not $SettingsPath) { $SettingsPath = Join-Path $PSScriptRoot "..\$Directory\CustomerSettings.txt" }
+if (-not $SettingsPath) { $SettingsPath = Join-Path $PSScriptRoot "..\data\reference\$Directory\M365Settings.txt" }
 if (-not $OutputPath)   { $OutputPath   = Join-Path $PSScriptRoot "..\data\raw\$Directory\EntraMailboxUsage.csv" }
 
 . (Join-Path $PSScriptRoot "..\..\..\scripts\Functions-VA-Common.ps1")

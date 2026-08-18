@@ -83,3 +83,19 @@
 [2026-08-16 14:54:19] [ERROR] Also failed to send failure notification: Unable to connect to the remote server
 [2026-08-16 14:54:40] [ERROR] Also failed to send failure notification: Unable to connect to the remote server
 [2026-08-16 14:54:58] [ERROR] Also failed to send failure notification: Unable to connect to the remote server
+[2026-08-17 15:23:55] [INFO] === Starting Katz admin-group audit run ===
+[2026-08-17 15:24:00] [INFO] Collected Entra role assignments/users/licenses
+[2026-08-17 15:24:00] [INFO] Generated the admin-group audit
+[2026-08-17 15:24:02] [INFO] Emailed reports to bwinklesky@servit.net
+[2026-08-17 15:24:02] [INFO] === Run completed successfully ===
+[2026-08-17 15:24:10] [INFO] === Starting Katz mailbox size audit run ===
+[2026-08-17 15:24:11] [INFO] Collected Entra license catalog/assignments
+[2026-08-17 15:24:12] [INFO] Collected Entra mailbox usage report
+[2026-08-17 15:24:12] [ERROR] ERROR: Cannot bind argument to parameter 'InputObject' because it is an empty collection.
+[2026-08-17 15:24:12] [ERROR] === Run failed ===
+[2026-08-17 15:40:13] [INFO] === Starting Katz mailbox size audit run ===
+[2026-08-17 15:40:14] [INFO] Collected Entra license catalog/assignments
+[2026-08-17 15:40:15] [INFO] Collected Entra mailbox usage report
+[2026-08-17 15:40:15] [INFO] Generated the mailbox size audit
+[2026-08-17 15:40:22] [INFO] Emailed reports to bwinklesky@servit.net
+[2026-08-17 15:40:22] [INFO] === Run completed successfully ===
