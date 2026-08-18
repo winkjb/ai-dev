@@ -1,8 +1,13 @@
 <#
 .SYNOPSIS
+    Collector-only orchestrator (no Analyst step - see
+    ../01-collector/Collect-EntraUserSignIns.ps1's .DESCRIPTION for why). Attaches the raw log
+    export if it's under 30MB; otherwise leaves it on the host machine and says so in the email
+    instead of attaching, matching the original script's real behavior - the file is always
+    written locally either way, so an oversized export is still retrievable, just not by email.
 
 .EXAMPLE
-    .\Invoke-GroupAudit-Admins-Default.ps1
+    .\Invoke-LogAudit-UserSignIns-Default.ps1
 #>
 
 [CmdletBinding()]
@@ -23,6 +28,7 @@ param(
 
 $OutputDir = Join-Path $PSScriptRoot "..\$($CustomerDir)\output"
 $OutputFile = Join-Path $OutputDir ("run-logs-{0:yyyy-MM}.log" -f (Get-Date))
+$MaxSizeMB = 30
 
 # Import functions
 
@@ -30,7 +36,7 @@ $OutputFile = Join-Path $OutputDir ("run-logs-{0:yyyy-MM}.log" -f (Get-Date))
 . (Join-Path $PSScriptRoot "..\..\..\scripts\Functions-M365-Common.ps1")
 
 # ---------------------------------------------------------------------------
-# Run tasks  
+# Run tasks
 # ---------------------------------------------------------------------------
 
 # Script settings and variables
@@ -38,7 +44,7 @@ $OutputFile = Join-Path $OutputDir ("run-logs-{0:yyyy-MM}.log" -f (Get-Date))
 $ErrorActionPreference = "Stop"
 $SettingsPath = Join-Path $PSScriptRoot "..\data\reference\$($CustomerDir)\M365Settings.txt"
 $EmailScript = Join-Path $PSScriptRoot "..\..\..\scripts\Send-EmailMessage.ps1"
-$AuditCsv = Join-Path $PSScriptRoot "..\02-analyst\output\$($CustomerDir)\GroupAudit-Admins.csv"
+$AuditCsv = Join-Path $PSScriptRoot "..\data\raw\$($CustomerDir)\EntraUserSignIns.csv"
 
 # Validate output directory
 
@@ -50,20 +56,30 @@ try {
     # Beginning tasks
     # ---------------------------------------------------------------------------
 
-    Write-ToLog -LogFile $OutputFile -Message "=== Starting $($SpFolder) admin-group audit run ==="
+    Write-ToLog -LogFile $OutputFile -Message "=== Starting $($SpFolder) user sign-in log audit run ==="
 
-    & (Join-Path $PSScriptRoot "..\01-collector\Collect-EntraGroupMembers-Admins.ps1") -Directory $CustomerDir -SettingsPath $SettingsPath
-    Write-ToLog -LogFile $OutputFile -Message "Collected Entra role assignments/users/licenses"
-
-    & (Join-Path $PSScriptRoot "..\02-analyst\Compare-GroupMembers-Admins.ps1") -Directory $CustomerDir
-    Write-ToLog -LogFile $OutputFile -Message "Generated the admin-group audit"
+    & (Join-Path $PSScriptRoot "..\01-collector\Collect-EntraUserSignIns.ps1") -Directory $CustomerDir -SettingsPath $SettingsPath
+    Write-ToLog -LogFile $OutputFile -Message "Collected Entra user sign-in log"
 
     # ---------------------------------------------------------------------------
-    # Send email
+    # Send email - attach if small enough, otherwise say where to find it
     # ---------------------------------------------------------------------------
 
-    & $EmailScript -To $ToAddresses -Subject "$($SpFolder) - Entra Admin Group Audit" `
-        -From $FromAddress -Attachments @($AuditCsv)
+    $FileSizeMB = if (Test-Path -LiteralPath $AuditCsv) { (Get-Item $AuditCsv).Length / 1MB } else { 0 }
+    $TooBig = $FileSizeMB -gt $MaxSizeMB
+
+    if ($TooBig) {
+        Write-ToLog -LogFile $OutputFile -Message "Log file is $([math]::Round($FileSizeMB, 1)) MB - over the ${MaxSizeMB}MB attach limit, not attaching" -Level WARN
+        $Attachments = @()
+        $Body = "The user sign-in log for $($SpFolder) is $([math]::Round($FileSizeMB, 1)) MB - too large to email. " +
+                "It's saved locally at $AuditCsv on the host machine; retrieve it directly rather than by email."
+    } else {
+        $Attachments = @($AuditCsv)
+        $Body = "See attached report output."
+    }
+
+    & $EmailScript -To $ToAddresses -Subject "$($SpFolder) - Entra User Sign-in Audit" `
+        -From $FromAddress -Attachments $Attachments -Body $Body
 
     # ---------------------------------------------------------------------------
     # Ending tasks
@@ -81,9 +97,9 @@ catch {
     # Best-effort failure notice - if this fails too (e.g. SMTP settings themselves are the
     # problem), don't let that mask the original error's exit code.
     try {
-        & $EmailScript -To $ToAddresses -Subject "$($SpFolder) - Entra Admin Group Audit - FAILED" `
+        & $EmailScript -To $ToAddresses -Subject "$($SpFolder) - Entra User Sign-in Audit - FAILED" `
             -From $FromAddress `
-            -Body "The scheduled admin-group audit run failed: $($_.Exception.Message)`n`nSee $OutputFile on the host machine for details."
+            -Body "The scheduled user sign-in log audit run failed: $($_.Exception.Message)`n`nSee $OutputFile on the host machine for details."
     }
     catch {
         Write-ToLog -LogFile $OutputFile -Message "Also failed to send failure notification: $($_.Exception.Message)" -Level ERROR

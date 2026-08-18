@@ -161,8 +161,9 @@ function Write-IncrementalCsv {
     )
 
     begin {
-        # Ensure directory exists
-        Ensure-Directory -Path $Path
+        # Ensure directory exists - Test-Directory (Functions-VA-Common.ps1) expects a
+        # directory path, not a file path, so pass its parent rather than $Path itself.
+        Test-Directory -Path (Split-Path $Path -Parent)
         $utf8NoBom = New-Object System.Text.UTF8Encoding($false)
         $newFile = -not (Test-Path -Path $Path)
         if ($newFile) {

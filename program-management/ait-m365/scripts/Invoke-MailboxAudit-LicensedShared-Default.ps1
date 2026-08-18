@@ -58,8 +58,16 @@ try {
     & (Join-Path $PSScriptRoot "..\01-collector\Collect-EntraLicenses.ps1") -Directory $CustomerDir -SettingsPath $SettingsPath
     Write-ToLog -LogFile $OutputFile -Message "Collected Entra license catalog/assignments"
 
-    & (Join-Path $PSScriptRoot "..\01-collector\Collect-EntraMailboxPurpose.ps1") -Directory $CustomerDir -SettingsPath $SettingsPath
-    Write-ToLog -LogFile $OutputFile -Message "Collected Entra mailbox purpose"
+    # Two-pass: ask the Analyst which UPNs it actually needs mailbox purpose for (a pure
+    # CSV-only pass, no Graph calls) before paying for the expensive per-user purpose lookup -
+    # on a large tenant, checking everyone instead of just the licensed candidates was measured
+    # costing minutes instead of seconds. See Compare-Mailboxes-LicensedShared.ps1's -ListCandidateUpns.
+    $CandidateUpns = & (Join-Path $PSScriptRoot "..\02-analyst\Compare-Mailboxes-LicensedShared.ps1") -Directory $CustomerDir -ListCandidateUpns
+    Write-ToLog -LogFile $OutputFile -Message "Identified $(@($CandidateUpns).Count) licensed candidate(s)"
+
+    $ScopedPurposePath = Join-Path $PSScriptRoot "..\data\raw\$($CustomerDir)\EntraMailboxPurpose-LicensedShared.csv"
+    & (Join-Path $PSScriptRoot "..\01-collector\Collect-EntraMailboxPurpose.ps1") -Directory $CustomerDir -SettingsPath $SettingsPath -Upns @($CandidateUpns) -OutputPath $ScopedPurposePath
+    Write-ToLog -LogFile $OutputFile -Message "Collected Entra mailbox purpose (scoped to candidates)"
 
     & (Join-Path $PSScriptRoot "..\01-collector\Collect-EntraMailboxUsage.ps1") -Directory $CustomerDir -SettingsPath $SettingsPath
     Write-ToLog -LogFile $OutputFile -Message "Collected Entra mailbox usage report"

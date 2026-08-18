@@ -2,9 +2,9 @@
 .SYNOPSIS
     Analyst: cross-references a customer's collected Entra user list
     (../01-collector/Collect-EntraUsers.ps1's raw snapshot) against mailbox purpose
-    (../01-collector/Collect-EntraMailboxPurpose.ps1's raw snapshot) and mailbox usage
-    (../01-collector/Collect-EntraMailboxUsage.ps1's raw snapshot) to find shared mailboxes that
-    are still carrying a license, with licenses resolved from
+    (../01-collector/Collect-EntraMailboxPurpose.ps1's scoped snapshot for this audit) and
+    mailbox usage (../01-collector/Collect-EntraMailboxUsage.ps1's raw snapshot) to find shared
+    mailboxes that are still carrying a license, with licenses resolved from
     ../01-collector/Collect-EntraLicenses.ps1's raw catalog. Does not call Graph and does not
     email - that's the collector's and the customer wrapper's job, respectively (see
     ../katz/Invoke-MailboxAudit-LicensedShared.ps1).
@@ -20,10 +20,23 @@
     genuinely licensed shared mailbox should never be soft-deleted in practice, and this keeps
     both mailbox-usage-driven Analysts consistent.
 
+    -ListCandidateUpns outputs just the licensed-user UPNs (computed from EntraUsers.csv alone -
+    purpose isn't known yet, so this is a safe superset, not the exact "licensed AND shared"
+    candidate set) and exits before doing anything else. This exists so the calling wrapper can
+    pull mailbox purpose for only these UPNs (via
+    ../01-collector/Collect-EntraMailboxPurpose.ps1's -Upns param) instead of the whole tenant -
+    on a large tenant, checking purpose for everyone when only licensed users can ever match was
+    measured costing minutes, not seconds. The "who's licensed" check lives here, in exactly one
+    place, so the wrapper's pre-filter and this script's real filter can never drift out of sync
+    with each other - it's the same code path both times.
+
     Users listed in data/reference/<Directory>/excluded-licensed-shared-mailboxes.csv (matched by
     UPN) are dropped from the findings by default. Pass -IncludeExclusions to keep them in the
     output instead, marked via an IsExcluded column - same convention as
     ../02-analyst/Compare-Groups-Temp.ps1.
+
+.EXAMPLE
+    .\Compare-Mailboxes-LicensedShared.ps1 -Directory katz -ListCandidateUpns
 
 .EXAMPLE
     .\Compare-Mailboxes-LicensedShared.ps1 -Directory katz
@@ -40,12 +53,14 @@ param(
     [string]$MailboxUsagePath,
     [string]$ExclusionsPath,
     [string]$OutputPath,
-    [switch]$IncludeExclusions
+    [switch]$IncludeExclusions,
+
+    [switch]$ListCandidateUpns
 )
 
 if (-not $UsersPath)          { $UsersPath          = Join-Path $PSScriptRoot "..\data\raw\$Directory\EntraUsers.csv" }
 if (-not $LicenseCatalogPath) { $LicenseCatalogPath = Join-Path $PSScriptRoot "..\data\raw\$Directory\EntraLicenses-Usage.csv" }
-if (-not $MailboxPurposePath) { $MailboxPurposePath = Join-Path $PSScriptRoot "..\data\raw\$Directory\EntraMailboxPurpose.csv" }
+if (-not $MailboxPurposePath) { $MailboxPurposePath = Join-Path $PSScriptRoot "..\data\raw\$Directory\EntraMailboxPurpose-LicensedShared.csv" }
 if (-not $MailboxUsagePath)   { $MailboxUsagePath   = Join-Path $PSScriptRoot "..\data\raw\$Directory\EntraMailboxUsage.csv" }
 if (-not $ExclusionsPath)     { $ExclusionsPath     = Join-Path $PSScriptRoot "..\data\reference\$Directory\excluded-licensed-shared-mailboxes.csv" }
 if (-not $OutputPath)         { $OutputPath         = Join-Path $PSScriptRoot "output\$Directory\MailboxAudit-LicensedAndShared.csv" }
@@ -56,9 +71,19 @@ if (-not $OutputPath)         { $OutputPath         = Join-Path $PSScriptRoot "o
 
 $Now = Get-Date
 
-# --- load -----------------------------------------------------------------
+# --- candidate pass (no mailbox-purpose data needed) -------------------------------------------------------------------
 
 $Users = @(Import-Csv -LiteralPath $UsersPath -Encoding UTF8)
+$Licensed = @($Users.Where({ $_.AssignedSkuIds }))
+
+if ($ListCandidateUpns) {
+    $Licensed | ForEach-Object { $_.UserPrincipalName }
+    Write-Host "$($Users.Count) user(s) in raw snapshot, $($Licensed.Count) licensed candidate(s)." -ForegroundColor Cyan
+    return
+}
+
+# --- flag (mailbox-purpose data needed from here on) -------------------------------------------------------------------
+
 $Catalog = @(Import-Csv -LiteralPath $LicenseCatalogPath -Encoding UTF8)
 $MailboxPurposeRows = @(Import-Csv -LiteralPath $MailboxPurposePath -Encoding UTF8)
 $MailboxUsageRows = @(Import-Csv -LiteralPath $MailboxUsagePath -Encoding UTF8)
@@ -75,7 +100,7 @@ foreach ($Mailbox in $MailboxUsageRows) { $UsageByUpn[$Mailbox.UPN] = $Mailbox }
 
 # --- flag -------------------------------------------------------------------
 
-$Candidates = @($Users.Where({ $_.AssignedSkuIds -and ($SharedUpns -contains $_.UserPrincipalName) }))
+$Candidates = @($Licensed.Where({ $SharedUpns -contains $_.UserPrincipalName }))
 
 $CountExclusions = 0
 $CountSkippedNoUsage = 0

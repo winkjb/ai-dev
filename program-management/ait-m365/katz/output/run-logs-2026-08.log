@@ -123,3 +123,27 @@
 [2026-08-17 21:26:05] [ERROR] === Run failed ===
 [2026-08-17 21:27:27] [ERROR] Also failed to send failure notification: Unable to connect to the remote server
 [2026-08-17 21:27:29] [ERROR] Also failed to send failure notification: Unable to connect to the remote server
+[2026-08-18 13:35:54] [INFO] === Starting Katz admin-group audit run ===
+[2026-08-18 13:35:58] [INFO] Collected Entra role assignments/users/licenses
+[2026-08-18 13:35:58] [INFO] Generated the admin-group audit
+[2026-08-18 13:36:02] [INFO] Emailed reports to bwinklesky@servit.net
+[2026-08-18 13:36:02] [INFO] === Run completed successfully ===
+[2026-08-18 13:36:24] [INFO] === Starting Katz temp user audit run ===
+[2026-08-18 13:36:26] [INFO] Collected Entra users
+[2026-08-18 13:36:27] [INFO] Collected Entra license catalog/assignments
+[2026-08-18 13:36:27] [INFO] Generated the temp user audit
+[2026-08-18 13:36:29] [INFO] Emailed reports to bwinklesky@servit.net
+[2026-08-18 13:36:29] [INFO] === Run completed successfully ===
+[2026-08-18 13:36:36] [INFO] === Starting Katz licensed+disabled user audit run ===
+[2026-08-18 13:36:37] [INFO] Collected Entra users
+[2026-08-18 13:36:38] [INFO] Collected Entra license catalog/assignments
+[2026-08-18 13:36:59] [INFO] Collected Entra mailbox purpose
+[2026-08-18 13:36:59] [INFO] Generated the licensed+disabled user audit
+[2026-08-18 13:37:01] [INFO] Emailed reports to bwinklesky@servit.net
+[2026-08-18 13:37:01] [INFO] === Run completed successfully ===
+[2026-08-18 13:38:29] [INFO] === Starting Katz user access disable audit run ===
+[2026-08-18 13:38:31] [INFO] Collected Entra users
+[2026-08-18 13:38:40] [INFO] Collected Entra mailbox purpose
+[2026-08-18 13:38:41] [INFO] Generated the user access disable audit
+[2026-08-18 13:38:43] [INFO] Emailed reports to bwinklesky@servit.net
+[2026-08-18 13:38:43] [INFO] === Run completed successfully ===

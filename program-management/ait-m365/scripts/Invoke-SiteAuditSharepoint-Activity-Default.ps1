@@ -2,7 +2,7 @@
 .SYNOPSIS
 
 .EXAMPLE
-    .\Invoke-GroupAudit-Admins-Default.ps1
+    .\Invoke-SiteAuditSharepoint-Activity-Default.ps1
 #>
 
 [CmdletBinding()]
@@ -30,7 +30,7 @@ $OutputFile = Join-Path $OutputDir ("run-logs-{0:yyyy-MM}.log" -f (Get-Date))
 . (Join-Path $PSScriptRoot "..\..\..\scripts\Functions-M365-Common.ps1")
 
 # ---------------------------------------------------------------------------
-# Run tasks  
+# Run tasks
 # ---------------------------------------------------------------------------
 
 # Script settings and variables
@@ -38,7 +38,7 @@ $OutputFile = Join-Path $OutputDir ("run-logs-{0:yyyy-MM}.log" -f (Get-Date))
 $ErrorActionPreference = "Stop"
 $SettingsPath = Join-Path $PSScriptRoot "..\data\reference\$($CustomerDir)\M365Settings.txt"
 $EmailScript = Join-Path $PSScriptRoot "..\..\..\scripts\Send-EmailMessage.ps1"
-$AuditCsv = Join-Path $PSScriptRoot "..\02-analyst\output\$($CustomerDir)\GroupAudit-Admins.csv"
+$AuditCsv = Join-Path $PSScriptRoot "..\02-analyst\output\$($CustomerDir)\Sharepoint-Activity.csv"
 
 # Validate output directory
 
@@ -50,19 +50,19 @@ try {
     # Beginning tasks
     # ---------------------------------------------------------------------------
 
-    Write-ToLog -LogFile $OutputFile -Message "=== Starting $($SpFolder) admin-group audit run ==="
+    Write-ToLog -LogFile $OutputFile -Message "=== Starting $($SpFolder) SharePoint activity audit run ==="
 
-    & (Join-Path $PSScriptRoot "..\01-collector\Collect-EntraGroupMembers-Admins.ps1") -Directory $CustomerDir -SettingsPath $SettingsPath
-    Write-ToLog -LogFile $OutputFile -Message "Collected Entra role assignments/users/licenses"
+    & (Join-Path $PSScriptRoot "..\01-collector\Collect-EntraSharepointActivity.ps1") -Directory $CustomerDir -SettingsPath $SettingsPath
+    Write-ToLog -LogFile $OutputFile -Message "Collected SharePoint activity report"
 
-    & (Join-Path $PSScriptRoot "..\02-analyst\Compare-GroupMembers-Admins.ps1") -Directory $CustomerDir
-    Write-ToLog -LogFile $OutputFile -Message "Generated the admin-group audit"
+    & (Join-Path $PSScriptRoot "..\02-analyst\Compare-Sharepoint-Activity.ps1") -Directory $CustomerDir
+    Write-ToLog -LogFile $OutputFile -Message "Generated the SharePoint activity audit"
 
     # ---------------------------------------------------------------------------
     # Send email
     # ---------------------------------------------------------------------------
 
-    & $EmailScript -To $ToAddresses -Subject "$($SpFolder) - Entra Admin Group Audit" `
+    & $EmailScript -To $ToAddresses -Subject "$($SpFolder) - SharePoint Site Activity Audit" `
         -From $FromAddress -Attachments @($AuditCsv)
 
     # ---------------------------------------------------------------------------
@@ -81,9 +81,9 @@ catch {
     # Best-effort failure notice - if this fails too (e.g. SMTP settings themselves are the
     # problem), don't let that mask the original error's exit code.
     try {
-        & $EmailScript -To $ToAddresses -Subject "$($SpFolder) - Entra Admin Group Audit - FAILED" `
+        & $EmailScript -To $ToAddresses -Subject "$($SpFolder) - SharePoint Site Activity Audit - FAILED" `
             -From $FromAddress `
-            -Body "The scheduled admin-group audit run failed: $($_.Exception.Message)`n`nSee $OutputFile on the host machine for details."
+            -Body "The scheduled SharePoint activity audit run failed: $($_.Exception.Message)`n`nSee $OutputFile on the host machine for details."
     }
     catch {
         Write-ToLog -LogFile $OutputFile -Message "Also failed to send failure notification: $($_.Exception.Message)" -Level ERROR

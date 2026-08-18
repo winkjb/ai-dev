@@ -43,7 +43,11 @@ param(
     [string]$LicensesPath,
     [string]$OutputPath,
 
-    [switch]$IncludeDisabledUsers
+    # Default $true - matches Katz's confirmed real usage (2026-08-13). Owned here, not
+    # forced by the orchestrator, so there's one source of truth to change later rather than
+    # two places that could drift out of sync (same call as Compare-MailboxSize.ps1's
+    # $MinStoragePercentage default).
+    [switch]$IncludeDisabledUsers = $true
 )
 
 if (-not $RoleAssignmentsPath) { $RoleAssignmentsPath = Join-Path $PSScriptRoot "..\data\raw\$Directory\EntraRoles-Admins.csv" }
