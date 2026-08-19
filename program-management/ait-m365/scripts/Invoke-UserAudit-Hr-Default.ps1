@@ -55,7 +55,8 @@ try {
     & (Join-Path $PSScriptRoot "..\01-collector\Collect-EntraUsers.ps1") -Directory $CustomerDir -SettingsPath $SettingsPath
     Write-ToLog -LogFile $OutputFile -Message "Collected Entra users"
 
-    & (Join-Path $PSScriptRoot "..\01-collector\Collect-EntraMailboxPurpose.ps1") -Directory $CustomerDir -SettingsPath $SettingsPath
+    $PurposePath = Join-Path $PSScriptRoot "..\data\raw\$($CustomerDir)\EntraMailboxPurpose-Hr.csv"
+    & (Join-Path $PSScriptRoot "..\01-collector\Collect-EntraMailboxPurpose.ps1") -Directory $CustomerDir -SettingsPath $SettingsPath -OutputPath $PurposePath
     Write-ToLog -LogFile $OutputFile -Message "Collected Entra mailbox purpose"
 
     & (Join-Path $PSScriptRoot "..\02-analyst\Compare-Users-Hr.ps1") -Directory $CustomerDir

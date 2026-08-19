@@ -63,7 +63,7 @@ param(
 if (-not $UsersPath)          { $UsersPath          = Join-Path $PSScriptRoot "..\data\raw\$Directory\EntraUsers.csv" }
 if (-not $MailboxPurposePath) { $MailboxPurposePath = Join-Path $PSScriptRoot "..\data\raw\$Directory\EntraMailboxPurpose-AccessDisable.csv" }
 if (-not $ExclusionsPath)     { $ExclusionsPath     = Join-Path $PSScriptRoot "..\data\reference\$Directory\excluded-inactive-users.csv" }
-if (-not $OutputPath)         { $OutputPath         = Join-Path $PSScriptRoot "output\$Directory\UserAudit-AccessDisable.csv" }
+if (-not $OutputPath)         { $OutputPath         = Join-Path $PSScriptRoot "output\$Directory\UserAudit-Disable.csv" }
 
 . (Join-Path $PSScriptRoot "..\..\..\scripts\Functions-VA-Common.ps1")
 . (Join-Path $PSScriptRoot "..\..\..\scripts\Functions-M365-Common.ps1")

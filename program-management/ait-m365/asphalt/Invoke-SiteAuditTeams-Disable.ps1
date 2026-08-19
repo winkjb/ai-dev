@@ -1,10 +1,8 @@
 <#
 .SYNOPSIS
-    Unattended entry point for Katz's OneDrive activity audit - runs the collector then the
-    analyst and emails the findings. Meant to be called from a scheduled task.
 
 .EXAMPLE
-    .\Invoke-SiteAuditOneDrive-Activity.ps1
+    .\Invoke-SiteAuditTeams-Disable.ps1
 #>
 
 [CmdletBinding()]
@@ -16,7 +14,7 @@ param()
 
 # System settings and variables
 
-$CustomerName = "Katz"
+$CustomerName = "Asphalt Enterprises"
 $ToAddresses = @("bwinklesky@servit.net")
 
 # Import functions
@@ -36,7 +34,7 @@ $FromAddress = $CustomerSettings.FromAddress
 
 try {
 
-    & (Join-Path $PSScriptRoot "..\scripts\Invoke-SiteAuditOneDrive-Activity-Default.ps1") `
+    & (Join-Path $PSScriptRoot "..\scripts\Invoke-SiteAuditTeams-Disable-Default.ps1") `
     -CustomerDir $CustomerDir `
     -SpFolder $SpFolder `
     -FromAddress $FromAddress `

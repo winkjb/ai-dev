@@ -2,8 +2,7 @@
 .SYNOPSIS
     Unattended entry point for Katz's Entra user sign-in log export - runs the collector and
     emails (or, if too large, notifies about) the raw log. Meant to be called from a scheduled
-    task; logs to output/run-logs-{yyyy-MM}.log (shared with Katz's other audits, one file per
-    month) since nobody's watching the console.
+    task.
 
 .EXAMPLE
     .\Invoke-LogAudit-UserSignIns.ps1
@@ -16,30 +15,33 @@ param()
 # Setup
 # ---------------------------------------------------------------------------
 
+# System settings and variables
+
+$CustomerName = "Katz"
+$ToAddresses = @("bwinklesky@servit.net")
+
 # Import functions
 
 . (Join-Path $PSScriptRoot "..\..\..\scripts\Functions-VA-Common.ps1")
-. (Join-Path $PSScriptRoot "..\..\..\scripts\Functions-M365-Common.ps1")
-
-# System settings and variables
-
-# TODO: swap to automation@alerts.servit.net once this is running unattended long-term.
-$ToAddresses = @("bwinklesky@servit.net")
-$CustomerInfo = Map-Customer -CustomerName "Katz"
-$FromEmail = "Katz Virtual Administrator <noreply@alerts.servit.net>"
-$OutputDir = Join-Path $PSScriptRoot "output"
-$OutputFile = Join-Path $OutputDir ("run-logs-{0:yyyy-MM}.log" -f (Get-Date))
 
 # ---------------------------------------------------------------------------
 # Run tasks
 # ---------------------------------------------------------------------------
 
-Test-Directory $OutputDir
+# Script settings and variables
+
+$CustomerSettings = Map-Customer $CustomerName
+$CustomerDir = $CustomerSettings.Directory
+$SpFolder = $CustomerSettings.SharepointFolder
+$FromAddress = $CustomerSettings.FromAddress
 
 try {
 
     & (Join-Path $PSScriptRoot "..\scripts\Invoke-LogAudit-UserSignIns-Default.ps1") `
-        -CustomerDir $CustomerInfo.Directory -SpFolder $CustomerInfo.SharepointFolder -FromAddress $FromEmail -ToAddresses $ToAddresses
+    -CustomerDir $CustomerDir `
+    -SpFolder $SpFolder `
+    -FromAddress $FromAddress `
+    -ToAddresses $ToAddresses
 
 }
 catch {

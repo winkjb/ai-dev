@@ -38,7 +38,7 @@ $OutputFile = Join-Path $OutputDir ("run-logs-{0:yyyy-MM}.log" -f (Get-Date))
 $ErrorActionPreference = "Stop"
 $SettingsPath = Join-Path $PSScriptRoot "..\data\reference\$($CustomerDir)\M365Settings.txt"
 $EmailScript = Join-Path $PSScriptRoot "..\..\..\scripts\Send-EmailMessage.ps1"
-$AuditCsv = Join-Path $PSScriptRoot "..\02-analyst\output\$($CustomerDir)\UserAudit-AccessDisable.csv"
+$AuditCsv = Join-Path $PSScriptRoot "..\02-analyst\output\$($CustomerDir)\UserAudit-Disable.csv"
 
 # Validate output directory
 

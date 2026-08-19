@@ -4,9 +4,9 @@
     (../01-collector/Collect-EntraUsers.ps1's raw snapshot) for accounts that are both disabled
     and still licensed, with each user's licenses resolved from
     ../01-collector/Collect-EntraLicenses.ps1's raw catalog and mailbox purpose resolved from
-    ../01-collector/Collect-EntraMailboxPurpose.ps1's raw snapshot. Does not call Graph and does
-    not email - that's the collector's and the customer wrapper's job, respectively (see
-    ../katz/Invoke-UserAudit-LicensedDisabled.ps1).
+    ../01-collector/Collect-EntraMailboxPurpose.ps1's scoped snapshot for this audit. Does not
+    call Graph and does not email - that's the collector's and the customer wrapper's job,
+    respectively (see ../katz/Invoke-UserAudit-LicensedDisabled.ps1).
 
 .DESCRIPTION
     IsSharedMailbox is informational, not a filter - it flags whether the disabled+licensed
@@ -20,6 +20,18 @@
     UPN) are dropped from the findings by default. Pass -IncludeExclusions to keep them in the
     output instead, marked via an IsExcluded column - same convention as
     ../02-analyst/Compare-Groups-Temp.ps1.
+
+    -ListCandidateUpns outputs just the disabled+licensed candidate UPNs (computed from
+    EntraUsers.csv alone - no mailbox-purpose data needed for this pass) and exits before doing
+    anything else. This exists so the calling wrapper can pull mailbox purpose for only these
+    UPNs (via ../01-collector/Collect-EntraMailboxPurpose.ps1's -Upns param) instead of the
+    whole tenant - same two-pass pattern as ../02-analyst/Compare-Users-Disable.ps1's
+    -ListCandidateUpns. The candidate logic lives here, in exactly one place, so the wrapper's
+    pre-filter and this script's real filter can never drift out of sync with each other - it's
+    the same code path both times.
+
+.EXAMPLE
+    .\Compare-Users-LicensedDisabled.ps1 -Directory katz -ListCandidateUpns
 
 .EXAMPLE
     .\Compare-Users-LicensedDisabled.ps1 -Directory katz
@@ -35,12 +47,14 @@ param(
     [string]$MailboxPurposePath,
     [string]$ExclusionsPath,
     [string]$OutputPath,
-    [switch]$IncludeExclusions
+    [switch]$IncludeExclusions,
+
+    [switch]$ListCandidateUpns
 )
 
 if (-not $UsersPath)          { $UsersPath          = Join-Path $PSScriptRoot "..\data\raw\$Directory\EntraUsers.csv" }
 if (-not $LicenseCatalogPath) { $LicenseCatalogPath = Join-Path $PSScriptRoot "..\data\raw\$Directory\EntraLicenses-Usage.csv" }
-if (-not $MailboxPurposePath) { $MailboxPurposePath = Join-Path $PSScriptRoot "..\data\raw\$Directory\EntraMailboxPurpose.csv" }
+if (-not $MailboxPurposePath) { $MailboxPurposePath = Join-Path $PSScriptRoot "..\data\raw\$Directory\EntraMailboxPurpose-LicensedDisabled.csv" }
 if (-not $ExclusionsPath)     { $ExclusionsPath     = Join-Path $PSScriptRoot "..\data\reference\$Directory\excluded-licensed-disabled-users.csv" }
 if (-not $OutputPath)         { $OutputPath         = Join-Path $PSScriptRoot "output\$Directory\UserAudit-LicensedAndDisabled.csv" }
 
@@ -50,9 +64,19 @@ if (-not $OutputPath)         { $OutputPath         = Join-Path $PSScriptRoot "o
 
 $Now = Get-Date
 
-# --- load -----------------------------------------------------------------
+# --- candidate pass (no mailbox-purpose data needed) -------------------------------------------------------------------
 
 $Users = @(Import-Csv -LiteralPath $UsersPath -Encoding UTF8)
+$Candidates = @($Users.Where({ ($_.AccountEnabled -eq "False") -and $_.AssignedSkuIds }))
+
+if ($ListCandidateUpns) {
+    $Candidates | ForEach-Object { $_.UserPrincipalName }
+    Write-Host "$($Users.Count) user(s) in raw snapshot, $($Candidates.Count) disabled+licensed candidate(s)." -ForegroundColor Cyan
+    return
+}
+
+# --- flag (mailbox-purpose data needed from here on) -------------------------------------------------------------------
+
 $Catalog = @(Import-Csv -LiteralPath $LicenseCatalogPath -Encoding UTF8)
 $MailboxPurposeRows = @(Import-Csv -LiteralPath $MailboxPurposePath -Encoding UTF8)
 $ExclusionRows = if (Test-Path -LiteralPath $ExclusionsPath) { @(Import-Csv -LiteralPath $ExclusionsPath -Encoding UTF8) } else { @() }
@@ -63,10 +87,6 @@ foreach ($License in $Catalog) { $SkuNameById[$License.SkuId] = $License.SkuPart
 
 $PurposeByUpn = @{}
 foreach ($Row in $MailboxPurposeRows) { $PurposeByUpn[$Row.UPN] = $Row.Purpose }
-
-# --- flag -------------------------------------------------------------------
-
-$Candidates = @($Users.Where({ ($_.AccountEnabled -eq "False") -and $_.AssignedSkuIds }))
 
 $CountExclusions = 0
 

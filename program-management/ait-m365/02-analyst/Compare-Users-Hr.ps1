@@ -2,9 +2,10 @@
 .SYNOPSIS
     Analyst: shapes a customer's collected Entra user list
     (../01-collector/Collect-EntraUsers.ps1's raw snapshot, with resource/shared mailboxes
-    resolved from ../01-collector/Collect-EntraMailboxPurpose.ps1's raw snapshot) into a plain
-    user roster for HR. Does not call Graph and does not email - that's the collector's and the
-    customer wrapper's job, respectively (see ../katz/Invoke-UserAudit-Hr.ps1).
+    resolved from ../01-collector/Collect-EntraMailboxPurpose.ps1's full-tenant snapshot for
+    this audit) into a plain user roster for HR. Does not call Graph and does not email - that's
+    the collector's and the customer wrapper's job, respectively (see
+    ../katz/Invoke-UserAudit-Hr.ps1).
 
 .DESCRIPTION
     Guests (UPN containing "#EXT#") and resource/shared/room mailboxes are always excluded -
@@ -34,7 +35,7 @@ param(
 )
 
 if (-not $UsersPath)          { $UsersPath          = Join-Path $PSScriptRoot "..\data\raw\$Directory\EntraUsers.csv" }
-if (-not $MailboxPurposePath) { $MailboxPurposePath = Join-Path $PSScriptRoot "..\data\raw\$Directory\EntraMailboxPurpose.csv" }
+if (-not $MailboxPurposePath) { $MailboxPurposePath = Join-Path $PSScriptRoot "..\data\raw\$Directory\EntraMailboxPurpose-Hr.csv" }
 if (-not $ExclusionsPath)     { $ExclusionsPath     = Join-Path $PSScriptRoot "..\data\reference\$Directory\excluded-hr-users.csv" }
 if (-not $OutputPath)         { $OutputPath         = Join-Path $PSScriptRoot "output\$Directory\UserAudit-Hr.csv" }
 
