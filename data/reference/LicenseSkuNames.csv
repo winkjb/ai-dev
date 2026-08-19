@@ -2,6 +2,7 @@ SkuPartNumber,FriendlyName
 AAD_BASIC,Azure Active Directory Basic
 AAD_PREMIUM,Azure Active Directory Premium P1
 AAD_PREMIUM_P2,Azure Active Directory Premium P2
+ATP_ENTERPRISE,Microsoft Defender for O365 (Plan 1)
 Business_Assist_SMB_WD,Business Assist
 CPC_E_2C_8GB_256GB,"Windows 365 Enterprise 2 vCPU, 8GB, 256GB"
 CPC_E_4C_16GB_256GB,"Windows 365 Enterprise 4 vCPU, 16GB, 256GB"
@@ -32,6 +33,8 @@ O365_BUSINESS,M365 Apps for Business
 O365_BUSINESS_ESSENTIALS,M365 Business Basic
 O365_BUSINESS_PREMIUM,M365 Business Standard
 OFFICESUBSCRIPTION,M365 Apps for Enterprise
+Office_365_E1_(no_Teams),O365 E1 (No Teams)
+Office_365_E3_(no_Teams),O365 E3 (No Teams)
 PBI_PREMIUM_P2_ADDON,Power BI Premium
 PBI_PREMIUM_PER_USER,Power BI Premium Per User
 POWERAUTOMATE_ATTENDED_RPA,Power Automate Premium
