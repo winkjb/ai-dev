@@ -80,6 +80,7 @@ foreach ($p in $Projects) {
     $DaysSinceActualHoursChange = Get-DaysSinceSignalChange -Signal $ActualHoursSignal -Reference $Now
     $HoursLastChangedStr = if ($HoursSignal -and $HoursSignal.LastChanged) { $HoursSignal.LastChanged } else { "" }
     $TaskLastChangedStr  = if ($TaskSignal -and $TaskSignal.LastChanged) { $TaskSignal.LastChanged } else { "" }
+    $ActualHoursLastChangedStr = if ($ActualHoursSignal -and $ActualHoursSignal.LastChanged) { $ActualHoursSignal.LastChanged } else { "" }
 
     # Three independent signals, any one of which is enough to call the project stale.
     $StaleActualHours = ($null -ne $DaysSinceActualHoursChange) -and ($DaysSinceActualHoursChange -gt $STALE_DAYS_HOURS)
@@ -107,6 +108,7 @@ foreach ($p in $Projects) {
     $p | Add-Member -NotePropertyName "Days Since Task Change" -NotePropertyValue $DaysSinceTaskChange -Force
     $p | Add-Member -NotePropertyName "% Hours Last Changed" -NotePropertyValue $HoursLastChangedStr -Force
     $p | Add-Member -NotePropertyName "% Task Last Changed" -NotePropertyValue $TaskLastChangedStr -Force
+    $p | Add-Member -NotePropertyName "Actual Hours Last Changed" -NotePropertyValue $ActualHoursLastChangedStr -Force
     $p | Add-Member -NotePropertyName "Flag: Stalled Intake" -NotePropertyValue $StalledIntake -Force
     $p | Add-Member -NotePropertyName "Flag: Stale" -NotePropertyValue $Stale -Force
     $p | Add-Member -NotePropertyName "Flag: Stale - Actual Hours" -NotePropertyValue $StaleActualHours -Force
@@ -140,6 +142,7 @@ $DetailRows = foreach ($p in ($Projects | Sort-Object "Project Lead", "Phase")) 
         "% Task Last Changed"      = $p.'% Task Last Changed'
         "Days Since Task Change"   = $p.'Days Since Task Change'
         "Actual Hours"             = $p.'Actual Hours'
+        "Actual Hours Last Changed" = $p.'Actual Hours Last Changed'
         "Days Since Actual Hours Change" = $p.'Days Since Actual Hours Change'
         "% Complete - Hours"       = $p.'% Complete - Hours'
         "% Hours Last Changed"     = $p.'% Hours Last Changed'
