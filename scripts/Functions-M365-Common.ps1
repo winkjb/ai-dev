@@ -194,7 +194,7 @@ function Get-FriendlyLicenseName {
         [string]$MapPath
     )
 
-    if (-not $MapPath) { $MapPath = Join-Path $PSScriptRoot "..\data\reference\LicenseSkuNames.csv" }
+    if (-not $MapPath) { $MapPath = Join-Path $PSScriptRoot "..\program-management\ait-m365\data\reference\LicenseSkuNames.csv" }
 
     if (-not $script:LicenseSkuNameCache) { $script:LicenseSkuNameCache = @{} }
 

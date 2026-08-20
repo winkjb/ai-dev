@@ -32,6 +32,8 @@ if (-not $OutputPath) { $OutputPath = Join-Path $PSScriptRoot "output\$Directory
 . (Join-Path $PSScriptRoot "..\..\..\scripts\Functions-VA-Common.ps1")
 . (Join-Path $PSScriptRoot "..\..\..\scripts\Functions-Formatting-Common.ps1")
 
+$Now = Get-Date
+
 $Locations = @(Import-Csv -LiteralPath $RawPath -Encoding UTF8)
 
 $Results = foreach ($Location in $Locations) {
@@ -39,6 +41,7 @@ $Results = foreach ($Location in $Locations) {
     $IsIpLocation = $Location.LocationType -eq "#microsoft.graph.ipNamedLocation"
 
     [PSCustomObject][ordered]@{
+        Date        = $Now.ToString("yyyy-MM-dd")
         DisplayName = $Location.DisplayName
         CreatedDate = $Location.CreatedDate
         IsTrusted   = if ($IsIpLocation) { $Location.IsTrusted } else { "N/A" }

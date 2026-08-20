@@ -48,6 +48,8 @@ if (-not $OutputPath)             { $OutputPath             = Join-Path $PSScrip
 . (Join-Path $PSScriptRoot "..\..\..\scripts\Functions-M365-Common.ps1")
 . (Join-Path $PSScriptRoot "..\..\..\scripts\Functions-Formatting-Common.ps1")
 
+$Now = Get-Date
+
 # --- load -----------------------------------------------------------------
 
 $Mailboxes = @(Import-Csv -LiteralPath $MailboxPath -Encoding UTF8)
@@ -82,6 +84,7 @@ $Results = foreach ($Mailbox in $Mailboxes) {
         $UserLicenses = (($SkuIds | ForEach-Object { Get-FriendlyLicenseName -sku $SkuNameById[$_] }) | Sort-Object) -join ","
 
         [PSCustomObject][ordered]@{
+            Date              = $Now.ToString("yyyy-MM-dd")
             DisplayName       = $Mailbox.DisplayName
             UPN               = $Mailbox.UPN
             UserLicenses      = $UserLicenses

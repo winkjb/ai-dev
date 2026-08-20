@@ -8,7 +8,7 @@
 .DESCRIPTION
     Excludes deleted sites, and system sites whose Root Web Template is "Team Channel" or ends
     in " Search Center" (Teams-channel-backed sites and search-center sites, not real customer
-    content), always. Sites listed in data/reference/<Directory>/excluded-sharepoint-sites.csv
+    content), always. Sites listed in data/reference/<Directory>/excluded-sharepoint-sites-activity.csv
     (matched by site Name) are dropped from the findings by default - pass -IncludeExclusions to
     keep them, marked via an Excluded column.
 
@@ -31,7 +31,7 @@ param(
 )
 
 if (-not $RawPath)        { $RawPath        = Join-Path $PSScriptRoot "..\data\raw\$Directory\EntraSharepointActivity.csv" }
-if (-not $ExclusionsPath) { $ExclusionsPath = Join-Path $PSScriptRoot "..\data\reference\$Directory\excluded-sharepoint-sites.csv" }
+if (-not $ExclusionsPath) { $ExclusionsPath = Join-Path $PSScriptRoot "..\data\reference\$Directory\excluded-sharepoint-sites-activity.csv" }
 if (-not $OutputPath)     { $OutputPath     = Join-Path $PSScriptRoot "output\$Directory\Sharepoint-Activity.csv" }
 
 . (Join-Path $PSScriptRoot "..\..\..\scripts\Functions-VA-Common.ps1")
@@ -67,6 +67,7 @@ $Results = foreach ($Site in $InScope) {
         $StoragePercentage = if ($StorageMaxGb -gt 0) { [math]::Round(($StorageUsedGb / $StorageMaxGb) * 100) } else { $null }
 
         $Finding = [ordered]@{
+            Date              = $Now.ToString("yyyy-MM-dd")
             SiteName          = $Site.Name
             WebUrl            = $Site.WebUrl
             ActiveFileCount   = $Site.ActiveFileCount

@@ -106,6 +106,7 @@ $Results = foreach ($User in $Candidates) {
         $LoginDaysAgo = Get-DaysSince -Value (Get-LatestDate @($User.LastSuccessfulSignInDateTime, $User.LastNonInteractiveSignInDateTime)) -Reference $Now
 
         $Finding = [ordered]@{
+            Date                          = $Now.ToString("yyyy-MM-dd")
             DisplayName                  = $User.DisplayName
             UPN                          = $User.UserPrincipalName
             AccountEnabled               = $User.AccountEnabled

@@ -12,9 +12,12 @@
     ../02-analyst/Compare-Teams-Disable.ps1's concern, not this one's, so it's never
     double-flagged here), was created before the -LessThanDays cutoff (a brand-new site hasn't
     had time to show activity yet, so it gets a pass), and has had no activity since the
-    cutoff. Sites listed in data/reference/<Directory>/excluded-sharepoint-sites.csv (matched by
-    Name, shared with ../02-analyst/Compare-Sharepoint-Activity.ps1) are dropped by default -
-    pass -IncludeExclusions to keep them.
+    cutoff. Sites listed in data/reference/<Directory>/excluded-sharepoint-sites-disable.csv
+    (matched by Name) are dropped by default - pass -IncludeExclusions to keep them. This is a
+    separate list from ../02-analyst/Compare-Sharepoint-Activity.ps1's
+    excluded-sharepoint-sites-activity.csv - matches the original katz wrapper's own local
+    $ExcludedSites baseline ("Project Web App", "Team Site"), which only ever applied to this
+    disable audit, not the activity report.
 
     -Testing (default $true, matching the original script's real production default) exists
     only for forward compatibility - no version of this audit, original or ported, has ever
@@ -42,7 +45,7 @@ param(
 )
 
 if (-not $RawPath)        { $RawPath        = Join-Path $PSScriptRoot "..\data\raw\$Directory\EntraSharepointActivity.csv" }
-if (-not $ExclusionsPath) { $ExclusionsPath = Join-Path $PSScriptRoot "..\data\reference\$Directory\excluded-sharepoint-sites.csv" }
+if (-not $ExclusionsPath) { $ExclusionsPath = Join-Path $PSScriptRoot "..\data\reference\$Directory\excluded-sharepoint-sites-disable.csv" }
 if (-not $OutputPath)     { $OutputPath     = Join-Path $PSScriptRoot "output\$Directory\Sharepoint-Disable.csv" }
 
 . (Join-Path $PSScriptRoot "..\..\..\scripts\Functions-VA-Common.ps1")
@@ -82,15 +85,20 @@ $Results = foreach ($Site in $InScope) {
 
     if (-not $IsExcluded -or $IncludeExclusions) {
 
+        $StorageUsedGb = [math]::Round([double]$Site.StorageUsedBytes / 1000000000, 2)
+
         $Finding = [ordered]@{
+            Date             = $Now.ToString("yyyy-MM-dd")
             SiteName         = $Site.Name
             WebUrl           = $Site.WebUrl
             CreatedDate      = $Site.CreatedDate
             FileCount        = $Site.FileCount
+            StorageUsedGb    = $StorageUsedGb
             LastActivityDate = $Site.LastActivityDate
             DaysAgo          = $DaysAgo
             Issue            = "Last activity more than $LessThanDays days ago"
             Action           = "Disable site"
+            ActionTaken      = $null
         }
         if ($IncludeExclusions) { $Finding.Excluded = if ($IsExcluded) { "Y" } else { $null } }
         [PSCustomObject]$Finding

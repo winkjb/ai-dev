@@ -81,12 +81,13 @@ $Results = foreach ($CaGroup in $CaGroups) {
         Write-Host "$GroupName not found." -ForegroundColor Yellow
         $CountIssues++
         [PSCustomObject][ordered]@{
-            Group          = $GroupName
-            UPN            = $null
-            CreatedDate    = $null
-            DaysAgo        = $null
-            AccountEnabled = $null
-            Issue          = "Group name not found"
+            Date            = $Now.ToString("yyyy-MM-dd")
+            Group           = $GroupName
+            UPN             = $null
+            CreatedDateTime = $null
+            DaysAgo         = $null
+            AccountEnabled  = $null
+            Issue           = "Group name not found"
         }
         continue
 
@@ -113,12 +114,13 @@ $Results = foreach ($CaGroup in $CaGroups) {
         foreach ($UPN in $MatchedUpns) {
             $Member = $MemberByUpn[$UPN]
             [PSCustomObject][ordered]@{
-                Group          = $GroupName
-                UPN            = $UPN
-                CreatedDate    = $Member.CreatedDate
-                DaysAgo        = Get-DaysSince -Value $Member.CreatedDate -Reference $Now
-                AccountEnabled = $Member.AccountEnabled
-                Issue          = "Matches expected list"
+                Date            = $Now.ToString("yyyy-MM-dd")
+                Group           = $GroupName
+                UPN             = $UPN
+                CreatedDateTime = $Member.CreatedDate
+                DaysAgo         = Get-DaysSince -Value $Member.CreatedDate -Reference $Now
+                AccountEnabled  = $Member.AccountEnabled
+                Issue           = "Matches expected list"
             }
         }
 
@@ -141,12 +143,13 @@ $Results = foreach ($CaGroup in $CaGroups) {
         $CountIssues++
 
         [PSCustomObject][ordered]@{
-            Group          = $GroupName
-            UPN            = $UPN
-            CreatedDate    = $Member.CreatedDate
-            DaysAgo        = Get-DaysSince -Value $Member.CreatedDate -Reference $Now
-            AccountEnabled = $Member.AccountEnabled
-            Issue          = if ($Difference.SideIndicator -eq "=>") { "In group, not in expected list" } else { "In expected list, not in group" }
+            Date            = $Now.ToString("yyyy-MM-dd")
+            Group           = $GroupName
+            UPN             = $UPN
+            CreatedDateTime = $Member.CreatedDate
+            DaysAgo         = Get-DaysSince -Value $Member.CreatedDate -Reference $Now
+            AccountEnabled  = $Member.AccountEnabled
+            Issue           = if ($Difference.SideIndicator -eq "=>") { "In group, not in expected list" } else { "In expected list, not in group" }
         }
 
     }

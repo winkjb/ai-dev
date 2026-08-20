@@ -62,6 +62,8 @@ if (-not $OutputPath) { $OutputPath = Join-Path $PSScriptRoot "output\$Directory
 . (Join-Path $PSScriptRoot "..\..\..\scripts\Functions-VA-Common.ps1")
 . (Join-Path $PSScriptRoot "..\..\..\scripts\Functions-Formatting-Common.ps1")
 
+$Now = Get-Date
+
 $BadPasswordCodes = @('50126')
 $AccountLockedCodes = @('50053')
 $MfaChallengeFailedCodes = @('50074', '50076')
@@ -87,7 +89,8 @@ $Classified = foreach ($Event in $Events) {
         elseif ($Code -in $AccountDisabledCodes) { "AccountDisabled" }
         else { "Other/Routine" }
 
-    [PSCustomObject]@{
+    [PSCustomObject][ordered]@{
+        Date     = $Now.ToString("yyyy-MM-dd")
         UPN      = $Event.UserPrincipalName
         IP       = $Event.IpAddress
         Country  = $Country

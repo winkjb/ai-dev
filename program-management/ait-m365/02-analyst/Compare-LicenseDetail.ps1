@@ -72,6 +72,7 @@ $Results = foreach ($License in $Catalog) {
         foreach ($User in $LicensedUsers) {
 
             $Finding = [ordered]@{
+                Date        = $Now.ToString("yyyy-MM-dd")
                 DisplayName = $User.DisplayName
                 UPN         = $User.UPN
                 UserLicense = $FriendlyName

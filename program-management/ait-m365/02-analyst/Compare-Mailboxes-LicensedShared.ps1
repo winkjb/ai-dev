@@ -126,6 +126,7 @@ $Results = foreach ($User in $Candidates) {
         $DaysAgo = Get-DaysSince -Value $LastActivityDate -Reference $Now
 
         $Finding = [ordered]@{
+            Date              = $Now.ToString("yyyy-MM-dd")
             DisplayName       = $User.DisplayName
             UPN               = $User.UserPrincipalName
             UserLicenses      = $UserLicenses

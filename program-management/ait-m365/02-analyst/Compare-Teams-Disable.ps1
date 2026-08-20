@@ -88,12 +88,15 @@ $Results = foreach ($Team in $Candidates) {
     if (-not $IsExcluded -or $IncludeExclusions) {
 
         $Finding = [ordered]@{
+            Date             = $Now.ToString("yyyy-MM-dd")
             TeamName         = $Team.TeamName
+            Mail             = $GroupInfo.Mail
             CreatedDate      = $CreatedDate
             LastActivityDate = $Team.LastActivityDate
             DaysAgo          = $DaysAgo
             Issue            = "Last activity more than $LessThanDays days ago"
             Action           = "Disable team"
+            ActionTaken      = $null
         }
         if ($IncludeExclusions) { $Finding.Excluded = if ($IsExcluded) { "Y" } else { $null } }
         [PSCustomObject]$Finding

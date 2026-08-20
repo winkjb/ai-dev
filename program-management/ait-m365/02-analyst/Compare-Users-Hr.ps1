@@ -72,6 +72,7 @@ $Results = foreach ($User in $InScope) {
     if (-not $IsExcluded -or $IncludeExclusions) {
 
         $Finding = [ordered]@{
+            Date        = $Now.ToString("yyyy-MM-dd")
             DisplayName = $User.DisplayName
             UPN         = $User.UserPrincipalName
             CreatedDate = $User.CreatedDate

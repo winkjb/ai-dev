@@ -38,6 +38,8 @@ if (-not $OutputPath)     { $OutputPath     = Join-Path $PSScriptRoot "output\$D
 . (Join-Path $PSScriptRoot "..\..\..\scripts\Functions-M365-Common.ps1")
 . (Join-Path $PSScriptRoot "..\..\..\scripts\Functions-Formatting-Common.ps1")
 
+$Now = Get-Date
+
 # --- load -----------------------------------------------------------------
 
 $Catalog = @(Import-Csv -LiteralPath $CatalogPath -Encoding UTF8)
@@ -61,6 +63,7 @@ $Results = foreach ($License in $Catalog) {
         $PercentageUsed = if ($MaxLicenses -eq 0) { 0 } else { [math]::Round($ConsumedLicenses / $MaxLicenses, 2) * 100 }
 
         $Finding = [ordered]@{
+            Date             = $Now.ToString("yyyy-MM-dd")
             UserLicense      = Get-FriendlyLicenseName -sku $License.SkuPartNumber
             ConsumedLicenses = $ConsumedLicenses
             MaxLicenses      = $MaxLicenses

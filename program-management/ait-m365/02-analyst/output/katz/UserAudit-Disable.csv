@@ -1,19 +1,19 @@
-"DisplayName","UPN","CreatedDate","LastSuccessfulLogonDate","LastNonInteractiveLogonDate","LoginDaysAgo","Issue","Action"
-"Alex LymandriveLLC","alexlymandrivellc@pineywoodstitle.com","2023-05-17T18:42:32Z","2025-02-27T16:44:49Z","2025-02-27T16:44:49Z","537","Last logon more than 180 days ago","Disable user"
-"Amanda Berden","amanda.berden_opswat.com#EXT#@pineywoodsfl.onmicrosoft.com","2022-03-28T14:13:37Z","","2025-01-06T15:46:44Z","589","Last logon more than 180 days ago","Disable user"
-"Beau Carver","6b38bc5b-49c8-4b7b-9dc5-d900680197dc@pineywoodsfl.onmicrosoft.com","2022-08-30T14:54:05Z","2026-02-18T15:24:38Z","2026-02-18T15:24:38Z","181","Last logon more than 180 days ago","Disable user"
-"ben","ben_bit-wizards.com#EXT#@pineywoodsfl.onmicrosoft.com","2020-01-31T18:34:09Z","","",,"No logon recorded","Disable user"
-"cpollom","cpollom_butlerinsuranceagency.net#EXT#@pineywoodsfl.onmicrosoft.com","2022-01-20T22:00:22Z","","",,"No logon recorded","Disable user"
-"Katz AAD","katzaad@katzcapital.com","2021-10-18T15:46:42Z","","2021-10-18T16:36:49Z","1765","Last logon more than 180 days ago","Disable user"
-"Kendra Hoffman","khoffman@katzcapital.com","2020-01-29T21:22:30Z","2025-09-08T16:42:26Z","2025-09-08T16:42:26Z","344","Last logon more than 180 days ago","Disable user"
-"lbrandt","lbrandt_butlerinsuranceagency.com#EXT#@pineywoodsfl.onmicrosoft.com","2023-02-02T17:39:27Z","","",,"No logon recorded","Disable user"
-"Linda Brandt","lbrandt_butlerinsuranceagency.net#EXT#@pineywoodsfl.onmicrosoft.com","2022-01-20T22:01:09Z","","2024-07-08T17:47:48Z","770","Last logon more than 180 days ago","Disable user"
-"Mike Lauter","mlauter_butlerinsuranceagency.net#EXT#@pineywoodsfl.onmicrosoft.com","2022-07-14T21:23:17Z","","2025-07-21T21:40:24Z","392","Last logon more than 180 days ago","Disable user"
-"nkosmela@mail.usf.edu","nkosmela_mail.usf.edu#EXT#@pineywoodstitle.com","2017-04-03T21:31:16Z","","",,"No logon recorded","Disable user"
-"Pineywoods Office 365 Administrator","admin@pineywoodsfl.onmicrosoft.com","2015-12-09T21:10:16Z","","2023-02-06T21:50:03Z","1288","Last logon more than 180 days ago","Disable user"
-"prestonins83","prestonins83_yahoo.com#EXT#@pineywoodsfl.onmicrosoft.com","2023-11-03T19:49:02Z","","",,"No logon recorded","Disable user"
-"prestonins83c","prestonins83c_gmail.com#EXT#@pineywoodsfl.onmicrosoft.com","2021-08-30T14:32:56Z","2024-02-27T15:38:31Z","2024-02-27T15:38:31Z","903","Last logon more than 180 days ago","Disable user"
-"Prestonins83ss","Prestonins83ss_gmail.com#EXT#@pineywoodsfl.onmicrosoft.com","2022-01-20T21:55:44Z","","2022-01-21T14:06:55Z","1670","Last logon more than 180 days ago","Disable user"
-"Receptionist","admin@katzcapital.com","2021-02-01T19:31:17Z","2025-04-05T17:25:46Z","2025-04-05T17:25:46Z","500","Last logon more than 180 days ago","Disable user"
-"Scott King-Ellison","skingellison_campgrovestatebank.com#EXT#@pineywoodsfl.onmicrosoft.com","2025-02-24T17:17:16Z","2025-05-28T21:27:05Z","2025-05-28T21:27:05Z","446","Last logon more than 180 days ago","Disable user"
-"Test  Test","test1@katzcapital.com","2025-12-31T15:17:07Z","2026-01-08T17:00:20Z","2025-12-31T15:27:08Z","222","Last logon more than 180 days ago","Disable user"
+"Date","DisplayName","UPN","CreatedDate","LastSuccessfulLogonDate","LastNonInteractiveLogonDate","DaysAgo","UserLicenses","Issue","Action","ActionTaken"
+"2026-08-19","Alex LymandriveLLC","alexlymandrivellc@pineywoodstitle.com","2023-05-17T18:42:32Z","2025-02-27T16:44:49Z","2025-02-27T16:44:49Z","538",,"Last logon more than 180 days ago","Disable user",
+"2026-08-19","Amanda Berden","amanda.berden_opswat.com#EXT#@pineywoodsfl.onmicrosoft.com","2022-03-28T14:13:37Z","","2025-01-06T15:46:44Z","590",,"Last logon more than 180 days ago","Disable user",
+"2026-08-19","Beau Carver","6b38bc5b-49c8-4b7b-9dc5-d900680197dc@pineywoodsfl.onmicrosoft.com","2022-08-30T14:54:05Z","2026-02-18T15:24:38Z","2026-02-18T15:24:38Z","182",,"Last logon more than 180 days ago","Disable user",
+"2026-08-19","ben","ben_bit-wizards.com#EXT#@pineywoodsfl.onmicrosoft.com","2020-01-31T18:34:09Z","","",,,"No logon recorded","Disable user",
+"2026-08-19","cpollom","cpollom_butlerinsuranceagency.net#EXT#@pineywoodsfl.onmicrosoft.com","2022-01-20T22:00:22Z","","",,,"No logon recorded","Disable user",
+"2026-08-19","Katz AAD","katzaad@katzcapital.com","2021-10-18T15:46:42Z","","2021-10-18T16:36:49Z","1766",,"Last logon more than 180 days ago","Disable user",
+"2026-08-19","Kendra Hoffman","khoffman@katzcapital.com","2020-01-29T21:22:30Z","2025-09-08T16:42:26Z","2025-09-08T16:42:26Z","345","Azure Active Directory Premium P2,Microsoft Power Automate Free,O365 E3 (No Teams),Teams Enterprise","Last logon more than 180 days ago","Disable user",
+"2026-08-19","lbrandt","lbrandt_butlerinsuranceagency.com#EXT#@pineywoodsfl.onmicrosoft.com","2023-02-02T17:39:27Z","","",,,"No logon recorded","Disable user",
+"2026-08-19","Linda Brandt","lbrandt_butlerinsuranceagency.net#EXT#@pineywoodsfl.onmicrosoft.com","2022-01-20T22:01:09Z","","2024-07-08T17:47:48Z","772",,"Last logon more than 180 days ago","Disable user",
+"2026-08-19","Mike Lauter","mlauter_butlerinsuranceagency.net#EXT#@pineywoodsfl.onmicrosoft.com","2022-07-14T21:23:17Z","","2025-07-21T21:40:24Z","394",,"Last logon more than 180 days ago","Disable user",
+"2026-08-19","nkosmela@mail.usf.edu","nkosmela_mail.usf.edu#EXT#@pineywoodstitle.com","2017-04-03T21:31:16Z","","",,,"No logon recorded","Disable user",
+"2026-08-19","Pineywoods Office 365 Administrator","admin@pineywoodsfl.onmicrosoft.com","2015-12-09T21:10:16Z","","2023-02-06T21:50:03Z","1290",,"Last logon more than 180 days ago","Disable user",
+"2026-08-19","prestonins83","prestonins83_yahoo.com#EXT#@pineywoodsfl.onmicrosoft.com","2023-11-03T19:49:02Z","","",,,"No logon recorded","Disable user",
+"2026-08-19","prestonins83c","prestonins83c_gmail.com#EXT#@pineywoodsfl.onmicrosoft.com","2021-08-30T14:32:56Z","2024-02-27T15:38:31Z","2024-02-27T15:38:31Z","904",,"Last logon more than 180 days ago","Disable user",
+"2026-08-19","Prestonins83ss","Prestonins83ss_gmail.com#EXT#@pineywoodsfl.onmicrosoft.com","2022-01-20T21:55:44Z","","2022-01-21T14:06:55Z","1671",,"Last logon more than 180 days ago","Disable user",
+"2026-08-19","Receptionist","admin@katzcapital.com","2021-02-01T19:31:17Z","2025-04-05T17:25:46Z","2025-04-05T17:25:46Z","501","Azure Active Directory Premium P2,Microsoft Power Automate Free,O365 E3 (No Teams),Teams Enterprise","Last logon more than 180 days ago","Disable user",
+"2026-08-19","Scott King-Ellison","skingellison_campgrovestatebank.com#EXT#@pineywoodsfl.onmicrosoft.com","2025-02-24T17:17:16Z","2025-05-28T21:27:05Z","2025-05-28T21:27:05Z","448",,"Last logon more than 180 days ago","Disable user",
+"2026-08-19","Test  Test","test1@katzcapital.com","2025-12-31T15:17:07Z","2026-01-08T17:00:20Z","2025-12-31T15:27:08Z","223",,"Last logon more than 180 days ago","Disable user",

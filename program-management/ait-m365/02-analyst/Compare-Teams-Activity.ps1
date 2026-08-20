@@ -70,6 +70,7 @@ $Results = foreach ($Team in $Active) {
         $GroupInfo = $GroupById[$Team.TeamId]
 
         $Finding = [ordered]@{
+            Date             = $Now.ToString("yyyy-MM-dd")
             TeamName         = $Team.TeamName
             ActiveUsers      = $Team.ActiveUsers
             ActiveChannels   = $Team.ActiveChannels

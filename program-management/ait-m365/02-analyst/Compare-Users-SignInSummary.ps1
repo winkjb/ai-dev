@@ -41,6 +41,8 @@ if (-not $OutputPath) { $OutputPath = Join-Path $PSScriptRoot "output\$Directory
 . (Join-Path $PSScriptRoot "..\..\..\scripts\Functions-VA-Common.ps1")
 . (Join-Path $PSScriptRoot "..\..\..\scripts\Functions-Formatting-Common.ps1")
 
+$Now = Get-Date
+
 # --- load -----------------------------------------------------------------
 
 $Events = @(Import-Csv -LiteralPath $RawPath -Encoding UTF8)
@@ -78,6 +80,7 @@ $UnknownCount = @($Classified.Where({ $_.Outcome -eq "Unknown" })).Count
 function Get-Pct { param($Count, $Total) if ($Total -gt 0) { [math]::Round(($Count / $Total) * 100, 1) } else { 0 } }
 
 $OverallRow = [PSCustomObject][ordered]@{
+    Date               = $Now.ToString("yyyy-MM-dd")
     Day                = "TOTAL"
     TotalAttempts      = $Total
     Successful         = $SuccessCount
@@ -95,6 +98,7 @@ $ByDayRows = foreach ($Group in ($Classified | Where-Object { $_.Day } | Group-O
     $DayFailed = @($Group.Group.Where({ $_.Outcome -eq "Failed" })).Count
     $DayUnknown = @($Group.Group.Where({ $_.Outcome -eq "Unknown" })).Count
     [PSCustomObject][ordered]@{
+        Date          = $Now.ToString("yyyy-MM-dd")
         Day           = $Group.Name
         TotalAttempts = $DayTotal
         Successful    = $DaySuccess

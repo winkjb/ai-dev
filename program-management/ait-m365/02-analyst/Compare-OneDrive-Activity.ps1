@@ -63,6 +63,7 @@ $Results = foreach ($Site in $Active) {
         $StoragePercentage = if ($StorageMaxGb -gt 0) { [math]::Round(($StorageUsedGb / $StorageMaxGb) * 100) } else { $null }
 
         $Finding = [ordered]@{
+            Date              = $Now.ToString("yyyy-MM-dd")
             DisplayName       = $Site.OwnerDisplayName
             UPN               = $Site.OwnerPrincipalName
             ActiveFileCount   = $Site.ActiveFileCount

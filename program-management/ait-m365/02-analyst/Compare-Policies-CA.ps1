@@ -13,10 +13,11 @@
     script's definition (Microsoft ships several built-in template policies disabled by
     default, which otherwise clutter a from-scratch tenant's policy list).
 
-    By default these are kept in the output, marked via an IsMsTemplatePolicy column (only
-    appears in the output at all when at least one is kept, matching
-    ../02-analyst/Compare-Groups-Temp.ps1's IsExcluded convention) - pass -ExcludeMsPolicies
-    to drop them entirely instead, matching the original script's switch of the same name.
+    -ExcludeMsPolicies defaults to $true - matches the original katz/Invoke-PolicyAudit-CA-Default.ps1
+    script's real production default, which dropped these entirely rather than reporting them.
+    Pass -ExcludeMsPolicies:$false to keep them in the output instead, marked via an
+    IsMsTemplatePolicy column (only appears in the output at all when at least one is kept,
+    matching ../02-analyst/Compare-Groups-Temp.ps1's IsExcluded convention).
 
 .EXAMPLE
     .\Compare-Policies-CA.ps1 -Directory katz
@@ -33,7 +34,7 @@ param(
     [string]$PoliciesPath,
     [string]$OutputPath,
 
-    [switch]$ExcludeMsPolicies
+    [switch]$ExcludeMsPolicies = $true
 )
 
 if (-not $UsersPath)    { $UsersPath    = Join-Path $PSScriptRoot "..\data\raw\$Directory\EntraUsers-CA.csv" }
@@ -44,6 +45,8 @@ if (-not $OutputPath)   { $OutputPath   = Join-Path $PSScriptRoot "output\$Direc
 
 . (Join-Path $PSScriptRoot "..\..\..\scripts\Functions-VA-Common.ps1")
 . (Join-Path $PSScriptRoot "..\..\..\scripts\Functions-Formatting-Common.ps1")
+
+$Now = Get-Date
 
 # --- load -----------------------------------------------------------------
 
@@ -87,6 +90,7 @@ $Results = foreach ($Policy in $Policies) {
     if ($IsMsTemplatePolicy -and $ExcludeMsPolicies) { continue }
 
     $Finding = [ordered]@{
+        Date           = $Now.ToString("yyyy-MM-dd")
         DisplayName    = $Policy.DisplayName
         State          = $Policy.State
         IncludedUsers  = Resolve-PrincipalNames -CsvValue $Policy.IncludeUsers -NameById $PrincipalNameById

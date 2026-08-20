@@ -135,6 +135,7 @@ $Results = foreach ($Group in $AdminGroups) {
             if (($AdminType -eq "User") -and ($DisplayName -notmatch "Proofpoint Essentials|Quest On Demand") -and ($DisplayName -notlike "*admin*") -and ($UPN -notmatch "admin|servit")) { $Issues.Add("Escalated user account") }
 
             [PSCustomObject][ordered]@{
+                Date                         = $Now.ToString("yyyy-MM-dd")
                 Group                        = $Group
                 DisplayName                  = $DisplayName
                 UPN                          = $UPN

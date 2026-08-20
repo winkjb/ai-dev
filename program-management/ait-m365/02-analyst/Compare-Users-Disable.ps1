@@ -48,6 +48,7 @@ param(
     [int]$LessThanDays = 180,
 
     [string]$UsersPath,
+    [string]$LicenseCatalogPath,
     [string]$MailboxPurposePath,
     [string]$ExclusionsPath,
     [string]$OutputPath,
@@ -61,6 +62,7 @@ param(
 )
 
 if (-not $UsersPath)          { $UsersPath          = Join-Path $PSScriptRoot "..\data\raw\$Directory\EntraUsers.csv" }
+if (-not $LicenseCatalogPath) { $LicenseCatalogPath = Join-Path $PSScriptRoot "..\data\raw\$Directory\EntraLicenses-Usage.csv" }
 if (-not $MailboxPurposePath) { $MailboxPurposePath = Join-Path $PSScriptRoot "..\data\raw\$Directory\EntraMailboxPurpose-AccessDisable.csv" }
 if (-not $ExclusionsPath)     { $ExclusionsPath     = Join-Path $PSScriptRoot "..\data\reference\$Directory\excluded-inactive-users.csv" }
 if (-not $OutputPath)         { $OutputPath         = Join-Path $PSScriptRoot "output\$Directory\UserAudit-Disable.csv" }
@@ -99,11 +101,15 @@ if ($ListCandidateUpns) {
 # --- flag (mailbox-purpose data needed from here on) -------------------------------------------------------------------
 
 $MailboxPurposeRows = @(Import-Csv -LiteralPath $MailboxPurposePath -Encoding UTF8)
+$Catalog = @(Import-Csv -LiteralPath $LicenseCatalogPath -Encoding UTF8)
 $ExclusionRows = if (Test-Path -LiteralPath $ExclusionsPath) { @(Import-Csv -LiteralPath $ExclusionsPath -Encoding UTF8) } else { @() }
 $ExcludedUpns = @($ExclusionRows | ForEach-Object { $_.UPN } | Where-Object { $_ })
 
 $PurposeByUpn = @{}
 foreach ($Row in $MailboxPurposeRows) { $PurposeByUpn[$Row.UPN] = $Row.Purpose }
+
+$SkuNameById = @{}
+foreach ($License in $Catalog) { $SkuNameById[$License.SkuId] = $License.SkuPartNumber }
 
 $CountExclusions = 0
 $CountResourceMailboxes = 0
@@ -124,15 +130,22 @@ $Results = foreach ($Candidate in $Candidates) {
 
     if (-not $IsExcluded -or $IncludeExclusions) {
 
+        $UserLicenses = if ($User.AssignedSkuIds) {
+            (($User.AssignedSkuIds -split ",") | ForEach-Object { Get-FriendlyLicenseName -sku $SkuNameById[$_] } | Sort-Object) -join ","
+        } else { $null }
+
         $Finding = [ordered]@{
-            DisplayName                 = $User.DisplayName
-            UPN                         = $User.UserPrincipalName
-            CreatedDate                 = $User.CreatedDate
-            LastSuccessfulLogonDate     = $User.LastSuccessfulSignInDateTime
-            LastNonInteractiveLogonDate = $User.LastNonInteractiveSignInDateTime
-            LoginDaysAgo                = $LoginDaysAgo
-            Issue                       = if ($null -eq $LoginDaysAgo) { "No logon recorded" } else { "Last logon more than $LessThanDays days ago" }
-            Action                      = "Disable user"
+            Date                         = $Now.ToString("yyyy-MM-dd")
+            DisplayName                  = $User.DisplayName
+            UPN                          = $User.UserPrincipalName
+            CreatedDate                  = $User.CreatedDate
+            LastSuccessfulLogonDate      = $User.LastSuccessfulSignInDateTime
+            LastNonInteractiveLogonDate  = $User.LastNonInteractiveSignInDateTime
+            DaysAgo                      = $LoginDaysAgo
+            UserLicenses                 = $UserLicenses
+            Issue                        = if ($null -eq $LoginDaysAgo) { "No logon recorded" } else { "Last logon more than $LessThanDays days ago" }
+            Action                       = "Disable user"
+            ActionTaken                  = $null
         }
         if ($IncludeExclusions) { $Finding.Excluded = if ($IsExcluded) { "Y" } else { $null } }
         [PSCustomObject]$Finding

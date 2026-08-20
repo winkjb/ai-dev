@@ -61,11 +61,12 @@ $Results = foreach ($Group in $Flagged) {
 
     if (-not $IsExcluded -or $IncludeExclusions) {
         $Finding = [ordered]@{
+            Date        = $Now.ToString("yyyy-MM-dd")
             DisplayName = $Group.DisplayName
-            Mail        = $Group.Mail
+            Email       = $Group.Mail
             CreatedDate = $Group.CreatedDate
             DaysAgo     = Get-DaysSince -Value $Group.CreatedDate -Reference $Now
-            GroupTypes  = $Group.GroupTypes
+            GroupType   = $Group.GroupTypes
         }
         if ($IncludeExclusions) { $Finding.IsExcluded = if ($IsExcluded) {"Y"} else {$null} }
         [PSCustomObject]$Finding

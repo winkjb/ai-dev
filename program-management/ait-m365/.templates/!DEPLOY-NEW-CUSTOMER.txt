@@ -1,0 +1,43 @@
+╔══════════════════════════════════════════════════════════════╗
+║   N E W   M 3 6 5   C U S T O M E R   —   D E P L O Y M E N T   ║
+╚══════════════════════════════════════════════════════════════╝
+
+  [ ] 1.  Set up the Graph API app registration in the customer's
+          tenant, then encrypt the credentials into M365Settings.txt.
+          >> Import-Settings only ever reads the encrypted .txt —
+             the .csv in this template is a plaintext staging copy,
+             never read at runtime.
+
+  [ ] 2.  Add a row for the customer in:
+             data\reference\CustomerMap.csv
+          columns: CustomerName, Directory, SharepointFolder, FromAddress
+          >> Map-Customer keys off this file. Skip it and every
+             wrapper script below fails to resolve the customer.
+
+  [ ] 3.  Copy root-customerfolder\*.ps1 into:
+             program-management\ait-m365\<customer-directory>\
+          >> In every copied script, replace:
+               $CustomerName = "TBD"
+               $ToAddresses  = @("placeholder@servit.net")
+             with the real customer name + recipient list.
+
+  [ ] 4.  Copy root-data-reference-customerfolder\*.csv into:
+             program-management\ait-m365\data\reference\<customer-directory>\
+          >> Fill in the real M365Settings.csv values from step 1
+             (or just delete it once the encrypted .txt exists —
+             only the .txt is actually used).
+          >> Exclusion lists come pre-blanked and ready to go —
+             populate only the ones this customer actually needs.
+
+  [ ] 5.  If/when this customer's audits should run on a schedule,
+          add entries to:
+             data\input\ScriptManifest.csv
+          for the central dispatcher (Invoke-ScheduledScripts.ps1).
+          >> Not required to onboard — no M365 audits are in the
+             manifest yet, for any customer. Every audit runs fine
+             standalone (.\Invoke-X.ps1) until scheduling is wired up.
+
+──────────────────────────────────────────────────────────────────
+  Reference: program-management\ait-m365\katz\ is the clean,
+  fully-built example to compare against if anything looks off.
+──────────────────────────────────────────────────────────────────
