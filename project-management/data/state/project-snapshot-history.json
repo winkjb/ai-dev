@@ -1,1298 +1,1821 @@
 {
     "4084":  {
-                 "Task":  {
-                              "FirstSeen":  "2026-08-09",
-                              "LastChanged":  null,
-                              "Value":  4.17
-                          },
                  "Hours":  {
                                "FirstSeen":  "2026-08-09",
                                "LastChanged":  null,
                                "Value":  18.49
-                           }
-             },
-    "4087":  {
+                           },
+                 "ActualHours":  {
+                                     "FirstSeen":  "2026-08-20",
+                                     "LastChanged":  null,
+                                     "Value":  24.22
+                                 },
                  "Task":  {
                               "FirstSeen":  "2026-08-09",
                               "LastChanged":  null,
-                              "Value":  35.14
-                          },
+                              "Value":  4.17
+                          }
+             },
+    "4087":  {
                  "Hours":  {
                                "FirstSeen":  "2026-08-09",
                                "LastChanged":  null,
                                "Value":  275.18
-                           }
+                           },
+                 "ActualHours":  {
+                                     "FirstSeen":  "2026-08-20",
+                                     "LastChanged":  null,
+                                     "Value":  123.83
+                                 },
+                 "Task":  {
+                              "FirstSeen":  "2026-08-09",
+                              "LastChanged":  null,
+                              "Value":  35.14
+                          }
              },
     "4089":  {
+                 "Hours":  {
+                               "FirstSeen":  "2026-08-09",
+                               "LastChanged":  "2026-08-20",
+                               "Value":  378.31
+                           },
+                 "ActualHours":  {
+                                     "FirstSeen":  "2026-08-20",
+                                     "LastChanged":  null,
+                                     "Value":  132.41
+                                 },
                  "Task":  {
                               "FirstSeen":  "2026-08-09",
                               "LastChanged":  null,
                               "Value":  50
-                          },
-                 "Hours":  {
-                               "FirstSeen":  "2026-08-09",
-                               "LastChanged":  null,
-                               "Value":  336.31
-                           }
+                          }
              },
     "4090":  {
-                 "Task":  {
-                              "FirstSeen":  "2026-08-09",
-                              "LastChanged":  null,
-                              "Value":  13.64
-                          },
                  "Hours":  {
                                "FirstSeen":  "2026-08-09",
                                "LastChanged":  null,
                                "Value":  12.73
-                           }
-             },
-    "4139":  {
+                           },
+                 "ActualHours":  {
+                                     "FirstSeen":  "2026-08-20",
+                                     "LastChanged":  null,
+                                     "Value":  9.8
+                                 },
                  "Task":  {
                               "FirstSeen":  "2026-08-09",
                               "LastChanged":  null,
-                              "Value":  95.83
-                          },
+                              "Value":  13.64
+                          }
+             },
+    "4139":  {
                  "Hours":  {
                                "FirstSeen":  "2026-08-09",
                                "LastChanged":  null,
                                "Value":  236.8
-                           }
-             },
-    "4206":  {
+                           },
+                 "ActualHours":  {
+                                     "FirstSeen":  "2026-08-20",
+                                     "LastChanged":  null,
+                                     "Value":  35.52
+                                 },
                  "Task":  {
                               "FirstSeen":  "2026-08-09",
                               "LastChanged":  null,
-                              "Value":  48
-                          },
+                              "Value":  95.83
+                          }
+             },
+    "4206":  {
                  "Hours":  {
                                "FirstSeen":  "2026-08-09",
                                "LastChanged":  null,
                                "Value":  42.62
-                           }
-             },
-    "4257":  {
-                 "Task":  {
-                              "FirstSeen":  "2026-08-09",
-                              "LastChanged":  null,
-                              "Value":  4.35
-                          },
-                 "Hours":  {
-                               "FirstSeen":  "2026-08-09",
-                               "LastChanged":  null,
-                               "Value":  188.82
-                           }
-             },
-    "4290":  {
-                 "Task":  {
-                              "FirstSeen":  "2026-08-09",
-                              "LastChanged":  null,
-                              "Value":  57.78
-                          },
-                 "Hours":  {
-                               "FirstSeen":  "2026-08-09",
-                               "LastChanged":  null,
-                               "Value":  0
-                           }
-             },
-    "4327":  {
-                 "Task":  {
-                              "FirstSeen":  "2026-08-09",
-                              "LastChanged":  null,
-                              "Value":  80
-                          },
-                 "Hours":  {
-                               "FirstSeen":  "2026-08-09",
-                               "LastChanged":  null,
-                               "Value":  42.15
-                           }
-             },
-    "4344":  {
-                 "Task":  {
-                              "FirstSeen":  "2026-08-09",
-                              "LastChanged":  null,
-                              "Value":  7.14
-                          },
-                 "Hours":  {
-                               "FirstSeen":  "2026-08-09",
-                               "LastChanged":  null,
-                               "Value":  18.92
-                           }
-             },
-    "4347":  {
-                 "Task":  {
-                              "FirstSeen":  "2026-08-09",
-                              "LastChanged":  null,
-                              "Value":  16.67
-                          },
-                 "Hours":  {
-                               "FirstSeen":  "2026-08-09",
-                               "LastChanged":  null,
-                               "Value":  86.36
-                           }
-             },
-    "4371":  {
-                 "Task":  {
-                              "FirstSeen":  "2026-08-09",
-                              "LastChanged":  null,
-                              "Value":  12
-                          },
-                 "Hours":  {
-                               "FirstSeen":  "2026-08-09",
-                               "LastChanged":  null,
-                               "Value":  38.82
-                           }
-             },
-    "4438":  {
-                 "Task":  {
-                              "FirstSeen":  "2026-08-09",
-                              "LastChanged":  null,
-                              "Value":  31.82
-                          },
-                 "Hours":  {
-                               "FirstSeen":  "2026-08-09",
-                               "LastChanged":  null,
-                               "Value":  0
-                           }
-             },
-    "4452":  {
-                 "Task":  {
-                              "FirstSeen":  "2026-08-09",
-                              "LastChanged":  null,
-                              "Value":  91.67
-                          },
-                 "Hours":  {
-                               "FirstSeen":  "2026-08-09",
-                               "LastChanged":  null,
-                               "Value":  0
-                           }
-             },
-    "4497":  {
-                 "Task":  {
-                              "FirstSeen":  "2026-08-09",
-                              "LastChanged":  null,
-                              "Value":  41.67
-                          },
-                 "Hours":  {
-                               "FirstSeen":  "2026-08-09",
-                               "LastChanged":  null,
-                               "Value":  82.35
-                           }
-             },
-    "4537":  {
-                 "Task":  {
-                              "FirstSeen":  "2026-08-09",
-                              "LastChanged":  null,
-                              "Value":  87.5
-                          },
-                 "Hours":  {
-                               "FirstSeen":  "2026-08-09",
-                               "LastChanged":  null,
-                               "Value":  0
-                           }
-             },
-    "4541":  {
-                 "Task":  {
-                              "FirstSeen":  "2026-08-09",
-                              "LastChanged":  null,
-                              "Value":  40.82
-                          },
-                 "Hours":  {
-                               "FirstSeen":  "2026-08-09",
-                               "LastChanged":  null,
-                               "Value":  11.33
-                           }
-             },
-    "4553":  {
-                 "Task":  {
-                              "FirstSeen":  "2026-08-09",
-                              "LastChanged":  null,
-                              "Value":  10.81
-                          },
-                 "Hours":  {
-                               "FirstSeen":  "2026-08-09",
-                               "LastChanged":  null,
-                               "Value":  0
-                           }
-             },
-    "4554":  {
-                 "Task":  {
-                              "FirstSeen":  "2026-08-09",
-                              "LastChanged":  null,
-                              "Value":  6.67
-                          },
-                 "Hours":  {
-                               "FirstSeen":  "2026-08-09",
-                               "LastChanged":  null,
-                               "Value":  0
-                           }
-             },
-    "4580":  {
-                 "Task":  {
-                              "FirstSeen":  "2026-08-09",
-                              "LastChanged":  null,
-                              "Value":  12.5
-                          },
-                 "Hours":  {
-                               "FirstSeen":  "2026-08-09",
-                               "LastChanged":  null,
-                               "Value":  17.65
-                           }
-             },
-    "4582":  {
-                 "Task":  {
-                              "FirstSeen":  "2026-08-09",
-                              "LastChanged":  null,
-                              "Value":  22.73
-                          },
-                 "Hours":  {
-                               "FirstSeen":  "2026-08-09",
-                               "LastChanged":  null,
-                               "Value":  115.79
-                           }
-             },
-    "4584":  {
-                 "Task":  {
-                              "FirstSeen":  "2026-08-09",
-                              "LastChanged":  null,
-                              "Value":  15.79
-                          },
-                 "Hours":  {
-                               "FirstSeen":  "2026-08-09",
-                               "LastChanged":  null,
-                               "Value":  66.67
-                           }
-             },
-    "4599":  {
-                 "Task":  {
-                              "FirstSeen":  "2026-08-09",
-                              "LastChanged":  null,
-                              "Value":  77.78
-                          },
-                 "Hours":  {
-                               "FirstSeen":  "2026-08-09",
-                               "LastChanged":  null,
-                               "Value":  0
-                           }
-             },
-    "4614":  {
-                 "Task":  {
-                              "FirstSeen":  "2026-08-09",
-                              "LastChanged":  null,
-                              "Value":  10.53
-                          },
-                 "Hours":  {
-                               "FirstSeen":  "2026-08-09",
-                               "LastChanged":  null,
-                               "Value":  116.08
-                           }
-             },
-    "4627":  {
-                 "Task":  {
-                              "FirstSeen":  "2026-08-09",
-                              "LastChanged":  null,
-                              "Value":  11.54
-                          },
-                 "Hours":  {
-                               "FirstSeen":  "2026-08-09",
-                               "LastChanged":  null,
-                               "Value":  81.25
-                           }
-             },
-    "4633":  {
-                 "Task":  {
-                              "FirstSeen":  "2026-08-09",
-                              "LastChanged":  null,
-                              "Value":  30
-                          },
-                 "Hours":  {
-                               "FirstSeen":  "2026-08-09",
-                               "LastChanged":  null,
-                               "Value":  196.25
-                           }
-             },
-    "4636":  {
-                 "Task":  {
-                              "FirstSeen":  "2026-08-09",
-                              "LastChanged":  null,
-                              "Value":  18.75
-                          },
-                 "Hours":  {
-                               "FirstSeen":  "2026-08-09",
-                               "LastChanged":  null,
-                               "Value":  13.64
-                           }
-             },
-    "4657":  {
-                 "Task":  {
-                              "FirstSeen":  "2026-08-09",
-                              "LastChanged":  null,
-                              "Value":  13.79
-                          },
-                 "Hours":  {
-                               "FirstSeen":  "2026-08-09",
-                               "LastChanged":  null,
-                               "Value":  0
-                           }
-             },
-    "4661":  {
-                 "Task":  {
-                              "FirstSeen":  "2026-08-09",
-                              "LastChanged":  null,
-                              "Value":  22.73
-                          },
-                 "Hours":  {
-                               "FirstSeen":  "2026-08-09",
-                               "LastChanged":  null,
-                               "Value":  144.44
-                           }
-             },
-    "4665":  {
-                 "Task":  {
-                              "FirstSeen":  "2026-08-09",
-                              "LastChanged":  null,
-                              "Value":  50
-                          },
-                 "Hours":  {
-                               "FirstSeen":  "2026-08-09",
-                               "LastChanged":  null,
-                               "Value":  0
-                           }
-             },
-    "4693":  {
-                 "Task":  {
-                              "FirstSeen":  "2026-08-09",
-                              "LastChanged":  null,
-                              "Value":  23.81
-                          },
-                 "Hours":  {
-                               "FirstSeen":  "2026-08-09",
-                               "LastChanged":  null,
-                               "Value":  0
-                           }
-             },
-    "4702":  {
-                 "Task":  {
-                              "FirstSeen":  "2026-08-09",
-                              "LastChanged":  null,
-                              "Value":  11.76
-                          },
-                 "Hours":  {
-                               "FirstSeen":  "2026-08-09",
-                               "LastChanged":  null,
-                               "Value":  16.67
-                           }
-             },
-    "4703":  {
-                 "Task":  {
-                              "FirstSeen":  "2026-08-09",
-                              "LastChanged":  null,
-                              "Value":  9.09
-                          },
-                 "Hours":  {
-                               "FirstSeen":  "2026-08-09",
-                               "LastChanged":  null,
-                               "Value":  0
-                           }
-             },
-    "4710":  {
-                 "Task":  {
-                              "FirstSeen":  "2026-08-09",
-                              "LastChanged":  null,
-                              "Value":  5.88
-                          },
-                 "Hours":  {
-                               "FirstSeen":  "2026-08-09",
-                               "LastChanged":  null,
-                               "Value":  0
-                           }
-             },
-    "4711":  {
-                 "Task":  {
-                              "FirstSeen":  "2026-08-09",
-                              "LastChanged":  null,
-                              "Value":  2.74
-                          },
-                 "Hours":  {
-                               "FirstSeen":  "2026-08-09",
-                               "LastChanged":  null,
-                               "Value":  99.46
-                           }
-             },
-    "4717":  {
-                 "Task":  {
-                              "FirstSeen":  "2026-08-09",
-                              "LastChanged":  null,
-                              "Value":  16.67
-                          },
-                 "Hours":  {
-                               "FirstSeen":  "2026-08-09",
-                               "LastChanged":  null,
-                               "Value":  117.69
-                           }
-             },
-    "4728":  {
-                 "Task":  {
-                              "FirstSeen":  "2026-08-09",
-                              "LastChanged":  null,
-                              "Value":  7.32
-                          },
-                 "Hours":  {
-                               "FirstSeen":  "2026-08-09",
-                               "LastChanged":  null,
-                               "Value":  0
-                           }
-             },
-    "4731":  {
-                 "Task":  {
-                              "FirstSeen":  "2026-08-09",
-                              "LastChanged":  null,
-                              "Value":  8
-                          },
-                 "Hours":  {
-                               "FirstSeen":  "2026-08-09",
-                               "LastChanged":  null,
-                               "Value":  229.74
-                           }
-             },
-    "4733":  {
-                 "Task":  {
-                              "FirstSeen":  "2026-08-09",
-                              "LastChanged":  null,
-                              "Value":  18.18
-                          },
-                 "Hours":  {
-                               "FirstSeen":  "2026-08-09",
-                               "LastChanged":  null,
-                               "Value":  70
-                           }
-             },
-    "4736":  {
-                 "Task":  {
-                              "FirstSeen":  "2026-08-09",
-                              "LastChanged":  null,
-                              "Value":  6.45
-                          },
-                 "Hours":  {
-                               "FirstSeen":  "2026-08-09",
-                               "LastChanged":  null,
-                               "Value":  0
-                           }
-             },
-    "4737":  {
-                 "Task":  {
-                              "FirstSeen":  "2026-08-09",
-                              "LastChanged":  "2026-08-11",
-                              "Value":  4.76
-                          },
-                 "Hours":  {
-                               "FirstSeen":  "2026-08-09",
-                               "LastChanged":  null,
-                               "Value":  0
-                           }
-             },
-    "4749":  {
-                 "Task":  {
-                              "FirstSeen":  "2026-08-09",
-                              "LastChanged":  null,
-                              "Value":  44.44
-                          },
-                 "Hours":  {
-                               "FirstSeen":  "2026-08-09",
-                               "LastChanged":  null,
-                               "Value":  0.45
-                           }
-             },
-    "4751":  {
-                 "Task":  {
-                              "FirstSeen":  "2026-08-09",
-                              "LastChanged":  null,
-                              "Value":  2.72
-                          },
-                 "Hours":  {
-                               "FirstSeen":  "2026-08-09",
-                               "LastChanged":  null,
-                               "Value":  2.98
-                           }
-             },
-    "4752":  {
-                 "Task":  {
-                              "FirstSeen":  "2026-08-09",
-                              "LastChanged":  null,
-                              "Value":  4
-                          },
-                 "Hours":  {
-                               "FirstSeen":  "2026-08-09",
-                               "LastChanged":  null,
-                               "Value":  0
-                           }
-             },
-    "4754":  {
-                 "Task":  {
-                              "FirstSeen":  "2026-08-09",
-                              "LastChanged":  null,
-                              "Value":  3.4
-                          },
-                 "Hours":  {
-                               "FirstSeen":  "2026-08-09",
-                               "LastChanged":  null,
-                               "Value":  0
-                           }
-             },
-    "4770":  {
-                 "Task":  {
-                              "FirstSeen":  "2026-08-09",
-                              "LastChanged":  null,
-                              "Value":  73.68
-                          },
-                 "Hours":  {
-                               "FirstSeen":  "2026-08-09",
-                               "LastChanged":  null,
-                               "Value":  0
-                           }
-             },
-    "4773":  {
-                 "Task":  {
-                              "FirstSeen":  "2026-08-09",
-                              "LastChanged":  null,
-                              "Value":  4.76
-                          },
-                 "Hours":  {
-                               "FirstSeen":  "2026-08-09",
-                               "LastChanged":  null,
-                               "Value":  96
-                           }
-             },
-    "4774":  {
-                 "Task":  {
-                              "FirstSeen":  "2026-08-09",
-                              "LastChanged":  null,
-                              "Value":  34.48
-                          },
-                 "Hours":  {
-                               "FirstSeen":  "2026-08-09",
-                               "LastChanged":  null,
-                               "Value":  78.04
-                           }
-             },
-    "4783":  {
-                 "Task":  {
-                              "FirstSeen":  "2026-08-09",
-                              "LastChanged":  null,
-                              "Value":  8.33
-                          },
-                 "Hours":  {
-                               "FirstSeen":  "2026-08-09",
-                               "LastChanged":  null,
-                               "Value":  0
-                           }
-             },
-    "4788":  {
-                 "Task":  {
-                              "FirstSeen":  "2026-08-09",
-                              "LastChanged":  null,
-                              "Value":  17.39
-                          },
-                 "Hours":  {
-                               "FirstSeen":  "2026-08-09",
-                               "LastChanged":  null,
-                               "Value":  0
-                           }
-             },
-    "4791":  {
-                 "Task":  {
-                              "FirstSeen":  "2026-08-09",
-                              "LastChanged":  null,
-                              "Value":  0
-                          },
-                 "Hours":  {
-                               "FirstSeen":  "2026-08-09",
-                               "LastChanged":  null,
-                               "Value":  0
-                           }
-             },
-    "4794":  {
-                 "Task":  {
-                              "FirstSeen":  "2026-08-09",
-                              "LastChanged":  null,
-                              "Value":  23.53
-                          },
-                 "Hours":  {
-                               "FirstSeen":  "2026-08-09",
-                               "LastChanged":  null,
-                               "Value":  0
-                           }
-             },
-    "4796":  {
-                 "Task":  {
-                              "FirstSeen":  "2026-08-09",
-                              "LastChanged":  null,
-                              "Value":  2.08
-                          },
-                 "Hours":  {
-                               "FirstSeen":  "2026-08-09",
-                               "LastChanged":  null,
-                               "Value":  175.48
-                           }
-             },
-    "4799":  {
-                 "Task":  {
-                              "FirstSeen":  "2026-08-09",
-                              "LastChanged":  null,
-                              "Value":  2.5
-                          },
-                 "Hours":  {
-                               "FirstSeen":  "2026-08-09",
-                               "LastChanged":  null,
-                               "Value":  23.87
-                           }
-             },
-    "4800":  {
-                 "Task":  {
-                              "FirstSeen":  "2026-08-09",
-                              "LastChanged":  null,
-                              "Value":  92.86
-                          },
-                 "Hours":  {
-                               "FirstSeen":  "2026-08-09",
-                               "LastChanged":  null,
-                               "Value":  0
-                           }
-             },
-    "4807":  {
-                 "Task":  {
-                              "FirstSeen":  "2026-08-09",
-                              "LastChanged":  null,
-                              "Value":  11.76
-                          },
-                 "Hours":  {
-                               "FirstSeen":  "2026-08-09",
-                               "LastChanged":  null,
-                               "Value":  0
-                           }
-             },
-    "4808":  {
-                 "Task":  {
-                              "FirstSeen":  "2026-08-09",
-                              "LastChanged":  null,
-                              "Value":  0
-                          },
-                 "Hours":  {
-                               "FirstSeen":  "2026-08-09",
-                               "LastChanged":  null,
-                               "Value":  0
-                           }
-             },
-    "4813":  {
-                 "Task":  {
-                              "FirstSeen":  "2026-08-09",
-                              "LastChanged":  null,
-                              "Value":  22.22
-                          },
-                 "Hours":  {
-                               "FirstSeen":  "2026-08-09",
-                               "LastChanged":  null,
-                               "Value":  640.63
-                           }
-             },
-    "4819":  {
-                 "Task":  {
-                              "FirstSeen":  "2026-08-09",
-                              "LastChanged":  null,
-                              "Value":  16.67
-                          },
-                 "Hours":  {
-                               "FirstSeen":  "2026-08-09",
-                               "LastChanged":  null,
-                               "Value":  62.73
-                           }
-             },
-    "4820":  {
-                 "Task":  {
-                              "FirstSeen":  "2026-08-09",
-                              "LastChanged":  null,
-                              "Value":  5.88
-                          },
-                 "Hours":  {
-                               "FirstSeen":  "2026-08-09",
-                               "LastChanged":  null,
-                               "Value":  0
-                           }
-             },
-    "4824":  {
-                 "Task":  {
-                              "FirstSeen":  "2026-08-09",
-                              "LastChanged":  null,
-                              "Value":  4.76
-                          },
-                 "Hours":  {
-                               "FirstSeen":  "2026-08-09",
-                               "LastChanged":  null,
-                               "Value":  105
-                           }
-             },
-    "4825":  {
-                 "Task":  {
-                              "FirstSeen":  "2026-08-09",
-                              "LastChanged":  null,
-                              "Value":  14.29
-                          },
-                 "Hours":  {
-                               "FirstSeen":  "2026-08-09",
-                               "LastChanged":  null,
-                               "Value":  50
-                           }
-             },
-    "4826":  {
-                 "Task":  {
-                              "FirstSeen":  "2026-08-09",
-                              "LastChanged":  null,
-                              "Value":  8.33
-                          },
-                 "Hours":  {
-                               "FirstSeen":  "2026-08-09",
-                               "LastChanged":  null,
-                               "Value":  0
-                           }
-             },
-    "4832":  {
-                 "Task":  {
-                              "FirstSeen":  "2026-08-09",
-                              "LastChanged":  null,
-                              "Value":  10
-                          },
-                 "Hours":  {
-                               "FirstSeen":  "2026-08-09",
-                               "LastChanged":  null,
-                               "Value":  0
-                           }
-             },
-    "4841":  {
-                 "Task":  {
-                              "FirstSeen":  "2026-08-09",
-                              "LastChanged":  null,
-                              "Value":  17.65
-                          },
-                 "Hours":  {
-                               "FirstSeen":  "2026-08-09",
-                               "LastChanged":  null,
-                               "Value":  0
-                           }
-             },
-    "4842":  {
-                 "Task":  {
-                              "FirstSeen":  "2026-08-09",
-                              "LastChanged":  null,
-                              "Value":  9.52
-                          },
-                 "Hours":  {
-                               "FirstSeen":  "2026-08-09",
-                               "LastChanged":  null,
-                               "Value":  0
-                           }
-             },
-    "4843":  {
-                 "Task":  {
-                              "FirstSeen":  "2026-08-09",
-                              "LastChanged":  null,
-                              "Value":  31.25
-                          },
-                 "Hours":  {
-                               "FirstSeen":  "2026-08-09",
-                               "LastChanged":  null,
-                               "Value":  0
-                           }
-             },
-    "4844":  {
-                 "Task":  {
-                              "FirstSeen":  "2026-08-09",
-                              "LastChanged":  null,
-                              "Value":  8
-                          },
-                 "Hours":  {
-                               "FirstSeen":  "2026-08-09",
-                               "LastChanged":  null,
-                               "Value":  0
-                           }
-             },
-    "4847":  {
-                 "Task":  {
-                              "FirstSeen":  "2026-08-09",
-                              "LastChanged":  null,
-                              "Value":  5.88
-                          },
-                 "Hours":  {
-                               "FirstSeen":  "2026-08-09",
-                               "LastChanged":  null,
-                               "Value":  0
-                           }
-             },
-    "4853":  {
-                 "Task":  {
-                              "FirstSeen":  "2026-08-09",
-                              "LastChanged":  null,
-                              "Value":  4.55
-                          },
-                 "Hours":  {
-                               "FirstSeen":  "2026-08-09",
-                               "LastChanged":  null,
-                               "Value":  28.89
-                           }
-             },
-    "4854":  {
-                 "Task":  {
-                              "FirstSeen":  "2026-08-09",
-                              "LastChanged":  null,
-                              "Value":  4.55
-                          },
-                 "Hours":  {
-                               "FirstSeen":  "2026-08-09",
-                               "LastChanged":  null,
-                               "Value":  185
-                           }
-             },
-    "4855":  {
-                 "Task":  {
-                              "FirstSeen":  "2026-08-09",
-                              "LastChanged":  null,
-                              "Value":  4.76
-                          },
-                 "Hours":  {
-                               "FirstSeen":  "2026-08-09",
-                               "LastChanged":  null,
-                               "Value":  0
-                           }
-             },
-    "4856":  {
-                 "Task":  {
-                              "FirstSeen":  "2026-08-09",
-                              "LastChanged":  null,
-                              "Value":  16
-                          },
-                 "Hours":  {
-                               "FirstSeen":  "2026-08-09",
-                               "LastChanged":  null,
-                               "Value":  54.17
-                           }
-             },
-    "4859":  {
-                 "Task":  {
-                              "FirstSeen":  "2026-08-09",
-                              "LastChanged":  null,
-                              "Value":  29.41
-                          },
-                 "Hours":  {
-                               "FirstSeen":  "2026-08-09",
-                               "LastChanged":  null,
-                               "Value":  0
-                           }
-             },
-    "4862":  {
-                 "Task":  {
-                              "FirstSeen":  "2026-08-09",
-                              "LastChanged":  null,
-                              "Value":  9.09
-                          },
-                 "Hours":  {
-                               "FirstSeen":  "2026-08-09",
-                               "LastChanged":  null,
-                               "Value":  75
-                           }
-             },
-    "4867":  {
-                 "Task":  {
-                              "FirstSeen":  "2026-08-09",
-                              "LastChanged":  null,
-                              "Value":  5.88
-                          },
-                 "Hours":  {
-                               "FirstSeen":  "2026-08-09",
-                               "LastChanged":  null,
-                               "Value":  0
-                           }
-             },
-    "4868":  {
-                 "Task":  {
-                              "FirstSeen":  "2026-08-09",
-                              "LastChanged":  null,
-                              "Value":  36.36
-                          },
-                 "Hours":  {
-                               "FirstSeen":  "2026-08-09",
-                               "LastChanged":  null,
-                               "Value":  7.05
-                           }
-             },
-    "4870":  {
-                 "Task":  {
-                              "FirstSeen":  "2026-08-09",
-                              "LastChanged":  null,
-                              "Value":  4.76
-                          },
-                 "Hours":  {
-                               "FirstSeen":  "2026-08-09",
-                               "LastChanged":  null,
-                               "Value":  0
-                           }
-             },
-    "4871":  {
-                 "Task":  {
-                              "FirstSeen":  "2026-08-09",
-                              "LastChanged":  null,
-                              "Value":  14.29
-                          },
-                 "Hours":  {
-                               "FirstSeen":  "2026-08-09",
-                               "LastChanged":  null,
-                               "Value":  0
-                           }
-             },
-    "4872":  {
-                 "Task":  {
-                              "FirstSeen":  "2026-08-09",
-                              "LastChanged":  null,
-                              "Value":  8
-                          },
-                 "Hours":  {
-                               "FirstSeen":  "2026-08-09",
-                               "LastChanged":  null,
-                               "Value":  0
-                           }
-             },
-    "4874":  {
-                 "Task":  {
-                              "FirstSeen":  "2026-08-09",
-                              "LastChanged":  null,
-                              "Value":  22.22
-                          },
-                 "Hours":  {
-                               "FirstSeen":  "2026-08-09",
-                               "LastChanged":  null,
-                               "Value":  36.54
-                           }
-             },
-    "4875":  {
-                 "Task":  {
-                              "FirstSeen":  "2026-08-09",
-                              "LastChanged":  null,
-                              "Value":  35.29
-                          },
-                 "Hours":  {
-                               "FirstSeen":  "2026-08-09",
-                               "LastChanged":  null,
-                               "Value":  138.54
-                           }
-             },
-    "4877":  {
-                 "Task":  {
-                              "FirstSeen":  "2026-08-09",
-                              "LastChanged":  null,
-                              "Value":  15.15
-                          },
-                 "Hours":  {
-                               "FirstSeen":  "2026-08-09",
-                               "LastChanged":  null,
-                               "Value":  0
-                           }
-             },
-    "4881":  {
-                 "Task":  {
-                              "FirstSeen":  "2026-08-09",
-                              "LastChanged":  null,
-                              "Value":  0
-                          },
-                 "Hours":  {
-                               "FirstSeen":  "2026-08-09",
-                               "LastChanged":  null,
-                               "Value":  0
-                           }
-             },
-    "4884":  {
-                 "Task":  {
-                              "FirstSeen":  "2026-08-09",
-                              "LastChanged":  null,
-                              "Value":  11.76
-                          },
-                 "Hours":  {
-                               "FirstSeen":  "2026-08-09",
-                               "LastChanged":  null,
-                               "Value":  0
-                           }
-             },
-    "4887":  {
-                 "Task":  {
-                              "FirstSeen":  "2026-08-09",
-                              "LastChanged":  null,
-                              "Value":  3.85
-                          },
-                 "Hours":  {
-                               "FirstSeen":  "2026-08-09",
-                               "LastChanged":  null,
-                               "Value":  62.5
-                           }
-             },
-    "4894":  {
-                 "Task":  {
-                              "FirstSeen":  "2026-08-09",
-                              "LastChanged":  null,
-                              "Value":  5.88
-                          },
-                 "Hours":  {
-                               "FirstSeen":  "2026-08-09",
-                               "LastChanged":  null,
-                               "Value":  30
-                           }
-             },
-    "4895":  {
-                 "Task":  {
-                              "FirstSeen":  "2026-08-09",
-                              "LastChanged":  null,
-                              "Value":  0
-                          },
-                 "Hours":  {
-                               "FirstSeen":  "2026-08-09",
-                               "LastChanged":  null,
-                               "Value":  0
-                           }
-             },
-    "4899":  {
-                 "Task":  {
-                              "FirstSeen":  "2026-08-09",
-                              "LastChanged":  null,
-                              "Value":  8
-                          },
-                 "Hours":  {
-                               "FirstSeen":  "2026-08-09",
-                               "LastChanged":  null,
-                               "Value":  0
-                           }
-             },
-    "4900":  {
-                 "Task":  {
-                              "FirstSeen":  "2026-08-09",
-                              "LastChanged":  null,
-                              "Value":  5.88
-                          },
-                 "Hours":  {
-                               "FirstSeen":  "2026-08-09",
-                               "LastChanged":  null,
-                               "Value":  0
-                           }
-             },
-    "4901":  {
-                 "Task":  {
-                              "FirstSeen":  "2026-08-09",
-                              "LastChanged":  null,
-                              "Value":  11.76
-                          },
-                 "Hours":  {
-                               "FirstSeen":  "2026-08-09",
-                               "LastChanged":  null,
-                               "Value":  100
-                           }
-             },
-    "4902":  {
-                 "Task":  {
-                              "FirstSeen":  "2026-08-09",
-                              "LastChanged":  null,
-                              "Value":  0
-                          },
-                 "Hours":  {
-                               "FirstSeen":  "2026-08-09",
-                               "LastChanged":  null,
-                               "Value":  0
-                           }
-             },
-    "4904":  {
-                 "Task":  {
-                              "FirstSeen":  "2026-08-09",
-                              "LastChanged":  null,
-                              "Value":  4.55
-                          },
-                 "Hours":  {
-                               "FirstSeen":  "2026-08-09",
-                               "LastChanged":  null,
-                               "Value":  0
-                           }
-             },
-    "4908":  {
-                 "Task":  {
-                              "FirstSeen":  "2026-08-09",
-                              "LastChanged":  null,
-                              "Value":  0
-                          },
-                 "Hours":  {
-                               "FirstSeen":  "2026-08-09",
-                               "LastChanged":  null,
-                               "Value":  0
-                           }
-             },
-    "4909":  {
-                 "Task":  {
-                              "FirstSeen":  "2026-08-09",
-                              "LastChanged":  null,
-                              "Value":  11.76
-                          },
-                 "Hours":  {
-                               "FirstSeen":  "2026-08-09",
-                               "LastChanged":  null,
-                               "Value":  0
-                           }
-             },
-    "4911":  {
-                 "Task":  {
-                              "FirstSeen":  "2026-08-09",
-                              "LastChanged":  null,
-                              "Value":  23.53
-                          },
-                 "Hours":  {
-                               "FirstSeen":  "2026-08-09",
-                               "LastChanged":  null,
-                               "Value":  0
-                           }
-             },
-    "4916":  {
-                 "Task":  {
-                              "FirstSeen":  "2026-08-09",
-                              "LastChanged":  null,
-                              "Value":  11.76
-                          },
-                 "Hours":  {
-                               "FirstSeen":  "2026-08-09",
-                               "LastChanged":  null,
-                               "Value":  40.75
-                           }
-             },
-    "4917":  {
-                 "Task":  {
-                              "FirstSeen":  "2026-08-09",
-                              "LastChanged":  null,
-                              "Value":  5.88
-                          },
-                 "Hours":  {
-                               "FirstSeen":  "2026-08-09",
-                               "LastChanged":  null,
-                               "Value":  75
-                           }
-             },
-    "4919":  {
-                 "Task":  {
-                              "FirstSeen":  "2026-08-09",
-                              "LastChanged":  null,
-                              "Value":  0
-                          },
-                 "Hours":  {
-                               "FirstSeen":  "2026-08-09",
-                               "LastChanged":  null,
-                               "Value":  0
-                           }
-             },
-    "4920":  {
-                 "Task":  {
-                              "FirstSeen":  "2026-08-09",
-                              "LastChanged":  "2026-08-11",
-                              "Value":  4.76
-                          },
-                 "Hours":  {
-                               "FirstSeen":  "2026-08-09",
-                               "LastChanged":  null,
-                               "Value":  0
-                           }
-             },
-    "4921":  {
-                 "Task":  {
-                              "FirstSeen":  "2026-08-09",
-                              "LastChanged":  null,
-                              "Value":  0
-                          },
-                 "Hours":  {
-                               "FirstSeen":  "2026-08-09",
-                               "LastChanged":  null,
-                               "Value":  0
-                           }
-             },
-    "4928":  {
-                 "Task":  {
-                              "FirstSeen":  "2026-08-09",
-                              "LastChanged":  null,
-                              "Value":  4.76
-                          },
-                 "Hours":  {
-                               "FirstSeen":  "2026-08-09",
-                               "LastChanged":  null,
-                               "Value":  0
-                           }
-             },
-    "4929":  {
-                 "Task":  {
-                              "FirstSeen":  "2026-08-09",
-                              "LastChanged":  null,
-                              "Value":  4.76
-                          },
-                 "Hours":  {
-                               "FirstSeen":  "2026-08-09",
-                               "LastChanged":  null,
-                               "Value":  0
-                           }
-             },
-    "4934":  {
-                 "Task":  {
-                              "FirstSeen":  "2026-08-09",
-                              "LastChanged":  null,
-                              "Value":  0
-                          },
-                 "Hours":  {
-                               "FirstSeen":  "2026-08-09",
-                               "LastChanged":  null,
-                               "Value":  0
-                           }
-             },
-    "4935":  {
-                 "Task":  {
-                              "FirstSeen":  "2026-08-09",
-                              "LastChanged":  null,
-                              "Value":  42.11
-                          },
-                 "Hours":  {
-                               "FirstSeen":  "2026-08-09",
-                               "LastChanged":  null,
-                               "Value":  0
-                           }
-             },
-    "4940":  {
-                 "Task":  {
-                              "FirstSeen":  "2026-08-09",
-                              "LastChanged":  null,
-                              "Value":  5.88
-                          },
-                 "Hours":  {
-                               "FirstSeen":  "2026-08-09",
-                               "LastChanged":  null,
-                               "Value":  0
-                           }
-             },
-    "4941":  {
+                           },
+                 "ActualHours":  {
+                                     "FirstSeen":  "2026-08-20",
+                                     "LastChanged":  null,
+                                     "Value":  26
+                                 },
                  "Task":  {
                               "FirstSeen":  "2026-08-09",
                               "LastChanged":  null,
                               "Value":  48
-                          },
+                          }
+             },
+    "4257":  {
+                 "Hours":  {
+                               "FirstSeen":  "2026-08-09",
+                               "LastChanged":  "2026-08-20",
+                               "Value":  208.5
+                           },
+                 "ActualHours":  {
+                                     "FirstSeen":  "2026-08-20",
+                                     "LastChanged":  null,
+                                     "Value":  45.87
+                                 },
+                 "Task":  {
+                              "FirstSeen":  "2026-08-09",
+                              "LastChanged":  null,
+                              "Value":  4.35
+                          }
+             },
+    "4290":  {
                  "Hours":  {
                                "FirstSeen":  "2026-08-09",
                                "LastChanged":  null,
                                "Value":  0
-                           }
+                           },
+                 "ActualHours":  {
+                                     "FirstSeen":  "2026-08-20",
+                                     "LastChanged":  null,
+                                     "Value":  49.18
+                                 },
+                 "Task":  {
+                              "FirstSeen":  "2026-08-09",
+                              "LastChanged":  null,
+                              "Value":  57.78
+                          }
+             },
+    "4327":  {
+                 "Hours":  {
+                               "FirstSeen":  "2026-08-09",
+                               "LastChanged":  null,
+                               "Value":  42.15
+                           },
+                 "ActualHours":  {
+                                     "FirstSeen":  "2026-08-20",
+                                     "LastChanged":  null,
+                                     "Value":  84.3
+                                 },
+                 "Task":  {
+                              "FirstSeen":  "2026-08-09",
+                              "LastChanged":  null,
+                              "Value":  80
+                          }
+             },
+    "4344":  {
+                 "Hours":  {
+                               "FirstSeen":  "2026-08-09",
+                               "LastChanged":  null,
+                               "Value":  18.92
+                           },
+                 "ActualHours":  {
+                                     "FirstSeen":  "2026-08-20",
+                                     "LastChanged":  null,
+                                     "Value":  4.73
+                                 },
+                 "Task":  {
+                              "FirstSeen":  "2026-08-09",
+                              "LastChanged":  null,
+                              "Value":  7.14
+                          }
+             },
+    "4347":  {
+                 "Hours":  {
+                               "FirstSeen":  "2026-08-09",
+                               "LastChanged":  null,
+                               "Value":  86.36
+                           },
+                 "ActualHours":  {
+                                     "FirstSeen":  "2026-08-20",
+                                     "LastChanged":  null,
+                                     "Value":  9.5
+                                 },
+                 "Task":  {
+                              "FirstSeen":  "2026-08-09",
+                              "LastChanged":  null,
+                              "Value":  16.67
+                          }
+             },
+    "4371":  {
+                 "Hours":  {
+                               "FirstSeen":  "2026-08-09",
+                               "LastChanged":  null,
+                               "Value":  38.82
+                           },
+                 "ActualHours":  {
+                                     "FirstSeen":  "2026-08-20",
+                                     "LastChanged":  null,
+                                     "Value":  14.75
+                                 },
+                 "Task":  {
+                              "FirstSeen":  "2026-08-09",
+                              "LastChanged":  null,
+                              "Value":  12
+                          }
+             },
+    "4438":  {
+                 "Hours":  {
+                               "FirstSeen":  "2026-08-09",
+                               "LastChanged":  null,
+                               "Value":  0
+                           },
+                 "ActualHours":  {
+                                     "FirstSeen":  "2026-08-20",
+                                     "LastChanged":  null,
+                                     "Value":  72.24
+                                 },
+                 "Task":  {
+                              "FirstSeen":  "2026-08-09",
+                              "LastChanged":  null,
+                              "Value":  31.82
+                          }
+             },
+    "4452":  {
+                 "Hours":  {
+                               "FirstSeen":  "2026-08-09",
+                               "LastChanged":  null,
+                               "Value":  0
+                           },
+                 "ActualHours":  {
+                                     "FirstSeen":  "2026-08-20",
+                                     "LastChanged":  null,
+                                     "Value":  0
+                                 },
+                 "Task":  {
+                              "FirstSeen":  "2026-08-09",
+                              "LastChanged":  null,
+                              "Value":  91.67
+                          }
+             },
+    "4497":  {
+                 "Hours":  {
+                               "FirstSeen":  "2026-08-09",
+                               "LastChanged":  null,
+                               "Value":  82.35
+                           },
+                 "ActualHours":  {
+                                     "FirstSeen":  "2026-08-20",
+                                     "LastChanged":  null,
+                                     "Value":  28
+                                 },
+                 "Task":  {
+                              "FirstSeen":  "2026-08-09",
+                              "LastChanged":  null,
+                              "Value":  41.67
+                          }
+             },
+    "4537":  {
+                 "Hours":  {
+                               "FirstSeen":  "2026-08-09",
+                               "LastChanged":  null,
+                               "Value":  0
+                           },
+                 "ActualHours":  {
+                                     "FirstSeen":  "2026-08-20",
+                                     "LastChanged":  null,
+                                     "Value":  253.99
+                                 },
+                 "Task":  {
+                              "FirstSeen":  "2026-08-09",
+                              "LastChanged":  null,
+                              "Value":  87.5
+                          }
+             },
+    "4541":  {
+                 "Hours":  {
+                               "FirstSeen":  "2026-08-09",
+                               "LastChanged":  null,
+                               "Value":  11.33
+                           },
+                 "ActualHours":  {
+                                     "FirstSeen":  "2026-08-20",
+                                     "LastChanged":  null,
+                                     "Value":  4.31
+                                 },
+                 "Task":  {
+                              "FirstSeen":  "2026-08-09",
+                              "LastChanged":  null,
+                              "Value":  40.82
+                          }
+             },
+    "4553":  {
+                 "Hours":  {
+                               "FirstSeen":  "2026-08-09",
+                               "LastChanged":  null,
+                               "Value":  0
+                           },
+                 "ActualHours":  {
+                                     "FirstSeen":  "2026-08-20",
+                                     "LastChanged":  null,
+                                     "Value":  0
+                                 },
+                 "Task":  {
+                              "FirstSeen":  "2026-08-09",
+                              "LastChanged":  null,
+                              "Value":  10.81
+                          }
+             },
+    "4554":  {
+                 "Hours":  {
+                               "FirstSeen":  "2026-08-09",
+                               "LastChanged":  null,
+                               "Value":  0
+                           },
+                 "ActualHours":  {
+                                     "FirstSeen":  "2026-08-20",
+                                     "LastChanged":  null,
+                                     "Value":  122.75
+                                 },
+                 "Task":  {
+                              "FirstSeen":  "2026-08-09",
+                              "LastChanged":  null,
+                              "Value":  6.67
+                          }
+             },
+    "4580":  {
+                 "Hours":  {
+                               "FirstSeen":  "2026-08-09",
+                               "LastChanged":  null,
+                               "Value":  17.65
+                           },
+                 "ActualHours":  {
+                                     "FirstSeen":  "2026-08-20",
+                                     "LastChanged":  null,
+                                     "Value":  3
+                                 },
+                 "Task":  {
+                              "FirstSeen":  "2026-08-09",
+                              "LastChanged":  null,
+                              "Value":  12.5
+                          }
+             },
+    "4582":  {
+                 "Hours":  {
+                               "FirstSeen":  "2026-08-09",
+                               "LastChanged":  null,
+                               "Value":  115.79
+                           },
+                 "ActualHours":  {
+                                     "FirstSeen":  "2026-08-20",
+                                     "LastChanged":  null,
+                                     "Value":  22
+                                 },
+                 "Task":  {
+                              "FirstSeen":  "2026-08-09",
+                              "LastChanged":  null,
+                              "Value":  22.73
+                          }
+             },
+    "4584":  {
+                 "Hours":  {
+                               "FirstSeen":  "2026-08-09",
+                               "LastChanged":  "2026-08-20",
+                               "Value":  93.33
+                           },
+                 "ActualHours":  {
+                                     "FirstSeen":  "2026-08-20",
+                                     "LastChanged":  null,
+                                     "Value":  14
+                                 },
+                 "Task":  {
+                              "FirstSeen":  "2026-08-09",
+                              "LastChanged":  "2026-08-20",
+                              "Value":  21.05
+                          }
+             },
+    "4599":  {
+                 "Hours":  {
+                               "FirstSeen":  "2026-08-09",
+                               "LastChanged":  null,
+                               "Value":  0
+                           },
+                 "ActualHours":  {
+                                     "FirstSeen":  "2026-08-20",
+                                     "LastChanged":  null,
+                                     "Value":  1.5
+                                 },
+                 "Task":  {
+                              "FirstSeen":  "2026-08-09",
+                              "LastChanged":  null,
+                              "Value":  77.78
+                          }
+             },
+    "4614":  {
+                 "Hours":  {
+                               "FirstSeen":  "2026-08-09",
+                               "LastChanged":  null,
+                               "Value":  116.08
+                           },
+                 "ActualHours":  {
+                                     "FirstSeen":  "2026-08-20",
+                                     "LastChanged":  null,
+                                     "Value":  46.43
+                                 },
+                 "Task":  {
+                              "FirstSeen":  "2026-08-09",
+                              "LastChanged":  null,
+                              "Value":  10.53
+                          }
+             },
+    "4627":  {
+                 "Hours":  {
+                               "FirstSeen":  "2026-08-09",
+                               "LastChanged":  null,
+                               "Value":  81.25
+                           },
+                 "ActualHours":  {
+                                     "FirstSeen":  "2026-08-20",
+                                     "LastChanged":  null,
+                                     "Value":  6.5
+                                 },
+                 "Task":  {
+                              "FirstSeen":  "2026-08-09",
+                              "LastChanged":  null,
+                              "Value":  11.54
+                          }
+             },
+    "4636":  {
+                 "Hours":  {
+                               "FirstSeen":  "2026-08-09",
+                               "LastChanged":  null,
+                               "Value":  13.64
+                           },
+                 "ActualHours":  {
+                                     "FirstSeen":  "2026-08-20",
+                                     "LastChanged":  null,
+                                     "Value":  3
+                                 },
+                 "Task":  {
+                              "FirstSeen":  "2026-08-09",
+                              "LastChanged":  null,
+                              "Value":  18.75
+                          }
+             },
+    "4657":  {
+                 "Hours":  {
+                               "FirstSeen":  "2026-08-09",
+                               "LastChanged":  null,
+                               "Value":  0
+                           },
+                 "ActualHours":  {
+                                     "FirstSeen":  "2026-08-20",
+                                     "LastChanged":  null,
+                                     "Value":  111.03
+                                 },
+                 "Task":  {
+                              "FirstSeen":  "2026-08-09",
+                              "LastChanged":  null,
+                              "Value":  13.79
+                          }
+             },
+    "4661":  {
+                 "Hours":  {
+                               "FirstSeen":  "2026-08-09",
+                               "LastChanged":  "2026-08-20",
+                               "Value":  216.67
+                           },
+                 "ActualHours":  {
+                                     "FirstSeen":  "2026-08-20",
+                                     "LastChanged":  null,
+                                     "Value":  19.5
+                                 },
+                 "Task":  {
+                              "FirstSeen":  "2026-08-09",
+                              "LastChanged":  "2026-08-20",
+                              "Value":  27.27
+                          }
+             },
+    "4665":  {
+                 "Hours":  {
+                               "FirstSeen":  "2026-08-09",
+                               "LastChanged":  null,
+                               "Value":  0
+                           },
+                 "ActualHours":  {
+                                     "FirstSeen":  "2026-08-20",
+                                     "LastChanged":  null,
+                                     "Value":  2.17
+                                 },
+                 "Task":  {
+                              "FirstSeen":  "2026-08-09",
+                              "LastChanged":  null,
+                              "Value":  50
+                          }
+             },
+    "4693":  {
+                 "Hours":  {
+                               "FirstSeen":  "2026-08-09",
+                               "LastChanged":  null,
+                               "Value":  0
+                           },
+                 "ActualHours":  {
+                                     "FirstSeen":  "2026-08-20",
+                                     "LastChanged":  null,
+                                     "Value":  14.95
+                                 },
+                 "Task":  {
+                              "FirstSeen":  "2026-08-09",
+                              "LastChanged":  null,
+                              "Value":  23.81
+                          }
+             },
+    "4702":  {
+                 "Hours":  {
+                               "FirstSeen":  "2026-08-09",
+                               "LastChanged":  null,
+                               "Value":  16.67
+                           },
+                 "ActualHours":  {
+                                     "FirstSeen":  "2026-08-20",
+                                     "LastChanged":  null,
+                                     "Value":  3
+                                 },
+                 "Task":  {
+                              "FirstSeen":  "2026-08-09",
+                              "LastChanged":  null,
+                              "Value":  11.76
+                          }
+             },
+    "4703":  {
+                 "Hours":  {
+                               "FirstSeen":  "2026-08-09",
+                               "LastChanged":  null,
+                               "Value":  0
+                           },
+                 "ActualHours":  {
+                                     "FirstSeen":  "2026-08-20",
+                                     "LastChanged":  null,
+                                     "Value":  130.75
+                                 },
+                 "Task":  {
+                              "FirstSeen":  "2026-08-09",
+                              "LastChanged":  null,
+                              "Value":  9.09
+                          }
+             },
+    "4710":  {
+                 "Hours":  {
+                               "FirstSeen":  "2026-08-09",
+                               "LastChanged":  null,
+                               "Value":  0
+                           },
+                 "ActualHours":  {
+                                     "FirstSeen":  "2026-08-20",
+                                     "LastChanged":  null,
+                                     "Value":  0
+                                 },
+                 "Task":  {
+                              "FirstSeen":  "2026-08-09",
+                              "LastChanged":  null,
+                              "Value":  5.88
+                          }
+             },
+    "4711":  {
+                 "Hours":  {
+                               "FirstSeen":  "2026-08-09",
+                               "LastChanged":  null,
+                               "Value":  99.46
+                           },
+                 "ActualHours":  {
+                                     "FirstSeen":  "2026-08-20",
+                                     "LastChanged":  null,
+                                     "Value":  45.75
+                                 },
+                 "Task":  {
+                              "FirstSeen":  "2026-08-09",
+                              "LastChanged":  null,
+                              "Value":  2.74
+                          }
+             },
+    "4717":  {
+                 "Hours":  {
+                               "FirstSeen":  "2026-08-09",
+                               "LastChanged":  "2026-08-20",
+                               "Value":  144.62
+                           },
+                 "ActualHours":  {
+                                     "FirstSeen":  "2026-08-20",
+                                     "LastChanged":  null,
+                                     "Value":  18.8
+                                 },
+                 "Task":  {
+                              "FirstSeen":  "2026-08-09",
+                              "LastChanged":  null,
+                              "Value":  16.67
+                          }
+             },
+    "4728":  {
+                 "Hours":  {
+                               "FirstSeen":  "2026-08-09",
+                               "LastChanged":  null,
+                               "Value":  0
+                           },
+                 "ActualHours":  {
+                                     "FirstSeen":  "2026-08-20",
+                                     "LastChanged":  null,
+                                     "Value":  31.5
+                                 },
+                 "Task":  {
+                              "FirstSeen":  "2026-08-09",
+                              "LastChanged":  null,
+                              "Value":  7.32
+                          }
+             },
+    "4731":  {
+                 "Hours":  {
+                               "FirstSeen":  "2026-08-09",
+                               "LastChanged":  null,
+                               "Value":  229.74
+                           },
+                 "ActualHours":  {
+                                     "FirstSeen":  "2026-08-20",
+                                     "LastChanged":  null,
+                                     "Value":  62.03
+                                 },
+                 "Task":  {
+                              "FirstSeen":  "2026-08-09",
+                              "LastChanged":  null,
+                              "Value":  8
+                          }
+             },
+    "4733":  {
+                 "Hours":  {
+                               "FirstSeen":  "2026-08-09",
+                               "LastChanged":  null,
+                               "Value":  70
+                           },
+                 "ActualHours":  {
+                                     "FirstSeen":  "2026-08-20",
+                                     "LastChanged":  null,
+                                     "Value":  7
+                                 },
+                 "Task":  {
+                              "FirstSeen":  "2026-08-09",
+                              "LastChanged":  null,
+                              "Value":  18.18
+                          }
+             },
+    "4736":  {
+                 "Hours":  {
+                               "FirstSeen":  "2026-08-09",
+                               "LastChanged":  null,
+                               "Value":  0
+                           },
+                 "ActualHours":  {
+                                     "FirstSeen":  "2026-08-20",
+                                     "LastChanged":  null,
+                                     "Value":  0
+                                 },
+                 "Task":  {
+                              "FirstSeen":  "2026-08-09",
+                              "LastChanged":  null,
+                              "Value":  6.45
+                          }
+             },
+    "4737":  {
+                 "Hours":  {
+                               "FirstSeen":  "2026-08-09",
+                               "LastChanged":  null,
+                               "Value":  0
+                           },
+                 "ActualHours":  {
+                                     "FirstSeen":  "2026-08-20",
+                                     "LastChanged":  null,
+                                     "Value":  0
+                                 },
+                 "Task":  {
+                              "FirstSeen":  "2026-08-09",
+                              "LastChanged":  "2026-08-11",
+                              "Value":  4.76
+                          }
+             },
+    "4749":  {
+                 "Hours":  {
+                               "FirstSeen":  "2026-08-09",
+                               "LastChanged":  null,
+                               "Value":  0.45
+                           },
+                 "ActualHours":  {
+                                     "FirstSeen":  "2026-08-20",
+                                     "LastChanged":  null,
+                                     "Value":  0.2
+                                 },
+                 "Task":  {
+                              "FirstSeen":  "2026-08-09",
+                              "LastChanged":  null,
+                              "Value":  44.44
+                          }
+             },
+    "4751":  {
+                 "Hours":  {
+                               "FirstSeen":  "2026-08-09",
+                               "LastChanged":  null,
+                               "Value":  2.98
+                           },
+                 "ActualHours":  {
+                                     "FirstSeen":  "2026-08-20",
+                                     "LastChanged":  null,
+                                     "Value":  42.97
+                                 },
+                 "Task":  {
+                              "FirstSeen":  "2026-08-09",
+                              "LastChanged":  null,
+                              "Value":  2.72
+                          }
+             },
+    "4752":  {
+                 "Hours":  {
+                               "FirstSeen":  "2026-08-09",
+                               "LastChanged":  null,
+                               "Value":  0
+                           },
+                 "ActualHours":  {
+                                     "FirstSeen":  "2026-08-20",
+                                     "LastChanged":  null,
+                                     "Value":  0
+                                 },
+                 "Task":  {
+                              "FirstSeen":  "2026-08-09",
+                              "LastChanged":  "2026-08-20",
+                              "Value":  4.35
+                          }
+             },
+    "4754":  {
+                 "Hours":  {
+                               "FirstSeen":  "2026-08-09",
+                               "LastChanged":  null,
+                               "Value":  0
+                           },
+                 "ActualHours":  {
+                                     "FirstSeen":  "2026-08-20",
+                                     "LastChanged":  null,
+                                     "Value":  173.25
+                                 },
+                 "Task":  {
+                              "FirstSeen":  "2026-08-09",
+                              "LastChanged":  null,
+                              "Value":  3.4
+                          }
+             },
+    "4770":  {
+                 "Hours":  {
+                               "FirstSeen":  "2026-08-09",
+                               "LastChanged":  null,
+                               "Value":  0
+                           },
+                 "ActualHours":  {
+                                     "FirstSeen":  "2026-08-20",
+                                     "LastChanged":  null,
+                                     "Value":  0.19
+                                 },
+                 "Task":  {
+                              "FirstSeen":  "2026-08-09",
+                              "LastChanged":  null,
+                              "Value":  73.68
+                          }
+             },
+    "4773":  {
+                 "Hours":  {
+                               "FirstSeen":  "2026-08-09",
+                               "LastChanged":  null,
+                               "Value":  96
+                           },
+                 "ActualHours":  {
+                                     "FirstSeen":  "2026-08-20",
+                                     "LastChanged":  null,
+                                     "Value":  24
+                                 },
+                 "Task":  {
+                              "FirstSeen":  "2026-08-09",
+                              "LastChanged":  null,
+                              "Value":  4.76
+                          }
+             },
+    "4774":  {
+                 "Hours":  {
+                               "FirstSeen":  "2026-08-09",
+                               "LastChanged":  null,
+                               "Value":  78.04
+                           },
+                 "ActualHours":  {
+                                     "FirstSeen":  "2026-08-20",
+                                     "LastChanged":  null,
+                                     "Value":  18.73
+                                 },
+                 "Task":  {
+                              "FirstSeen":  "2026-08-09",
+                              "LastChanged":  null,
+                              "Value":  34.48
+                          }
+             },
+    "4783":  {
+                 "Hours":  {
+                               "FirstSeen":  "2026-08-09",
+                               "LastChanged":  null,
+                               "Value":  0
+                           },
+                 "ActualHours":  {
+                                     "FirstSeen":  "2026-08-20",
+                                     "LastChanged":  null,
+                                     "Value":  0
+                                 },
+                 "Task":  {
+                              "FirstSeen":  "2026-08-09",
+                              "LastChanged":  null,
+                              "Value":  8.33
+                          }
+             },
+    "4788":  {
+                 "Hours":  {
+                               "FirstSeen":  "2026-08-09",
+                               "LastChanged":  null,
+                               "Value":  0
+                           },
+                 "ActualHours":  {
+                                     "FirstSeen":  "2026-08-20",
+                                     "LastChanged":  null,
+                                     "Value":  22.55
+                                 },
+                 "Task":  {
+                              "FirstSeen":  "2026-08-09",
+                              "LastChanged":  null,
+                              "Value":  17.39
+                          }
+             },
+    "4791":  {
+                 "Hours":  {
+                               "FirstSeen":  "2026-08-09",
+                               "LastChanged":  null,
+                               "Value":  0
+                           },
+                 "ActualHours":  {
+                                     "FirstSeen":  "2026-08-20",
+                                     "LastChanged":  null,
+                                     "Value":  0
+                                 },
+                 "Task":  {
+                              "FirstSeen":  "2026-08-09",
+                              "LastChanged":  null,
+                              "Value":  0
+                          }
+             },
+    "4794":  {
+                 "Hours":  {
+                               "FirstSeen":  "2026-08-09",
+                               "LastChanged":  null,
+                               "Value":  0
+                           },
+                 "ActualHours":  {
+                                     "FirstSeen":  "2026-08-20",
+                                     "LastChanged":  null,
+                                     "Value":  0
+                                 },
+                 "Task":  {
+                              "FirstSeen":  "2026-08-09",
+                              "LastChanged":  null,
+                              "Value":  23.53
+                          }
+             },
+    "4796":  {
+                 "Hours":  {
+                               "FirstSeen":  "2026-08-09",
+                               "LastChanged":  null,
+                               "Value":  175.48
+                           },
+                 "ActualHours":  {
+                                     "FirstSeen":  "2026-08-20",
+                                     "LastChanged":  null,
+                                     "Value":  47.38
+                                 },
+                 "Task":  {
+                              "FirstSeen":  "2026-08-09",
+                              "LastChanged":  null,
+                              "Value":  2.08
+                          }
+             },
+    "4799":  {
+                 "Hours":  {
+                               "FirstSeen":  "2026-08-09",
+                               "LastChanged":  null,
+                               "Value":  23.87
+                           },
+                 "ActualHours":  {
+                                     "FirstSeen":  "2026-08-20",
+                                     "LastChanged":  null,
+                                     "Value":  30.32
+                                 },
+                 "Task":  {
+                              "FirstSeen":  "2026-08-09",
+                              "LastChanged":  null,
+                              "Value":  2.5
+                          }
+             },
+    "4800":  {
+                 "Hours":  {
+                               "FirstSeen":  "2026-08-09",
+                               "LastChanged":  null,
+                               "Value":  0
+                           },
+                 "ActualHours":  {
+                                     "FirstSeen":  "2026-08-20",
+                                     "LastChanged":  null,
+                                     "Value":  36.75
+                                 },
+                 "Task":  {
+                              "FirstSeen":  "2026-08-09",
+                              "LastChanged":  null,
+                              "Value":  92.86
+                          }
+             },
+    "4807":  {
+                 "Hours":  {
+                               "FirstSeen":  "2026-08-09",
+                               "LastChanged":  null,
+                               "Value":  0
+                           },
+                 "ActualHours":  {
+                                     "FirstSeen":  "2026-08-20",
+                                     "LastChanged":  null,
+                                     "Value":  0
+                                 },
+                 "Task":  {
+                              "FirstSeen":  "2026-08-09",
+                              "LastChanged":  null,
+                              "Value":  11.76
+                          }
+             },
+    "4808":  {
+                 "Hours":  {
+                               "FirstSeen":  "2026-08-09",
+                               "LastChanged":  null,
+                               "Value":  0
+                           },
+                 "ActualHours":  {
+                                     "FirstSeen":  "2026-08-20",
+                                     "LastChanged":  null,
+                                     "Value":  0
+                                 },
+                 "Task":  {
+                              "FirstSeen":  "2026-08-09",
+                              "LastChanged":  null,
+                              "Value":  0
+                          }
+             },
+    "4813":  {
+                 "Hours":  {
+                               "FirstSeen":  "2026-08-09",
+                               "LastChanged":  "2026-08-20",
+                               "Value":  709.16
+                           },
+                 "ActualHours":  {
+                                     "FirstSeen":  "2026-08-20",
+                                     "LastChanged":  null,
+                                     "Value":  120.56
+                                 },
+                 "Task":  {
+                              "FirstSeen":  "2026-08-09",
+                              "LastChanged":  null,
+                              "Value":  22.22
+                          }
+             },
+    "4819":  {
+                 "Hours":  {
+                               "FirstSeen":  "2026-08-09",
+                               "LastChanged":  null,
+                               "Value":  62.73
+                           },
+                 "ActualHours":  {
+                                     "FirstSeen":  "2026-08-20",
+                                     "LastChanged":  null,
+                                     "Value":  6.9
+                                 },
+                 "Task":  {
+                              "FirstSeen":  "2026-08-09",
+                              "LastChanged":  null,
+                              "Value":  16.67
+                          }
+             },
+    "4820":  {
+                 "Hours":  {
+                               "FirstSeen":  "2026-08-09",
+                               "LastChanged":  null,
+                               "Value":  0
+                           },
+                 "ActualHours":  {
+                                     "FirstSeen":  "2026-08-20",
+                                     "LastChanged":  null,
+                                     "Value":  0
+                                 },
+                 "Task":  {
+                              "FirstSeen":  "2026-08-09",
+                              "LastChanged":  null,
+                              "Value":  5.88
+                          }
+             },
+    "4824":  {
+                 "Hours":  {
+                               "FirstSeen":  "2026-08-09",
+                               "LastChanged":  "2026-08-20",
+                               "Value":  272.57
+                           },
+                 "ActualHours":  {
+                                     "FirstSeen":  "2026-08-20",
+                                     "LastChanged":  null,
+                                     "Value":  19.08
+                                 },
+                 "Task":  {
+                              "FirstSeen":  "2026-08-09",
+                              "LastChanged":  null,
+                              "Value":  4.76
+                          }
+             },
+    "4825":  {
+                 "Hours":  {
+                               "FirstSeen":  "2026-08-09",
+                               "LastChanged":  null,
+                               "Value":  50
+                           },
+                 "ActualHours":  {
+                                     "FirstSeen":  "2026-08-20",
+                                     "LastChanged":  null,
+                                     "Value":  5
+                                 },
+                 "Task":  {
+                              "FirstSeen":  "2026-08-09",
+                              "LastChanged":  null,
+                              "Value":  14.29
+                          }
+             },
+    "4826":  {
+                 "Hours":  {
+                               "FirstSeen":  "2026-08-09",
+                               "LastChanged":  null,
+                               "Value":  0
+                           },
+                 "ActualHours":  {
+                                     "FirstSeen":  "2026-08-20",
+                                     "LastChanged":  null,
+                                     "Value":  0
+                                 },
+                 "Task":  {
+                              "FirstSeen":  "2026-08-09",
+                              "LastChanged":  null,
+                              "Value":  8.33
+                          }
+             },
+    "4832":  {
+                 "Hours":  {
+                               "FirstSeen":  "2026-08-09",
+                               "LastChanged":  null,
+                               "Value":  0
+                           },
+                 "ActualHours":  {
+                                     "FirstSeen":  "2026-08-20",
+                                     "LastChanged":  null,
+                                     "Value":  0
+                                 },
+                 "Task":  {
+                              "FirstSeen":  "2026-08-09",
+                              "LastChanged":  null,
+                              "Value":  10
+                          }
+             },
+    "4841":  {
+                 "Hours":  {
+                               "FirstSeen":  "2026-08-09",
+                               "LastChanged":  null,
+                               "Value":  0
+                           },
+                 "ActualHours":  {
+                                     "FirstSeen":  "2026-08-20",
+                                     "LastChanged":  null,
+                                     "Value":  0.02
+                                 },
+                 "Task":  {
+                              "FirstSeen":  "2026-08-09",
+                              "LastChanged":  null,
+                              "Value":  17.65
+                          }
+             },
+    "4842":  {
+                 "Hours":  {
+                               "FirstSeen":  "2026-08-09",
+                               "LastChanged":  null,
+                               "Value":  0
+                           },
+                 "ActualHours":  {
+                                     "FirstSeen":  "2026-08-20",
+                                     "LastChanged":  null,
+                                     "Value":  0.03
+                                 },
+                 "Task":  {
+                              "FirstSeen":  "2026-08-09",
+                              "LastChanged":  "2026-08-20",
+                              "Value":  23.81
+                          }
+             },
+    "4843":  {
+                 "Hours":  {
+                               "FirstSeen":  "2026-08-09",
+                               "LastChanged":  null,
+                               "Value":  0
+                           },
+                 "ActualHours":  {
+                                     "FirstSeen":  "2026-08-20",
+                                     "LastChanged":  null,
+                                     "Value":  0.05
+                                 },
+                 "Task":  {
+                              "FirstSeen":  "2026-08-09",
+                              "LastChanged":  null,
+                              "Value":  31.25
+                          }
+             },
+    "4844":  {
+                 "Hours":  {
+                               "FirstSeen":  "2026-08-09",
+                               "LastChanged":  null,
+                               "Value":  0
+                           },
+                 "ActualHours":  {
+                                     "FirstSeen":  "2026-08-20",
+                                     "LastChanged":  null,
+                                     "Value":  0
+                                 },
+                 "Task":  {
+                              "FirstSeen":  "2026-08-09",
+                              "LastChanged":  null,
+                              "Value":  8
+                          }
+             },
+    "4847":  {
+                 "Hours":  {
+                               "FirstSeen":  "2026-08-09",
+                               "LastChanged":  null,
+                               "Value":  0
+                           },
+                 "ActualHours":  {
+                                     "FirstSeen":  "2026-08-20",
+                                     "LastChanged":  null,
+                                     "Value":  0
+                                 },
+                 "Task":  {
+                              "FirstSeen":  "2026-08-09",
+                              "LastChanged":  null,
+                              "Value":  5.88
+                          }
+             },
+    "4853":  {
+                 "Hours":  {
+                               "FirstSeen":  "2026-08-09",
+                               "LastChanged":  null,
+                               "Value":  28.89
+                           },
+                 "ActualHours":  {
+                                     "FirstSeen":  "2026-08-20",
+                                     "LastChanged":  null,
+                                     "Value":  2.6
+                                 },
+                 "Task":  {
+                              "FirstSeen":  "2026-08-09",
+                              "LastChanged":  null,
+                              "Value":  4.55
+                          }
+             },
+    "4854":  {
+                 "Hours":  {
+                               "FirstSeen":  "2026-08-09",
+                               "LastChanged":  null,
+                               "Value":  185
+                           },
+                 "ActualHours":  {
+                                     "FirstSeen":  "2026-08-20",
+                                     "LastChanged":  null,
+                                     "Value":  9.25
+                                 },
+                 "Task":  {
+                              "FirstSeen":  "2026-08-09",
+                              "LastChanged":  null,
+                              "Value":  4.55
+                          }
+             },
+    "4855":  {
+                 "Hours":  {
+                               "FirstSeen":  "2026-08-09",
+                               "LastChanged":  null,
+                               "Value":  0
+                           },
+                 "ActualHours":  {
+                                     "FirstSeen":  "2026-08-20",
+                                     "LastChanged":  null,
+                                     "Value":  0
+                                 },
+                 "Task":  {
+                              "FirstSeen":  "2026-08-09",
+                              "LastChanged":  null,
+                              "Value":  4.76
+                          }
+             },
+    "4856":  {
+                 "Hours":  {
+                               "FirstSeen":  "2026-08-09",
+                               "LastChanged":  null,
+                               "Value":  54.17
+                           },
+                 "ActualHours":  {
+                                     "FirstSeen":  "2026-08-20",
+                                     "LastChanged":  null,
+                                     "Value":  3.25
+                                 },
+                 "Task":  {
+                              "FirstSeen":  "2026-08-09",
+                              "LastChanged":  null,
+                              "Value":  16
+                          }
+             },
+    "4859":  {
+                 "Hours":  {
+                               "FirstSeen":  "2026-08-09",
+                               "LastChanged":  null,
+                               "Value":  0
+                           },
+                 "ActualHours":  {
+                                     "FirstSeen":  "2026-08-20",
+                                     "LastChanged":  null,
+                                     "Value":  4.58
+                                 },
+                 "Task":  {
+                              "FirstSeen":  "2026-08-09",
+                              "LastChanged":  null,
+                              "Value":  29.41
+                          }
+             },
+    "4862":  {
+                 "Hours":  {
+                               "FirstSeen":  "2026-08-09",
+                               "LastChanged":  "2026-08-20",
+                               "Value":  128.13
+                           },
+                 "ActualHours":  {
+                                     "FirstSeen":  "2026-08-20",
+                                     "LastChanged":  null,
+                                     "Value":  10.25
+                                 },
+                 "Task":  {
+                              "FirstSeen":  "2026-08-09",
+                              "LastChanged":  "2026-08-20",
+                              "Value":  18.18
+                          }
+             },
+    "4867":  {
+                 "Hours":  {
+                               "FirstSeen":  "2026-08-09",
+                               "LastChanged":  null,
+                               "Value":  0
+                           },
+                 "ActualHours":  {
+                                     "FirstSeen":  "2026-08-20",
+                                     "LastChanged":  null,
+                                     "Value":  0
+                                 },
+                 "Task":  {
+                              "FirstSeen":  "2026-08-09",
+                              "LastChanged":  null,
+                              "Value":  5.88
+                          }
+             },
+    "4868":  {
+                 "Hours":  {
+                               "FirstSeen":  "2026-08-09",
+                               "LastChanged":  null,
+                               "Value":  7.05
+                           },
+                 "ActualHours":  {
+                                     "FirstSeen":  "2026-08-20",
+                                     "LastChanged":  null,
+                                     "Value":  3.1
+                                 },
+                 "Task":  {
+                              "FirstSeen":  "2026-08-09",
+                              "LastChanged":  null,
+                              "Value":  36.36
+                          }
+             },
+    "4870":  {
+                 "Hours":  {
+                               "FirstSeen":  "2026-08-09",
+                               "LastChanged":  null,
+                               "Value":  0
+                           },
+                 "ActualHours":  {
+                                     "FirstSeen":  "2026-08-20",
+                                     "LastChanged":  null,
+                                     "Value":  1.92
+                                 },
+                 "Task":  {
+                              "FirstSeen":  "2026-08-09",
+                              "LastChanged":  "2026-08-20",
+                              "Value":  38.1
+                          }
+             },
+    "4871":  {
+                 "Hours":  {
+                               "FirstSeen":  "2026-08-09",
+                               "LastChanged":  null,
+                               "Value":  0
+                           },
+                 "ActualHours":  {
+                                     "FirstSeen":  "2026-08-20",
+                                     "LastChanged":  null,
+                                     "Value":  0
+                                 },
+                 "Task":  {
+                              "FirstSeen":  "2026-08-09",
+                              "LastChanged":  null,
+                              "Value":  14.29
+                          }
+             },
+    "4872":  {
+                 "Hours":  {
+                               "FirstSeen":  "2026-08-09",
+                               "LastChanged":  null,
+                               "Value":  0
+                           },
+                 "ActualHours":  {
+                                     "FirstSeen":  "2026-08-20",
+                                     "LastChanged":  null,
+                                     "Value":  0
+                                 },
+                 "Task":  {
+                              "FirstSeen":  "2026-08-09",
+                              "LastChanged":  null,
+                              "Value":  8
+                          }
+             },
+    "4874":  {
+                 "Hours":  {
+                               "FirstSeen":  "2026-08-09",
+                               "LastChanged":  null,
+                               "Value":  36.54
+                           },
+                 "ActualHours":  {
+                                     "FirstSeen":  "2026-08-20",
+                                     "LastChanged":  null,
+                                     "Value":  4.75
+                                 },
+                 "Task":  {
+                              "FirstSeen":  "2026-08-09",
+                              "LastChanged":  null,
+                              "Value":  22.22
+                          }
+             },
+    "4875":  {
+                 "Hours":  {
+                               "FirstSeen":  "2026-08-09",
+                               "LastChanged":  null,
+                               "Value":  138.54
+                           },
+                 "ActualHours":  {
+                                     "FirstSeen":  "2026-08-20",
+                                     "LastChanged":  null,
+                                     "Value":  11.08
+                                 },
+                 "Task":  {
+                              "FirstSeen":  "2026-08-09",
+                              "LastChanged":  null,
+                              "Value":  35.29
+                          }
+             },
+    "4877":  {
+                 "Hours":  {
+                               "FirstSeen":  "2026-08-09",
+                               "LastChanged":  null,
+                               "Value":  0
+                           },
+                 "ActualHours":  {
+                                     "FirstSeen":  "2026-08-20",
+                                     "LastChanged":  null,
+                                     "Value":  0.09
+                                 },
+                 "Task":  {
+                              "FirstSeen":  "2026-08-09",
+                              "LastChanged":  null,
+                              "Value":  15.15
+                          }
+             },
+    "4881":  {
+                 "Hours":  {
+                               "FirstSeen":  "2026-08-09",
+                               "LastChanged":  null,
+                               "Value":  0
+                           },
+                 "ActualHours":  {
+                                     "FirstSeen":  "2026-08-20",
+                                     "LastChanged":  null,
+                                     "Value":  0
+                                 },
+                 "Task":  {
+                              "FirstSeen":  "2026-08-09",
+                              "LastChanged":  null,
+                              "Value":  0
+                          }
+             },
+    "4884":  {
+                 "Hours":  {
+                               "FirstSeen":  "2026-08-09",
+                               "LastChanged":  null,
+                               "Value":  0
+                           },
+                 "ActualHours":  {
+                                     "FirstSeen":  "2026-08-20",
+                                     "LastChanged":  null,
+                                     "Value":  7.83
+                                 },
+                 "Task":  {
+                              "FirstSeen":  "2026-08-09",
+                              "LastChanged":  null,
+                              "Value":  11.76
+                          }
+             },
+    "4887":  {
+                 "Hours":  {
+                               "FirstSeen":  "2026-08-09",
+                               "LastChanged":  null,
+                               "Value":  62.5
+                           },
+                 "ActualHours":  {
+                                     "FirstSeen":  "2026-08-20",
+                                     "LastChanged":  null,
+                                     "Value":  5
+                                 },
+                 "Task":  {
+                              "FirstSeen":  "2026-08-09",
+                              "LastChanged":  null,
+                              "Value":  3.85
+                          }
+             },
+    "4894":  {
+                 "Hours":  {
+                               "FirstSeen":  "2026-08-09",
+                               "LastChanged":  null,
+                               "Value":  30
+                           },
+                 "ActualHours":  {
+                                     "FirstSeen":  "2026-08-20",
+                                     "LastChanged":  null,
+                                     "Value":  1.5
+                                 },
+                 "Task":  {
+                              "FirstSeen":  "2026-08-09",
+                              "LastChanged":  null,
+                              "Value":  5.88
+                          }
+             },
+    "4895":  {
+                 "Hours":  {
+                               "FirstSeen":  "2026-08-09",
+                               "LastChanged":  null,
+                               "Value":  0
+                           },
+                 "ActualHours":  {
+                                     "FirstSeen":  "2026-08-20",
+                                     "LastChanged":  null,
+                                     "Value":  0
+                                 },
+                 "Task":  {
+                              "FirstSeen":  "2026-08-09",
+                              "LastChanged":  null,
+                              "Value":  0
+                          }
+             },
+    "4899":  {
+                 "Hours":  {
+                               "FirstSeen":  "2026-08-09",
+                               "LastChanged":  "2026-08-20",
+                               "Value":  55
+                           },
+                 "ActualHours":  {
+                                     "FirstSeen":  "2026-08-20",
+                                     "LastChanged":  null,
+                                     "Value":  5.5
+                                 },
+                 "Task":  {
+                              "FirstSeen":  "2026-08-09",
+                              "LastChanged":  null,
+                              "Value":  8
+                          }
+             },
+    "4900":  {
+                 "Hours":  {
+                               "FirstSeen":  "2026-08-09",
+                               "LastChanged":  null,
+                               "Value":  0
+                           },
+                 "ActualHours":  {
+                                     "FirstSeen":  "2026-08-20",
+                                     "LastChanged":  null,
+                                     "Value":  0
+                                 },
+                 "Task":  {
+                              "FirstSeen":  "2026-08-09",
+                              "LastChanged":  null,
+                              "Value":  5.88
+                          }
+             },
+    "4901":  {
+                 "Hours":  {
+                               "FirstSeen":  "2026-08-09",
+                               "LastChanged":  null,
+                               "Value":  100
+                           },
+                 "ActualHours":  {
+                                     "FirstSeen":  "2026-08-20",
+                                     "LastChanged":  null,
+                                     "Value":  7
+                                 },
+                 "Task":  {
+                              "FirstSeen":  "2026-08-09",
+                              "LastChanged":  null,
+                              "Value":  11.76
+                          }
+             },
+    "4902":  {
+                 "Hours":  {
+                               "FirstSeen":  "2026-08-09",
+                               "LastChanged":  null,
+                               "Value":  0
+                           },
+                 "ActualHours":  {
+                                     "FirstSeen":  "2026-08-20",
+                                     "LastChanged":  null,
+                                     "Value":  0
+                                 },
+                 "Task":  {
+                              "FirstSeen":  "2026-08-09",
+                              "LastChanged":  null,
+                              "Value":  0
+                          }
+             },
+    "4904":  {
+                 "Hours":  {
+                               "FirstSeen":  "2026-08-09",
+                               "LastChanged":  null,
+                               "Value":  0
+                           },
+                 "ActualHours":  {
+                                     "FirstSeen":  "2026-08-20",
+                                     "LastChanged":  null,
+                                     "Value":  0
+                                 },
+                 "Task":  {
+                              "FirstSeen":  "2026-08-09",
+                              "LastChanged":  null,
+                              "Value":  4.55
+                          }
+             },
+    "4908":  {
+                 "Hours":  {
+                               "FirstSeen":  "2026-08-09",
+                               "LastChanged":  null,
+                               "Value":  0
+                           },
+                 "ActualHours":  {
+                                     "FirstSeen":  "2026-08-20",
+                                     "LastChanged":  null,
+                                     "Value":  0
+                                 },
+                 "Task":  {
+                              "FirstSeen":  "2026-08-09",
+                              "LastChanged":  null,
+                              "Value":  0
+                          }
+             },
+    "4909":  {
+                 "Hours":  {
+                               "FirstSeen":  "2026-08-09",
+                               "LastChanged":  null,
+                               "Value":  0
+                           },
+                 "ActualHours":  {
+                                     "FirstSeen":  "2026-08-20",
+                                     "LastChanged":  null,
+                                     "Value":  0
+                                 },
+                 "Task":  {
+                              "FirstSeen":  "2026-08-09",
+                              "LastChanged":  null,
+                              "Value":  11.76
+                          }
+             },
+    "4911":  {
+                 "Hours":  {
+                               "FirstSeen":  "2026-08-09",
+                               "LastChanged":  null,
+                               "Value":  0
+                           },
+                 "ActualHours":  {
+                                     "FirstSeen":  "2026-08-20",
+                                     "LastChanged":  null,
+                                     "Value":  4.5
+                                 },
+                 "Task":  {
+                              "FirstSeen":  "2026-08-09",
+                              "LastChanged":  null,
+                              "Value":  23.53
+                          }
+             },
+    "4912":  {
+                 "Hours":  {
+                               "FirstSeen":  "2026-08-20",
+                               "LastChanged":  null,
+                               "Value":  0
+                           },
+                 "ActualHours":  {
+                                     "FirstSeen":  "2026-08-20",
+                                     "LastChanged":  null,
+                                     "Value":  0
+                                 },
+                 "Task":  {
+                              "FirstSeen":  "2026-08-20",
+                              "LastChanged":  null,
+                              "Value":  4
+                          }
+             },
+    "4916":  {
+                 "Hours":  {
+                               "FirstSeen":  "2026-08-09",
+                               "LastChanged":  null,
+                               "Value":  40.75
+                           },
+                 "ActualHours":  {
+                                     "FirstSeen":  "2026-08-20",
+                                     "LastChanged":  null,
+                                     "Value":  24.45
+                                 },
+                 "Task":  {
+                              "FirstSeen":  "2026-08-09",
+                              "LastChanged":  null,
+                              "Value":  11.76
+                          }
+             },
+    "4917":  {
+                 "Hours":  {
+                               "FirstSeen":  "2026-08-09",
+                               "LastChanged":  null,
+                               "Value":  75
+                           },
+                 "ActualHours":  {
+                                     "FirstSeen":  "2026-08-20",
+                                     "LastChanged":  null,
+                                     "Value":  3
+                                 },
+                 "Task":  {
+                              "FirstSeen":  "2026-08-09",
+                              "LastChanged":  null,
+                              "Value":  5.88
+                          }
+             },
+    "4919":  {
+                 "Hours":  {
+                               "FirstSeen":  "2026-08-09",
+                               "LastChanged":  null,
+                               "Value":  0
+                           },
+                 "ActualHours":  {
+                                     "FirstSeen":  "2026-08-20",
+                                     "LastChanged":  null,
+                                     "Value":  0
+                                 },
+                 "Task":  {
+                              "FirstSeen":  "2026-08-09",
+                              "LastChanged":  null,
+                              "Value":  0
+                          }
+             },
+    "4920":  {
+                 "Hours":  {
+                               "FirstSeen":  "2026-08-09",
+                               "LastChanged":  null,
+                               "Value":  0
+                           },
+                 "ActualHours":  {
+                                     "FirstSeen":  "2026-08-20",
+                                     "LastChanged":  null,
+                                     "Value":  0
+                                 },
+                 "Task":  {
+                              "FirstSeen":  "2026-08-09",
+                              "LastChanged":  "2026-08-11",
+                              "Value":  4.76
+                          }
+             },
+    "4921":  {
+                 "Hours":  {
+                               "FirstSeen":  "2026-08-09",
+                               "LastChanged":  null,
+                               "Value":  0
+                           },
+                 "ActualHours":  {
+                                     "FirstSeen":  "2026-08-20",
+                                     "LastChanged":  null,
+                                     "Value":  0
+                                 },
+                 "Task":  {
+                              "FirstSeen":  "2026-08-09",
+                              "LastChanged":  null,
+                              "Value":  0
+                          }
+             },
+    "4928":  {
+                 "Hours":  {
+                               "FirstSeen":  "2026-08-09",
+                               "LastChanged":  null,
+                               "Value":  0
+                           },
+                 "ActualHours":  {
+                                     "FirstSeen":  "2026-08-20",
+                                     "LastChanged":  null,
+                                     "Value":  0.37
+                                 },
+                 "Task":  {
+                              "FirstSeen":  "2026-08-09",
+                              "LastChanged":  "2026-08-20",
+                              "Value":  4.55
+                          }
+             },
+    "4929":  {
+                 "Hours":  {
+                               "FirstSeen":  "2026-08-09",
+                               "LastChanged":  null,
+                               "Value":  0
+                           },
+                 "ActualHours":  {
+                                     "FirstSeen":  "2026-08-20",
+                                     "LastChanged":  null,
+                                     "Value":  0
+                                 },
+                 "Task":  {
+                              "FirstSeen":  "2026-08-09",
+                              "LastChanged":  null,
+                              "Value":  4.76
+                          }
+             },
+    "4934":  {
+                 "Hours":  {
+                               "FirstSeen":  "2026-08-09",
+                               "LastChanged":  null,
+                               "Value":  0
+                           },
+                 "ActualHours":  {
+                                     "FirstSeen":  "2026-08-20",
+                                     "LastChanged":  null,
+                                     "Value":  0
+                                 },
+                 "Task":  {
+                              "FirstSeen":  "2026-08-09",
+                              "LastChanged":  null,
+                              "Value":  0
+                          }
+             },
+    "4935":  {
+                 "Hours":  {
+                               "FirstSeen":  "2026-08-09",
+                               "LastChanged":  null,
+                               "Value":  0
+                           },
+                 "ActualHours":  {
+                                     "FirstSeen":  "2026-08-20",
+                                     "LastChanged":  null,
+                                     "Value":  0.02
+                                 },
+                 "Task":  {
+                              "FirstSeen":  "2026-08-09",
+                              "LastChanged":  null,
+                              "Value":  42.11
+                          }
+             },
+    "4940":  {
+                 "Hours":  {
+                               "FirstSeen":  "2026-08-09",
+                               "LastChanged":  "2026-08-20",
+                               "Value":  75.63
+                           },
+                 "ActualHours":  {
+                                     "FirstSeen":  "2026-08-20",
+                                     "LastChanged":  null,
+                                     "Value":  30.25
+                                 },
+                 "Task":  {
+                              "FirstSeen":  "2026-08-09",
+                              "LastChanged":  "2026-08-20",
+                              "Value":  11.76
+                          }
              },
     "4942":  {
-                 "Task":  {
-                              "FirstSeen":  "2026-08-11",
-                              "LastChanged":  null,
-                              "Value":  4.35
-                          },
                  "Hours":  {
                                "FirstSeen":  "2026-08-11",
                                "LastChanged":  null,
                                "Value":  0
-                           }
+                           },
+                 "ActualHours":  {
+                                     "FirstSeen":  "2026-08-20",
+                                     "LastChanged":  null,
+                                     "Value":  0
+                                 },
+                 "Task":  {
+                              "FirstSeen":  "2026-08-11",
+                              "LastChanged":  null,
+                              "Value":  4.35
+                          }
              }
 }

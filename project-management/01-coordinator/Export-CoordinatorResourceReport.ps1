@@ -59,7 +59,7 @@ $GrandTotal = ($Pivot | Measure-Object -Property Total -Sum).Sum
 if (-not (Test-Path -LiteralPath $OutputDir)) { New-Item -ItemType Directory -Path $OutputDir -Force | Out-Null }
 
 # Detail CSV - one row per in-scope project, for drill-down/audit.
-$DetailCols = @("Project Number", "Account", "Project Name", "Project Team Tech Lead", "Status", "Phase", "Project Lead", "Last Activity Time")
+$DetailCols = @("Project Number", "Account", "Project Name", "Project Team Tech Lead", "Status", "Phase", "Project Lead")
 $DetailRows = @($Projects | Select-Object $DetailCols | Sort-Object "Project Team Tech Lead", "Phase")
 Export-Utf8NoBomCsv -Path $OutputDetail -InputObject $DetailRows
 

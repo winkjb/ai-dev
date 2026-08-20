@@ -118,8 +118,8 @@ $Rows = foreach ($p in $Projects) {
         "Status"               = $StatusLabels[[string]$p.status]
         "Project Lead"         = $ResourceNames[[string]$p.projectLeadResourceID]
         "% Complete - Task"    = "{0:N2}%" -f $PctTask
+        "Actual Hours"         = "{0:N2}" -f [double]($p.actualHours)
         "% Complete - Hours"   = "{0:N2}%" -f $PctHours
-        "Last Activity Time"   = if ($p.lastActivityDateTime) { [datetime]$p.lastActivityDateTime | Get-Date -Format "MM/dd/yyyy hh:mm tt" } else { "" }
         "Status Date"          = if ($p.statusDateTime) { [datetime]$p.statusDateTime | Get-Date -Format "MM/dd/yyyy hh:mm tt" } else { "" }
         "Project Team Tech Lead" = $TechLead
     }

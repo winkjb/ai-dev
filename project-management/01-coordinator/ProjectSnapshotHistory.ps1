@@ -1,9 +1,11 @@
 <#
     Local staleness history for the Flags report only (Get-CoordinatorProjectData.ps1 and the
     other two coordinator reports don't need this). Tracks, per Autotask project ID, the last
-    known value and last-changed date for the two % Complete signals that Autotask itself
+    known value and last-changed date for the % Complete signals that Autotask itself
     doesn't store anywhere (unlike Status, which has its own native statusDateTime field - see
-    Get-CoordinatorProjectData.ps1's docstring).
+    Get-CoordinatorProjectData.ps1's docstring), plus Actual Hours - tracked the same way even
+    though Autotask does store the raw number, because % Complete - Hours can sit stuck at 0%
+    (no estimated hours entered) while real time keeps getting logged against the project.
 
     A signal's LastChanged starts - and stays - $null ("unknown") until a real value change is
     actually observed; it is never seeded with today's date on first sight of a project. See
@@ -33,6 +35,11 @@ function Get-ProjectSnapshotHistory {
                 Value       = $prop.Value.Task.Value
                 LastChanged = $prop.Value.Task.LastChanged
                 FirstSeen   = $prop.Value.Task.FirstSeen
+            }
+            ActualHours = @{
+                Value       = $prop.Value.ActualHours.Value
+                LastChanged = $prop.Value.ActualHours.LastChanged
+                FirstSeen   = $prop.Value.ActualHours.FirstSeen
             }
         }
     }
@@ -64,11 +71,13 @@ function Update-ProjectSnapshotHistory {
 
         $HoursValue = [math]::Round([double]($p.'% Complete - Hours' -replace '[%,]', ''), 2)
         $TaskValue  = [math]::Round([double]($p.'% Complete - Task' -replace '[%,]', ''), 2)
+        $ActualHoursValue = [math]::Round([double]($p.'Actual Hours' -replace ',', ''), 2)
 
         if (-not $History.ContainsKey($Id)) {
             $History[$Id] = @{
                 Hours = @{ Value = $HoursValue; LastChanged = $null; FirstSeen = $TodayStr }
                 Task  = @{ Value = $TaskValue;  LastChanged = $null; FirstSeen = $TodayStr }
+                ActualHours = @{ Value = $ActualHoursValue; LastChanged = $null; FirstSeen = $TodayStr }
             }
             continue
         }
@@ -77,8 +86,9 @@ function Update-ProjectSnapshotHistory {
         foreach ($Signal in @(
             @{ Name = "Hours"; Value = $HoursValue }
             @{ Name = "Task";  Value = $TaskValue }
+            @{ Name = "ActualHours"; Value = $ActualHoursValue }
         )) {
-            if (-not $Entry.ContainsKey($Signal.Name) -or $null -eq $Entry[$Signal.Name]) {
+            if (-not $Entry.ContainsKey($Signal.Name) -or $null -eq $Entry[$Signal.Name] -or $null -eq $Entry[$Signal.Name].Value) {
                 $Entry[$Signal.Name] = @{ Value = $Signal.Value; LastChanged = $null; FirstSeen = $TodayStr }
                 continue
             }
