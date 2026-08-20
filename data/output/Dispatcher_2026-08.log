@@ -49,3 +49,52 @@
 [2026-08-10 21:20:32] [SKIP] ServIT / Service Delivery / Invoke-CoordinatorReports: DRY RUN - would execute service-delivery\01-coordinator\Invoke-CoordinatorReports.ps1
 [2026-08-10 21:20:32] [SKIP] ServIT / Maintenance / Remove-OldLogs: not due. Last run: 2026-07-29T12:36:10.4079440-04:00
 [2026-08-10 21:20:32] [INFO] ===== Dispatcher run finished =====
+[2026-08-20 13:47:29] [INFO] ===== Dispatcher run started (DRY RUN) =====
+[2026-08-20 13:47:30] [INFO] ServIT / Project Management / Invoke-CoordinatorReports: running - scheduled today.
+[2026-08-20 13:47:30] [SKIP] ServIT / Project Management / Invoke-CoordinatorReports: DRY RUN - would execute project-management\01-coordinator\Invoke-CoordinatorReports.ps1
+[2026-08-20 13:47:30] [INFO] ServIT / Security / Invoke-CoordinatorReports: running - catch-up (overdue).
+[2026-08-20 13:47:30] [SKIP] ServIT / Security / Invoke-CoordinatorReports: DRY RUN - would execute security\01-coordinator\Invoke-CoordinatorReports.ps1
+[2026-08-20 13:47:30] [INFO] ServIT / Service Delivery / Invoke-CoordinatorReports: running - scheduled today.
+[2026-08-20 13:47:30] [SKIP] ServIT / Service Delivery / Invoke-CoordinatorReports: DRY RUN - would execute service-delivery\01-coordinator\Invoke-CoordinatorReports.ps1
+[2026-08-20 13:47:30] [SKIP] ServIT / Maintenance / Remove-OldLogs: not due. Last run: 2026-07-29T12:36:10.4079440-04:00
+[2026-08-20 13:47:30] [INFO] Katz / M365 Assessment / Invoke-GroupAudit-Admins: running - scheduled today.
+[2026-08-20 13:47:30] [SKIP] Katz / M365 Assessment / Invoke-GroupAudit-Admins: DRY RUN - would execute program-management\ait-m365\katz\Invoke-GroupAudit-Admins.ps1
+[2026-08-20 13:47:30] [INFO] Katz / M365 Assessment / Invoke-GroupAudit-Temp: running - scheduled today.
+[2026-08-20 13:47:30] [SKIP] Katz / M365 Assessment / Invoke-GroupAudit-Temp: DRY RUN - would execute program-management\ait-m365\katz\Invoke-GroupAudit-Temp.ps1
+[2026-08-20 13:47:30] [INFO] Katz / M365 Assessment / Invoke-GroupMemberAudit-CA: running - scheduled today.
+[2026-08-20 13:47:30] [SKIP] Katz / M365 Assessment / Invoke-GroupMemberAudit-CA: DRY RUN - would execute program-management\ait-m365\katz\Invoke-GroupMemberAudit-CA.ps1
+[2026-08-20 13:47:30] [INFO] Katz / M365 Assessment / Invoke-LicenseAudit-Detail: running - scheduled today.
+[2026-08-20 13:47:30] [SKIP] Katz / M365 Assessment / Invoke-LicenseAudit-Detail: DRY RUN - would execute program-management\ait-m365\katz\Invoke-LicenseAudit-Detail.ps1
+[2026-08-20 13:47:30] [INFO] Katz / M365 Assessment / Invoke-LicenseAudit-Summary: running - scheduled today.
+[2026-08-20 13:47:30] [SKIP] Katz / M365 Assessment / Invoke-LicenseAudit-Summary: DRY RUN - would execute program-management\ait-m365\katz\Invoke-LicenseAudit-Summary.ps1
+[2026-08-20 13:47:30] [INFO] Katz / M365 Assessment / Invoke-LogAudit-UserActivities: running - scheduled today.
+[2026-08-20 13:47:30] [SKIP] Katz / M365 Assessment / Invoke-LogAudit-UserActivities: DRY RUN - would execute program-management\ait-m365\katz\Invoke-LogAudit-UserActivities.ps1
+[2026-08-20 13:47:30] [INFO] Katz / M365 Assessment / Invoke-LogAudit-UserSignIns: running - scheduled today.
+[2026-08-20 13:47:30] [SKIP] Katz / M365 Assessment / Invoke-LogAudit-UserSignIns: DRY RUN - would execute program-management\ait-m365\katz\Invoke-LogAudit-UserSignIns.ps1
+[2026-08-20 13:47:30] [INFO] Katz / M365 Assessment / Invoke-MailboxAudit-LicensedShared: running - scheduled today.
+[2026-08-20 13:47:30] [SKIP] Katz / M365 Assessment / Invoke-MailboxAudit-LicensedShared: DRY RUN - would execute program-management\ait-m365\katz\Invoke-MailboxAudit-LicensedShared.ps1
+[2026-08-20 13:47:30] [INFO] Katz / M365 Assessment / Invoke-MailboxAudit-Size: running - scheduled today.
+[2026-08-20 13:47:30] [SKIP] Katz / M365 Assessment / Invoke-MailboxAudit-Size: DRY RUN - would execute program-management\ait-m365\katz\Invoke-MailboxAudit-Size.ps1
+[2026-08-20 13:47:30] [INFO] Katz / M365 Assessment / Invoke-PolicyAudit-CA: running - scheduled today.
+[2026-08-20 13:47:30] [SKIP] Katz / M365 Assessment / Invoke-PolicyAudit-CA: DRY RUN - would execute program-management\ait-m365\katz\Invoke-PolicyAudit-CA.ps1
+[2026-08-20 13:47:30] [INFO] Katz / M365 Assessment / Invoke-PolicyAudit-Locations: running - scheduled today.
+[2026-08-20 13:47:30] [SKIP] Katz / M365 Assessment / Invoke-PolicyAudit-Locations: DRY RUN - would execute program-management\ait-m365\katz\Invoke-PolicyAudit-Locations.ps1
+[2026-08-20 13:47:30] [INFO] Katz / M365 Assessment / Invoke-SiteAuditOneDrive-Activity: running - scheduled today.
+[2026-08-20 13:47:30] [SKIP] Katz / M365 Assessment / Invoke-SiteAuditOneDrive-Activity: DRY RUN - would execute program-management\ait-m365\katz\Invoke-SiteAuditOneDrive-Activity.ps1
+[2026-08-20 13:47:30] [INFO] Katz / M365 Assessment / Invoke-SiteAuditSharepoint-Activity: running - scheduled today.
+[2026-08-20 13:47:30] [SKIP] Katz / M365 Assessment / Invoke-SiteAuditSharepoint-Activity: DRY RUN - would execute program-management\ait-m365\katz\Invoke-SiteAuditSharepoint-Activity.ps1
+[2026-08-20 13:47:30] [INFO] Katz / M365 Assessment / Invoke-SiteAuditSharepoint-Disable: running - scheduled today.
+[2026-08-20 13:47:30] [SKIP] Katz / M365 Assessment / Invoke-SiteAuditSharepoint-Disable: DRY RUN - would execute program-management\ait-m365\katz\Invoke-SiteAuditSharepoint-Disable.ps1
+[2026-08-20 13:47:30] [INFO] Katz / M365 Assessment / Invoke-SiteAuditTeams-Activity: running - scheduled today.
+[2026-08-20 13:47:30] [SKIP] Katz / M365 Assessment / Invoke-SiteAuditTeams-Activity: DRY RUN - would execute program-management\ait-m365\katz\Invoke-SiteAuditTeams-Activity.ps1
+[2026-08-20 13:47:30] [INFO] Katz / M365 Assessment / Invoke-SiteAuditTeams-Disable: running - scheduled today.
+[2026-08-20 13:47:30] [SKIP] Katz / M365 Assessment / Invoke-SiteAuditTeams-Disable: DRY RUN - would execute program-management\ait-m365\katz\Invoke-SiteAuditTeams-Disable.ps1
+[2026-08-20 13:47:30] [INFO] Katz / M365 Assessment / Invoke-UserAccessAudit-Disable: running - scheduled today.
+[2026-08-20 13:47:30] [SKIP] Katz / M365 Assessment / Invoke-UserAccessAudit-Disable: DRY RUN - would execute program-management\ait-m365\katz\Invoke-UserAccessAudit-Disable.ps1
+[2026-08-20 13:47:30] [INFO] Katz / M365 Assessment / Invoke-UserAudit-Hr: running - scheduled today.
+[2026-08-20 13:47:30] [SKIP] Katz / M365 Assessment / Invoke-UserAudit-Hr: DRY RUN - would execute program-management\ait-m365\katz\Invoke-UserAudit-Hr.ps1
+[2026-08-20 13:47:30] [INFO] Katz / M365 Assessment / Invoke-UserAudit-LicensedDisabled: running - scheduled today.
+[2026-08-20 13:47:30] [SKIP] Katz / M365 Assessment / Invoke-UserAudit-LicensedDisabled: DRY RUN - would execute program-management\ait-m365\katz\Invoke-UserAudit-LicensedDisabled.ps1
+[2026-08-20 13:47:30] [INFO] Katz / M365 Assessment / Invoke-UserAudit-Temp: running - scheduled today.
+[2026-08-20 13:47:30] [SKIP] Katz / M365 Assessment / Invoke-UserAudit-Temp: DRY RUN - would execute program-management\ait-m365\katz\Invoke-UserAudit-Temp.ps1
+[2026-08-20 13:47:30] [INFO] ===== Dispatcher run finished =====
