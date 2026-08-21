@@ -1,0 +1,12 @@
+[2026-08-20 16:53:50] [INFO] === Starting Katz zero-hit firewall audit run ===
+[2026-08-20 16:53:51] [INFO] Collected firewall policies for harbourpost
+[2026-08-20 16:53:51] [INFO] Generated zero-hit audit for harbourpost
+[2026-08-20 16:53:52] [ERROR] Site hq failed: FortiGate API call failed for https://71.46.218.18:32548/api/v2/monitor/firewall/policy: The remote server returned an error: (403) Forbidden.
+[2026-08-20 16:53:55] [INFO] Emailed reports to bwinklesky@servit.net
+[2026-08-20 16:53:55] [INFO] === Run completed successfully ===
+[2026-08-20 16:55:28] [INFO] === Starting Katz zero-hit firewall audit run ===
+[2026-08-20 16:55:29] [INFO] Collected firewall policies for harbourpost
+[2026-08-20 16:55:29] [INFO] Generated zero-hit audit for harbourpost
+[2026-08-20 16:55:29] [ERROR] Site hq failed: FortiGate API call failed for https://71.46.218.18:32548/api/v2/monitor/firewall/policy: The remote server returned an error: (403) Forbidden.
+[2026-08-20 16:55:32] [INFO] Emailed reports to bwinklesky@servit.net
+[2026-08-20 16:55:32] [INFO] === Run completed successfully ===

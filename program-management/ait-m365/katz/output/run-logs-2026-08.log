@@ -263,3 +263,52 @@
 [2026-08-20 13:31:01] [INFO] Generated the license detail audit
 [2026-08-20 13:31:03] [INFO] Emailed reports to bwinklesky@servit.net
 [2026-08-20 13:31:03] [INFO] === Run completed successfully ===
+[2026-08-21 11:53:16] [INFO] === Starting Katz user sign-in log audit run ===
+[2026-08-21 11:55:20] [INFO] Collected Entra user sign-in log
+[2026-08-21 11:55:24] [INFO] Emailed reports to bwinklesky@servit.net
+[2026-08-21 11:55:24] [INFO] === Run completed successfully ===
+[2026-08-21 11:56:13] [INFO] === Starting Katz Monthly-End digest run ===
+[2026-08-21 11:56:13] [INFO] === Starting Katz user activity log audit run ===
+[2026-08-21 11:57:30] [INFO] Collected Entra user activity log
+[2026-08-21 11:57:30] [INFO] Ran Invoke-LogAudit-UserActivities
+[2026-08-21 11:57:30] [INFO] === Starting Katz user sign-in log audit run ===
+[2026-08-21 11:59:26] [INFO] Collected Entra user sign-in log
+[2026-08-21 11:59:26] [INFO] Ran Invoke-LogAudit-UserSignIns
+[2026-08-21 11:59:29] [INFO] Emailed digest to bwinklesky@servit.net
+[2026-08-21 11:59:29] [INFO] === Run completed successfully ===
+[2026-08-21 11:59:56] [INFO] === Starting Katz temp-groups audit run ===
+[2026-08-21 11:59:57] [INFO] Collected Entra groups
+[2026-08-21 11:59:57] [INFO] Generated the temp-groups audit
+[2026-08-21 15:01:22] [INFO] === Starting Katz Monthly-End digest run ===
+[2026-08-21 15:01:22] [INFO] === Starting Katz user activity log audit run ===
+[2026-08-21 15:02:53] [INFO] Collected Entra user activity log
+[2026-08-21 15:02:53] [INFO] Ran Invoke-LogAudit-UserActivities
+[2026-08-21 15:02:53] [INFO] === Starting Katz user sign-in log audit run ===
+[2026-08-21 15:04:53] [INFO] Collected Entra user sign-in log
+[2026-08-21 15:04:53] [INFO] Ran Invoke-LogAudit-UserSignIns
+[2026-08-21 15:04:57] [INFO] Emailed digest to bwinklesky@servit.net
+[2026-08-21 15:04:57] [INFO] === Run completed successfully ===
+[2026-08-21 15:25:48] [INFO] === Starting Katz Monthly-End digest run ===
+[2026-08-21 15:25:48] [INFO] === Starting Katz user activity log audit run ===
+[2026-08-21 15:27:09] [INFO] Collected Entra user activity log
+[2026-08-21 15:27:09] [INFO] Ran Invoke-LogAudit-UserActivities
+[2026-08-21 15:27:09] [INFO] === Starting Katz user sign-in log audit run ===
+[2026-08-21 15:28:46] [INFO] Collected Entra user sign-in log
+[2026-08-21 15:28:46] [INFO] Ran Invoke-LogAudit-UserSignIns
+[2026-08-21 15:28:49] [INFO] Emailed digest to bwinklesky@servit.net
+[2026-08-21 15:28:52] [INFO] Emailed LogAudit-UserSignIns to additional recipient(s) bwinklesky@servit.net
+[2026-08-21 15:28:52] [INFO] === Run completed successfully ===
+[2026-08-21 15:49:39] [INFO] === Starting Katz Monthly-End digest run ===
+[2026-08-21 15:49:39] [INFO] === Starting Katz user activity log audit run ===
+[2026-08-21 15:49:45] [INFO] === Starting Katz temp-groups audit run ===
+[2026-08-21 15:49:46] [INFO] Collected Entra groups
+[2026-08-21 15:49:46] [INFO] Generated the temp-groups audit
+[2026-08-21 15:49:48] [INFO] Emailed reports to bwinklesky@servit.net
+[2026-08-21 15:49:48] [INFO] === Run completed successfully ===
+[2026-08-21 15:51:15] [INFO] Collected Entra user activity log
+[2026-08-21 15:51:15] [INFO] Ran Invoke-LogAudit-UserActivities
+[2026-08-21 15:51:15] [INFO] === Starting Katz user sign-in log audit run ===
+[2026-08-21 15:53:05] [INFO] Collected Entra user sign-in log
+[2026-08-21 15:53:05] [INFO] Ran Invoke-LogAudit-UserSignIns
+[2026-08-21 15:53:08] [INFO] Emailed digest to bwinklesky@servit.net
+[2026-08-21 15:53:08] [INFO] === Run completed successfully ===

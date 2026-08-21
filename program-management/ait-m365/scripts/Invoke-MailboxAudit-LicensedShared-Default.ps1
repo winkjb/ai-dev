@@ -11,7 +11,8 @@ param(
     [string]$CustomerDir,
     [string]$SpFolder,
     [string]$FromAddress,
-    [string[]]$ToAddresses
+    [string[]]$ToAddresses,
+    [switch]$SkipEmail
 
 )
 
@@ -75,6 +76,11 @@ try {
     & (Join-Path $PSScriptRoot "..\02-analyst\Compare-Mailboxes-LicensedShared.ps1") -Directory $CustomerDir
     Write-ToLog -LogFile $OutputFile -Message "Generated the licensed shared mailbox audit"
 
+
+    if ($SkipEmail) {
+        Write-Output $AuditCsv
+        return
+    }
     # ---------------------------------------------------------------------------
     # Send email
     # ---------------------------------------------------------------------------

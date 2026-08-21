@@ -98,3 +98,61 @@
 [2026-08-20 13:47:30] [INFO] Katz / M365 Assessment / Invoke-UserAudit-Temp: running - scheduled today.
 [2026-08-20 13:47:30] [SKIP] Katz / M365 Assessment / Invoke-UserAudit-Temp: DRY RUN - would execute program-management\ait-m365\katz\Invoke-UserAudit-Temp.ps1
 [2026-08-20 13:47:30] [INFO] ===== Dispatcher run finished =====
+[2026-08-21 16:17:52] [INFO] ===== Dispatcher run started (DRY RUN) =====
+[2026-08-21 16:17:52] [INFO] Test / Test / DailyItem: running - forced.
+[2026-08-21 16:17:52] [SKIP] Test / Test / DailyItem: DRY RUN - would execute dummy.ps1
+[2026-08-21 16:17:52] [INFO] Test / Test / MonthlyItem: running - forced.
+[2026-08-21 16:17:52] [SKIP] Test / Test / MonthlyItem: DRY RUN - would execute dummy.ps1
+[2026-08-21 16:17:52] [SKIP] Test / Test / MonthlyEndItem: frequency 'Monthly-End' is not eligible for this invocation. Skipping.
+[2026-08-21 16:17:52] [INFO] Test / Test / QuarterlyItem: running - forced.
+[2026-08-21 16:17:52] [SKIP] Test / Test / QuarterlyItem: DRY RUN - would execute dummy.ps1
+[2026-08-21 16:17:52] [INFO] ===== Dispatcher run finished =====
+[2026-08-21 16:17:53] [INFO] ===== Dispatcher run started (DRY RUN) =====
+[2026-08-21 16:17:53] [SKIP] Test / Test / DailyItem: frequency 'Daily' is not eligible for this invocation. Skipping.
+[2026-08-21 16:17:53] [SKIP] Test / Test / MonthlyItem: frequency 'Monthly' is not eligible for this invocation. Skipping.
+[2026-08-21 16:17:53] [INFO] Test / Test / MonthlyEndItem: running - forced.
+[2026-08-21 16:17:53] [SKIP] Test / Test / MonthlyEndItem: DRY RUN - would execute dummy.ps1
+[2026-08-21 16:17:53] [SKIP] Test / Test / QuarterlyItem: frequency 'Quarterly' is not eligible for this invocation. Skipping.
+[2026-08-21 16:17:53] [INFO] ===== Dispatcher run finished =====
+[2026-08-21 16:18:06] [INFO] ===== Dispatcher run started (DRY RUN) =====
+[2026-08-21 16:18:06] [INFO] Test / Test / MonthlyEndDueToday: running - scheduled today.
+[2026-08-21 16:18:06] [SKIP] Test / Test / MonthlyEndDueToday: DRY RUN - would execute dummy.ps1
+[2026-08-21 16:18:06] [INFO] Test / Test / MonthlyEndNotDue: running - catch-up (overdue).
+[2026-08-21 16:18:06] [SKIP] Test / Test / MonthlyEndNotDue: DRY RUN - would execute dummy.ps1
+[2026-08-21 16:18:06] [INFO] ===== Dispatcher run finished =====
+[2026-08-21 16:22:27] [INFO] ===== Dispatcher run started (DRY RUN) =====
+[2026-08-21 16:22:27] [INFO] ServIT / Project Management / Invoke-CoordinatorReports: running - scheduled today.
+[2026-08-21 16:22:27] [SKIP] ServIT / Project Management / Invoke-CoordinatorReports: DRY RUN - would execute project-management\01-coordinator\Invoke-CoordinatorReports.ps1
+[2026-08-21 16:22:27] [INFO] ServIT / Security / Invoke-CoordinatorReports: running - scheduled today.
+[2026-08-21 16:22:27] [SKIP] ServIT / Security / Invoke-CoordinatorReports: DRY RUN - would execute security\01-coordinator\Invoke-CoordinatorReports.ps1
+[2026-08-21 16:22:27] [INFO] ServIT / Service Delivery / Invoke-CoordinatorReports: running - scheduled today.
+[2026-08-21 16:22:27] [SKIP] ServIT / Service Delivery / Invoke-CoordinatorReports: DRY RUN - would execute service-delivery\01-coordinator\Invoke-CoordinatorReports.ps1
+[2026-08-21 16:22:27] [SKIP] ServIT / Maintenance / Remove-OldLogs: not due. Last run: 2026-07-29T12:36:10.4079440-04:00
+[2026-08-21 16:22:27] [INFO] Katz / M365 Assessment / Invoke-Audits-Monthly: running - catch-up (overdue).
+[2026-08-21 16:22:27] [SKIP] Katz / M365 Assessment / Invoke-Audits-Monthly: DRY RUN - would execute program-management\ait-m365\katz\Invoke-Audits-Monthly.ps1
+[2026-08-21 16:22:27] [SKIP] Katz / M365 Assessment / Invoke-Audits-MonthlyEnd: frequency 'Monthly-End' is not eligible for this invocation. Skipping.
+[2026-08-21 16:22:27] [INFO] ===== Dispatcher run finished =====
+[2026-08-21 16:22:28] [INFO] ===== Dispatcher run started (DRY RUN) =====
+[2026-08-21 16:22:29] [SKIP] ServIT / Project Management / Invoke-CoordinatorReports: frequency 'Weekdays' is not eligible for this invocation. Skipping.
+[2026-08-21 16:22:29] [SKIP] ServIT / Security / Invoke-CoordinatorReports: frequency 'Weekly' is not eligible for this invocation. Skipping.
+[2026-08-21 16:22:29] [SKIP] ServIT / Service Delivery / Invoke-CoordinatorReports: frequency 'Weekdays' is not eligible for this invocation. Skipping.
+[2026-08-21 16:22:29] [SKIP] ServIT / Maintenance / Remove-OldLogs: frequency 'Monthly' is not eligible for this invocation. Skipping.
+[2026-08-21 16:22:29] [SKIP] Katz / M365 Assessment / Invoke-Audits-Monthly: frequency 'Monthly' is not eligible for this invocation. Skipping.
+[2026-08-21 16:22:29] [INFO] Katz / M365 Assessment / Invoke-Audits-MonthlyEnd: running - catch-up (overdue).
+[2026-08-21 16:22:29] [SKIP] Katz / M365 Assessment / Invoke-Audits-MonthlyEnd: DRY RUN - would execute program-management\ait-m365\katz\Invoke-Audits-MonthlyEnd.ps1
+[2026-08-21 16:22:29] [INFO] ===== Dispatcher run finished =====
+[2026-08-21 16:23:07] [WARN] Skipping run - triggered outside expected window. Now: 08/21/2026 16:23:07. Expected: 08/21/2026 00:00:00 (+/-15 min). Difference: 983.1 min.
+[2026-08-21 16:33:13] [INFO] ===== Dispatcher run started (DRY RUN) =====
+[2026-08-21 16:33:13] [INFO] ServIT / Project Management / Invoke-CoordinatorReports: running - scheduled today.
+[2026-08-21 16:33:13] [SKIP] ServIT / Project Management / Invoke-CoordinatorReports: DRY RUN - would execute project-management\01-coordinator\Invoke-CoordinatorReports.ps1
+[2026-08-21 16:33:13] [INFO] ServIT / Security / Invoke-CoordinatorReports: running - scheduled today.
+[2026-08-21 16:33:13] [SKIP] ServIT / Security / Invoke-CoordinatorReports: DRY RUN - would execute security\01-coordinator\Invoke-CoordinatorReports.ps1
+[2026-08-21 16:33:13] [INFO] ServIT / Service Delivery / Invoke-CoordinatorReports: running - scheduled today.
+[2026-08-21 16:33:13] [SKIP] ServIT / Service Delivery / Invoke-CoordinatorReports: DRY RUN - would execute service-delivery\01-coordinator\Invoke-CoordinatorReports.ps1
+[2026-08-21 16:33:14] [SKIP] ServIT / Maintenance / Remove-OldLogs: not due. Last run: 2026-07-29T12:36:10.4079440-04:00
+[2026-08-21 16:33:14] [INFO] Katz / M365 Assessment / Invoke-Audits-Monthly: running - catch-up (overdue).
+[2026-08-21 16:33:14] [SKIP] Katz / M365 Assessment / Invoke-Audits-Monthly: DRY RUN - would execute program-management\ait-m365\katz\Invoke-Audits-Monthly.ps1
+[2026-08-21 16:33:14] [SKIP] Katz / M365 Assessment / Invoke-Audits-MonthlyEnd: frequency 'Monthly-End' is not eligible for this invocation. Skipping.
+[2026-08-21 16:33:14] [INFO] Katz / M365 Assessment / Invoke-Audits-Quarterly: running - catch-up (overdue).
+[2026-08-21 16:33:14] [SKIP] Katz / M365 Assessment / Invoke-Audits-Quarterly: DRY RUN - would execute program-management\ait-m365\katz\Invoke-Audits-Quarterly.ps1
+[2026-08-21 16:33:14] [INFO] ===== Dispatcher run finished =====

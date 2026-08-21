@@ -17,7 +17,8 @@ param(
     [string]$CustomerDir,
     [string]$SpFolder,
     [string]$FromAddress,
-    [string[]]$ToAddresses
+    [string[]]$ToAddresses,
+    [switch]$SkipEmail
 
 )
 
@@ -62,6 +63,11 @@ try {
     & (Join-Path $PSScriptRoot "..\01-collector\Collect-EntraUserActivities.ps1") -Directory $CustomerDir -SettingsPath $SettingsPath
     Write-ToLog -LogFile $OutputFile -Message "Collected Entra user activity log"
 
+
+    if ($SkipEmail) {
+        Write-Output $AuditCsv
+        return
+    }
     # ---------------------------------------------------------------------------
     # Send email - attach if small enough, otherwise say where to find it
     # ---------------------------------------------------------------------------

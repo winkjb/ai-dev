@@ -11,7 +11,8 @@ param(
     [string]$CustomerDir,
     [string]$SpFolder,
     [string]$FromAddress,
-    [string[]]$ToAddresses
+    [string[]]$ToAddresses,
+    [switch]$SkipEmail
 
 )
 
@@ -72,6 +73,11 @@ try {
     & (Join-Path $PSScriptRoot "..\02-analyst\Compare-Users-LicensedDisabled.ps1") -Directory $CustomerDir
     Write-ToLog -LogFile $OutputFile -Message "Generated the licensed+disabled user audit"
 
+
+    if ($SkipEmail) {
+        Write-Output $AuditCsv
+        return
+    }
     # ---------------------------------------------------------------------------
     # Send email
     # ---------------------------------------------------------------------------

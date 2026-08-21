@@ -12,6 +12,7 @@ param(
     [string]$SpFolder,
     [string]$FromAddress,
     [string[]]$ToAddresses,
+    [switch]$SkipEmail,
     [switch]$EnabledUsersOnly
 
 )
@@ -65,6 +66,11 @@ try {
     & (Join-Path $PSScriptRoot "..\02-analyst\Compare-Users-Temp.ps1") @AnalystArgs
     Write-ToLog -LogFile $OutputFile -Message "Generated the temp user audit"
 
+
+    if ($SkipEmail) {
+        Write-Output $AuditCsv
+        return
+    }
     # ---------------------------------------------------------------------------
     # Send email
     # ---------------------------------------------------------------------------

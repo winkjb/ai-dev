@@ -11,7 +11,8 @@ param(
     [string]$CustomerDir,
     [string]$SpFolder,
     [string]$FromAddress,
-    [string[]]$ToAddresses
+    [string[]]$ToAddresses,
+    [switch]$SkipEmail
 
 )
 
@@ -58,6 +59,11 @@ try {
     & (Join-Path $PSScriptRoot "..\02-analyst\Compare-LicenseSummary.ps1") -Directory $CustomerDir
     Write-ToLog -LogFile $OutputFile -Message "Generated the license summary audit"
 
+
+    if ($SkipEmail) {
+        Write-Output $AuditCsv
+        return
+    }
     # ---------------------------------------------------------------------------
     # Send email
     # ---------------------------------------------------------------------------

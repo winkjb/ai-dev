@@ -12,6 +12,7 @@ param(
     [string]$SpFolder,
     [string]$FromAddress,
     [string[]]$ToAddresses,
+    [switch]$SkipEmail,
 
     # No default here - left unbound if the caller omits it, so
     # ..\02-analyst\Compare-Mailboxes-Size.ps1's own default (75) is the single source of
@@ -70,6 +71,11 @@ try {
     & (Join-Path $PSScriptRoot "..\02-analyst\Compare-Mailboxes-Size.ps1") @AnalystArgs
     Write-ToLog -LogFile $OutputFile -Message "Generated the mailbox size audit"
 
+
+    if ($SkipEmail) {
+        Write-Output $AuditCsv
+        return
+    }
     # ---------------------------------------------------------------------------
     # Send email
     # ---------------------------------------------------------------------------

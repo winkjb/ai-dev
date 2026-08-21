@@ -43,6 +43,17 @@
     transient issue right after a prior script failed. Defaults to 30. Set to 0 to disable.
     Doesn't apply to skipped/disabled entries or -DryRun (nothing real happens either way).
 
+.PARAMETER FrequencyFilter
+    Restricts this invocation to manifest rows with a specific Frequency value (e.g.
+    "Monthly-End") - used to run long-running entries from a second Task Scheduler trigger at
+    a different time of day than the main run, without a second manifest/state file. When set,
+    ONLY rows matching this Frequency are eligible - everything else is skipped outright, before
+    due/overdue/-Force are even evaluated, so -Force can't bypass the filter and run something
+    this invocation isn't responsible for. When NOT set (the normal/default invocation), every
+    row is eligible EXCEPT "Monthly-End" - that Frequency value is reserved exclusively for a
+    filtered invocation, so a plain unfiltered run and a "-FrequencyFilter Monthly-End" run can
+    never both pick up the same row on the same day.
+
 .NOTES
     Schedule this script once in Task Scheduler (e.g. daily at 7:00 AM). 
     It decides internally what actually needs to run.
@@ -64,7 +75,8 @@ param(
     [int]$ExpectedHour = 7,
     [int]$ExpectedMinute = 0,
     [int]$MaxTimingDifferenceMinutes = 15,
-    [int]$DelaySeconds = 30
+    [int]$DelaySeconds = 30,
+    [string]$FrequencyFilter
 )
 
 # ---------------------------------------------------------------------------
@@ -162,7 +174,10 @@ function Test-IsDue {
             return ($Today.DayOfWeek.ToString() -eq $targetDay)
         }
 
-        "Monthly" {
+        { $_ -in "Monthly", "Monthly-End" } {
+        # Monthly-End shares identical date logic with Monthly - it exists as its own
+        # Frequency value purely for -FrequencyFilter routing (see that param's help), not
+        # because the due-date math differs.
         if ($ScriptDef.DayOfMonth -eq "Last") {
             $lastDayOfMonth = [datetime]::DaysInMonth($Today.Year, $Today.Month)
             return ($Today.Day -eq $lastDayOfMonth)
@@ -201,7 +216,7 @@ function Test-IsOverdue {
         "Weekdays"  { return $daysSince -ge 2 }       # missed the weekday window
         "Weekends"  { return $daysSince -ge 8 }       # missed the weekly window
         "Weekly"    { return $daysSince -ge 8 }       # missed the weekly window
-        "Monthly"   { return $daysSince -ge 32 }      # missed the monthly window
+        { $_ -in "Monthly", "Monthly-End" } { return $daysSince -ge 32 }  # missed the monthly window
         "Quarterly" { return $daysSince -ge 95 }      # missed the quarterly window
         default     { return $false }
     }
@@ -348,6 +363,12 @@ foreach ($scriptDef in $manifest) {
 
     $Label    = Get-ScriptDisplayLabel -ScriptDef $scriptDef
     $StateKey = Get-ScriptStateKey -ScriptDef $scriptDef
+
+    $FrequencyEligible = if ($FrequencyFilter) { $scriptDef.Frequency -eq $FrequencyFilter } else { $scriptDef.Frequency -ne "Monthly-End" }
+    if (-not $FrequencyEligible) {
+        Write-ToLog -LogFile $OutputFile -Message "$Label`: frequency '$($scriptDef.Frequency)' is not eligible for this invocation. Skipping." -Level SKIP
+        continue
+    }
 
     if (-not (ConvertTo-Bool $scriptDef.Enabled)) {
         Write-ToLog -LogFile $OutputFile -Message "$Label`: disabled in manifest. Skipping." -Level SKIP
