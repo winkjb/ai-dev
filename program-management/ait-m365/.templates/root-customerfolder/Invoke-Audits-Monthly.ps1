@@ -2,7 +2,7 @@
 .SYNOPSIS
 
 .EXAMPLE
-    .\Invoke-LogAudit-UserActivities.ps1
+    .\Invoke-Audits-Monthly.ps1
 #>
 
 [CmdletBinding()]
@@ -15,7 +15,7 @@ param()
 # System settings and variables
 
 $CustomerName = "TBD"
-$ToAddresses = @("placeholder@servit.net")
+$ToAddresses = @("bwinklesky@servit.net")
 
 # Import functions
 
@@ -34,8 +34,9 @@ $FromAddress = $CustomerSettings.FromAddress
 
 try {
 
-    & (Join-Path $PSScriptRoot "..\scripts\Invoke-LogAudit-UserActivities-Default.ps1") `
+    & (Join-Path $PSScriptRoot "..\scripts\Invoke-Audits-Default.ps1") `
     -CustomerDir $CustomerDir `
+    -Cadence Monthly `
     -SpFolder $SpFolder `
     -FromAddress $FromAddress `
     -ToAddresses $ToAddresses

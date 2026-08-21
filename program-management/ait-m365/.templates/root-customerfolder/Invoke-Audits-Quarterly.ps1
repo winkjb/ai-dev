@@ -1,8 +1,8 @@
 <#
 .SYNOPSIS
-    
+
 .EXAMPLE
-    .\Invoke-GroupAudit-Admins.ps1
+    .\Invoke-Audits-Quarterly.ps1
 #>
 
 [CmdletBinding()]
@@ -15,14 +15,14 @@ param()
 # System settings and variables
 
 $CustomerName = "TBD"
-$ToAddresses = @("placeholder@servit.net")
+$ToAddresses = @("bwinklesky@servit.net")
 
 # Import functions
 
 . (Join-Path $PSScriptRoot "..\..\..\scripts\Functions-VA-Common.ps1")
 
 # ---------------------------------------------------------------------------
-# Run tasks  
+# Run tasks
 # ---------------------------------------------------------------------------
 
 # Script settings and variables
@@ -34,11 +34,12 @@ $FromAddress = $CustomerSettings.FromAddress
 
 try {
 
-    & (Join-Path $PSScriptRoot "..\scripts\Invoke-GroupAudit-Admins-Default.ps1") `
+    & (Join-Path $PSScriptRoot "..\scripts\Invoke-Audits-Default.ps1") `
     -CustomerDir $CustomerDir `
+    -Cadence Quarterly `
     -SpFolder $SpFolder `
     -FromAddress $FromAddress `
-    -ToAddresses $ToAddresses 
+    -ToAddresses $ToAddresses
 
 }
 catch {
