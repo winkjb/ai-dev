@@ -21,7 +21,7 @@ param(
 # System settings and variables
 
 $CustomerName = "Katz"
-$AdditionalToAddresses = @()  # per-audit extra recipients, e.g. @("hr@customer.com") - empty means none
+$AdditionalToAddresses = @()  # per-audit extra recipients (only available in $DigestMode)
 
 # Import functions
 

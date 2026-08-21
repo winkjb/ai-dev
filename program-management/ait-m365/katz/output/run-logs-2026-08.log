@@ -312,3 +312,58 @@
 [2026-08-21 15:53:05] [INFO] Ran Invoke-LogAudit-UserSignIns
 [2026-08-21 15:53:08] [INFO] Emailed digest to bwinklesky@servit.net
 [2026-08-21 15:53:08] [INFO] === Run completed successfully ===
+[2026-08-21 17:03:20] [INFO] === Starting Katz admin-group audit run ===
+[2026-08-21 17:03:25] [INFO] Collected Entra role assignments/users/licenses
+[2026-08-21 17:03:25] [INFO] Generated the admin-group audit
+[2026-08-21 17:03:28] [INFO] Emailed reports to bwinklesky@servit.net
+[2026-08-21 17:03:28] [INFO] === Run completed successfully ===
+[2026-08-21 17:05:20] [INFO] === Starting Katz admin-group audit run ===
+[2026-08-21 17:05:25] [INFO] Collected Entra role assignments/users/licenses
+[2026-08-21 17:05:25] [INFO] Generated the admin-group audit
+[2026-08-21 17:05:31] [INFO] Emailed reports to bwinklesky@servit.net
+[2026-08-21 17:05:31] [INFO] === Run completed successfully ===
+[2026-08-21 17:06:15] [INFO] === Starting Katz admin-group audit run ===
+[2026-08-21 17:06:19] [INFO] Collected Entra role assignments/users/licenses
+[2026-08-21 17:06:19] [INFO] Generated the admin-group audit
+[2026-08-21 17:06:23] [INFO] Emailed reports to bwinklesky@servit.net
+[2026-08-21 17:06:23] [INFO] === Run completed successfully ===
+[2026-08-21 17:07:04] [INFO] === Starting Katz Monthly digest run ===
+[2026-08-21 17:07:04] [INFO] === Starting Katz admin-group audit run ===
+[2026-08-21 17:07:09] [INFO] Collected Entra role assignments/users/licenses
+[2026-08-21 17:07:09] [INFO] Generated the admin-group audit
+[2026-08-21 17:07:09] [INFO] Ran Invoke-GroupAudit-Admins
+[2026-08-21 17:07:09] [INFO] === Starting Katz temp-groups audit run ===
+[2026-08-21 17:07:10] [INFO] Collected Entra groups
+[2026-08-21 17:07:10] [INFO] Generated the temp-groups audit
+[2026-08-21 17:07:10] [INFO] Ran Invoke-GroupAudit-Temp
+[2026-08-21 17:07:10] [INFO] === Starting Katz CA group member audit run ===
+[2026-08-21 17:07:10] [INFO] Collected Entra CA exclusion group membership
+[2026-08-21 17:07:11] [INFO] Generated the CA group member audit
+[2026-08-21 17:07:11] [INFO] Ran Invoke-GroupMemberAudit-CA
+[2026-08-21 17:07:11] [INFO] === Starting Katz conditional access policy audit run ===
+[2026-08-21 17:07:12] [INFO] Collected Entra Conditional Access policies
+[2026-08-21 17:07:12] [INFO] Generated the conditional access policy audit
+[2026-08-21 17:07:12] [INFO] Ran Invoke-PolicyAudit-CA
+[2026-08-21 17:07:12] [INFO] === Starting Katz SharePoint disable audit run ===
+[2026-08-21 17:07:14] [INFO] Collected SharePoint activity report
+[2026-08-21 17:07:14] [INFO] Generated the SharePoint disable audit
+[2026-08-21 17:07:14] [INFO] Ran Invoke-SiteAuditSharepoint-Disable
+[2026-08-21 17:07:14] [INFO] === Starting Katz Teams disable audit run ===
+[2026-08-21 17:07:14] [INFO] Collected Entra groups
+[2026-08-21 17:07:15] [INFO] Collected Teams activity report
+[2026-08-21 17:07:15] [INFO] Generated the Teams disable audit
+[2026-08-21 17:07:15] [INFO] Ran Invoke-SiteAuditTeams-Disable
+[2026-08-21 17:07:15] [INFO] === Starting Katz user access disable audit run ===
+[2026-08-21 17:07:17] [INFO] Collected Entra users
+[2026-08-21 17:07:17] [INFO] Identified 27 stale-login candidate(s)
+[2026-08-21 17:07:20] [INFO] Collected Entra mailbox purpose (scoped to candidates)
+[2026-08-21 17:07:20] [INFO] Generated the user access disable audit
+[2026-08-21 17:07:20] [INFO] Ran Invoke-UserAccessAudit-Disable
+[2026-08-21 17:07:21] [INFO] === Starting Katz temp user audit run ===
+[2026-08-21 17:07:22] [INFO] Collected Entra users
+[2026-08-21 17:07:23] [INFO] Collected Entra license catalog/assignments
+[2026-08-21 17:07:23] [INFO] Generated the temp user audit
+[2026-08-21 17:07:23] [INFO] Ran Invoke-UserAudit-Temp
+[2026-08-21 17:07:28] [INFO] Emailed digest to bwinklesky@servit.net
+[2026-08-21 17:07:30] [INFO] Emailed GroupAudit-Admins to additional recipient(s) brad.winklesky@gmail.com
+[2026-08-21 17:07:30] [INFO] === Run completed successfully ===
