@@ -126,13 +126,17 @@ try {
     }
 
     # ---------------------------------------------------------------------------
-    # Send email
+    # Send digest email
     # ---------------------------------------------------------------------------
+
+    # Power Automate parses this block to route results emails to the right customer -
+    # required on any email carrying findings attachments, not just cosmetic.
+    $TriggerBlock = "##############################<br>`nSource: Virtual Administrator<br>`nCustomer Folder: $($SpFolder)<br>`n##############################<br>"
 
     $Body = if ($Attachments.Count -eq 0) {
         "No findings across $($AuditWrappers.Count) $($Cadence.ToLower()) audit(s) for $($SpFolder) - all as expected."
     } else {
-        "See attached report(s). $($Attachments.Count) of $($AuditWrappers.Count) $($Cadence.ToLower()) audit(s) had findings."
+        "See attached report(s). $($Attachments.Count) of $($AuditWrappers.Count) $($Cadence.ToLower()) audit(s) had findings.<br><br>$TriggerBlock"
     }
     if ($FailedAudits.Count -gt 0) {
         $Body += "`n`nNote: $($FailedAudits.Count) audit(s) failed to run and are not reflected above: $($FailedAudits -join ', ')."
@@ -144,7 +148,7 @@ try {
     Write-ToLog -LogFile $OutputFile -Message "Emailed digest to $($ToAddresses -join ', ')"
 
     # ---------------------------------------------------------------------------
-    # Send additional-recipient side-emails - one audit's own CSV, on top of the main digest
+    # Send additional-recipient emails - in addition to the digest
     # ---------------------------------------------------------------------------
 
     foreach ($SideEmail in $SideEmails) {

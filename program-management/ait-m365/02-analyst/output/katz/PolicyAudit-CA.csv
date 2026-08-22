@@ -1,20 +1,20 @@
 "Date","DisplayName","State","IncludedUsers","ExcludedUsers","IncludedRoles","ExcludedRoles","IncludedGroups","ExcludedGroups"
-"2026-08-21","Brian Katz - Costa Rica","disabled","Brian Katz",,,,,
-"2026-08-21","Brian Katz Montreal 3/15 - 3/21","enabledForReportingButNotEnforced","Brian Katz",,,,,
-"2026-08-21","Brian Katz Travel Cayman - 12/21-12/28","disabled","Brian Katz",,,,,
-"2026-08-21","Devices - Enforce Device Compliance","enabledForReportingButNotEnforced","All",,,,,"Device Compliance Exclusion Group"
-"2026-08-21","Enable MFA - All Users","enabled","All","Bit-Wizards Administrator, exchangeadmin",,,,
-"2026-08-21","Enable MFA - bwadmin","enabled",,,"Global Administrator",,,
-"2026-08-21","Jeff Lenderman Travel BVI 3/13-3/19","disabled","Jeffrey Lenderman",,,,,
-"2026-08-21","KaztCap SSL VPN Access","enabled","Brian Katz",,,,"Fortigate SSL VPN Users",
-"2026-08-21","Location Based Access - Allow Specific Countries","disabled","",,,,,
-"2026-08-21","Location Based Access - Block Outside US","enabled","All","Beau Carver, Bit-Wizards Administrator, BW Migrate",,,,
-"2026-08-21","Locations - Enforce Geo-IP Fencing","enabledForReportingButNotEnforced","All",,,,,"Geo-IP Fencing Exclusion Group"
-"2026-08-21","Microsoft-managed: Multifactor authentication and reauthentication for risky sign-ins","enabled",,,,,"Conditional Access: Risky sign-in multifactor authentication (a4ea6c0f-b8fb-4d29-91f1-9f8cf0601e98)",
-"2026-08-21","Microsoft-managed: Multifactor authentication for admins accessing Microsoft Admin Portals","enabledForReportingButNotEnforced",,,"Application Administrator, Authentication Administrator, Billing Administrator, Cloud Application Administrator, Conditional Access Administrator, Exchange Administrator, Global Administrator, Helpdesk Administrator, Password Administrator, Privileged Authentication Administrator, Privileged Role Administrator, Security Administrator, SharePoint Administrator, User Administrator",,,
-"2026-08-21","Protocols - Enforce Modern Authentication","enabledForReportingButNotEnforced","All",,,,,"Modern Authentication Exclusion Group"
-"2026-08-21","Sessions - Block Persistent Browser Sessions (Admins)","enabledForReportingButNotEnforced",,,"Application Administrator, Authentication Administrator, Azure DevOps Administrator, Exchange Administrator, Global Administrator, Groups Administrator, Helpdesk Administrator, Hybrid Identity Administrator, License Administrator, Network Administrator, Office Apps Administrator, Password Administrator, Security Administrator, SharePoint Administrator, Teams Administrator, Teams Communications Administrator, Teams Devices Administrator, User Administrator",,,
-"2026-08-21","Sessions - Block Persistent Browser Sessions (Untrusted Locations)","enabledForReportingButNotEnforced","All",,,,,
-"2026-08-21","Sessions - Enforce Sign-In Frequency","enabledForReportingButNotEnforced","All",,,,,
-"2026-08-21","Users - Block Interactive Logins (Service Accounts)","enabledForReportingButNotEnforced",,,,,"Block Interactive Login Group",
-"2026-08-21","Users - Restrict Admin Portal Access","enabledForReportingButNotEnforced","All",,,"Application Administrator, Authentication Administrator, Azure DevOps Administrator, Exchange Administrator, Global Administrator, Groups Administrator, Helpdesk Administrator, Hybrid Identity Administrator, License Administrator, Network Administrator, Office Apps Administrator, Password Administrator, Security Administrator, SharePoint Administrator, Teams Administrator, Teams Communications Administrator, Teams Devices Administrator, User Administrator",,
+"2026-08-22","Brian Katz - Costa Rica","disabled","Brian Katz",,,,,
+"2026-08-22","Brian Katz Montreal 3/15 - 3/21","enabledForReportingButNotEnforced","Brian Katz",,,,,
+"2026-08-22","Brian Katz Travel Cayman - 12/21-12/28","disabled","Brian Katz",,,,,
+"2026-08-22","Devices - Enforce Device Compliance","enabledForReportingButNotEnforced","All",,,,,"Device Compliance Exclusion Group"
+"2026-08-22","Enable MFA - All Users","enabled","All","Bit-Wizards Administrator, exchangeadmin",,,,
+"2026-08-22","Enable MFA - bwadmin","enabled",,,"Global Administrator",,,
+"2026-08-22","Jeff Lenderman Travel BVI 3/13-3/19","disabled","Jeffrey Lenderman",,,,,
+"2026-08-22","KaztCap SSL VPN Access","enabled","Brian Katz",,,,"Fortigate SSL VPN Users",
+"2026-08-22","Location Based Access - Allow Specific Countries","disabled","",,,,,
+"2026-08-22","Location Based Access - Block Outside US","enabled","All","Beau Carver, Bit-Wizards Administrator, BW Migrate",,,,
+"2026-08-22","Locations - Enforce Geo-IP Fencing","enabledForReportingButNotEnforced","All",,,,,"Geo-IP Fencing Exclusion Group"
+"2026-08-22","Microsoft-managed: Multifactor authentication and reauthentication for risky sign-ins","enabled",,,,,"Conditional Access: Risky sign-in multifactor authentication (a4ea6c0f-b8fb-4d29-91f1-9f8cf0601e98)",
+"2026-08-22","Microsoft-managed: Multifactor authentication for admins accessing Microsoft Admin Portals","enabledForReportingButNotEnforced",,,"Application Administrator, Authentication Administrator, Billing Administrator, Cloud Application Administrator, Conditional Access Administrator, Exchange Administrator, Global Administrator, Helpdesk Administrator, Password Administrator, Privileged Authentication Administrator, Privileged Role Administrator, Security Administrator, SharePoint Administrator, User Administrator",,,
+"2026-08-22","Protocols - Enforce Modern Authentication","enabledForReportingButNotEnforced","All",,,,,"Modern Authentication Exclusion Group"
+"2026-08-22","Sessions - Block Persistent Browser Sessions (Admins)","enabledForReportingButNotEnforced",,,"Application Administrator, Authentication Administrator, Azure DevOps Administrator, Exchange Administrator, Global Administrator, Groups Administrator, Helpdesk Administrator, Hybrid Identity Administrator, License Administrator, Network Administrator, Office Apps Administrator, Password Administrator, Security Administrator, SharePoint Administrator, Teams Administrator, Teams Communications Administrator, Teams Devices Administrator, User Administrator",,,
+"2026-08-22","Sessions - Block Persistent Browser Sessions (Untrusted Locations)","enabledForReportingButNotEnforced","All",,,,,
+"2026-08-22","Sessions - Enforce Sign-In Frequency","enabledForReportingButNotEnforced","All",,,,,
+"2026-08-22","Users - Block Interactive Logins (Service Accounts)","enabledForReportingButNotEnforced",,,,,"Block Interactive Login Group",
+"2026-08-22","Users - Restrict Admin Portal Access","enabledForReportingButNotEnforced","All",,,"Application Administrator, Authentication Administrator, Azure DevOps Administrator, Exchange Administrator, Global Administrator, Groups Administrator, Helpdesk Administrator, Hybrid Identity Administrator, License Administrator, Network Administrator, Office Apps Administrator, Password Administrator, Security Administrator, SharePoint Administrator, Teams Administrator, Teams Communications Administrator, Teams Devices Administrator, User Administrator",,

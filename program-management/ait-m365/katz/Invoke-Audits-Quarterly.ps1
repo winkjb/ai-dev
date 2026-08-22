@@ -15,7 +15,7 @@ param()
 # System settings and variables
 
 $CustomerName = "Katz"
-$ToAddresses = @("bwinklesky@servit.net")
+$ToAddresses = @("automation@alerts.servit.net")
 
 # Import functions
 

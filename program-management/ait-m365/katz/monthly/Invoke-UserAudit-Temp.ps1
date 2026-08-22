@@ -20,7 +20,7 @@ param(
 
 # System settings and variables
 
-$CustomerName = "Katz"
+$CustomerName = "Katz" # customer name (only used in direct script invocation)
 $AdditionalToAddresses = @()  # per-audit extra recipients (only available in $DigestMode)
 
 # Import functions
