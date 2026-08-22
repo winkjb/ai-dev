@@ -499,3 +499,11 @@
 [2026-08-22 13:10:34] [INFO] Ran Invoke-UserAudit-LicensedDisabled
 [2026-08-22 13:10:37] [INFO] Emailed digest to automation@alerts.servit.net
 [2026-08-22 13:10:37] [INFO] === Run completed successfully ===
+[2026-08-22 13:52:11] [INFO] === Starting Katz Capital Monthly-End digest run ===
+[2026-08-22 13:52:11] [INFO] === Starting Katz Capital user activity log audit run ===
+[2026-08-22 13:53:28] [INFO] Collected Entra user activity log
+[2026-08-22 13:53:29] [INFO] Ran Invoke-LogAudit-UserActivities
+[2026-08-22 13:53:29] [INFO] === Starting Katz Capital user sign-in log audit run ===
+[2026-08-22 13:55:09] [INFO] Collected Entra user sign-in log
+[2026-08-22 13:55:09] [WARN] Log file is 4 MB - over the 0.5MB attach limit, not attaching
+[2026-08-22 13:55:09] [INFO] Ran Invoke-LogAudit-UserSignIns

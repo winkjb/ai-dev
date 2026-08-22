@@ -29,7 +29,7 @@ param(
 
 $OutputDir = Join-Path $PSScriptRoot "..\$($CustomerDir)\output"
 $OutputFile = Join-Path $OutputDir ("run-logs-{0:yyyy-MM}.log" -f (Get-Date))
-$MaxSizeMB = 0.5
+$MaxSizeMB = 30
 
 # Import functions
 

@@ -20,7 +20,7 @@ param(
 
 # System settings and variables
 
-$CustomerName = "Katz" # customer name (only used in direct script invocation)
+$CustomerName = "Katz" # customer name (not used in $DigestMode)
 $AdditionalToAddresses = @()  # per-audit extra recipients (only available in $DigestMode)
 $MinStoragePercentage = 75
 
