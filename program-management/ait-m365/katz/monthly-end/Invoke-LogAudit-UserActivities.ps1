@@ -53,7 +53,9 @@ try {
 
     if ($DigestMode) {
         return [PSCustomObject]@{
-            CsvPath               = $Result
+            CsvPath               = $Result.CsvPath
+            TooLarge              = $Result.TooLarge
+            SizeMB                = $Result.SizeMB
             AdditionalToAddresses = $AdditionalToAddresses
         }
     }

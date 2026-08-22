@@ -93,6 +93,7 @@ try {
     $Attachments = @()
     $FailedAudits = @()
     $SideEmails = @()
+    $TooLargeNotes = @()
 
     foreach ($Wrapper in $AuditWrappers) {
 
@@ -101,7 +102,10 @@ try {
             $CsvPath = $Result.CsvPath
             $ExtraAddresses = @($Result.AdditionalToAddresses | Where-Object { $_ })
 
-            if ($CsvPath) {
+            if ($Result.TooLarge) {
+                $TooLargeNotes += "$($Wrapper.BaseName -replace '^Invoke-', ''): $($Result.SizeMB) MB, too large to email - saved locally at $CsvPath on the host machine."
+            }
+            elseif ($CsvPath) {
                 $Rows = @(Import-Csv -LiteralPath $CsvPath -Encoding UTF8)
                 if ($Rows.Count -gt 0) {
                     $Attachments += $CsvPath
@@ -133,13 +137,21 @@ try {
     # required on any email carrying findings attachments, not just cosmetic.
     $TriggerBlock = "##############################<br>`nSource: Virtual Administrator<br>`nCustomer Folder: $($SpFolder)<br>`n##############################<br>"
 
-    $Body = if ($Attachments.Count -eq 0) {
+    $FindingsCount = $Attachments.Count + $TooLargeNotes.Count
+
+    $Body = if ($FindingsCount -eq 0) {
         "No findings across $($AuditWrappers.Count) $($Cadence.ToLower()) audit(s) for $($SpFolder) - all as expected."
     } else {
-        "See attached report(s). $($Attachments.Count) of $($AuditWrappers.Count) $($Cadence.ToLower()) audit(s) had findings.<br><br>$TriggerBlock"
+        "See attached report(s). $FindingsCount of $($AuditWrappers.Count) $($Cadence.ToLower()) audit(s) had findings."
+    }
+    if ($TooLargeNotes.Count -gt 0) {
+        $Body += "<br><br>" + ($TooLargeNotes -join "<br>")
     }
     if ($FailedAudits.Count -gt 0) {
         $Body += "`n`nNote: $($FailedAudits.Count) audit(s) failed to run and are not reflected above: $($FailedAudits -join ', ')."
+    }
+    if ($FindingsCount -gt 0) {
+        $Body += "<br><br>$TriggerBlock"
     }
 
     & $EmailScript -To $ToAddresses -Subject "$($SpFolder) - $($Cadence) M365 Audit Digest" `

@@ -29,7 +29,7 @@ param(
 
 $OutputDir = Join-Path $PSScriptRoot "..\$($CustomerDir)\output"
 $OutputFile = Join-Path $OutputDir ("run-logs-{0:yyyy-MM}.log" -f (Get-Date))
-$MaxSizeMB = 30
+$MaxSizeMB = 0.5
 
 # Import functions
 
@@ -63,19 +63,26 @@ try {
     Write-ToLog -LogFile $OutputFile -Message "Collected Entra user sign-in log"
 
 
+    $FileSizeMB = if (Test-Path -LiteralPath $AuditCsv) { (Get-Item $AuditCsv).Length / 1MB } else { 0 }
+    $TooBig = $FileSizeMB -gt $MaxSizeMB
+
+    if ($TooBig) {
+        Write-ToLog -LogFile $OutputFile -Message "Log file is $([math]::Round($FileSizeMB, 1)) MB - over the ${MaxSizeMB}MB attach limit, not attaching" -Level WARN
+    }
+
     if ($SkipEmail) {
-        Write-Output $AuditCsv
+        Write-Output ([PSCustomObject]@{
+            CsvPath  = $AuditCsv
+            TooLarge = $TooBig
+            SizeMB   = [math]::Round($FileSizeMB, 1)
+        })
         return
     }
     # ---------------------------------------------------------------------------
     # Send email - attach if small enough, otherwise say where to find it
     # ---------------------------------------------------------------------------
 
-    $FileSizeMB = if (Test-Path -LiteralPath $AuditCsv) { (Get-Item $AuditCsv).Length / 1MB } else { 0 }
-    $TooBig = $FileSizeMB -gt $MaxSizeMB
-
     if ($TooBig) {
-        Write-ToLog -LogFile $OutputFile -Message "Log file is $([math]::Round($FileSizeMB, 1)) MB - over the ${MaxSizeMB}MB attach limit, not attaching" -Level WARN
         $Attachments = @()
         $Body = "The user sign-in log for $($SpFolder) is $([math]::Round($FileSizeMB, 1)) MB - too large to email. " +
                 "It's saved locally at $AuditCsv on the host machine; retrieve it directly rather than by email."
