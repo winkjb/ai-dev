@@ -407,3 +407,95 @@
 [2026-08-22 13:03:18] [ERROR] ERROR: Unable to connect to the remote server
 [2026-08-22 13:03:18] [ERROR] === Run failed ===
 [2026-08-22 13:04:42] [ERROR] Also failed to send failure notification: Unable to connect to the remote server
+[2026-08-22 13:07:51] [INFO] === Starting Katz Capital Monthly digest run ===
+[2026-08-22 13:07:51] [INFO] === Starting Katz Capital admin-group audit run ===
+[2026-08-22 13:07:56] [INFO] Collected Entra role assignments/users/licenses
+[2026-08-22 13:07:57] [INFO] Generated the admin-group audit
+[2026-08-22 13:07:57] [INFO] Ran Invoke-GroupAudit-Admins
+[2026-08-22 13:07:57] [INFO] === Starting Katz Capital temp-groups audit run ===
+[2026-08-22 13:07:57] [INFO] Collected Entra groups
+[2026-08-22 13:07:57] [INFO] Generated the temp-groups audit
+[2026-08-22 13:07:58] [INFO] Ran Invoke-GroupAudit-Temp
+[2026-08-22 13:07:58] [INFO] === Starting Katz Capital CA group member audit run ===
+[2026-08-22 13:07:59] [INFO] Collected Entra CA exclusion group membership
+[2026-08-22 13:07:59] [INFO] Generated the CA group member audit
+[2026-08-22 13:07:59] [INFO] Ran Invoke-GroupMemberAudit-CA
+[2026-08-22 13:07:59] [INFO] === Starting Katz Capital conditional access policy audit run ===
+[2026-08-22 13:08:01] [INFO] Collected Entra Conditional Access policies
+[2026-08-22 13:08:02] [INFO] Generated the conditional access policy audit
+[2026-08-22 13:08:02] [INFO] Ran Invoke-PolicyAudit-CA
+[2026-08-22 13:08:02] [INFO] === Starting Katz Capital SharePoint disable audit run ===
+[2026-08-22 13:08:03] [INFO] Collected SharePoint activity report
+[2026-08-22 13:08:04] [INFO] Generated the SharePoint disable audit
+[2026-08-22 13:08:04] [INFO] Ran Invoke-SiteAuditSharepoint-Disable
+[2026-08-22 13:08:04] [INFO] === Starting Katz Capital Teams disable audit run ===
+[2026-08-22 13:08:04] [INFO] Collected Entra groups
+[2026-08-22 13:08:05] [INFO] Collected Teams activity report
+[2026-08-22 13:08:05] [INFO] Generated the Teams disable audit
+[2026-08-22 13:08:05] [INFO] Ran Invoke-SiteAuditTeams-Disable
+[2026-08-22 13:08:05] [INFO] === Starting Katz Capital user access disable audit run ===
+[2026-08-22 13:08:07] [INFO] Collected Entra users
+[2026-08-22 13:08:07] [INFO] Identified 27 stale-login candidate(s)
+[2026-08-22 13:08:10] [INFO] Collected Entra mailbox purpose (scoped to candidates)
+[2026-08-22 13:08:10] [INFO] Generated the user access disable audit
+[2026-08-22 13:08:10] [INFO] Ran Invoke-UserAccessAudit-Disable
+[2026-08-22 13:08:10] [INFO] === Starting Katz Capital temp user audit run ===
+[2026-08-22 13:08:12] [INFO] Collected Entra users
+[2026-08-22 13:08:12] [INFO] Collected Entra license catalog/assignments
+[2026-08-22 13:08:12] [INFO] Generated the temp user audit
+[2026-08-22 13:08:12] [INFO] Ran Invoke-UserAudit-Temp
+[2026-08-22 13:08:16] [INFO] Emailed digest to automation@alerts.servit.net
+[2026-08-22 13:08:16] [INFO] === Run completed successfully ===
+[2026-08-22 13:09:56] [INFO] === Starting Katz Capital Quarterly digest run ===
+[2026-08-22 13:09:57] [INFO] === Starting Katz Capital license detail audit run ===
+[2026-08-22 13:09:58] [INFO] Collected Entra license catalog/assignments
+[2026-08-22 13:09:58] [INFO] Generated the license detail audit
+[2026-08-22 13:09:58] [INFO] Ran Invoke-LicenseAudit-Detail
+[2026-08-22 13:09:58] [INFO] === Starting Katz Capital license summary audit run ===
+[2026-08-22 13:09:59] [INFO] Collected Entra license catalog/assignments
+[2026-08-22 13:09:59] [INFO] Generated the license summary audit
+[2026-08-22 13:09:59] [INFO] Ran Invoke-LicenseAudit-Summary
+[2026-08-22 13:09:59] [INFO] === Starting Katz Capital licensed shared mailbox audit run ===
+[2026-08-22 13:10:01] [INFO] Collected Entra users
+[2026-08-22 13:10:02] [INFO] Collected Entra license catalog/assignments
+[2026-08-22 13:10:02] [INFO] Identified 21 licensed candidate(s)
+[2026-08-22 13:10:04] [INFO] Collected Entra mailbox purpose (scoped to candidates)
+[2026-08-22 13:10:04] [INFO] Collected Entra mailbox usage report
+[2026-08-22 13:10:05] [INFO] Generated the licensed shared mailbox audit
+[2026-08-22 13:10:05] [INFO] Ran Invoke-MailboxAudit-LicensedShared
+[2026-08-22 13:10:05] [INFO] === Starting Katz Capital mailbox size audit run ===
+[2026-08-22 13:10:05] [INFO] Collected Entra license catalog/assignments
+[2026-08-22 13:10:06] [INFO] Collected Entra mailbox usage report
+[2026-08-22 13:10:07] [INFO] Generated the mailbox size audit
+[2026-08-22 13:10:07] [INFO] Ran Invoke-MailboxAudit-Size
+[2026-08-22 13:10:07] [INFO] === Starting Katz Capital named locations audit run ===
+[2026-08-22 13:10:08] [INFO] Collected Entra named locations
+[2026-08-22 13:10:08] [INFO] Generated the named locations audit
+[2026-08-22 13:10:08] [INFO] Ran Invoke-PolicyAudit-Locations
+[2026-08-22 13:10:08] [INFO] === Starting Katz Capital OneDrive activity audit run ===
+[2026-08-22 13:10:09] [INFO] Collected OneDrive activity report
+[2026-08-22 13:10:09] [INFO] Generated the OneDrive activity audit
+[2026-08-22 13:10:09] [INFO] Ran Invoke-SiteAuditOneDrive-Activity
+[2026-08-22 13:10:09] [INFO] === Starting Katz Capital SharePoint activity audit run ===
+[2026-08-22 13:10:10] [INFO] Collected SharePoint activity report
+[2026-08-22 13:10:10] [INFO] Generated the SharePoint activity audit
+[2026-08-22 13:10:10] [INFO] Ran Invoke-SiteAuditSharepoint-Activity
+[2026-08-22 13:10:11] [INFO] === Starting Katz Capital Teams activity audit run ===
+[2026-08-22 13:10:12] [INFO] Collected Entra groups
+[2026-08-22 13:10:12] [INFO] Collected Teams activity report
+[2026-08-22 13:10:13] [INFO] Generated the Teams activity audit
+[2026-08-22 13:10:13] [INFO] Ran Invoke-SiteAuditTeams-Activity
+[2026-08-22 13:10:13] [INFO] === Starting Katz Capital HR user audit run ===
+[2026-08-22 13:10:14] [INFO] Collected Entra users
+[2026-08-22 13:10:30] [INFO] Collected Entra mailbox purpose
+[2026-08-22 13:10:30] [INFO] Generated the HR user audit
+[2026-08-22 13:10:30] [INFO] Ran Invoke-UserAudit-Hr
+[2026-08-22 13:10:31] [INFO] === Starting Katz Capital licensed+disabled user audit run ===
+[2026-08-22 13:10:32] [INFO] Collected Entra users
+[2026-08-22 13:10:33] [INFO] Collected Entra license catalog/assignments
+[2026-08-22 13:10:33] [INFO] Identified 1 disabled+licensed candidate(s)
+[2026-08-22 13:10:34] [INFO] Collected Entra mailbox purpose (scoped to candidates)
+[2026-08-22 13:10:34] [INFO] Generated the licensed+disabled user audit
+[2026-08-22 13:10:34] [INFO] Ran Invoke-UserAudit-LicensedDisabled
+[2026-08-22 13:10:37] [INFO] Emailed digest to automation@alerts.servit.net
+[2026-08-22 13:10:37] [INFO] === Run completed successfully ===
