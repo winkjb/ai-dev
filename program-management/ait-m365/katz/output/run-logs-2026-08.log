@@ -406,3 +406,4 @@
 [2026-08-22 13:01:54] [INFO] Ran Invoke-UserAudit-Temp
 [2026-08-22 13:03:18] [ERROR] ERROR: Unable to connect to the remote server
 [2026-08-22 13:03:18] [ERROR] === Run failed ===
+[2026-08-22 13:04:42] [ERROR] Also failed to send failure notification: Unable to connect to the remote server
